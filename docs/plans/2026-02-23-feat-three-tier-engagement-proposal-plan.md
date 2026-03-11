@@ -41,9 +41,9 @@ participants:
     - Mario (Lloyd's backup, in training)
 related:
   - docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
-  - docs/discovery/2025-01-29-client-discovery-call.md
-  - docs/discovery/2025-01-29-client-meeting-transcript.md
-  - docs/discovery/2025-01-27-internal-pre-meeting.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-29-client-meeting-transcript.md
+  - docs/discovery/2026-01-27-internal-pre-meeting.md
   - docs/solutions/2026-02-23-mvp-customer-portal-research.md
   - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
   - docs/solutions/2026-02-23-giftbit-platform-evaluation.md
@@ -275,7 +275,7 @@ If Doug selects Option 2 or 3, this work runs alongside or immediately after the
 
 **Existing baseline:** Lloyd provided a partial process walkthrough during the Jan 29 discovery call — inventory storage, card number extraction from Excel, generation script execution, verification, zip/upload, URL generation. The deep-dive will validate, extend, and formalize this into operator-ready documentation, not start from zero. Shoppers Drug Mart / Loblaws generation status also needs clarification — Lloyd was uncertain whether they still require manual generation or now provide URLs directly.
 
-**Key dependency:** The Danny/Spencer/Lloyd walkthrough session must be scheduled and completed. This has been a blocker since January 2025.
+**Key dependency:** The Danny/Spencer/Lloyd walkthrough session must be scheduled and completed. This has been a blocker since January 2026.
 
 **Success criteria:**
 - [ ] Runbooks exist for all four generation vendors, validated by Lloyd as accurate
@@ -423,9 +423,9 @@ Tracks the provenance of every significant decision in this proposal — what wa
 
 ### Internal References
 
-- [Client discovery call summary](../discovery/2025-01-29-client-discovery-call.md) — Advisory perspective, three options, open questions
-- [Client meeting transcript](../discovery/2025-01-29-client-meeting-transcript.md) — Doug's requirements, Lloyd's workflow details, Gord's input
-- [Internal pre-meeting notes](../discovery/2025-01-27-internal-pre-meeting.md) — Red Stamp team alignment
+- [Client discovery call summary](../discovery/2026-01-29-client-discovery-call.md) — Advisory perspective, three options, open questions
+- [Client meeting transcript](../discovery/2026-01-29-client-meeting-transcript.md) — Doug's requirements, Lloyd's workflow details, Gord's input
+- [Internal pre-meeting notes](../discovery/2026-01-27-internal-pre-meeting.md) — Red Stamp team alignment
 - [MVP portal research](../solutions/2026-02-23-mvp-customer-portal-research.md) — WordPress architecture, magic link auth, security requirements
 - [Gift card fulfillment landscape](../solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md) — Industry context, platform evaluation, security standards
 - [Giftbit evaluation](../solutions/2026-02-23-giftbit-platform-evaluation.md) — Platform fit analysis (rejected)

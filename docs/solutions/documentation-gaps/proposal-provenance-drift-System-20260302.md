@@ -28,7 +28,7 @@ tags: [provenance, decision-log, proposal, drift, cross-reference, source-fideli
 
 * <span data-proof="authored" data-by="ai:claude">Affected Component:</span> <span data-proof="authored" data-by="ai:claude">`docs/plans/2026-02-23-feat-three-tier-engagement-proposal-plan.md`</span>
 
-* <span data-proof="authored" data-by="ai:claude">Source Documents: client meeting transcript (Jan 29, 2025), discovery call summary, internal pre-meeting notes, brainstorm document</span>
+* <span data-proof="authored" data-by="ai:claude">Source Documents: client meeting transcript (Jan 29, 2026), discovery call summary, internal pre-meeting notes, brainstorm document</span>
 
 * <span data-proof="authored" data-by="ai:claude">Date: 2026-03-02</span>
 
@@ -110,7 +110,7 @@ tags: [provenance, decision-log, proposal, drift, cross-reference, source-fideli
 
 * <span data-proof="authored" data-by="ai:claude">Shoppers/Loblaws generation status as uncertain</span>
 
-* <span data-proof="authored" data-by="ai:claude">Corrected blocker date (January 2025, not 2026)</span>
+* <span data-proof="authored" data-by="ai:claude">Corrected blocker date (January 2026, matching actual meeting date)</span>
 
 ## <span data-proof="authored" data-by="ai:claude">Why This Works</span>
 

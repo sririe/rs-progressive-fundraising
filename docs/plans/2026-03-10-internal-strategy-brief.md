@@ -24,9 +24,9 @@ key_insights:
   - The cleanest advisory position is to solve a customer-facing pain now while buying down operational uncertainty before larger commitments
   - The proposal will be strongest if it leads with Doug's stated priorities and then layers in Red Stamp's advisory point of view
 related:
-  - docs/discovery/2025-01-29-client-discovery-call.md
-  - docs/discovery/2025-01-29-client-meeting-transcript.md
-  - docs/discovery/2025-01-27-internal-pre-meeting.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-29-client-meeting-transcript.md
+  - docs/discovery/2026-01-27-internal-pre-meeting.md
   - docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
   - docs/plans/2026-02-23-feat-three-tier-engagement-proposal-plan.md
   - docs/solutions/2026-02-23-mvp-customer-portal-research.md
@@ -127,7 +127,7 @@ These should be framed as implementation assumptions pending a short Lloyd valid
 
 ### 4. Freshness Risk
 
-The core client conversation happened on January 29, 2025. The proposal artifacts were drafted on February 23, 2026. Before going back to the client, Red Stamp should refresh:
+The core client conversation happened on January 29, 2026. The proposal artifacts were drafted on February 23, 2026. Before going back to the client, Red Stamp should refresh:
 
 - status of white-label conversations
 - state of Amazon/Walmart/Tim Hortons integrations

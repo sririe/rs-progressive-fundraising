@@ -2,7 +2,7 @@
 title: "Client Discovery Call — Progressive Gift Cards"
 type: discovery
 category: requirements-gathering
-date: 2025-01-29
+date: 2026-01-29
 status: complete
 participants:
   progressive:
@@ -25,11 +25,11 @@ blockers:
   - Technical deep-dive with Lloyd on card generation workflow not yet completed
   - White-label sales outcomes (Save-on-Foods, Sequoia, White Spot) still pending
 related:
-  - docs/discovery/2025-01-27-internal-pre-meeting.md
-  - docs/discovery/2025-01-29-client-meeting-transcript.md
+  - docs/discovery/2026-01-27-internal-pre-meeting.md
+  - docs/discovery/2026-01-29-client-meeting-transcript.md
 ---
 
-# Meeting Summary: Progressive Gift Cards - January 29, 2025
+# Meeting Summary: Progressive Gift Cards - January 29, 2026
 
 **Call Type:** Discovery / Requirements Gathering
 **Prepared for:** Internal Team Review

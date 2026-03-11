@@ -28,7 +28,7 @@ This created a proposal-readiness problem rather than a research problem. Anyone
 - Affected components:
   - `docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md`
   - `docs/plans/2026-02-23-feat-three-tier-engagement-proposal-plan.md`
-  - `docs/discovery/2025-01-29-client-discovery-call.md`
+  - `docs/discovery/2026-01-29-client-discovery-call.md`
   - `docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md`
 - Date resolved: March 10, 2026
 
@@ -72,7 +72,7 @@ The brief did five specific things:
    It reframed Fundstream and Giftbit as benchmark/background diligence rather than active near-term recommendations, which kept the research while removing the contradiction.
 
 4. **Surfaced freshness risk.**
-   It explicitly called out that the core discovery conversations were from January 29, 2025 and needed targeted validation before proposal delivery in March 2026.
+   It explicitly called out that the core discovery conversations were from January 29, 2026 and needed targeted validation before proposal delivery in March 2026.
 
 5. **Provided a client narrative.**
    It gave Red Stamp a concise sentence-level story for how to explain the recommendation in the room.

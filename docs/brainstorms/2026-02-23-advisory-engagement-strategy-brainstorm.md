@@ -28,9 +28,9 @@ participants:
     - Doug B. (decision-maker, proposal recipient)
     - Gord S. (advisor, influences decisions)
 related:
-  - docs/discovery/2025-01-29-client-discovery-call.md
-  - docs/discovery/2025-01-29-client-meeting-transcript.md
-  - docs/discovery/2025-01-27-internal-pre-meeting.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-29-client-meeting-transcript.md
+  - docs/discovery/2026-01-27-internal-pre-meeting.md
   - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
   - docs/solutions/2026-02-23-mvp-customer-portal-research.md
   - docs/solutions/2026-02-23-giftbit-platform-evaluation.md
@@ -65,16 +65,13 @@ Doug asked for a portal (solving #1). Red Stamp's advisory role is to ensure he 
 - **Decision agency**: Doug picks his level of investment. The act of choosing makes him more committed than a take-it-or-leave-it proposal.
 - **Anchoring**: The three-tier structure naturally anchors toward the middle option, which includes the Lloyd deep-dive Red Stamp believes is critical.
 
-### Why Not Platforms
+### Platform Adoption Was Never On The Table
 
-We evaluated Fundstream (Montreal, 150+ Canadian brands, fulfillment API with white-label) and Giftbit (Victoria, 1,000+ brands, partnership program). Both are non-starters because:
+**Correction (2026-03-10):** Earlier drafts framed Fundstream and Giftbit as "evaluated and rejected" build-vs-buy options. This was an LLM misinterpretation introduced during transcript summarization. There was never a build-vs-buy question for Progressive.
 
-- Progressive's entire margin (1-4%) comes from the wholesale-to-face-value spread on direct vendor relationships
-- Progressive is one of only 2 bulk resellers of Walmart gift cards in Canada
-- Any intermediary platform either eliminates the margin (pay face value) or compresses it unacceptably
-- The competitive advantage IS the direct vendor relationship — outsourcing fulfillment undermines it
+Progressive is one of only two commercial bulk gift card distributors in Canada partnered directly with Walmart. Their entire business model depends on the wholesale-to-face-value spread from direct vendor relationships. Any intermediary platform would eliminate the margin that is the business. Fundstream is a competitor, not a potential vendor. Giftbit operates in a different segment entirely.
 
-The right strategy is to strengthen Progressive's existing advantage by making fulfillment more efficient and delivery more professional, not to outsource it.
+The research on these platforms remains useful as competitive context and market landscape, but it should not be framed as a "rejected alternative" — it was never a viable path and Doug never considered it one.
 
 ## The Three Options
 

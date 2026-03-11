@@ -13,8 +13,8 @@ key_insights:
   - Market consolidation strongly favors scale — small operators must either specialize in niche service or adopt platform infrastructure to survive
   - The build-vs-buy decision for Progressive likely tilts toward buy/integrate for fulfillment infrastructure and build for the customer-facing portal layer
 related:
-  - docs/discovery/2025-01-29-client-discovery-call.md
-  - docs/discovery/2025-01-27-internal-pre-meeting.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-27-internal-pre-meeting.md
 participants:
   redstamp:
     - Spencer R. (research lead)

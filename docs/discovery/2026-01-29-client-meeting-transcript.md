@@ -2,7 +2,7 @@
 title: "Client Meeting Transcript — Progressive + Red Stamp: Ecommerce Evolution"
 type: discovery
 category: meeting-transcript
-date: 2025-01-29
+date: 2026-01-29
 status: complete
 format: transcript
 source_url: https://supernorm.al/tentative-progressive-redstamp-ecommerce-evolution-b92c52608aa841f09dce54e1ac863956
@@ -27,8 +27,8 @@ key_insights:
   - Doug explicitly asked Red Stamp to come back with recommendations, not just respond to requests
   - 3-5 year automation roadmap — sticker machine (imminent) → barcode/magstripe capture → merchant backend integration
 related:
-  - docs/discovery/2025-01-29-client-discovery-call.md
-  - docs/discovery/2025-01-27-internal-pre-meeting.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-27-internal-pre-meeting.md
 ---
 
 [Tentative] Progressive + Redstamp: Ecommerce Evolution transcript

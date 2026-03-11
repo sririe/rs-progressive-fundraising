@@ -16,7 +16,7 @@ key_insights:
 key_decisions: []
 related:
   - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
-  - docs/discovery/2025-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
 participants:
   redstamp:
     - Spencer R. (research lead)

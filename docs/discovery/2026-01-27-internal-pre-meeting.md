@@ -2,7 +2,7 @@
 title: "Internal Pre-Meeting Discussion — Progressive Gift Cards"
 type: discovery
 category: internal-discussion
-date: 2025-01-27
+date: 2026-01-27
 status: complete
 format: transcript
 source_url: https://supernorm.al/bronte-spencer-progressive-8773c7cef897453abdc9c9f16067727f
@@ -22,8 +22,8 @@ key_insights:
   - Digital card creation/redemption mechanics are still unclear and need Lloyd walkthrough
   - Traditional e-commerce platforms (WooCommerce, Square) don't fit because Progressive's model is "faux commerce" — order capture without on-site payment
 related:
-  - docs/discovery/2025-01-29-client-discovery-call.md
-  - docs/discovery/2025-01-29-client-meeting-transcript.md
+  - docs/discovery/2026-01-29-client-discovery-call.md
+  - docs/discovery/2026-01-29-client-meeting-transcript.md
 ---
 
 Brontë / Spencer: Progressive transcript
