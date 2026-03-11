@@ -401,6 +401,6 @@ for q in questions:
     add_bullet(q)
 
 # --- Save ---
-output_path = r'D:\projects-work\rs-progressive-fundraising\docs\plans\Internal Solution Comparison — Card Generation Tool.docx'
+output_path = r'D:\projects-work\rs-progressive-fundraising\projects\gift-cards\docs\plans\Internal Solution Comparison — Card Generation Tool.docx'
 doc.save(output_path)
 print(f'Saved to: {output_path}')

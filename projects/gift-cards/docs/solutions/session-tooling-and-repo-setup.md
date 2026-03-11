@@ -12,7 +12,7 @@ resolved: true
 
 ## What was done
 
-- Reorganized flat file structure into compound engineering conventions (`docs/discovery/`, `docs/solutions/`, `docs/plans/`, `docs/brainstorms/`, `todos/`)
+- Reorganized flat file structure into compound engineering conventions (`projects/gift-cards/docs/discovery/`, `docs/solutions/`, `projects/gift-cards/docs/plans/`, `projects/gift-cards/docs/brainstorms/`, `todos/`)
 - Added YAML frontmatter to all three discovery documents with structured metadata (participants, tags, key_decisions, key_insights, related docs, blockers)
 - Created CLAUDE.md with project context, business domain knowledge, and document conventions
 - Installed compound engineering plugin (v2.35.2) for Claude Code

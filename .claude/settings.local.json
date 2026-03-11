@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"D:\\\\projects-work\\\\rs-progressive-fundraising\" && mkdir -p projects/gift-cards/docs projects/gift-cards/scripts)"
+    ]
+  }
+}

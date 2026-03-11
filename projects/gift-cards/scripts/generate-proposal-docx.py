@@ -515,6 +515,6 @@ p.add_run(
 )
 
 # --- Save ---
-output_path = r'D:\projects-work\rs-progressive-fundraising\docs\plans\Progressive Gift Cards — Where We Go From Here.docx'
+output_path = r'D:\projects-work\rs-progressive-fundraising\projects\gift-cards\docs\plans\Progressive Gift Cards — Where We Go From Here.docx'
 doc.save(output_path)
 print(f'Saved to: {output_path}')

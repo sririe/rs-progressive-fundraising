@@ -15,8 +15,8 @@ key_insights:
   - Small company (24 employees, $4.45M funding, Victoria BC) — not a startup risk but not enterprise-scale either
 key_decisions: []
 related:
-  - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
-  - docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
 participants:
   redstamp:
     - Spencer R. (research lead)

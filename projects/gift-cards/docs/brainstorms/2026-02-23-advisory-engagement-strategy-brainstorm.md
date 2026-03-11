@@ -28,12 +28,12 @@ participants:
     - Doug B. (decision-maker, proposal recipient)
     - Gord S. (advisor, influences decisions)
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
-  - docs/discovery/2026-01-27-internal-pre-meeting.md
-  - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
-  - docs/solutions/2026-02-23-mvp-customer-portal-research.md
-  - docs/solutions/2026-02-23-giftbit-platform-evaluation.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/discovery/2026-01-27-internal-pre-meeting.md
+  - projects/gift-cards/docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
+  - projects/gift-cards/docs/solutions/2026-02-23-mvp-customer-portal-research.md
+  - projects/gift-cards/docs/solutions/2026-02-23-giftbit-platform-evaluation.md
 status: complete
 blockers:
   - Lloyd technical deep-dive has not occurred — required before Option 2/3 can be scoped with confidence

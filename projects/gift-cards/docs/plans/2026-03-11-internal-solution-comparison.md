@@ -13,8 +13,8 @@ tags:
   - team-capacity
   - progressive
 related:
-  - docs/plans/2026-03-10-progressive-proposal-draft.md
-  - docs/discovery/2026-03-09-internal-strategy-session.md
+  - projects/gift-cards/docs/plans/2026-03-10-progressive-proposal-draft.md
+  - projects/gift-cards/docs/discovery/2026-03-09-internal-strategy-session.md
 
 # Card Generation Tool — Internal Solution Comparison
 

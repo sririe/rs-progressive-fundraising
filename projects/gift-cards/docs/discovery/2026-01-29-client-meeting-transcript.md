@@ -27,8 +27,8 @@ key_insights:
   - Doug explicitly asked Red Stamp to come back with recommendations, not just respond to requests
   - 3-5 year automation roadmap — sticker machine (imminent) → barcode/magstripe capture → merchant backend integration
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-27-internal-pre-meeting.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-27-internal-pre-meeting.md
 ---
 
 [Tentative] Progressive + Redstamp: Ecommerce Evolution transcript

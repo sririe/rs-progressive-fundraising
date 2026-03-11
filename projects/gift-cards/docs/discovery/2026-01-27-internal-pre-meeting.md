@@ -22,8 +22,8 @@ key_insights:
   - Digital card creation/redemption mechanics are still unclear and need Lloyd walkthrough
   - Traditional e-commerce platforms (WooCommerce, Square) don't fit because Progressive's model is "faux commerce" — order capture without on-site payment
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
 ---
 
 Brontë / Spencer: Progressive transcript

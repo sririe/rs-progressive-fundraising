@@ -4,7 +4,7 @@ type: plan
 category: engagement-proposal
 status: active
 date: 2026-02-23
-origin: docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
+origin: projects/gift-cards/docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
 tags:
   - advisory
   - proposal
@@ -40,13 +40,13 @@ participants:
     - Lloyd S. (technical contractor, card generation)
     - Mario (Lloyd's backup, in training)
 related:
-  - docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
-  - docs/discovery/2026-01-27-internal-pre-meeting.md
-  - docs/solutions/2026-02-23-mvp-customer-portal-research.md
-  - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
-  - docs/solutions/2026-02-23-giftbit-platform-evaluation.md
+  - projects/gift-cards/docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/discovery/2026-01-27-internal-pre-meeting.md
+  - projects/gift-cards/docs/solutions/2026-02-23-mvp-customer-portal-research.md
+  - projects/gift-cards/docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
+  - projects/gift-cards/docs/solutions/2026-02-23-giftbit-platform-evaluation.md
 blockers:
   - Lloyd technical deep-dive has not occurred — required before Options 2/3 can be scoped with full confidence
   - Amazon "Front Street" display time constraint is unverified — affects portal architecture for Amazon cards
@@ -419,7 +419,7 @@ Tracks the provenance of every significant decision in this proposal — what wa
 
 ### Origin
 
-- **Brainstorm document:** [docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md](../brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md) — Key decisions carried forward: platform adoption rejected, three-tier structure, WordPress-native portal, Lloyd deep-dive as critical enabler, no explicit recommendation yet.
+- **Brainstorm document:** [projects/gift-cards/docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md](../brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md) — Key decisions carried forward: platform adoption rejected, three-tier structure, WordPress-native portal, Lloyd deep-dive as critical enabler, no explicit recommendation yet.
 
 ### Internal References
 

@@ -13,7 +13,7 @@ key_insights:
   - Gift card numbers require encryption at rest (AES-256) and in transit — they are cash-equivalent and fall under PCI DSS scope
   - The hybrid approach (WordPress MVP portal now, option to decouple later) minimizes risk while preserving optionality
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
 ---
 
 # MVP Customer Portal Research: B2B Order Fulfillment for Small Business

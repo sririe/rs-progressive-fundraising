@@ -25,8 +25,8 @@ blockers:
   - Technical deep-dive with Lloyd on card generation workflow not yet completed
   - White-label sales outcomes (Save-on-Foods, Sequoia, White Spot) still pending
 related:
-  - docs/discovery/2026-01-27-internal-pre-meeting.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/discovery/2026-01-27-internal-pre-meeting.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
 ---
 
 # Meeting Summary: Progressive Gift Cards - January 29, 2026

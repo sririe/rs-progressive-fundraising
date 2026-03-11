@@ -13,10 +13,10 @@ tags:
   - advisory
   - phased-engagement
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
-  - docs/discovery/2026-03-09-internal-strategy-session.md
-  - docs/plans/2026-03-10-internal-strategy-brief.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/discovery/2026-03-09-internal-strategy-session.md
+  - projects/gift-cards/docs/plans/2026-03-10-internal-strategy-brief.md
 ---
 
 # Progressive Gift Cards — Where We Go From Here

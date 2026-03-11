@@ -24,14 +24,14 @@ key_insights:
   - The cleanest advisory position is to solve a customer-facing pain now while buying down operational uncertainty before larger commitments
   - The proposal will be strongest if it leads with Doug's stated priorities and then layers in Red Stamp's advisory point of view
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
-  - docs/discovery/2026-01-27-internal-pre-meeting.md
-  - docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
-  - docs/plans/2026-02-23-feat-three-tier-engagement-proposal-plan.md
-  - docs/solutions/2026-02-23-mvp-customer-portal-research.md
-  - docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
-  - docs/solutions/2026-02-23-giftbit-platform-evaluation.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/discovery/2026-01-27-internal-pre-meeting.md
+  - projects/gift-cards/docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
+  - projects/gift-cards/docs/plans/2026-02-23-feat-three-tier-engagement-proposal-plan.md
+  - projects/gift-cards/docs/solutions/2026-02-23-mvp-customer-portal-research.md
+  - projects/gift-cards/docs/solutions/2026-02-23-gift-card-fulfillment-technology-landscape.md
+  - projects/gift-cards/docs/solutions/2026-02-23-giftbit-platform-evaluation.md
   - docs/solutions/documentation-gaps/proposal-provenance-drift-System-20260302.md
 blockers:
   - Lloyd validation call has not happened yet

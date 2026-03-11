@@ -31,10 +31,10 @@ key_insights:
   - Team comfort with AI-assisted development workflows is both an internal growth opportunity and a constraint on what can be proposed
   - The biggest risk to this engagement is not technical — it is internal alignment and ensuring the delivery team has confidence and latitude to experiment
 related:
-  - docs/discovery/2026-01-29-client-discovery-call.md
-  - docs/discovery/2026-01-29-client-meeting-transcript.md
-  - docs/plans/2026-03-10-internal-strategy-brief.md
-  - docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-discovery-call.md
+  - projects/gift-cards/docs/discovery/2026-01-29-client-meeting-transcript.md
+  - projects/gift-cards/docs/plans/2026-03-10-internal-strategy-brief.md
+  - projects/gift-cards/docs/brainstorms/2026-02-23-advisory-engagement-strategy-brainstorm.md
 blockers:
   - Doug confirmation call has not happened — need to verify he has not pursued alternative solutions
   - Dev team alignment session has not been scheduled
