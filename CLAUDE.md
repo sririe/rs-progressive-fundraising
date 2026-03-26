@@ -82,3 +82,15 @@ When creating new documents, follow the naming pattern: `YYYY-MM-DD-descriptive-
 - Progressive's team is non-technical — solutions must be operable without developer support
 - White-label deferred until vendor contracts (Save-on-Foods, Sequoia) are secured
 - Doug wants advisory, not just execution
+
+## Second Brain Integration
+
+Spencer maintains a personal knowledge base (Obsidian vault) at:
+`~/projects-personal/second-brain/`
+
+When starting a session or when context seems relevant:
+- Check `Ideas/redstamp-*` for Redstamp strategy and client work patterns
+- Check `Logs/action-items-*.md` for open tasks that may relate to this client
+- Check `Meta/project-registry.md` for the full map of all repos and vault folders
+
+This vault is the canonical location for cross-project ideas, strategic thinking, and context that doesn't belong in any single repo.
