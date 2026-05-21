@@ -8,7 +8,7 @@ tags: [customer-portal, MVP, WordPress, authentication, B2B, fulfillment, securi
 key_insights:
   - WordPress can handle an MVP portal using custom post types and content restriction, but becomes a liability at scale
   - Magic link authentication is the strongest fit for non-technical corporate users (94% enterprise preference at Airtable)
-  - "Faux commerce" workflow is best served by treating form submissions as a custom post type with status tracking
+  - '"Faux commerce" workflow is best served by treating form submissions as a custom post type with status tracking'
   - Off-the-shelf SaaS portals (Clinked, SuiteDash) are viable but introduce vendor lock-in and may not match the specific gift card delivery workflow
   - Gift card numbers require encryption at rest (AES-256) and in transit — they are cash-equivalent and fall under PCI DSS scope
   - The hybrid approach (WordPress MVP portal now, option to decouple later) minimizes risk while preserving optionality

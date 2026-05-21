@@ -11,6 +11,13 @@ This is a multi-project knowledge work repository for the **Progressive** client
 ```
 rs-progressive-fundraising/
 ├── CLAUDE.md                     # This file — repo-level agent context (always loaded)
+├── CLIENT.md                     # Progressive-specific client reference (legal entity, rate, stakeholders, comms patterns) — read before any client-facing artifact
+├── REDSTAMP-SOW-CONTEXT.md       # Agency-wide SOW context (engagement taxonomy, pricing, tone, templates) — read before drafting SOWs, proposals, or client recommendations
+├── REDSTAMP-SOW-EXAMPLES.md      # Seven real executed SOWs as calibration anchors — match the closest example before drafting
+├── .agents/
+│   └── skills/
+│       └── writing/
+│           └── sow-drafting/     # Repo-specific skill for drafting Redstamp SOWs (reads the three files above)
 ├── projects/
 │   └── gift-cards/               # Gift card fulfillment engagement
 │       ├── docs/
@@ -54,6 +61,17 @@ All documents in `docs/` use YAML frontmatter for agent discoverability:
 - **`blockers`**: unresolved dependencies
 
 When creating new documents, follow the naming pattern: `YYYY-MM-DD-descriptive-slug.md`
+
+## Institutional Context — Read Before Client-Facing Artifacts
+
+Before producing any client-facing artifact (recommendation, proposal, SOW, or email to Doug/Gord/Lloyd), read these files. They are not auto-loaded by every agent harness, and skipping them causes drift from agency house style and missing context (e.g., Gord's role as the cautious-on-liability voice, Progressive's low-sophistication tier requiring more concrete grounding rather than less).
+
+- **`CLIENT.md`** — Progressive's legal entity name, rate ($150 CAD/hr), currency (CAD), Services Agreement reference (active since 2024-02-21), stakeholder profiles, and communication patterns. Includes Doug's tendency to widen scope in conversation and the explicit guidance to "earn the right to expand the roadmap through delivered results, not promises."
+- **`REDSTAMP-SOW-CONTEXT.md`** — Agency-wide context: brand is "Redstamp" (one word, never "Red Stamp" in body copy), engagement taxonomy (fixed-fee / retainer / discovery / staff-aug / change-order), pricing model, tone guidelines, template structures, client sophistication signals.
+- **`REDSTAMP-SOW-EXAMPLES.md`** — Seven real executed SOWs across engagement types and budget ranges. Match the closest example by engagement type, budget, and client sophistication before drafting.
+- **`.agents/skills/writing/sow-drafting/SKILL.md`** — The skill that orchestrates use of the three files above for SOW drafting specifically.
+
+The shorthand: SOW or proposal-adjacent work → read all four. Internal docs and emails → at minimum read CLIENT.md.
 
 ## Client Context
 

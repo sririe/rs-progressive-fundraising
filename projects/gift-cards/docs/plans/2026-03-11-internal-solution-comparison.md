@@ -1,6 +1,5 @@
 ---
-
-## title: "Internal Solution Comparison — Card Generation Tool"
+title: "Internal Solution Comparison — Card Generation Tool"
 type: plan
 category: internal-brief
 date: 2026-03-11
@@ -15,6 +14,7 @@ tags:
 related:
   - projects/gift-cards/docs/plans/2026-03-10-progressive-proposal-draft.md
   - projects/gift-cards/docs/discovery/2026-03-09-internal-strategy-session.md
+---
 
 # Card Generation Tool — Internal Solution Comparison
 
@@ -212,4 +212,3 @@ This changes the team comfort assessment for Option 2 from "moderate" to "modera
 - Do we have access to Progressive's QuickBooks to pull revenue/volume numbers for the proposal?
 - What's our current retainer structure with Progressive, and what would a restructured support agreement look like?
 - Has Doug mentioned any budget ceiling or range in recent conversations?
-
