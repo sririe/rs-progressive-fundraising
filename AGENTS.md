@@ -1,26 +1,34 @@
 # AGENTS.md
 
-This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
+This file provides guidance to Codex (Codex.ai/code) when working in this repository.
 
 ## Project Overview
 
-This is a knowledge work repository for the **Progressive Gift Cards** client engagement. Progressive is a corporate bulk gift card fulfillment business. Red Stamp (the development agency) is engaged as a long-term technology partner.
+This is a knowledge work repository for the **Progressive Gift Cards** client engagement. Progressive is a corporate bulk gift card fulfillment business. Redstamp is engaged as a long-term technology partner.
 
-**Status:** Discovery/planning phase — no codebase yet.
+**Status:** Discovery is complete and the team is in proposal alignment. The current recommendation is **secure card vault first**, then order platform/customer portal, then service expansion modules.
 
 ## Repository Structure
 
-This project follows [compound engineering](https://github.com/EveryInc/compound-engineering-plugin) conventions adapted for knowledge work:
+This repo now uses a multi-project structure:
 
 ```
-progressive-fundraising/
-├── AGENTS.md                  # This file — agent context (always loaded)
-├── docs/
-│   ├── discovery/             # Meeting transcripts, notes, requirements gathering
-│   ├── solutions/             # Categorized knowledge base (compounded learnings)
-│   ├── plans/                 # Implementation plans and proposals
-│   └── brainstorms/           # Ideation and exploration output
-└── todos/                     # Actionable tasks and follow-ups
+rs-progressive-fundraising/
+├── AGENTS.md
+├── CLAUDE.md
+├── CLIENT.md
+├── REDSTAMP-SOW-CONTEXT.md
+├── REDSTAMP-SOW-EXAMPLES.md
+├── projects/
+│   └── gift-cards/
+│       ├── docs/
+│       │   ├── discovery/
+│       │   ├── solutions/
+│       │   ├── plans/
+│       │   └── brainstorms/
+│       └── scripts/
+└── docs/
+    └── solutions/
 ```
 
 ### Document Conventions
@@ -36,59 +44,81 @@ All documents in `docs/` use YAML frontmatter for agent discoverability:
 - **`status`**: complete, in-progress, draft
 - **`blockers`**: unresolved dependencies
 
-When creating new documents, follow the naming pattern: `YYYY-MM-DD-descriptive-slug.md`
+When creating new documents, follow the naming pattern: `YYYY-MM-DD-descriptive-slug.md`.
+
+For HTML review documents, keep the language concrete, team-shareable, and grounded in Progressive's discovery vocabulary. Avoid vague strategy terms such as "spine," "artifact," "decision gates," "output package," "retention," "audit history," and "governed workflow" unless they are explained in plain operational language.
 
 ## Key Business Context
 
-**Core problem:** Digital gift card fulfillment is manual, fragile, and bottlenecked on one contractor (Lloyd). Custom scripts handle card generation for Walmart, Amazon, Loblaws, and Chapters. A 600-card Loblaws order takes ~3+ hours (20 sec/card). If digital order volume matched physical, they couldn't keep up.
+**Core problem:** Digital gift card fulfillment is manual, fragile, and depends on specific people understanding the workflow, folder structure, scripts, merchant spreadsheets, and failure paths. Card data is cash-equivalent, and the current process does not give Progressive one clear place to track inventory, fulfillment status, generated files, delivery emails, or support history.
 
-**Current tech stack:** WordPress + Formidable Forms (website), BenjaPay (payment processing, external to site), email-based encrypted delivery, Google Docs/spreadsheets for inventory.
+**Current tech stack:** WordPress + Formidable Forms pseudo-commerce flow, BenjaPay (payment processing, external to site), QuickBooks for invoicing, Google Drive/spreadsheets for digital inventory, Lloyd's Python/PowerShell scripts, Inkscape/PDF generation for some merchants, SystemOne for hosted URLs, Gmail for encrypted delivery.
 
-**Vendor card types:**
-- **Pass-through:** Best Buy, Starbucks — just forward URLs
-- **Generate from data:** Walmart, Amazon, Chapters, some Loblaws — receive card numbers + PINs, generate PDFs via custom scripts
-- **Integrated APIs:** Tim Hortons (via Cash Star), Amazon and Walmart integrations in progress
+**Merchant fulfillment patterns:**
+- **Merchant-provided cards:** Most merchants provide URLs, PDFs, codes, or card files. Progressive pulls inventory, prepares a customer-ready file, encrypts it, and sends it.
+- **Progressive-generated PDFs:** A smaller group of merchants, including Amazon, Loblaws, and Shoppers Drug Mart, require Progressive to generate card PDFs from raw card data using Lloyd's scripts/templates.
+- **Walmart:** Unique just-in-time activation flow using Walmart's virtual gift card activation tool, PDF generation, delivery, and monthly reconciliation.
 
-## Proposed Solution Phases
+## Current Recommendation
 
-**Phase 1 (MVP):** Customer portal for digital card retrieval
-- Keep existing ordering flow (no login required to order)
-- Add account creation link in invoice (post-order, as Tim suggested)
-- Customers log in to retrieve pre-generated cards
-- Lloyd/Mario still manually generate and upload cards to portal
-- No payment processing on the site (stays with BenjaPay)
+**Phase 0:** Discovery closeout and proposal alignment
+- Discovery SOW is signed.
+- March 27, 2026 discovery sessions are complete.
+- Lloyd provided initial script/materials on April 22, 2026; Spencer reviewed them April 23, 2026.
+- Current internal alignment artifacts live in `projects/gift-cards/docs/plans/`.
 
-**Phase 2:** White-label portals for bulk clients (Save-on-Foods, Sequoia Group, White Spot)
-- Three tiers: direct link to Progressive site → single-brand portal → fully branded white-label
-- Architecturally different from Phase 1 — likely WordPress custom post types or a full rebuild
-- Contingent on Progressive winning these contracts
+**Phase 1:** Secure card vault
+- Build a secure internal system for digital gift card inventory and fulfillment.
+- Include paid-order queue, digital card inventory, merchant-aware workflows, customer-ready card files and emails, order history, access rules, and file cleanup rules.
+- Keep Formidable Forms, QuickBooks integration, customer portal, direct recipient delivery, redemption reporting, SystemOne replacement, and white-label portals out of the first build unless the team deliberately changes scope.
 
-**Phase 3:** Operational automation
-- Streamline Lloyd's card generation scripts into a user-friendly internal tool
-- Reduce knowledge concentration risk (bus factor)
-- Longer-term: direct merchant backend integrations (3-5 year horizon)
+**Phase 2:** Order platform and customer portal
+- Replace the current Formidable Forms pseudo-commerce flow with a proper account and ordering experience.
+- Include customer accounts, order submission, order history, status/card retrieval, and Progressive admin tools.
+- QuickBooks integration may belong here depending on effort and business-rule complexity.
+
+**Phase 3:** Service expansion modules
+- Recipient delivery service: Progressive sends digital gift cards directly to a buyer's recipient list instead of giving the buyer one package to distribute.
+- Delivery and redemption reporting where technically possible and where merchants expose the required data.
+- Merchant-branded portals for partnerships such as Save-on-Foods or Sequoia.
+- Physical card stickering automation remains a separate future opportunity.
+
+## Important Current Documents
+
+- `projects/gift-cards/docs/plans/2026-05-21-progressive-roadmap-review.html` — primary internal recommendation review
+- `projects/gift-cards/docs/plans/2026-05-21-current-state-workflow-map.html` — current-state workflow
+- `projects/gift-cards/docs/plans/2026-05-21-merchant-fulfillment-matrix.html` — merchant fulfillment patterns
+- `projects/gift-cards/docs/plans/2026-05-21-security-choices.html` — security architecture choices
+- `projects/gift-cards/docs/plans/2026-05-21-phase-1-mvp-boundary.html` — Phase 1 in/out scope
+- `projects/gift-cards/docs/plans/2026-05-21-progressive-proposal-alignment-brief.md` — Markdown companion brief
+- `projects/gift-cards/docs/plans/2026-03-31-discovery-synthesis.md` — deep discovery synthesis
+- `projects/gift-cards/docs/plans/2026-04-23-lloyd-script-review-next-steps.md` — technical script review
+- `projects/gift-cards/docs/plans/2026-04-27-updated-client-recommendation.md` — prior prose recommendation draft
 
 ## Key Constraints and Decisions
 
-- **No credit card storage on the site** — payment stays external via BenjaPay to avoid PCI compliance burden and margin erosion
-- **Security around card numbers** — Tim flagged risk of storing unsold inventory on web infrastructure; gift card numbers are like cash
-- **Progressive's team is non-technical** — solutions must be maintainable by staff; Doug, Gord, and most employees are not developers
-- **White-label timing is uncertain** — avoid investing in Tier 3 architecture until contracts are secured; don't create technical debt that blocks it later
-- **URLs preferred over PDFs** — Doug agreed to standardize on URL delivery to simplify automation
-- **Doug wants advisory, not just execution** — explicitly asked Red Stamp to recommend what they *should* do
+- **Payment stays external** via BenjaPay; do not propose storing or processing credit cards on Progressive's site.
+- **Card numbers are cash-equivalent**; security architecture, access rules, order activity records, and cleanup rules must be explicit.
+- **Progressive's team is non-technical**; solutions must be operable by staff without developer support.
+- **Merchant terminology matters**; use "merchant" rather than "vendor" or "supplier" unless quoting older source docs.
+- **White-label timing is uncertain**; keep merchant-branded portals as roadmap work until partnerships justify the investment.
+- **Doug wants advisory, not just execution**; Redstamp should recommend what Progressive should do, not just list options.
+- **Use concrete language**; Progressive has low internal technical sophistication, so explain workflow changes through observable operational details.
 
 ## People
 
 - **Doug B.** — Owner, decision-maker, open to investment but needs guidance
-- **Gord S.** — Advisor, involved in sales pitches to vendors
-- **Lloyd S.** — Technical contractor, built all card generation scripts, sole knowledge holder for digital fulfillment
-- **Mario** — Being trained as Lloyd's backup for digital card processes
-- **Red Stamp team:** Spencer R. (primary contact), Tim L. (dev lead), Brontë B. (dev), Stephanie L., Danny (AI/automation)
+- **Gord S.** — Advisor, cautious voice on scope, liability, and recipient-delivery support posture
+- **Lloyd S.** — Technical contractor, built the scripts and shared initial technical materials
+- **Mario** — Runs digital fulfillment day-to-day but depends on Lloyd when scripts or edge cases break
+- **Elena** — Intake/payment/reconciliation/business-rule layer; central to order and invoice flow
+- **Redstamp team:** Spencer R. (primary contact), Tim L. (dev lead), Brontë B. (dev), Stephanie L., Danny (Director of Operations)
 
 ## Open Questions
 
-- Technical deep-dive with Lloyd needed — Danny/Spencer to walk through card generation workflow
-- Validate whether Mario can realistically take over Lloyd's processes with better tooling
-- Confirm whether white-label sales (Save-on-Foods, Sequoia, White Spot) are actively progressing
-- "Front Street" mentioned re: Amazon card display time limits — unclear if vendor or contact
-- Two-factor authentication for portal access flagged by Lloyd as important
+- What exact Phase 1 scope and pricing should Redstamp propose?
+- How much of Walmart activation/reconciliation belongs in V1 versus remaining manual?
+- Which merchant templates and inventory formats are consistent enough to model in the first build?
+- What security posture should Progressive choose: local-only, secure web vault, or hybrid?
+- What is the current status of Save-on-Foods, Sequoia, and other merchant-branded portal opportunities?
+- Does SystemOne have API or integration options, or should it remain manual in V1?

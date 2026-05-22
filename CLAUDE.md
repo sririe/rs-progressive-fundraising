@@ -76,7 +76,7 @@ The shorthand: SOW or proposal-adjacent work → read all four. Internal docs an
 ## Client Context
 
 - **Doug B.** — Owner, decision-maker, open to investment but needs guidance
-- **Gord S.** — Advisor, involved in sales pitches to vendors
+- **Gord S.** — Advisor, involved in sales pitches to merchants
 - **Lloyd S.** — Technical contractor, built all card generation scripts, sole knowledge holder for digital fulfillment
 - **Mario** — Being trained as Lloyd's backup for digital card processes
 - **Redstamp team:** Spencer R. (primary contact), Tim L. (dev lead), Brontë B. (dev), Stephanie L., Danny (Director of Operations)
@@ -85,20 +85,42 @@ The shorthand: SOW or proposal-adjacent work → read all four. Internal docs an
 
 ### Gift Cards (`projects/gift-cards/`)
 
-**Status:** Discovery/planning phase — proposal drafted, pending client walkthrough and team pricing session.
+**Status:** Discovery complete; proposal alignment in progress. The current recommendation is **secure card vault first**, then order platform/customer portal, then service expansion modules. Primary current review artifact: `projects/gift-cards/docs/plans/2026-05-21-progressive-roadmap-review.html`.
 
-**Core problem:** Digital gift card fulfillment is manual, fragile, and bottlenecked on one contractor (Lloyd). Custom scripts handle card generation for Walmart, Amazon, Loblaws, and Chapters. A 600-card Loblaws order takes ~3+ hours (20 sec/card). If digital order volume matched physical, they couldn't keep up.
+**Core problem:** Digital gift card fulfillment is manual, fragile, and depends on specific people understanding the workflow, folder structure, scripts, merchant spreadsheets, and failure paths. Card data is cash-equivalent, and the current process does not give Progressive one clear place to track inventory, fulfillment status, generated files, delivery emails, or support history.
 
-**Proposed phases:**
-- **Phase 1:** Lloyd hand-off session + vendor runbooks + technical specification (April 2026)
-- **Phase 2:** Card generation tool — secure web application replacing Lloyd's scripts (May–Sept 2026, ship before holiday season)
-- **Phase 3:** Order platform rebuild in 3 stages — MVP with QuickBooks integration, digital card delivery, white-label architecture
+**Discovery status:**
+- Discovery SOW is signed.
+- March 27, 2026 discovery sessions with Lloyd, Mario, Doug, Danny, and Spencer are complete.
+- Lloyd provided initial scripts/materials on April 22, 2026; Spencer reviewed them April 23, 2026.
+- The older portal-first proposal framing has been superseded by the vault-first recommendation.
+
+**Current proposed phases:**
+- **Phase 0:** Discovery closeout and proposal alignment. Package findings, align the team, and prepare the Progressive walkthrough.
+- **Phase 1:** Secure card vault. Build a secure internal system for digital gift card inventory and fulfillment: paid-order queue, digital card inventory, merchant-aware workflows, customer-ready card files and emails, order history, access rules, and file cleanup rules.
+- **Phase 2:** Order platform and customer portal. Replace the current Formidable Forms pseudo-commerce flow with a proper account and ordering experience: customer accounts, order submission, order history, status/card retrieval, and Progressive admin tools. QuickBooks integration may belong here depending on effort and business-rule complexity.
+- **Phase 3:** Service expansion modules. Recipient delivery service, delivery/redemption reporting where technically possible, merchant-branded portals for partnerships like Save-on-Foods or Sequoia, and separate physical-card stickering automation.
+
+**Merchant fulfillment patterns:**
+- **Merchant-provided cards:** Most merchants provide URLs, PDFs, codes, or card files. Progressive pulls inventory, prepares a customer-ready file, encrypts it, and sends it.
+- **Progressive-generated PDFs:** A smaller group of merchants, including Amazon, Loblaws, and Shoppers Drug Mart, require Progressive to generate card PDFs from raw card data using Lloyd's scripts/templates.
+- **Walmart:** Unique just-in-time activation flow using Walmart's virtual gift card activation tool, PDF generation, delivery, and monthly reconciliation.
+
+**Current proposal alignment documents:**
+- `projects/gift-cards/docs/plans/2026-05-21-progressive-roadmap-review.html` — primary internal recommendation review
+- `projects/gift-cards/docs/plans/2026-05-21-current-state-workflow-map.html` — current-state workflow
+- `projects/gift-cards/docs/plans/2026-05-21-merchant-fulfillment-matrix.html` — merchant fulfillment patterns
+- `projects/gift-cards/docs/plans/2026-05-21-security-choices.html` — security architecture choices
+- `projects/gift-cards/docs/plans/2026-05-21-phase-1-mvp-boundary.html` — Phase 1 in/out scope
+- `projects/gift-cards/docs/plans/2026-05-21-progressive-proposal-alignment-brief.md` — Markdown companion brief
+- `projects/gift-cards/docs/plans/2026-05-21-internal-alignment-document-preferences.md` — reusable writing preferences from Spencer's feedback
 
 **Key constraints:**
 - Payment stays external via Benji Pays — no credit card processing on-site
-- Card numbers are cash-equivalent — security architecture must be solid
+- Card numbers are cash-equivalent — security architecture, access rules, order activity records, and cleanup rules must be explicit
 - Progressive's team is non-technical — solutions must be operable without developer support
-- White-label deferred until vendor contracts (Save-on-Foods, Sequoia) are secured
+- Use "merchant" rather than "vendor" or "supplier" unless quoting older source docs
+- White-label / merchant-branded portals are deferred until merchant partnerships justify the investment
 - Doug wants advisory, not just execution
 
 ## Second Brain Integration
