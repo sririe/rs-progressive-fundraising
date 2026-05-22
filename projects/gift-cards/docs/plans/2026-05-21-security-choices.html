@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progressive Security Choices</title>
+  <style>
+    :root {
+      --ink: #17201c;
+      --muted: #5c6862;
+      --line: #d9ded8;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --green: #246a52;
+      --blue: #2f5d8c;
+      --plum: #6f4d72;
+      --gold: #b7822f;
+      --red: #a7473b;
+      --soft-green: #e9f2ed;
+      --soft-blue: #e9f0f7;
+      --soft-plum: #f0eaf0;
+      --soft-gold: #f7f0e4;
+      --soft-red: #f6e9e6;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.45; }
+    .page { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 36px 0 56px; }
+    header { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: end; padding: 22px 0 30px; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 10px; color: var(--green); font-size: 13px; font-weight: 800; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 760px; font-size: clamp(36px, 5vw, 68px); line-height: 0.98; }
+    h2 { margin: 0 0 14px; font-size: 24px; line-height: 1.1; }
+    h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.2; }
+    p { margin: 0; color: var(--muted); }
+    .lead { max-width: 500px; font-size: 18px; color: #33413a; }
+    .section { margin-top: 34px; }
+    .band { padding: 28px 0; border-top: 1px solid var(--line); }
+    .grid { display: grid; gap: 16px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { min-height: 100%; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 34px rgba(23, 32, 28, 0.06); }
+    .card.green { background: var(--soft-green); border-color: rgba(36, 106, 82, 0.28); }
+    .card.blue { background: var(--soft-blue); border-color: rgba(47, 93, 140, 0.28); }
+    .card.plum { background: var(--soft-plum); border-color: rgba(111, 77, 114, 0.28); }
+    .card.gold { background: var(--soft-gold); border-color: rgba(183, 130, 47, 0.28); }
+    .card.red { background: var(--soft-red); border-color: rgba(167, 71, 59, 0.25); }
+    .tag { display: inline-flex; margin-bottom: 12px; padding: 4px 9px; border-radius: 999px; color: #fff; background: var(--green); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .tag.blue { background: var(--blue); }
+    .tag.plum { background: var(--plum); }
+    .tag.gold { background: var(--gold); }
+    .tag.red { background: var(--red); }
+    ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    li + li { margin-top: 6px; }
+    .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); }
+    .table { width: 100%; min-width: 760px; border-collapse: collapse; }
+    .table th, .table td { padding: 14px 15px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .table th { background: #f3f5f1; font-size: 12px; text-transform: uppercase; }
+    .table tr:last-child td { border-bottom: 0; }
+    .table td { color: var(--muted); font-size: 14px; }
+    .note { margin-top: 12px; font-size: 13px; color: var(--muted); }
+    a { color: var(--green); font-weight: 800; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 860px) {
+      .page { width: min(100% - 28px, 1180px); padding-top: 22px; }
+      header, .grid.three, .grid.two { grid-template-columns: 1fr; }
+      .table { min-width: 0; }
+      .table th, .table td { padding: 12px 10px; font-size: 12px; }
+      h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <p class="eyebrow">Deeper context - security choices</p>
+        <h1>Where card data lives</h1>
+      </div>
+      <p class="lead">Progressive is handling cash-equivalent data: card numbers, PINs, claim codes, URLs, and generated PDFs. The proposal needs an explicit choice about where that data lives and who can support the system.</p>
+    </header>
+
+    <section class="section grid three">
+      <div class="card red">
+        <span class="tag red">Current model</span>
+        <h3>Trusted local workflow</h3>
+        <p>Card data lives in local folders, Google Drive structures, scripts, and spreadsheets handled by trusted operators.</p>
+      </div>
+      <div class="card gold">
+        <span class="tag gold">Design question</span>
+        <h3>Support vs exposure</h3>
+        <p>The more Redstamp can support remotely, the more deliberate the security choices need to be.</p>
+      </div>
+      <div class="card green">
+        <span class="tag">Default path</span>
+        <h3>Secure Web Vault</h3>
+        <p>The current recommendation is a web vault because it supports the roadmap without rebuilding the foundation later.</p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Options to compare</h2>
+      <div class="grid three">
+        <div class="card blue">
+          <span class="tag blue">Option A</span>
+          <h3>Local workstation tool</h3>
+          <p>Card data stays on Progressive machines. This is closest to the current model, but remote support is limited.</p>
+          <ul>
+            <li>Fastest first build</li>
+            <li>Least internet exposure</li>
+            <li>Harder for Redstamp to support</li>
+            <li>Not a strong foundation for portal or recipient delivery</li>
+          </ul>
+        </div>
+        <div class="card green">
+          <span class="tag">Option B</span>
+          <h3>Secure Web Vault</h3>
+          <p>Card data lives in a secured web application with access controls, encrypted storage, order records, and cleanup rules.</p>
+          <ul>
+            <li>Recommended default</li>
+            <li>Supports remote troubleshooting</li>
+            <li>Best foundation for future portal work</li>
+            <li>Requires disciplined security design</li>
+          </ul>
+        </div>
+        <div class="card plum">
+          <span class="tag plum">Option C</span>
+          <h3>Hybrid processing</h3>
+          <p>The web app manages workflow, while raw card processing happens in a separate controlled environment.</p>
+          <ul>
+            <li>Strongest separation</li>
+            <li>Most expensive to build and support</li>
+            <li>Better for enterprise security review</li>
+            <li>Likely too heavy for current volume</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>What the choice controls</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>What needs to be decided</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Who can see card data?</td>
+              <td>Define roles for operators, managers, Redstamp support, and future staff.</td>
+              <td>Card numbers and PINs are cash-equivalent. Access should not be implied by habit.</td>
+            </tr>
+            <tr>
+              <td>How long do files stay?</td>
+              <td>Decide when generated PDFs, ZIPs, spreadsheets, and delivery files are removed or archived.</td>
+              <td>Keeping everything forever increases exposure; deleting too soon can hurt support.</td>
+            </tr>
+            <tr>
+              <td>What order activity gets recorded?</td>
+              <td>Track who processed the order, what was created, what was sent, and what failed.</td>
+              <td>This gives Progressive and Redstamp a support record when customers ask questions later.</td>
+            </tr>
+            <tr>
+              <td>How does Redstamp support it?</td>
+              <td>Decide whether support happens through a web admin view, logs, screen shares, or site visits.</td>
+              <td>The answer affects support cost, response time, and how dependent Progressive remains on Lloyd.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Review questions</h2>
+      <div class="grid two">
+        <div class="card blue">
+          <span class="tag blue">Implementation</span>
+          <h3>What is the minimum secure design?</h3>
+          <p>Define the smallest security posture that is responsible for Phase 1 without turning the first build into an enterprise platform.</p>
+        </div>
+        <div class="card gold">
+          <span class="tag gold">Client conversation</span>
+          <h3>What should Doug explicitly choose?</h3>
+          <p>Decide what Redstamp recommends versus what Progressive needs to sign off on before build work begins.</p>
+        </div>
+      </div>
+      <p class="note"><a href="./2026-05-21-progressive-roadmap-review.html">Back to recommendation review</a></p>
+    </section>
+  </main>
+</body>
+</html>

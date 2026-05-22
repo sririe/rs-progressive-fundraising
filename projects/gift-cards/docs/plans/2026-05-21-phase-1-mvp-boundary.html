@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progressive Phase 1 MVP Boundary</title>
+  <style>
+    :root {
+      --ink: #17201c;
+      --muted: #5c6862;
+      --line: #d9ded8;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --green: #246a52;
+      --blue: #2f5d8c;
+      --plum: #6f4d72;
+      --gold: #b7822f;
+      --red: #a7473b;
+      --soft-green: #e9f2ed;
+      --soft-blue: #e9f0f7;
+      --soft-plum: #f0eaf0;
+      --soft-gold: #f7f0e4;
+      --soft-red: #f6e9e6;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.45; }
+    .page { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 36px 0 56px; }
+    header { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: end; padding: 22px 0 30px; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 10px; color: var(--green); font-size: 13px; font-weight: 800; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 760px; font-size: clamp(36px, 5vw, 68px); line-height: 0.98; }
+    h2 { margin: 0 0 14px; font-size: 24px; line-height: 1.1; }
+    h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.2; }
+    p { margin: 0; color: var(--muted); }
+    .lead { max-width: 500px; font-size: 18px; color: #33413a; }
+    .section { margin-top: 34px; }
+    .band { padding: 28px 0; border-top: 1px solid var(--line); }
+    .grid { display: grid; gap: 16px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { min-height: 100%; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 34px rgba(23, 32, 28, 0.06); }
+    .card.green { background: var(--soft-green); border-color: rgba(36, 106, 82, 0.28); }
+    .card.blue { background: var(--soft-blue); border-color: rgba(47, 93, 140, 0.28); }
+    .card.plum { background: var(--soft-plum); border-color: rgba(111, 77, 114, 0.28); }
+    .card.gold { background: var(--soft-gold); border-color: rgba(183, 130, 47, 0.28); }
+    .card.red { background: var(--soft-red); border-color: rgba(167, 71, 59, 0.25); }
+    .tag { display: inline-flex; margin-bottom: 12px; padding: 4px 9px; border-radius: 999px; color: #fff; background: var(--green); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .tag.blue { background: var(--blue); }
+    .tag.plum { background: var(--plum); }
+    .tag.gold { background: var(--gold); }
+    .tag.red { background: var(--red); }
+    ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    li + li { margin-top: 6px; }
+    .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); }
+    .table { width: 100%; min-width: 760px; border-collapse: collapse; }
+    .table th, .table td { padding: 14px 15px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .table th { background: #f3f5f1; font-size: 12px; text-transform: uppercase; }
+    .table tr:last-child td { border-bottom: 0; }
+    .table td { color: var(--muted); font-size: 14px; }
+    .note { margin-top: 12px; font-size: 13px; color: var(--muted); }
+    a { color: var(--green); font-weight: 800; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 860px) {
+      .page { width: min(100% - 28px, 1180px); padding-top: 22px; }
+      header, .grid.three, .grid.two { grid-template-columns: 1fr; }
+      .table { min-width: 0; }
+      .table th, .table td { padding: 12px 10px; font-size: 12px; }
+      h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <p class="eyebrow">Deeper context - Phase 1 scope</p>
+        <h1>Secure card vault MVP boundary</h1>
+      </div>
+      <p class="lead">This page defines what the first build should probably include, what should wait, and where the team needs to refine assumptions before pricing.</p>
+    </header>
+
+    <section class="section grid three">
+      <div class="card green">
+        <span class="tag">Purpose</span>
+        <h3>Stabilize fulfillment first.</h3>
+        <p>Phase 1 should reduce the risk in digital inventory and fulfillment without trying to replace every adjacent system at once.</p>
+      </div>
+      <div class="card blue">
+        <span class="tag blue">Standalone</span>
+        <h3>Useful without Phase 2.</h3>
+        <p>The vault should be valuable even if the Formidable Forms replacement and customer portal come later.</p>
+      </div>
+      <div class="card gold">
+        <span class="tag gold">Foundation</span>
+        <h3>Sets up the roadmap.</h3>
+        <p>The same inventory, order, card-data, and delivery records should support portal, recipient delivery, and merchant-branded portals later.</p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Likely in Phase 1</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Order queue and status</h3>
+          <p>A place for paid digital orders to appear, move through fulfillment, and show whether they are waiting, in progress, ready, sent, failed, or blocked.</p>
+        </div>
+        <div class="card">
+          <h3>Digital card inventory</h3>
+          <p>Track card data by merchant, denomination, source, status, and order assignment. This includes URLs, PINs, claim codes, card numbers, PDFs, and generated files where applicable.</p>
+        </div>
+        <div class="card">
+          <h3>Merchant-aware workflows</h3>
+          <p>Guide staff through the correct steps for merchant-provided cards, Progressive-generated PDFs, and Walmart activation.</p>
+        </div>
+        <div class="card">
+          <h3>Customer-ready files and emails</h3>
+          <p>Create or pre-stage the files and email copy Progressive sends today, including the separate password email where required.</p>
+        </div>
+        <div class="card">
+          <h3>Order history</h3>
+          <p>Record who processed the order, what was created, what was sent, what was skipped, and what failed.</p>
+        </div>
+        <div class="card">
+          <h3>Access and cleanup rules</h3>
+          <p>Define who can see card data and how long generated files, ZIPs, spreadsheets, and PDFs stay in the system.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Likely out of Phase 1</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Not in first build</th>
+              <th>Why it waits</th>
+              <th>Where it belongs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Replacing Formidable Forms</td>
+              <td>The current ordering layer can stay in place while fulfillment is stabilized.</td>
+              <td>Phase 2: order platform and portal</td>
+            </tr>
+            <tr>
+              <td>QuickBooks integration</td>
+              <td>Invoicing remains a business-rule-heavy workflow that should not block the vault.</td>
+              <td>Phase 2 or later, depending on effort</td>
+            </tr>
+            <tr>
+              <td>Direct recipient delivery</td>
+              <td>This changes Progressive's service and support posture, not just the software.</td>
+              <td>Phase 3: recipient delivery service</td>
+            </tr>
+            <tr>
+              <td>Redemption reporting</td>
+              <td>Merchant data availability varies, and most merchants do not expose redemption status cleanly.</td>
+              <td>Phase 3: reporting where possible</td>
+            </tr>
+            <tr>
+              <td>Full SystemOne replacement</td>
+              <td>SystemOne can remain an external step unless API availability changes the economics.</td>
+              <td>Later optimization</td>
+            </tr>
+            <tr>
+              <td>White-label merchant portals</td>
+              <td>These should wait until merchant partnerships justify the investment.</td>
+              <td>Phase 3: merchant-branded portals</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Questions that affect pricing</h2>
+      <div class="grid three">
+        <div class="card blue">
+          <span class="tag blue">Merchant data</span>
+          <h3>How consistent is inventory?</h3>
+          <p>We need to know how similar the merchant spreadsheets, card files, and templates really are before estimating configuration effort.</p>
+        </div>
+        <div class="card gold">
+          <span class="tag gold">Walmart</span>
+          <h3>How much can V1 automate?</h3>
+          <p>Walmart activation may need to stay partially manual until PowerShell, portal access, and reconciliation behavior are characterized.</p>
+        </div>
+        <div class="card plum">
+          <span class="tag plum">Security</span>
+          <h3>What is the agreed posture?</h3>
+          <p>The difference between local, web, and hybrid architecture changes build cost, support cost, and future roadmap compatibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>How to use this in review</h2>
+      <div class="grid two">
+        <div class="card blue">
+          <span class="tag blue">Implementation review</span>
+          <h3>Challenge the boundary.</h3>
+          <p>Identify anything listed as in-scope that is too large for V1, and anything excluded that would make the vault unusable.</p>
+        </div>
+        <div class="card gold">
+          <span class="tag gold">Project review</span>
+          <h3>Turn scope into proposal language.</h3>
+          <p>Confirm which items need to be client promises, which are assumptions, and which should stay as roadmap items.</p>
+        </div>
+      </div>
+      <p class="note"><a href="./2026-05-21-progressive-roadmap-review.html">Back to recommendation review</a></p>
+    </section>
+  </main>
+</body>
+</html>

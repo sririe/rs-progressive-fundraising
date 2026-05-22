@@ -2,7 +2,7 @@
 
 > **<span data-proof="authored" data-by="ai:claude">Purpose:</span>** <span data-proof="authored" data-by="ai:claude">Structured client reference for agent consumption. Skills (SOW drafting, client emails, strategy docs) read this file for client-specific details rather than requiring them as manual inputs each time.</span>
 >
-> **<span data-proof="authored" data-by="ai:claude">Last updated:</span>** <span data-proof="authored" data-by="ai:claude">2026-04-01</span>
+> **<span data-proof="authored" data-by="ai:claude">Last updated:</span>** <span data-proof="authored" data-by="ai:claude">2026-05-21</span>
 
 ***
 
@@ -79,7 +79,7 @@
 
 * <span data-proof="authored" data-by="ai:claude">Has been direct about wanting his role automated</span>
 
-* <span data-proof="authored" data-by="ai:claude">Critical participant in any discovery session — his cooperation is a prerequisite, not optional</span>
+* <span data-proof="authored" data-by="ai:claude">Participated in the March 27, 2026 workflow deep dive and shared initial technical materials for Redstamp review on April 22, 2026</span>
 
 * <span data-proof="authored" data-by="ai:claude">Working relationship with Mario as backup</span>
 
@@ -87,7 +87,7 @@
 
 * <span data-proof="authored" data-by="ai:claude">Being trained as Lloyd's backup for digital card processes</span>
 
-* <span data-proof="authored" data-by="ai:claude">Current independence level is a key discovery question — how much can he run without Lloyd?</span>
+* <span data-proof="authored" data-by="ai:claude">Has been running the digital fulfillment process day-to-day, but remains dependent on Lloyd when scripts or edge cases break</span>
 
 * <span data-proof="authored" data-by="ai:claude">Non-technical — any future system needs to be operable without developer support</span>
 
@@ -98,7 +98,19 @@
 | <span data-proof="authored" data-by="ai:claude">[historical]</span> | <span data-proof="authored" data-by="ai:claude">Operational assessment</span>                  | <span data-proof="authored" data-by="ai:claude">Discovery</span> | <span data-proof="authored" data-by="ai:claude">Complete</span>                       |
 | <span data-proof="authored" data-by="ai:claude">[historical]</span> | <span data-proof="authored" data-by="ai:claude">Commerce integration (Formidable Forms)</span> | <span data-proof="authored" data-by="ai:claude">Fixed-fee</span> | <span data-proof="authored" data-by="ai:claude">Complete</span>                       |
 | <span data-proof="authored" data-by="ai:claude">2025–present</span> | <span data-proof="authored" data-by="ai:claude">Ongoing website support</span>                 | <span data-proof="authored" data-by="ai:claude">Retainer</span>  | <span data-proof="authored" data-by="ai:claude">Active</span>                         |
-| <span data-proof="authored" data-by="ai:claude">2026-03</span>      | <span data-proof="authored" data-by="ai:claude">Digital gift card fulfillment discovery</span> | <span data-proof="authored" data-by="ai:claude">Discovery</span> | <span data-proof="authored" data-by="ai:claude">SOW drafted, pending execution</span> |
+| <span data-proof="authored" data-by="ai:claude">2026-03</span>      | <span data-proof="authored" data-by="ai:claude">Digital gift card fulfillment discovery</span> | <span data-proof="authored" data-by="ai:claude">Discovery</span> | <span data-proof="authored" data-by="ai:claude">Signed SOW; discovery sessions complete; proposal recommendation in progress</span> |
+
+## <span data-proof="authored" data-by="ai:claude">Recent Discovery Status</span>
+
+* <span data-proof="authored" data-by="ai:claude">Discovery SOW is signed. The engagement should now be treated as active/completed discovery work moving into recommendation and proposal synthesis, not as a pending sales document.</span>
+
+* <span data-proof="authored" data-by="ai:claude">March 27, 2026 on-site/remote discovery sessions with Lloyd, Mario, Doug, Danny, and Spencer captured the digital fulfillment workflow, Mario handoff state, Lloyd script behavior, and adjacent physical/invoicing context.</span>
+
+* <span data-proof="authored" data-by="ai:claude">Follow-up technical review with Lloyd is no longer outstanding. Lloyd provided initial materials on April 22, 2026, including two Python scripts and a sample Amazon workbook; Spencer reviewed them April 23, 2026.</span>
+
+* <span data-proof="authored" data-by="ai:claude">The current recommendation has shifted from a customer portal/card generation tool first to a secure card vault first, with customer-facing portal, direct-to-recipient distribution, redemption reporting, and white-label portals sequenced as roadmap layers.</span>
+
+* <span data-proof="authored" data-by="ai:claude">Remaining internal work is proposal alignment: collapse the discovery findings into a concise Redstamp recommendation, validate implementation shape with Tim, and prepare a Progressive-facing walkthrough.</span>
 
 ## <span data-proof="authored" data-by="ai:claude">Communication Patterns</span>
 

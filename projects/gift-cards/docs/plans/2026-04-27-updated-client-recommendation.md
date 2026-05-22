@@ -156,5 +156,5 @@ Items deliberately removed from the client-facing version of this recommendation
 Calibration notes:
 - Pass against `REDSTAMP-SOW-CONTEXT.md` tone guidelines — Progressive registers as **low** sophistication in CLIENT.md, which means more concrete grounding, not less. Each MVP item now includes a "what changes for Mario / for Progressive" line. Distribution and redemption sections name Gord's likely concerns explicitly because Gord is the cautious-on-liability voice in CLIENT.md.
 - "Earn the right to expand the roadmap through delivered results, not promises" — the CLIENT.md scope-management direction — is now load-bearing in the distribution/reporting section.
-- Phase 1 framing softened to acknowledge that the discovery work the March 25 SOW scoped has substantially happened, without claiming it was paid for under a signed agreement. The discovery SOW status in CLIENT.md is "drafted, pending execution" — be careful in any follow-up not to imply otherwise.
+- Phase 1 framing should now acknowledge that the discovery SOW was signed and the discovery work has substantially happened. As of the May 21, 2026 CLIENT.md update, this is no longer a pending sales document; the next artifact should treat discovery as the basis for recommendation and proposal synthesis.
 - "Redstamp" used throughout (one word, never "Red Stamp" in body copy per SOW-CONTEXT §1).

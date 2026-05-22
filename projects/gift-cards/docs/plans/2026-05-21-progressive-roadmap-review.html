@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progressive Proposal Alignment</title>
+  <style>
+    :root {
+      --ink: #17201c;
+      --muted: #5c6862;
+      --line: #d9ded8;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --green: #246a52;
+      --blue: #2f5d8c;
+      --plum: #6f4d72;
+      --gold: #b7822f;
+      --red: #a7473b;
+      --soft-green: #e9f2ed;
+      --soft-blue: #e9f0f7;
+      --soft-plum: #f0eaf0;
+      --soft-gold: #f7f0e4;
+      --soft-red: #f6e9e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(36, 106, 82, 0.07), rgba(255, 255, 255, 0) 360px),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 36px 0 56px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: end;
+      padding: 22px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(38px, 5vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .lead {
+      max-width: 470px;
+      font-size: 18px;
+      color: #33413a;
+    }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .band {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid.links {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 34px rgba(23, 32, 28, 0.06);
+    }
+
+    .card a {
+      color: var(--green);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .card.accent-green {
+      border-color: rgba(36, 106, 82, 0.34);
+      background: var(--soft-green);
+    }
+
+    .card.accent-blue {
+      border-color: rgba(47, 93, 140, 0.28);
+      background: var(--soft-blue);
+    }
+
+    .card.accent-plum {
+      border-color: rgba(111, 77, 114, 0.28);
+      background: var(--soft-plum);
+    }
+
+    .card.accent-gold {
+      border-color: rgba(183, 130, 47, 0.28);
+      background: var(--soft-gold);
+    }
+
+    .card.accent-red {
+      border-color: rgba(167, 71, 59, 0.25);
+      background: var(--soft-red);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      margin-bottom: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .tag.blue {
+      background: var(--blue);
+    }
+
+    .tag.plum {
+      background: var(--plum);
+    }
+
+    .tag.gold {
+      background: var(--gold);
+    }
+
+    .tag.red {
+      background: var(--red);
+    }
+
+    .roadmap {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .phase {
+      position: relative;
+      min-height: 220px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .phase::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--green);
+    }
+
+    .phase:nth-child(2)::before {
+      background: var(--blue);
+    }
+
+    .phase:nth-child(3)::before {
+      background: var(--plum);
+    }
+
+    .phase:nth-child(4)::before {
+      background: var(--gold);
+    }
+
+    .phase small {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    .metric {
+      display: grid;
+      gap: 6px;
+      min-height: 122px;
+      align-content: start;
+    }
+
+    .metric strong {
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .table th,
+    .table td {
+      padding: 14px 15px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table th {
+      color: var(--ink);
+      background: #f3f5f1;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .table td {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .callout {
+      padding: 22px;
+      color: #fff;
+      background: #1f4538;
+      border-radius: 8px;
+    }
+
+    .callout p {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 17px;
+    }
+
+    .callout h2 {
+      color: #fff;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 28px, 1180px);
+        padding-top: 22px;
+      }
+
+      header,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .grid.links,
+      .roadmap,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        min-height: 24px;
+        font-size: 30px;
+        transform: rotate(90deg);
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <p class="eyebrow">Internal alignment - May 21, 2026</p>
+        <h1>Progressive recommendation review</h1>
+      </div>
+      <p class="lead">A team-facing review of the proposed direction after discovery: lead with a secure card vault, then sequence the customer portal and service expansion work from that foundation.</p>
+    </header>
+
+    <section class="section">
+      <div class="callout">
+        <h2>The recommendation</h2>
+        <p>Build the secure card vault first. Discovery surfaced a lot of moving pieces: website orders, QuickBooks invoices, payment confirmation, merchant spreadsheets, Lloyd's scripts, SystemOne, Gmail delivery, and customer support questions. The vault solves the biggest risks and gaps in that workflow, and it can be delivered as a standalone project without replacing the ordering site, BenjaPay, QuickBooks, or merchant systems.</p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>How to use this review</h2>
+      <div class="grid three">
+        <div class="card accent-blue">
+          <span class="tag blue">Project</span>
+          <h3>Pressure-test the sequence</h3>
+          <p>Does this give Progressive a clear path from discovery findings to a next SOW? Are the phase boundaries and client decisions easy to explain?</p>
+        </div>
+        <div class="card accent-plum">
+          <span class="tag plum">Technical</span>
+          <h3>Pressure-test the build</h3>
+          <p>Does Phase 1 describe a buildable first version? Are the merchant workflows, inventory assumptions, Walmart exceptions, and security choices scoped clearly enough?</p>
+        </div>
+        <div class="card accent-gold">
+          <span class="tag gold">Proposal</span>
+          <h3>Pressure-test the story</h3>
+          <p>Does the recommendation connect the current workflow pain to business impact, and does it make the vault-first sequence feel practical rather than abstract?</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section flow">
+      <div class="card accent-red">
+        <span class="tag red">Today</span>
+        <h2>Digital fulfillment works because specific people know the path.</h2>
+        <p>Orders move through paper, email, local folders, scripts, merchant spreadsheets, encrypted files, and memory. The workflow is trusted, but fragile.</p>
+      </div>
+      <div class="arrow">&rarr;</div>
+      <div class="card accent-green">
+        <span class="tag">After vault</span>
+        <h2>Digital fulfillment becomes a supported operating system.</h2>
+        <p>Orders, card data, merchant-specific steps, generated card files, delivery emails, access records, and cleanup rules are handled in one workflow that Progressive staff can run and Redstamp can support.</p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>What discovery changed</h2>
+      <div class="grid four">
+        <div class="card metric">
+          <strong>3</strong>
+          <h3>Ways cards are fulfilled</h3>
+          <p>Most merchants provide URLs or card files; some require Progressive to generate PDFs from card numbers; Walmart requires just-in-time activation.</p>
+        </div>
+        <div class="card metric">
+          <strong>~5</strong>
+          <h3>PDF generation merchants</h3>
+          <p>Only a smaller group appears to require Progressive to generate card PDFs from raw card data. The exact count should be confirmed against Lloyd's folders.</p>
+        </div>
+        <div class="card metric">
+          <strong>1</strong>
+          <h3>Workflow risk</h3>
+          <p>Too much of the digital process still depends on specific people knowing the steps, folder structure, scripts, and failure paths.</p>
+        </div>
+        <div class="card metric">
+          <strong>0</strong>
+          <h3>Central order record</h3>
+          <p>There is no single place showing who processed an order, which card files were created, what was sent, or what failed along the way.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Roadmap to propose</h2>
+      <div class="roadmap">
+        <article class="phase">
+          <small>Phase 0</small>
+          <h3>Discovery closeout</h3>
+          <p>Package findings, align Redstamp, and show how the signed SOW deliverables were covered.</p>
+          <ul>
+            <li>Runbook structure</li>
+            <li>Security findings</li>
+            <li>Roadmap narrative</li>
+          </ul>
+        </article>
+        <article class="phase">
+          <small>Phase 1</small>
+          <h3>Secure card vault</h3>
+          <p>The recommended first build: a secure internal system for digital gift card inventory and fulfillment.</p>
+          <ul>
+            <li>Order queue</li>
+            <li>Digital card inventory</li>
+            <li>Merchant-aware workflows</li>
+            <li>Order history</li>
+            <li>File cleanup rules</li>
+          </ul>
+        </article>
+        <article class="phase">
+          <small>Phase 2</small>
+          <h3>Order platform and portal</h3>
+          <p>Replace the current Formidable Forms pseudo-commerce flow with a proper account and ordering experience.</p>
+          <ul>
+            <li>Customer accounts</li>
+            <li>Order submission</li>
+            <li>Order history</li>
+            <li>Status and card retrieval</li>
+            <li>Progressive admin tools</li>
+          </ul>
+        </article>
+        <article class="phase">
+          <small>Phase 3</small>
+          <h3>Expansion modules</h3>
+          <p>Add new service layers once the card inventory, fulfillment, and customer account foundations exist.</p>
+          <ul>
+            <li>Recipient delivery service</li>
+            <li>Delivery and redemption reporting</li>
+            <li>Merchant-branded portals</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>What changes for the business</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Current state</th>
+            <th>Future state</th>
+            <th>Business impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Paid digital orders are triggered by paper, email, and operator memory.</td>
+            <td>Paid orders appear in a fulfillment queue with clear status.</td>
+            <td>Staff can see what needs to be fulfilled without relying on one person's desk process.</td>
+          </tr>
+          <tr>
+            <td>Digital inventory lives across merchant spreadsheets, folders, and generated files.</td>
+            <td>Cards are tracked by merchant, denomination, source, and fulfillment status.</td>
+            <td>Fewer mistakes when pulling card numbers, PINs, URLs, or generated PDFs for an order.</td>
+          </tr>
+          <tr>
+            <td>Merchant-specific steps live in scripts, spreadsheets, and memory.</td>
+            <td>The tool guides staff through the right steps for each merchant.</td>
+            <td>Less guesswork across URL pulls, PDF generation, Walmart activation, and delivery prep.</td>
+          </tr>
+          <tr>
+            <td>When a script fails, the team has to reconstruct what happened from files and memory.</td>
+            <td>Each order keeps a record of what was created, sent, skipped, or failed.</td>
+            <td>Support does not depend on Lloyd's memory, screen shares, or guesswork.</td>
+          </tr>
+          <tr>
+            <td>Customers receive card files by email, with limited self-serve history.</td>
+            <td>The vault creates a cleaner foundation for portal access and order history.</td>
+            <td>Progressive can improve the client experience without rebuilding the fulfillment process later.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section band">
+      <h2>Decisions to align on</h2>
+      <div class="grid three">
+        <div class="card accent-blue">
+          <span class="tag blue">Security</span>
+          <h3>Where does card data live?</h3>
+          <p>Default recommendation: Secure Web Vault with clear decisions on who can see card data, how long files stay in the system, and what order activity gets recorded.</p>
+        </div>
+        <div class="card accent-plum">
+          <span class="tag plum">Scope</span>
+          <h3>What is not in V1?</h3>
+          <p>No customer portal, QuickBooks integration, direct-to-recipient delivery, or SystemOne replacement in the first build.</p>
+        </div>
+        <div class="card accent-gold">
+          <span class="tag gold">Expansion</span>
+          <h3>What waits for evidence?</h3>
+          <p>Walmart automation, redemption reporting, white-label portals, and stickering automation should be sequenced after the foundation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Go deeper</h2>
+      <div class="grid links">
+        <div class="card">
+          <h3><a href="./2026-05-21-current-state-workflow-map.html">Current-state workflow</a></h3>
+          <p>The observed order-to-delivery flow, with people, systems, handoffs, and where the process gets fragile.</p>
+        </div>
+        <div class="card">
+          <h3><a href="./2026-05-21-merchant-fulfillment-matrix.html">Merchant fulfillment matrix</a></h3>
+          <p>The three ways Progressive fulfills digital cards today: merchant-provided files, Progressive-generated PDFs, and Walmart activation.</p>
+        </div>
+        <div class="card">
+          <h3><a href="./2026-05-21-security-choices.html">Security choices</a></h3>
+          <p>The practical options for where card data lives, who can support the system, and what Progressive needs to decide.</p>
+        </div>
+        <div class="card">
+          <h3><a href="./2026-05-21-phase-1-mvp-boundary.html">Phase 1 MVP boundary</a></h3>
+          <p>What belongs in the secure card vault first build, what waits, and which questions affect pricing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <h2>Walkthrough arc</h2>
+      <div class="grid five">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. What we saw</td>
+              <td>The workflow works, but depends on a fragile chain of people, files, scripts, and manual checks.</td>
+            </tr>
+            <tr>
+              <td>2. What it means</td>
+              <td>The risk is continuity, supportability, and safe card-data handling, not only customer convenience.</td>
+            </tr>
+            <tr>
+              <td>3. What we recommend</td>
+              <td>Build the secure card vault first.</td>
+            </tr>
+            <tr>
+              <td>4. What changes</td>
+              <td>Progressive gets a repeatable workflow with order history, plus a foundation for customer-facing layers.</td>
+            </tr>
+            <tr>
+              <td>5. What comes next</td>
+              <td>Agree on security posture and MVP boundary, then convert the selected path into the next SOW.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Companion brief: 2026-05-21-progressive-proposal-alignment-brief.md</p>
+    </section>
+  </main>
+</body>
+</html>
