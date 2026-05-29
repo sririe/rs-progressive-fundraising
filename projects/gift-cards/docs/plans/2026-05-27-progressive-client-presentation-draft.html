@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progressive Gift Cards Recommendation Walkthrough</title>
+  <style>
+    :root {
+      --ink: #17201c;
+      --muted: #58645f;
+      --line: #d9ded8;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --green: #246a52;
+      --blue: #2f5d8c;
+      --gold: #b7822f;
+      --red: #a7473b;
+      --soft-green: #e9f2ed;
+      --soft-blue: #e9f0f7;
+      --soft-gold: #f7f0e4;
+      --soft-red: #f6e9e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(36, 106, 82, 0.08), rgba(255, 255, 255, 0) 420px),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.42;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .deck {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      background: rgba(251, 250, 247, 0.9);
+      border-bottom: 1px solid rgba(217, 222, 216, 0.7);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: var(--green);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .slide {
+      min-height: 690px;
+      margin-top: 22px;
+      padding: 44px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 22px 48px rgba(23, 32, 28, 0.07);
+    }
+
+    .slide.hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+      min-height: 720px;
+      background:
+        linear-gradient(135deg, rgba(36, 106, 82, 0.12), rgba(47, 93, 140, 0.08)),
+        var(--panel);
+    }
+
+    .slide.compact {
+      min-height: auto;
+    }
+
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.96;
+    }
+
+    h2 {
+      max-width: 870px;
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1;
+    }
+
+    h3 {
+      font-size: 19px;
+      line-height: 1.15;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin-top: 20px;
+      color: #2f3d37;
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.25;
+    }
+
+    .body-copy {
+      max-width: 820px;
+      margin-top: 22px;
+      font-size: 20px;
+      line-height: 1.36;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .card.green {
+      background: var(--soft-green);
+      border-color: rgba(36, 106, 82, 0.28);
+    }
+
+    .card.blue {
+      background: var(--soft-blue);
+      border-color: rgba(47, 93, 140, 0.28);
+    }
+
+    .card.gold {
+      background: var(--soft-gold);
+      border-color: rgba(183, 130, 47, 0.3);
+    }
+
+    .card.red {
+      background: var(--soft-red);
+      border-color: rgba(167, 71, 59, 0.25);
+    }
+
+    .card p {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    .metric {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 38px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .step {
+      min-height: 138px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid var(--green);
+      border-right: 2px solid var(--green);
+      transform: translateY(-50%) rotate(45deg);
+      background: var(--paper);
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.15;
+    }
+
+    .step span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .compare h3 {
+      margin-bottom: 14px;
+    }
+
+    .list {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 12px 14px;
+      color: #2f3d37;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(217, 222, 216, 0.85);
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .phase {
+      min-height: 360px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .phase .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      color: #fff;
+      background: var(--green);
+      border-radius: 999px;
+      font-weight: 850;
+    }
+
+    .phase.phase-two .number {
+      background: var(--blue);
+    }
+
+    .phase.phase-three .number {
+      background: var(--gold);
+    }
+
+    .phase ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .phase li {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .quote {
+      max-width: 740px;
+      margin-top: 30px;
+      padding-left: 22px;
+      border-left: 5px solid var(--green);
+      color: #2f3d37;
+      font-size: 28px;
+      line-height: 1.22;
+      font-weight: 760;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .decision {
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .decision strong {
+      display: block;
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .decision span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .notes {
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: rgba(23, 32, 28, 0.04);
+      border: 1px dashed rgba(23, 32, 28, 0.22);
+      border-radius: 8px;
+    }
+
+    .notes strong {
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .notes p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding: 22px 0 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .slide,
+      .slide.hero {
+        min-height: auto;
+        padding: 28px;
+      }
+
+      .slide.hero,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .compare,
+      .roadmap,
+      .decision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .step::after {
+        top: auto;
+        right: 50%;
+        bottom: -8px;
+        transform: translateX(50%) rotate(135deg);
+      }
+    }
+
+    @media print {
+      .topbar {
+        display: none;
+      }
+
+      .deck {
+        width: 100%;
+        padding: 0;
+      }
+
+      .slide {
+        break-after: page;
+        min-height: 0;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .notes {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <div class="topbar">
+      <p>Progressive Gift Cards Phase 1 Proposal Walkthrough · Draft for Gamma</p>
+      <nav class="nav" aria-label="Slide navigation">
+        <a href="#slide-1">1</a>
+        <a href="#slide-2">2</a>
+        <a href="#slide-3">3</a>
+        <a href="#slide-4">4</a>
+        <a href="#slide-5">5</a>
+        <a href="#slide-6">6</a>
+        <a href="#slide-7">7</a>
+        <a href="#slide-8">8</a>
+        <a href="#slide-9">9</a>
+        <a href="#slide-10">10</a>
+        <a href="#slide-11">11</a>
+      </nav>
+    </div>
+
+    <section class="slide hero" id="slide-1">
+      <div>
+        <p class="kicker">Phase 1 proposal walkthrough</p>
+        <h1>Building the operating foundation for digital gift cards</h1>
+        <p class="lead">Discovery gave us a clear end-to-end view of how digital gift card orders are processed today. The biggest opportunity is to turn a manual, brittle fulfillment workflow into one Progressive’s team can run securely and repeatedly.</p>
+      </div>
+      <div class="card green">
+        <p class="kicker">Recommended first build</p>
+        <h3>Secure Card Vault and Fulfillment Tool</h3>
+        <p>A secure internal system for paid digital gift card orders, digital inventory, merchant-specific fulfillment steps, customer-ready files, and order history.</p>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>Open with what discovery unlocked: a complete view of the current digital fulfillment workflow. The recommendation should feel like it came from seeing the work end to end, not from reversing a previous recommendation.</p>
+    </aside>
+
+    <section class="slide" id="slide-2">
+      <p class="kicker">What we set out to answer</p>
+      <h2>The discovery engagement was designed to avoid guessing at the build.</h2>
+      <p class="body-copy">In the first walkthrough, we framed digital gift cards as cash-equivalent data and recommended structured discovery before committing to a solution. The work was meant to clarify the current workflow, security boundaries, merchant requirements, and what Progressive should build next.</p>
+      <div class="grid three">
+        <div class="card">
+          <h3>Operational dependency</h3>
+          <p>Understand where fulfillment depended on specific people, local files, scripts, and undocumented steps.</p>
+        </div>
+        <div class="card">
+          <h3>Secure handling</h3>
+          <p>Identify how card numbers, PINs, claim codes, URLs, generated PDFs, and delivery emails move through the process.</p>
+        </div>
+        <div class="card">
+          <h3>Right first build</h3>
+          <p>Decide whether the next step should be card generation, customer access, ordering, or a stronger internal fulfillment foundation.</p>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This slide should map directly to the original Gamma discovery deck: gift cards are cash-equivalent, the current process had visible risk, and discovery was the responsible step before recommending a build.</p>
+    </aside>
+
+    <section class="slide" id="slide-3">
+      <p class="kicker">What discovery showed</p>
+      <h2>The behind-the-scenes workflow carries real risk and is painful to operate.</h2>
+      <p class="body-copy">Digital cards are cash-equivalent. Today they move through a chain of paper, spreadsheets, Google Drive folders, scripts, generated files, email, and person-specific knowledge.</p>
+      <div class="flow" aria-label="Current digital fulfillment workflow">
+        <div class="step">
+          <strong>Order and payment</strong>
+          <span>Website form, QuickBooks invoice, payment confirmation, printed order copy.</span>
+        </div>
+        <div class="step">
+          <strong>Fulfillment trigger</strong>
+          <span>Paid paper order moves back to Mario as the cue to start work.</span>
+        </div>
+        <div class="step">
+          <strong>Merchant handling</strong>
+          <span>Inventory pulled from merchant files, folders, scripts, or activation tools.</span>
+        </div>
+        <div class="step">
+          <strong>Files and email</strong>
+          <span>Customer-ready files, encrypted ZIPs, URLs, passwords, and delivery emails assembled manually.</span>
+        </div>
+        <div class="step">
+          <strong>Support history</strong>
+          <span>What happened is reconstructed from files, email, notes, and operator memory.</span>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>Use a current-state workflow visual. This is the grounding slide. Avoid implying the current team is careless; the issue is that the system depends on people knowing the steps.</p>
+    </aside>
+
+    <section class="slide" id="slide-4">
+      <p class="kicker">The practical risk</p>
+      <h2>The workflow works because specific people know how to run it.</h2>
+      <p class="body-copy">That is the point of fragility. If volume grows, a key person is away, a script fails, a merchant changes its format, or an order needs support later, Progressive does not have one controlled place to see what happened.</p>
+      <div class="grid four">
+        <div class="card red">
+          <h3>Person-dependent</h3>
+          <p>Process knowledge lives with specific people, not in the system.</p>
+        </div>
+        <div class="card red">
+          <h3>Folder-dependent</h3>
+          <p>The workflow relies on the right local and Drive folder structure.</p>
+        </div>
+        <div class="card red">
+          <h3>Script-dependent</h3>
+          <p>Some merchants depend on scripts and templates that are hard for staff to support.</p>
+        </div>
+        <div class="card red">
+          <h3>Email-dependent</h3>
+          <p>Delivery history and support context are split across email and generated files.</p>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This is the risk framing. Consider adding a simple “what happens if Mario or Lloyd is unavailable?” question during the live walkthrough, but avoid making it dramatic.</p>
+    </aside>
+
+    <section class="slide" id="slide-5">
+      <p class="kicker">Recommendation</p>
+      <h2>Build the Secure Card Vault and Fulfillment Tool first.</h2>
+      <p class="body-copy">The vault gives Progressive one controlled internal workflow for paid digital gift card orders, digital inventory, inventory allocation, merchant-specific fulfillment steps, customer-ready files, and order history.</p>
+      <div class="quote">It solves the biggest risk first, can be built as a standalone operating tool, and creates the foundation for the customer portal and future service layers.</div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This should be a clean recommendation slide. Not a menu of equal choices. The point is “this is what we recommend doing first.”</p>
+    </aside>
+
+    <section class="slide" id="slide-6">
+      <p class="kicker">What the vault changes</p>
+      <h2>Progressive gets a repeatable way to process digital orders.</h2>
+      <div class="compare">
+        <div class="card red">
+          <h3>Today</h3>
+          <ul class="list">
+            <li>Paid orders are triggered by paper, email, and operator memory.</li>
+            <li>Inventory lives across merchant spreadsheets, folders, and generated files.</li>
+            <li>Merchant-specific steps live in scripts, templates, and people’s heads.</li>
+            <li>Support history is reconstructed after the fact.</li>
+          </ul>
+        </div>
+        <div class="card green">
+          <h3>After Phase 1</h3>
+          <ul class="list">
+            <li>Website orders can move into pending vault requests through a lightweight handoff or fallback intake method, and staff can still enter ad hoc orders manually.</li>
+            <li>Digital gift card inventory is visible by merchant, denomination, quantity, source, and use.</li>
+            <li>Orders show whether they are ready to fulfill or missing required inventory.</li>
+            <li>Each order records allocation, file creation, status changes, and fulfillment history.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This is likely the most important business-impact slide. Keep language operational and concrete. Phase 1 can include a lightweight WordPress/Formidable handoff into the vault, but not QuickBooks integration or customer delivery automation.</p>
+    </aside>
+
+    <section class="slide" id="slide-7">
+      <p class="kicker">Merchant fulfillment reality</p>
+      <h2>The system should support three different merchant patterns.</h2>
+      <div class="grid three">
+        <div class="card blue">
+          <h3>Merchant-provided digital inventory</h3>
+          <p>Most merchants provide usable card details: URLs, PDFs, card numbers, PINs, access codes, or spreadsheet inventory. Progressive pulls from inventory, prepares the customer-ready file, and delivers it.</p>
+        </div>
+        <div class="card gold">
+          <h3>Progressive-generated PDFs</h3>
+          <p>A smaller group, including Amazon, Loblaws, and Shoppers Drug Mart, requires Progressive to generate card PDFs from raw card data.</p>
+        </div>
+        <div class="card green">
+          <h3>Walmart</h3>
+          <p>Walmart is a separate just-in-time activation flow with its own activation tool, generated PDFs, and monthly reconciliation requirements.</p>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This slide replaces vague “fulfillment patterns” language with concrete labels. If the team wants to include “5 of 28,” add it only with the caveat that it came from discovery and should be validated against actual merchant folders.</p>
+    </aside>
+
+    <section class="slide" id="slide-8">
+      <p class="kicker">Roadmap</p>
+      <h2>Sequence the work so each phase makes the next one easier.</h2>
+      <div class="roadmap">
+        <div class="phase">
+          <span class="number">1</span>
+          <h3>Secure card vault</h3>
+          <p>Internal fulfillment foundation for pending digital orders, manual/admin orders, card inventory, merchant workflows, customer-ready files, and order history.</p>
+          <ul>
+            <li>Operational risk reduction</li>
+            <li>Secure handling of card data</li>
+            <li>Supportable process for staff</li>
+          </ul>
+        </div>
+        <div class="phase phase-two">
+          <span class="number">2</span>
+          <h3>Order platform and customer portal</h3>
+          <p>Replace or upgrade the current Formidable Forms pseudo-commerce flow with customer accounts, order submission, order history, status, retrieval, QuickBooks integration, and deeper Card Vault integration.</p>
+          <ul>
+            <li>Better customer experience</li>
+            <li>Cleaner admin tools</li>
+            <li>Paid-order status flowing into fulfillment</li>
+          </ul>
+        </div>
+        <div class="phase phase-three">
+          <span class="number">3</span>
+          <h3>Service expansion modules</h3>
+          <p>Add capabilities once the foundation exists, including recipient delivery, reporting where merchants allow it, and merchant-branded portals.</p>
+          <ul>
+            <li>New service layers</li>
+            <li>Partnership opportunities</li>
+            <li>More controlled distribution</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>Use this as the roadmap slide. The language should show flexibility without making Phase 1 feel optional.</p>
+    </aside>
+
+    <section class="slide" id="slide-9">
+      <p class="kicker">Phase 1 boundary</p>
+      <h2>The first build should stay focused on internal fulfillment.</h2>
+      <div class="compare">
+        <div class="card green">
+          <h3>Include in Phase 1</h3>
+          <ul class="list">
+            <li>Website order handoff into pending vault requests, or an agreed fallback intake method, plus manual/admin order creation.</li>
+            <li>Fulfillment dashboard, request list, request detail, open/closed status, and payment-status tracking.</li>
+            <li>Digital Card Vault with CSV import, merchant/denomination inventory counts, allocation, and status.</li>
+            <li>Customer-ready CSV/export creation once inventory is allocated.</li>
+            <li>Order activity history for key actions: created, paid, allocated, exported, closed, deleted, or returned to inventory.</li>
+            <li>Production security foundation: authenticated access, roles, encrypted card data, backups, logging, and separate staging/production environments.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Keep outside Phase 1 unless we deliberately expand scope</h3>
+          <ul class="list">
+            <li>Full customer portal or customer account system.</li>
+            <li>Replacing the entire public ordering experience.</li>
+            <li>QuickBooks invoice creation or accounting integration.</li>
+            <li>Direct recipient delivery as a managed service.</li>
+            <li>Secure delivery portal, download links, and customer access logging.</li>
+            <li>Automated delivery emails from the vault.</li>
+            <li>Direct merchant integrations or automatic card issuing.</li>
+            <li>Automation of third-party merchant websites, activation portals, or login-based merchant workflows.</li>
+            <li>Walmart monthly reconciliation automation.</li>
+            <li>Full physical card warehouse/pick-pack workflow.</li>
+            <li>Redemption reporting where merchant data is not available.</li>
+            <li>Merchant-branded portals.</li>
+            <li>Additional merchant formats or file-creation rules beyond the agreed Phase 1 set.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This slide protects scope. It should make the SOW easier for Doug/Gord to approve because Phase 1 is clearly bounded.</p>
+    </aside>
+
+    <section class="slide" id="slide-10">
+      <p class="kicker">Phase 1 proposal</p>
+      <h2>Recommended build: Secure Card Vault and Fulfillment Tool.</h2>
+      <div class="decision-grid">
+        <div class="decision">
+          <strong>Recommended project fee</strong>
+          <span>$32,000 CAD plus tax for the scoped Phase 1 build.</span>
+        </div>
+        <div class="decision">
+          <strong>Estimated timeline</strong>
+          <span>6-8 weeks from kickoff, assuming timely access, source materials, decisions, and consolidated feedback.</span>
+        </div>
+        <div class="decision">
+          <strong>Core workflow</strong>
+          <span>Pending order intake, manual/admin order entry, fulfillment queue, payment-status updates, inventory allocation, customer-ready file creation, and closeout.</span>
+        </div>
+        <div class="decision">
+          <strong>Inventory view</strong>
+          <span>Track digital gift cards by merchant, denomination, quantity, source, status, allocation, and use.</span>
+        </div>
+        <div class="decision">
+          <strong>Secure handling</strong>
+          <span>Authenticated admin access, role-based permissions, field-level encryption for card numbers/PINs, restricted production access, backups, and action history.</span>
+        </div>
+        <div class="decision">
+          <strong>Support path</strong>
+          <span>Launch support is included. Ongoing maintenance or operational support can be handled through a separate support agreement or approved T&amp;M request.</span>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>This is the high-level proposal slide. It should now match the SOW posture: fixed recommended Phase 1 fee, 6-8 week timeline, lightweight website-to-vault handoff or fallback intake, and QuickBooks/customer delivery automation held for later phases.</p>
+    </aside>
+
+    <section class="slide" id="slide-11">
+      <p class="kicker">Recommended next step</p>
+      <h2>Review and approve the Phase 1 SOW.</h2>
+      <p class="body-copy">If Progressive agrees with the recommendation, the next step is approval of the Phase 1 Statement of Work so Redstamp can move into kickoff, production planning, and implementation.</p>
+      <div class="grid three">
+        <div class="card green">
+          <h3>Confirm direction</h3>
+          <p>Phase 1 focuses on the Secure Card Vault and Fulfillment Tool.</p>
+        </div>
+        <div class="card blue">
+          <h3>Approve SOW</h3>
+          <p>Progressive approves the scoped fee, timeline, payment schedule, assumptions, and out-of-scope boundaries.</p>
+        </div>
+        <div class="card gold">
+          <h3>Keep the roadmap visible</h3>
+          <p>Phase 2 and Phase 3 remain sequenced options, not distractions from the first build.</p>
+        </div>
+      </div>
+    </section>
+    <aside class="notes">
+      <strong>Presenter note / Gamma direction</strong>
+      <p>End with a simple call to action. For the live call, the desired outcome is alignment on the recommendation and a clear path to SOW approval.</p>
+    </aside>
+
+    <p class="footer">Draft source: projects/gift-cards/docs/plans/2026-05-27-progressive-client-presentation-draft.html · Intended workflow: refine here, then move selected slide content into Gamma.</p>
+  </main>
+</body>
+</html>
