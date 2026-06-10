@@ -35,25 +35,22 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
   waiting on the detailed response Spencer promised June 8.
 - **National Zakat Foundation call:** Spencer agreed June 8 to join; still needs scheduling (Stephanie
   to send times per the reply draft). Background: Doug's April 20 forward "Fwd: Touching Base"
-  (thread `19dab86ecc934f1f`) — NZF wants direct-to-recipient delivery + redemption reporting. The
-  drafted April 27 reply (`projects/gift-cards/docs/plans/2026-04-27-doug-distribution-client-response-draft.md`)
-  was **never sent**; its qualifying questions are still unasked.
+  (thread `19dab86ecc934f1f`) — NZF wants direct-to-recipient delivery + redemption reporting. An April 27
+  reply was drafted but never sent and was deleted as moot on 2026-06-10 (Spencer's call); its qualifying
+  questions (prior order scale, what "exactly what they need" means, who the recipients are, target dates)
+  remain unasked — ask them on or before the call.
 - No open PRs or tracker issues (repo has no tracker).
 
 ## Repo state
 
 - This session's work is on branch `claude/romantic-meitner-551fbc` (pushed to origin), 1 commit ahead
   of `origin/main`. Merge to main after Spencer ratifies the decision sheet (or sooner — docs are inert).
-- **Stale branches/worktrees flagged for deletion (not deleted — confirm first):**
-  - `sririe/doug-update-email` @ conductor worktree `~/conductor/workspaces/rs-progressive-fundraising/chicago-v1`
-    — 0 commits ahead of main, clean tree, 5 behind. No unique work; the email it was for was never sent
-    from that branch and the topic was overtaken by the June 8 reply. Branch + worktree removable.
-  - `claude/bold-elgamal` @ `.claude/worktrees/bold-elgamal` — 1 unpushed commit, but its only file
-    (`docs/discovery-prep-2026-03-27.md`) is fully superseded by
-    `projects/gift-cards/docs/discovery/2026-03-27-discovery-session-prep.md` on main (diff = frontmatter
-    only). Removable after eyeball confirmation.
-  - `claude/xenodochial-wilson`, `claude/eloquent-fermi`, `sririe/progressive-lloyd-meeting` — all at
-    f30d6e7, an ancestor of main; provably merged, removable (the last also has a remote branch to delete).
+- **Hygiene done 2026-06-10 (Spencer-approved):** removed `sririe/doug-update-email` branch + its conductor
+  worktree (`chicago-v1`; 0 unique commits, clean) and `claude/bold-elgamal` branch + worktree (its one
+  unpushed commit was fully superseded on main). Deleted the never-sent April 27 Doug reply draft doc.
+- **Still flagged, awaiting Spencer's read-through:** `claude/xenodochial-wilson` (+ worktree),
+  `claude/eloquent-fermi`, `sririe/progressive-lloyd-meeting` (+ its remote branch) — all at f30d6e7, an
+  ancestor of main; provably merged, removable on confirmation.
 
 ## Runtime & environment
 
@@ -78,7 +75,8 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
 4. Finalize and send the Doug reply (`2026-06-10-doug-reply-draft.md`) with the revised responses.
 5. Send the consolidated fixture-package ask (section C) — the April 27 version was drafted but never sent.
 6. Schedule the NZF call; quietly confirm who James is before the walkthrough call.
-7. Hygiene: delete the stale branches/worktrees listed above after confirmation; merge this branch to main.
+7. Hygiene: delete the remaining flagged branches (`claude/xenodochial-wilson`, `claude/eloquent-fermi`,
+   `sririe/progressive-lloyd-meeting` + remote) after Spencer's read-through; merge this branch to main.
 
 ## Blockers
 
