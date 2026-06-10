@@ -2,6 +2,9 @@
 
 This file provides guidance to Codex (Codex.ai/code) when working in this repository.
 
+> **Session start:** read `docs/status/current.md` for current focus, in-flight work, and next steps.
+> **Session end:** update it following its section structure (full procedure: the Aurora `wrapup` skill, where installed).
+
 ## Project Overview
 
 This is a knowledge work repository for the **Progressive Gift Cards** client engagement. Progressive is a corporate bulk gift card fulfillment business. Redstamp is engaged as a long-term technology partner.
