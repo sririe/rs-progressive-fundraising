@@ -31,6 +31,15 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
   (slug `26niwbyj`, title "Progressive Gift Cards - Client Technical Questions", rev 32 at read time).
   Share token: not stored here — it's a capability credential; get it from Spencer's session prompt or
   Tim/Proof share settings.
+- **Ratification status (2026-06-10):** Spencer reviewed the reconciliation in Proof (slug `f7n13d69`;
+  credentials in `projects/gift-cards/_private/proof-reconciliation-doc.json`, git-ignored) and ratified
+  D-1 (staffing-agnostic caveat: never anchor scope on Mario by name — tenure uncertain), D-2, D-4–D-12,
+  T-1 via comments. **Still open: D-3 (Amazon output), D-13 (rate), D-14 (payment schedule), D-15 (new —
+  export password handling model, from his Q7 comment).** James identified (believed): Doug's son-in-law,
+  advisor, non-software engineering background, there to give Doug confidence — see CLIENT.md.
+- **Transcript check finding:** discovery captured the 22-brand storefront list and "~5 of 28 folders need
+  generation" but never enumerated the 28; merchant-list ask to Doug should be confirm/correct style, not
+  open-ended (see reconciliation doc, section C note).
 - **Client thread:** Gmail "RE: Reschedule Needed-Phase 1 Proposal" (thread `19e9a0905b082b87`) — Doug
   waiting on the detailed response Spencer promised June 8.
 - **National Zakat Foundation call:** Spencer agreed June 8 to join; still needs scheduling (Stephanie

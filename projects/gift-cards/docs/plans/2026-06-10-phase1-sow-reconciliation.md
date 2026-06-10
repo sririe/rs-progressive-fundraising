@@ -73,6 +73,8 @@ Also noted: Doug's June 5 email introduces **James** as a technical reviewer alo
 
 *Single checklist replacing the per-question asks scattered through the Proof doc. Framing for the client: "a folder dump is fine — we'll sort and inventory it."*
 
+*Transcript check (2026-06-10, prompted by Spencer's Proof comment): discovery DID capture the shape — the 22-brand storefront list (March 19 prework sheet) and Mario's "~5 of 28 digital merchant folders require in-house generation" — but 14 of 22 prework rows were explicitly marked "Needs validation," and the 28 folders were counted, never enumerated (the 22-vs-28 gap is likely inactive script merchants: Uber, Hudsons Bay, Browns Social House, Master Card). So the lists below are not a discovery re-ask: send our reconstruction and ask Progressive to **confirm/correct** rather than answer from scratch. Format validation itself is Phase 1A work, not a pre-SOW ask.*
+
 **Files (the fixture package — most from Lloyd):**
 - [ ] `utilities.py` (imported by the Amazon generator)
 - [ ] `make-zip.ps1` (password-protected ZIP creation)
@@ -85,7 +87,7 @@ Also noted: Doug's June 5 email introduces **James** as a technical reviewer alo
 - [ ] SystemOne (ecard.proegiftcards.ca) samples: upload ZIP naming, log/export examples, URL format, any API notes
 - [ ] Examples of successful AND failed Walmart activation results
 
-**Lists and confirmations (Doug/Mario):**
+**Lists and confirmations (Doug / office staff — keep staffing-agnostic per Spencer; Mario's tenure uncertain):**
 - [ ] Current active digital merchant list (which of the 22 storefront brands are actually sold today)
 - [ ] Current digital fulfillment folder list (which merchants Progressive actually fulfills)
 - [ ] Whether all Loblaws banners (Superstore/PC/No Frills/Extra Foods/Provigo) share one format, and whether Shoppers shares it

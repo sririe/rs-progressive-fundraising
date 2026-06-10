@@ -91,6 +91,16 @@
 
 * <span data-proof="authored" data-by="ai:claude">Non-technical — any future system needs to be operable without developer support</span>
 
+### James — Advisor (role unconfirmed)
+
+* Believed to be Doug's son-in-law; joined Progressive as an advisor (surfaced in Doug's June 5, 2026 email as a technical reviewer of the Phase 1 proposal alongside Lloyd)
+
+* Engineering background (not software) per Spencer; technical enough to review proposals
+
+* Primary function appears to be supporting Doug and giving him confidence in technical decisions — write for reassurance and concreteness, not technical depth
+
+* Confirm role/title on the next call before the Phase 1 walkthrough
+
 ## <span data-proof="authored" data-by="ai:claude">Engagement History</span>
 
 | <span data-proof="authored" data-by="ai:claude">Date</span>         | <span data-proof="authored" data-by="ai:claude">Engagement</span>                              | <span data-proof="authored" data-by="ai:claude">Type</span>      | <span data-proof="authored" data-by="ai:claude">Status</span>                         |
