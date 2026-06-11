@@ -75,19 +75,22 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
 
 ## Next steps
 
-1. **Spencer: ratify or override the decision sheet** —
-   `projects/gift-cards/docs/plans/2026-06-10-phase1-decision-sheet.md` (14 ours / 6 theirs, each with a
-   recommended default).
-2. ~~Rewrite Tim's Proof responses in place~~ **Superseded (Spencer, 2026-06-10):** the client-facing
-   responses doc `projects/gift-cards/docs/plans/2026-06-10-phase1-technical-responses-to-doug.md` is now
-   the deliverable — Spencer sends it directly to Doug. Tim's Proof doc 26niwbyj is superseded; whether
-   Tim reviews the new version before send is Spencer's call (flagged in the doc's review notes).
-3. Apply the 14 SOW deltas (section D of the reconciliation doc) to
-   `projects/gift-cards/docs/plans/2026-05-27-progressive-secure-card-vault-sow-draft.md`.
-4. Finalize and send the Doug reply (`2026-06-10-doug-reply-draft.md`) with the revised responses.
-5. Send the consolidated fixture-package ask (section C) — the April 27 version was drafted but never sent.
-6. Schedule the NZF call; quietly confirm who James is before the walkthrough call.
-7. Hygiene: delete the remaining flagged branches (`claude/xenodochial-wilson`, `claude/eloquent-fermi`,
+1. **SENT 2026-06-10 5:42 PM PT:** Spencer emailed the full technical responses (hand-tweaked) to Doug on
+   the existing thread — verbatim record:
+   `projects/gift-cards/docs/plans/2026-06-10-phase1-responses-email-sent.md`. The email included the
+   consolidated confirmations + fixture-package ask, so that request is now officially out. Awaiting
+   Doug's confirmations and materials.
+2. When Doug confirms: apply the 14 SOW deltas (section D of the reconciliation doc) to
+   `projects/gift-cards/docs/plans/2026-05-27-progressive-secure-card-vault-sow-draft.md` — the email
+   promised "clarifying language in the SOW" worked with Stephanie. Resolve D-13 (rate $160 vs $150) and
+   D-14 (payment schedule) then; D-3 was resolved by the sent email (Amazon = PDF/ZIP only, hosted-URL
+   option cut); D-15 password model went to the client as proposed.
+3. Draft the support proposal (options + pricing) to accompany the updated SOW — promised in the email's
+   Q10 answer.
+4. Schedule the NZF call (agreed June 8, dropped from the sent email — needs its own thread/Stephanie).
+5. New context from the sent email's closing: Doug has **ongoing discussions with the Walmart team about a
+   direct integration** — explicitly not scoped/priced; recommended as a future phase. Track for roadmap.
+6. Hygiene: delete the remaining flagged branches (`claude/xenodochial-wilson`, `claude/eloquent-fermi`,
    `sririe/progressive-lloyd-meeting` + remote) after Spencer's read-through; merge this branch to main.
 
 ## Blockers

@@ -3,7 +3,7 @@ title: "Reply to Doug — Phase 1 Technical Questions (accompanies revised respo
 type: plan
 category: client-email
 date: 2026-06-10
-status: draft
+status: superseded  # unused — responses went in the email body directly; sent record: 2026-06-10-phase1-responses-email-sent.md
 tags:
   - progressive
   - doug

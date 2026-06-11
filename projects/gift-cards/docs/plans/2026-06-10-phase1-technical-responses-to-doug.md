@@ -3,7 +3,7 @@ title: "Phase 1 Technical Responses — Client-Facing Document for Doug"
 type: plan
 category: client-deliverable
 date: 2026-06-10
-status: draft
+status: superseded  # sent 2026-06-10 with Spencer hand-edits; verbatim sent version: 2026-06-10-phase1-responses-email-sent.md
 tags:
   - progressive
   - phase-1
