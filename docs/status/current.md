@@ -78,9 +78,10 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
 1. **Spencer: ratify or override the decision sheet** —
    `projects/gift-cards/docs/plans/2026-06-10-phase1-decision-sheet.md` (14 ours / 6 theirs, each with a
    recommended default).
-2. After ratification: rewrite Tim's Proof responses (slug `26niwbyj`) to the reconciled positions via the
-   Proof agent API (edit endpoint), resolving the 6 divergences listed in the reconciliation doc — Tim
-   reviews in place.
+2. ~~Rewrite Tim's Proof responses in place~~ **Superseded (Spencer, 2026-06-10):** the client-facing
+   responses doc `projects/gift-cards/docs/plans/2026-06-10-phase1-technical-responses-to-doug.md` is now
+   the deliverable — Spencer sends it directly to Doug. Tim's Proof doc 26niwbyj is superseded; whether
+   Tim reviews the new version before send is Spencer's call (flagged in the doc's review notes).
 3. Apply the 14 SOW deltas (section D of the reconciliation doc) to
    `projects/gift-cards/docs/plans/2026-05-27-progressive-secure-card-vault-sow-draft.md`.
 4. Finalize and send the Doug reply (`2026-06-10-doug-reply-draft.md`) with the revised responses.
