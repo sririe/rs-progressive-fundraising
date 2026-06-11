@@ -1,8 +1,8 @@
-# <span data-proof="authored" data-by="ai:claude">Client Context — Progressive</span>
+# Client Context — Progressive
 
-> **<span data-proof="authored" data-by="ai:claude">Purpose:</span>** <span data-proof="authored" data-by="ai:claude">Structured client reference for agent consumption. Skills (SOW drafting, client emails, strategy docs) read this file for client-specific details rather than requiring them as manual inputs each time.</span>
+> **Purpose:** Structured client reference for agent consumption. Skills (SOW drafting, client emails, strategy docs) read this file for client-specific details rather than requiring them as manual inputs each time.
 >
-> **<span data-proof="authored" data-by="ai:claude">Last updated:</span>** <span data-proof="authored" data-by="ai:claude">2026-05-21</span>
+> **Last updated:** 2026-05-21
 
 ***
 
@@ -17,79 +17,79 @@
 
 **Google Drive structure:** Project folders follow `Project - <Name>` convention. `_Client Shared Folder` is for client-facing deliverables. `_Client Level Agreements` holds signed SOWs/SAs. `_Solutions` holds internal solution documentation.
 
-## <span data-proof="authored" data-by="ai:claude">Legal & Administrative</span>
+## Legal & Administrative
 
-| <span data-proof="authored" data-by="ai:claude">Field</span>                     | <span data-proof="authored" data-by="ai:claude">Value</span>                                       |
+| Field                     | Value                                       |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **<span data-proof="authored" data-by="ai:claude">Legal entity name</span>**     | Progressive Fundraising Inc.                                                                       |
-| **<span data-proof="authored" data-by="ai:claude">Doing business as</span>**     | <span data-proof="authored" data-by="ai:claude">Progressive</span>                                 |
-| **<span data-proof="authored" data-by="ai:claude">Jurisdiction</span>**          | <span data-proof="authored" data-by="ai:claude">[Province/Territory, Canada — needs lookup]</span> |
-| **<span data-proof="authored" data-by="ai:claude">Address for notices</span>**   | <span data-proof="authored" data-by="ai:claude">[needs lookup]</span>                              |
-| **<span data-proof="authored" data-by="ai:claude">Primary contact email</span>** | <span data-proof="authored" data-by="ai:claude">[needs lookup]</span>                              |
-| **<span data-proof="authored" data-by="ai:claude">Currency</span>**              | <span data-proof="authored" data-by="ai:claude">CAD</span>                                         |
+| **Legal entity name**     | Progressive Fundraising Inc.                                                                       |
+| **Doing business as**     | Progressive                                 |
+| **Jurisdiction**          | [Province/Territory, Canada — needs lookup] |
+| **Address for notices**   | [needs lookup]                              |
+| **Primary contact email** | [needs lookup]                              |
+| **Currency**              | CAD                                         |
 
-## <span data-proof="authored" data-by="ai:claude">Services Agreement</span>
+## Services Agreement
 
-| <span data-proof="authored" data-by="ai:claude">Field</span>             | <span data-proof="authored" data-by="ai:claude">Value</span>            |
+| Field             | Value            |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| **<span data-proof="authored" data-by="ai:claude">SA status</span>**     | Active                                                                  |
-| **<span data-proof="authored" data-by="ai:claude">SA date</span>**       | February 21, 2024                                                       |
-| **<span data-proof="authored" data-by="ai:claude">SA parties</span>**    | Red Stamp Agency Inc. and Progressive Fundraising Inc.                  |
-| **<span data-proof="authored" data-by="ai:claude">Governing law</span>** | <span data-proof="authored" data-by="ai:claude">British Columbia</span> |
+| **SA status**     | Active                                                                  |
+| **SA date**       | February 21, 2024                                                       |
+| **SA parties**    | Red Stamp Agency Inc. and Progressive Fundraising Inc.                  |
+| **Governing law** | British Columbia |
 
-## <span data-proof="authored" data-by="ai:claude">Rate & Billing</span>
+## Rate & Billing
 
-| <span data-proof="authored" data-by="ai:claude">Field</span>               | <span data-proof="authored" data-by="ai:claude">Value</span>                                                       |
+| Field               | Value                                                       |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **<span data-proof="authored" data-by="ai:claude">Current rate</span>**    | <span data-proof="authored" data-by="ai:claude">$150 CAD/hr</span>                                                 |
-| **<span data-proof="authored" data-by="ai:claude">Rate history</span>**    | <span data-proof="authored" data-by="ai:claude">$150 CAD/hr (2025–present)</span>                                  |
-| **<span data-proof="authored" data-by="ai:claude">Payment terms</span>**   | <span data-proof="authored" data-by="ai:claude">NET 7 on deposits, NET 30 on completion milestones</span>          |
-| **<span data-proof="authored" data-by="ai:claude">Billing tool</span>**    | <span data-proof="authored" data-by="ai:claude">Harvest</span>                                                     |
-| **<span data-proof="authored" data-by="ai:claude">Invoicing notes</span>** | <span data-proof="authored" data-by="ai:claude">[Confirm — does Progressive pay via cheque, EFT, or other?]</span> |
+| **Current rate**    | $150 CAD/hr                                                 |
+| **Rate history**    | $150 CAD/hr (2025–present)                                  |
+| **Payment terms**   | NET 7 on deposits, NET 30 on completion milestones          |
+| **Billing tool**    | Harvest                                                     |
+| **Invoicing notes** | [Confirm — does Progressive pay via cheque, EFT, or other?] |
 
-## <span data-proof="authored" data-by="ai:claude">Stakeholders</span>
+## Stakeholders
 
 ### Doug Beers — President
 
-* <span data-proof="authored" data-by="ai:claude">Decision-maker for all investment and strategic direction</span>
+* Decision-maker for all investment and strategic direction
 
-* <span data-proof="authored" data-by="ai:claude">Open to technology investment but needs guidance on prioritization</span>
+* Open to technology investment but needs guidance on prioritization
 
-* <span data-proof="authored" data-by="ai:claude">Wants Redstamp to act as an advisor, not just a builder</span>
+* Wants Redstamp to act as an advisor, not just a builder
 
-* <span data-proof="authored" data-by="ai:claude">Tends to expand scope in conversation — bring up adjacent pain points (stickering, invoicing) alongside the primary topic</span>
+* Tends to expand scope in conversation — bring up adjacent pain points (stickering, invoicing) alongside the primary topic
 
-* <span data-proof="authored" data-by="ai:claude">Will be away in April 2026 — scheduling sessions around his availability is a recurring constraint</span>
+* Will be away in April 2026 — scheduling sessions around his availability is a recurring constraint
 
-* <span data-proof="authored" data-by="ai:claude">Signs on behalf of Progressive</span>
+* Signs on behalf of Progressive
 
-### <span data-proof="authored" data-by="ai:claude">Gord S. — Advisor</span>
+### Gord S. — Advisor
 
-* <span data-proof="authored" data-by="ai:claude">Involved in sales pitches to vendors (Save-on-Foods, Sequoia)</span>
+* Involved in sales pitches to vendors (Save-on-Foods, Sequoia)
 
-* <span data-proof="authored" data-by="ai:claude">More cautious than Doug on scope — questions whether capabilities like end-recipient delivery justify the complexity and liability</span>
+* More cautious than Doug on scope — questions whether capabilities like end-recipient delivery justify the complexity and liability
 
-* <span data-proof="authored" data-by="ai:claude">Important voice in go/no-go decisions on new service offerings</span>
+* Important voice in go/no-go decisions on new service offerings
 
-### <span data-proof="authored" data-by="ai:claude">Lloyd S. — Technical Contractor</span>
+### Lloyd S. — Technical Contractor
 
-* <span data-proof="authored" data-by="ai:claude">Built all digital card generation scripts — sole knowledge holder for the digital fulfillment pipeline</span>
+* Built all digital card generation scripts — sole knowledge holder for the digital fulfillment pipeline
 
-* <span data-proof="authored" data-by="ai:claude">Handles Walmart, Amazon, Loblaws, Chapters vendor workflows</span>
+* Handles Walmart, Amazon, Loblaws, Chapters vendor workflows
 
-* <span data-proof="authored" data-by="ai:claude">Has been direct about wanting his role automated</span>
+* Has been direct about wanting his role automated
 
-* <span data-proof="authored" data-by="ai:claude">Participated in the March 27, 2026 workflow deep dive and shared initial technical materials for Redstamp review on April 22, 2026</span>
+* Participated in the March 27, 2026 workflow deep dive and shared initial technical materials for Redstamp review on April 22, 2026
 
-* <span data-proof="authored" data-by="ai:claude">Working relationship with Mario as backup</span>
+* Working relationship with Mario as backup
 
-### <span data-proof="authored" data-by="ai:claude">Mario — Operations</span>
+### Mario — Operations
 
-* <span data-proof="authored" data-by="ai:claude">Being trained as Lloyd's backup for digital card processes</span>
+* Being trained as Lloyd's backup for digital card processes
 
-* <span data-proof="authored" data-by="ai:claude">Has been running the digital fulfillment process day-to-day, but remains dependent on Lloyd when scripts or edge cases break</span>
+* Has been running the digital fulfillment process day-to-day, but remains dependent on Lloyd when scripts or edge cases break
 
-* <span data-proof="authored" data-by="ai:claude">Non-technical — any future system needs to be operable without developer support</span>
+* Non-technical — any future system needs to be operable without developer support
 
 ### James — Advisor (role unconfirmed)
 
@@ -101,47 +101,47 @@
 
 * Confirm role/title on the next call before the Phase 1 walkthrough
 
-## <span data-proof="authored" data-by="ai:claude">Engagement History</span>
+## Engagement History
 
-| <span data-proof="authored" data-by="ai:claude">Date</span>         | <span data-proof="authored" data-by="ai:claude">Engagement</span>                              | <span data-proof="authored" data-by="ai:claude">Type</span>      | <span data-proof="authored" data-by="ai:claude">Status</span>                         |
+| Date         | Engagement                              | Type      | Status                         |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| <span data-proof="authored" data-by="ai:claude">[historical]</span> | <span data-proof="authored" data-by="ai:claude">Operational assessment</span>                  | <span data-proof="authored" data-by="ai:claude">Discovery</span> | <span data-proof="authored" data-by="ai:claude">Complete</span>                       |
-| <span data-proof="authored" data-by="ai:claude">[historical]</span> | <span data-proof="authored" data-by="ai:claude">Commerce integration (Formidable Forms)</span> | <span data-proof="authored" data-by="ai:claude">Fixed-fee</span> | <span data-proof="authored" data-by="ai:claude">Complete</span>                       |
-| <span data-proof="authored" data-by="ai:claude">2025–present</span> | <span data-proof="authored" data-by="ai:claude">Ongoing website support</span>                 | <span data-proof="authored" data-by="ai:claude">Retainer</span>  | <span data-proof="authored" data-by="ai:claude">Active</span>                         |
-| <span data-proof="authored" data-by="ai:claude">2026-03</span>      | <span data-proof="authored" data-by="ai:claude">Digital gift card fulfillment discovery</span> | <span data-proof="authored" data-by="ai:claude">Discovery</span> | <span data-proof="authored" data-by="ai:claude">Signed SOW; discovery sessions complete; proposal recommendation in progress</span> |
+| [historical] | Operational assessment                  | Discovery | Complete                       |
+| [historical] | Commerce integration (Formidable Forms) | Fixed-fee | Complete                       |
+| 2025–present | Ongoing website support                 | Retainer  | Active                         |
+| 2026-03      | Digital gift card fulfillment discovery | Discovery | Signed SOW; discovery sessions complete; proposal recommendation in progress |
 
-## <span data-proof="authored" data-by="ai:claude">Recent Discovery Status</span>
+## Recent Discovery Status
 
-* <span data-proof="authored" data-by="ai:claude">Discovery SOW is signed. The engagement should now be treated as active/completed discovery work moving into recommendation and proposal synthesis, not as a pending sales document.</span>
+* Discovery SOW is signed. The engagement should now be treated as active/completed discovery work moving into recommendation and proposal synthesis, not as a pending sales document.
 
-* <span data-proof="authored" data-by="ai:claude">March 27, 2026 on-site/remote discovery sessions with Lloyd, Mario, Doug, Danny, and Spencer captured the digital fulfillment workflow, Mario handoff state, Lloyd script behavior, and adjacent physical/invoicing context.</span>
+* March 27, 2026 on-site/remote discovery sessions with Lloyd, Mario, Doug, Danny, and Spencer captured the digital fulfillment workflow, Mario handoff state, Lloyd script behavior, and adjacent physical/invoicing context.
 
-* <span data-proof="authored" data-by="ai:claude">Follow-up technical review with Lloyd is no longer outstanding. Lloyd provided initial materials on April 22, 2026, including two Python scripts and a sample Amazon workbook; Spencer reviewed them April 23, 2026.</span>
+* Follow-up technical review with Lloyd is no longer outstanding. Lloyd provided initial materials on April 22, 2026, including two Python scripts and a sample Amazon workbook; Spencer reviewed them April 23, 2026.
 
-* <span data-proof="authored" data-by="ai:claude">The current recommendation has shifted from a customer portal/card generation tool first to a secure card vault first, with customer-facing portal, direct-to-recipient distribution, redemption reporting, and white-label portals sequenced as roadmap layers.</span>
+* The current recommendation has shifted from a customer portal/card generation tool first to a secure card vault first, with customer-facing portal, direct-to-recipient distribution, redemption reporting, and white-label portals sequenced as roadmap layers.
 
-* <span data-proof="authored" data-by="ai:claude">Remaining internal work is proposal alignment: collapse the discovery findings into a concise Redstamp recommendation, validate implementation shape with Tim, and prepare a Progressive-facing walkthrough.</span>
+* Remaining internal work is proposal alignment: collapse the discovery findings into a concise Redstamp recommendation, validate implementation shape with Tim, and prepare a Progressive-facing walkthrough.
 
-## <span data-proof="authored" data-by="ai:claude">Communication Patterns</span>
+## Communication Patterns
 
-* **<span data-proof="authored" data-by="ai:claude">Primary channel:</span>** <span data-proof="authored" data-by="ai:claude">Email and scheduled calls</span>
+* **Primary channel:** Email and scheduled calls
 
-* **<span data-proof="authored" data-by="ai:claude">Client sophistication:</span>** <span data-proof="authored" data-by="ai:claude">Low — limited internal technical resources, needs education on process, solutions must be operable without developer support</span>
+* **Client sophistication:** Low — limited internal technical resources, needs education on process, solutions must be operable without developer support
 
-* **<span data-proof="authored" data-by="ai:claude">Communication style:</span>** <span data-proof="authored" data-by="ai:claude">Make Doug feel heard. Reflect his language back. Concrete activities over marketing language. Quick wins to demonstrate immediate value.</span>
+* **Communication style:** Make Doug feel heard. Reflect his language back. Concrete activities over marketing language. Quick wins to demonstrate immediate value.
 
-* **<span data-proof="authored" data-by="ai:claude">Scope management:</span>** <span data-proof="authored" data-by="ai:claude">Doug tends to widen scope in conversation. Acknowledge adjacent topics, capture them, but keep the immediate engagement focused. Earn the right to expand the roadmap through delivered results, not promises.</span>
+* **Scope management:** Doug tends to widen scope in conversation. Acknowledge adjacent topics, capture them, but keep the immediate engagement focused. Earn the right to expand the roadmap through delivered results, not promises.
 
-## <span data-proof="authored" data-by="ai:claude">Business Context</span>
+## Business Context
 
-* <span data-proof="authored" data-by="ai:claude">Progressive is a corporate bulk gift card fulfillment business — one of only two Walmart bulk distributors in Canada</span>
+* Progressive is a corporate bulk gift card fulfillment business — one of only two Walmart bulk distributors in Canada
 
-* <span data-proof="authored" data-by="ai:claude">Physical cards are the established business; digital is growing but constrained by manual fulfillment</span>
+* Physical cards are the established business; digital is growing but constrained by manual fulfillment
 
-* <span data-proof="authored" data-by="ai:claude">Competitive pressure from Fundstream on digital delivery speed</span>
+* Competitive pressure from Fundstream on digital delivery speed
 
-* <span data-proof="authored" data-by="ai:claude">White-label vendor portals (Save-on-Foods, Sequoia) are a future growth opportunity contingent on securing vendor contracts</span>
+* White-label vendor portals (Save-on-Foods, Sequoia) are a future growth opportunity contingent on securing vendor contracts
 
-* <span data-proof="authored" data-by="ai:claude">Payment stays external via Benji Pays — no credit card processing on-site</span>
+* Payment stays external via Benji Pays — no credit card processing on-site
 
-* <span data-proof="authored" data-by="ai:claude">Card numbers are cash-equivalent — security architecture is non-negotiable</span>
+* Card numbers are cash-equivalent — security architecture is non-negotiable
