@@ -37,9 +37,11 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
   T-1 via comments. **Still open: D-3 (Amazon output), D-13 (rate), D-14 (payment schedule), D-15 (new —
   export password handling model, from his Q7 comment).** James identified (believed): Doug's son-in-law,
   advisor, non-software engineering background, there to give Doug confidence — see CLIENT.md.
-- **Transcript check finding:** discovery captured the 22-brand storefront list and "~5 of 28 folders need
-  generation" but never enumerated the 28; merchant-list ask to Doug should be confirm/correct style, not
-  open-ended (see reconciliation doc, section C note).
+- **Coverage check (corrected per Spencer):** per-merchant behavior WAS covered — the April 27 vendor
+  behavior matrix maps all 28 merchants from scripts + sessions. Don't over-weight the March 19 prework
+  sheet ("needs validation" flags are pre-session, AI-generated). Remaining client confirmations are just
+  three narrow items (generation merchants #4/#5, Loblaws/Shoppers old-vs-new format, script-only merchant
+  active status); the fixture/files ask stands unchanged (see reconciliation doc, section C note).
 - **Client thread:** Gmail "RE: Reschedule Needed-Phase 1 Proposal" (thread `19e9a0905b082b87`) — Doug
   waiting on the detailed response Spencer promised June 8.
 - **National Zakat Foundation call:** Spencer agreed June 8 to join; still needs scheduling (Stephanie

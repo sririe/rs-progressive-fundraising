@@ -73,7 +73,7 @@ Also noted: Doug's June 5 email introduces **James** as a technical reviewer alo
 
 *Single checklist replacing the per-question asks scattered through the Proof doc. Framing for the client: "a folder dump is fine — we'll sort and inventory it."*
 
-*Transcript check (2026-06-10, prompted by Spencer's Proof comment): discovery DID capture the shape — the 22-brand storefront list (March 19 prework sheet) and Mario's "~5 of 28 digital merchant folders require in-house generation" — but 14 of 22 prework rows were explicitly marked "Needs validation," and the 28 folders were counted, never enumerated (the 22-vs-28 gap is likely inactive script merchants: Uber, Hudsons Bay, Browns Social House, Master Card). So the lists below are not a discovery re-ask: send our reconstruction and ask Progressive to **confirm/correct** rather than answer from scratch. Format validation itself is Phase 1A work, not a pre-SOW ask.*
+*Coverage check, corrected (2026-06-10, per Spencer): the per-merchant behavior question WAS covered by discovery — the April 27 vendor behavior matrix (scripts + March 27 sessions) maps all 28 merchants with pattern, inventory source, template path, output, and manual steps; Pattern 1 covers ~23 of 28 with one workflow. The earlier "14 of 22 rows marked needs-validation" framing over-indexed on the March 19 prework sheet, an AI-generated pre-session artifact. What the post-session record genuinely leaves open is only the three confirmations below — everything else merchant-related is Phase 1A verification against the Drive folders, not a client ask. The files/fixture ask is unaffected (it comes from the scripts' real dependencies, not the prework sheet).*
 
 **Files (the fixture package — most from Lloyd):**
 - [ ] `utilities.py` (imported by the Amazon generator)
@@ -87,11 +87,10 @@ Also noted: Doug's June 5 email introduces **James** as a technical reviewer alo
 - [ ] SystemOne (ecard.proegiftcards.ca) samples: upload ZIP naming, log/export examples, URL format, any API notes
 - [ ] Examples of successful AND failed Walmart activation results
 
-**Lists and confirmations (Doug / office staff — keep staffing-agnostic per Spencer; Mario's tenure uncertain):**
-- [ ] Current active digital merchant list (which of the 22 storefront brands are actually sold today)
-- [ ] Current digital fulfillment folder list (which merchants Progressive actually fulfills)
-- [ ] Whether all Loblaws banners (Superstore/PC/No Frills/Extra Foods/Provigo) share one format, and whether Shoppers shares it
-- [ ] Whether Walmart, Loblaws, or Amazon have multiple active output variants today
+**Confirmations (Doug / office staff — keep staffing-agnostic per Spencer; Mario's tenure uncertain):**
+- [ ] Which 1–2 merchants beyond Amazon, Loblaws, and Shoppers require in-house generation (the "5 of 28" estimate has two unidentified slots in the vendor matrix)
+- [ ] Loblaws/Shoppers current format: still generated branded PDFs, or now ordinary URL inventory (Lloyd's March 26 note)? And do all Loblaws banners + Shoppers share one format?
+- [ ] Script-only merchants still active? Browns Social House, Hudsons Bay, MasterCard (Uber confirmed inactive; Petro-Canada now via Fundstream links)
 - [ ] Current rules (if any) for export passwords, file cleanup, retention
 
 **Decisions (Doug — defaults proposed in our reply):**
