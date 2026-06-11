@@ -5,45 +5,47 @@
 
 ## Current focus
 
-Phase 1 (Secure Card Vault) SOW reconciliation. Doug emailed 12 technical questions on June 5, 2026
-("RE: Reschedule Needed-Phase 1 Proposal" Gmail thread) and said Progressive is **leaning toward
-proceeding** — James (role unconfirmed) and Lloyd are the technical reviewers. Spencer sent a holding
-reply June 8 promising a detailed response. Tim drafted per-question responses in Proof; this session
-reconciled them against the June 8 evidence/unblocker posture and produced a decision sheet that
-**awaits Spencer's ratification**. Nothing goes to the client without Spencer's sign-off.
+Phase 1 (Secure Card Vault) is in the client's court. Spencer sent the full technical responses to Doug's
+12 questions on **June 10, 2026 at 5:42 PM PT** (verbatim record:
+`projects/gift-cards/docs/plans/2026-06-10-phase1-responses-email-sent.md`), including the consolidated
+confirmations list and the fixture-package ask. **Awaiting Doug's confirmations and materials.** When they
+land: apply the SOW deltas with Stephanie, draft the support proposal, and resolve the two remaining
+internal decisions (D-13 rate, D-14 payment schedule). Nothing goes to the client without Spencer's
+sign-off.
 
 ## Last session
 
-- **2026-06-10** — SOW reconciliation session. Produced three docs in `projects/gift-cards/docs/plans/`:
-  `2026-06-10-phase1-sow-reconciliation.md` (matrix of Doug's 12 questions × Tim's responses × evidence,
-  6 cross-cutting divergences, consolidated client ask, 14-item SOW delta list),
-  `2026-06-10-phase1-decision-sheet.md` (14 Redstamp decisions + 6 Progressive decisions, each with a
-  recommended default — awaiting ratification), and `2026-06-10-doug-reply-draft.md` (90% client-ready
-  reply on the existing thread). Housekeeping: confirmed the April 27 Doug distribution-help reply was
-  never sent; surveyed stale branches/worktrees (see Repo state).
+- **2026-06-10** — Full reconciliation-to-send arc. (1) Reconciled Doug's 12 questions × Tim's Proof draft
+  × evidence into `2026-06-10-phase1-sow-reconciliation.md` (+ decision sheet + delta list); (2) Spencer
+  reviewed in Proof (16 comments), ratifying D-1/D-2/D-4–D-12/T-1 and adding D-15 (export password model);
+  (3) corrected an over-index on the AI-generated pre-session prework sheet — the April 27 vendor behavior
+  matrix already covered per-merchant behavior; client ask shrank to 3 confirmations; (4) wrote the
+  client-facing responses doc; Spencer hand-tightened it and **sent it to Doug** (logged verbatim; his
+  edits diffed and captured as style calibration); (5) hygiene: removed `sririe/doug-update-email`
+  branch + conductor worktree, `claude/bold-elgamal` branch + worktree, and the never-sent April 27 draft.
 - **2026-06-08** — evidence inventory + unblocker brief (Phase 1 stands; bounded merchant formats;
   validation milestone first; missing fixture package identified as THE unblocker).
 - **2026-05-27** — SOW draft + "Reschedule Needed" sent; vault-first sequencing rework.
 
 ## In-flight work
 
-- **Canonical thread:** decision-sheet ratification → push reconciled responses into Tim's Proof doc
-  (slug `26niwbyj`, title "Progressive Gift Cards - Client Technical Questions", rev 32 at read time).
-  Share token: not stored here — it's a capability credential; get it from Spencer's session prompt or
-  Tim/Proof share settings.
-- **Ratification status (2026-06-10):** Spencer reviewed the reconciliation in Proof (slug `f7n13d69`;
-  credentials in `projects/gift-cards/_private/proof-reconciliation-doc.json`, git-ignored) and ratified
-  D-1 (staffing-agnostic caveat: never anchor scope on Mario by name — tenure uncertain), D-2, D-4–D-12,
-  T-1 via comments. **Still open: D-3 (Amazon output), D-13 (rate), D-14 (payment schedule), D-15 (new —
-  export password handling model, from his Q7 comment).** James identified (believed): Doug's son-in-law,
-  advisor, non-software engineering background, there to give Doug confidence — see CLIENT.md.
+- **Canonical thread:** Gmail "RE: Reschedule Needed-Phase 1 Proposal" (thread `19e9a0905b082b87`) —
+  responses sent 2026-06-10; awaiting Doug's reply with confirmations + the fixture package.
+- **Decision state:** D-1/D-2/D-4–D-12/T-1 ratified (Spencer, via Proof comments); **D-3 resolved by the
+  sent email** (Amazon = PDF/ZIP only — hosted-URL option cut); **D-15** (per-export password model) sent
+  to the client as proposed; **still open for the SOW revision: D-13 (rate $160 vs $150) and D-14
+  (payment schedule)**. Decision sheet: `2026-06-10-phase1-decision-sheet.md`.
+- **Proof docs:** Tim's Q&A doc (slug `26niwbyj`) is **superseded** by the sent email — Tim has not yet
+  seen the final reconciled version; loop him in. Spencer's review copy of the reconciliation: slug
+  `f7n13d69` (credentials in `projects/gift-cards/_private/proof-reconciliation-doc.json`, git-ignored);
+  carries his 16 comments + agent replies.
+- James context: believed Doug's son-in-law, advisor, non-software engineering background, there to give
+  Doug confidence — see CLIENT.md; confirm role on next call.
 - **Coverage check (corrected per Spencer):** per-merchant behavior WAS covered — the April 27 vendor
   behavior matrix maps all 28 merchants from scripts + sessions. Don't over-weight the March 19 prework
   sheet ("needs validation" flags are pre-session, AI-generated). Remaining client confirmations are just
   three narrow items (generation merchants #4/#5, Loblaws/Shoppers old-vs-new format, script-only merchant
   active status); the fixture/files ask stands unchanged (see reconciliation doc, section C note).
-- **Client thread:** Gmail "RE: Reschedule Needed-Phase 1 Proposal" (thread `19e9a0905b082b87`) — Doug
-  waiting on the detailed response Spencer promised June 8.
 - **National Zakat Foundation call:** Spencer agreed June 8 to join; still needs scheduling (Stephanie
   to send times per the reply draft). Background: Doug's April 20 forward "Fwd: Touching Base"
   (thread `19dab86ecc934f1f`) — NZF wants direct-to-recipient delivery + redemption reporting. An April 27
@@ -54,8 +56,12 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
 
 ## Repo state
 
-- This session's work is on branch `claude/romantic-meitner-551fbc` (pushed to origin), 1 commit ahead
-  of `origin/main`. Merge to main after Spencer ratifies the decision sheet (or sooner — docs are inert).
+- Session work merged to `main` at wrap-up 2026-06-10 (branch `claude/romantic-meitner-551fbc` retained,
+  pushed; fast-forward merge — see git log).
+- Main checkout's working dir has three untracked local files (pre-existing, not this session's):
+  `.claude/launch.json`, `plans/2026-05-27-progressive-client-presentation-redstamp.html`, and
+  `Progressive-Secure-Card-Vault-Phase-1-Walkthrough.pdf` — presentation artifacts; commit or ignore at
+  Spencer's discretion.
 - **Hygiene done 2026-06-10 (Spencer-approved):** removed `sririe/doug-update-email` branch + its conductor
   worktree (`chicago-v1`; 0 unique commits, clean) and `claude/bold-elgamal` branch + worktree (its one
   unpushed commit was fully superseded on main). Deleted the never-sent April 27 Doug reply draft doc.
@@ -90,14 +96,18 @@ reconciled them against the June 8 evidence/unblocker posture and produced a dec
 4. Schedule the NZF call (agreed June 8, dropped from the sent email — needs its own thread/Stephanie).
 5. New context from the sent email's closing: Doug has **ongoing discussions with the Walmart team about a
    direct integration** — explicitly not scoped/priced; recommended as a future phase. Track for roadmap.
-6. Hygiene: delete the remaining flagged branches (`claude/xenodochial-wilson`, `claude/eloquent-fermi`,
-   `sririe/progressive-lloyd-meeting` + remote) after Spencer's read-through; merge this branch to main.
+6. Loop Tim in on the final reconciled positions — his Proof Q&A doc (26niwbyj) was superseded without
+   his review; the sent email diverges from his draft in six places (reconciliation doc lists them).
+7. Strip the legacy Proof annotation spans (`<span data-proof=...>`) from CLIENT.md — they make the file
+   hard to read and edit (friction noted at wrap-up; mechanical cleanup).
+8. Hygiene: delete the remaining flagged branches (`claude/xenodochial-wilson` + worktree,
+   `claude/eloquent-fermi`, `sririe/progressive-lloyd-meeting` + remote) after Spencer's read-through.
 
 ## Blockers
 
-- Decision-sheet ratification (Spencer) gates steps 2–4.
-- The missing Lloyd fixture package (utilities.py, make-zip.ps1, Amazon SVG, Walmart activation assets,
-  SystemOne samples) gates final merchant-format acceptance criteria — request goes out with the reply.
+- Awaiting Doug: confirmations + fixture package (sent 2026-06-10) gate the SOW revision and the
+  merchant-format acceptance criteria. Internal D-13/D-14 are decisions, not blockers — resolve at SOW
+  revision time.
 
 ## Decisions & context
 
