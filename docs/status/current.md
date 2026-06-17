@@ -18,6 +18,7 @@ no Inkscape in vault). **Canonical cold-start doc:**
   headless runner + inventory profiler; ran invoice→Excel and Amazon generator E2E (partial success).
   Mapped ~8 inventory importer classes across 25 merchants. Documented Inkscape context + **hybrid PDF
   recommendation** (resvg spike first, Playwright fallback). Wrote committed summary plan (link above).
+  Committed Phase 1 client presentation HTML + walkthrough PDF to `docs/plans/`.
 - **2026-06-16** — Processed Doug's reply; annotated Q&A thread; Walmart reconciliation xlsx inventoried;
   Spencer requested `redstamp.zip` Drive access.
 
@@ -39,9 +40,11 @@ no Inkscape in vault). **Canonical cold-start doc:**
 
 ## Repo state
 
-- **New committed doc (when committed):** `projects/gift-cards/docs/plans/2026-06-17-lloyd-materials-analysis-and-phase1-technical-recommendations.md`
-- `docs/status/current.md` updated this session.
-- Main may have untracked presentation artifacts — commit at Spencer's discretion.
+- **Phase 1 analysis (cold-start):** `projects/gift-cards/docs/plans/2026-06-17-lloyd-materials-analysis-and-phase1-technical-recommendations.md`
+- **Client presentation deliverables (committed):**
+  - `projects/gift-cards/docs/plans/2026-05-27-progressive-client-presentation-redstamp.html` — branded walkthrough deck (HTML)
+  - `projects/gift-cards/docs/plans/Progressive-Secure-Card-Vault-Phase-1-Walkthrough.pdf` — Phase 1 walkthrough PDF export
+  - Draft variant (older): `projects/gift-cards/docs/plans/2026-05-27-progressive-client-presentation-draft.html`
 
 ## Runtime & environment
 
