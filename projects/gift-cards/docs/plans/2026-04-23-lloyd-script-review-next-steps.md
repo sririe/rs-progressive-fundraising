@@ -26,6 +26,7 @@ related:
   - projects/gift-cards/docs/discovery/2026-03-27-lloyd-handoff-session1-notes.md
   - projects/gift-cards/docs/discovery/2026-03-27-mario-handoff-session2-notes.md
   - projects/gift-cards/docs/plans/2026-03-11-internal-solution-comparison.md
+  - projects/gift-cards/docs/plans/2026-06-17-lloyd-materials-analysis-and-phase1-technical-recommendations.md
 ---
 
 # Lloyd Script Review — Findings and Next Steps
