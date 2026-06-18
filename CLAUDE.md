@@ -103,7 +103,7 @@ The shorthand: SOW or proposal-adjacent work → read all four. Internal docs an
 
 **Merchant fulfillment patterns:**
 - **Merchant-provided cards:** Most merchants provide URLs, PDFs, codes, or card files. Progressive pulls inventory, prepares a customer-ready file, encrypts it, and sends it.
-- **Progressive-generated PDFs:** A smaller group of merchants, including Amazon, Loblaws, and Shoppers Drug Mart, require Progressive to generate card PDFs from raw card data using Lloyd's scripts/templates.
+- **Progressive-generated PDFs:** A small group require Progressive to generate customer-facing card files from raw card data using Lloyd's scripts/templates: **Amazon and Chapters-Indigo** (plus Walmart, below). Confirmed by Doug 2026-06-16. Loblaws/Shoppers are now URL/account+PIN allocation handled as merchant-provided pull, not generation.
 - **Walmart:** Unique just-in-time activation flow using Walmart's virtual gift card activation tool, PDF generation, delivery, and monthly reconciliation.
 
 **Current proposal alignment documents:**
