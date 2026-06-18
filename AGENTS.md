@@ -1,9 +1,16 @@
+---
+repo_type: knowledge
+landing: ship
+private_paths:
+  - projects/gift-cards/_private/
+---
+
 # AGENTS.md
 
 This file provides guidance to Codex (Codex.ai/code) when working in this repository.
 
-> **Session start:** read `docs/status/current.md` for current focus, in-flight work, and next steps.
-> **Session end:** update it following its section structure (full procedure: the Aurora `wrapup` skill, where installed).
+> **Session start:** confirm `repo_type` / `landing` above → read `docs/status/current.md` for current focus, in-flight work, and next steps.
+> **Session end:** update `current.md`; on `landing: ship` repos commit + push durable docs unless Spencer said "park" (Aurora `wrapup` skill, where installed).
 
 ## Project Overview
 
