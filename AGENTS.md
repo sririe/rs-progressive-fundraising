@@ -7,7 +7,12 @@ private_paths:
 
 # AGENTS.md
 
-This file provides guidance to Codex (Codex.ai/code) when working in this repository.
+> **This repository is agent- and lineage-agnostic.** `AGENTS.md` is the single source of truth.
+> `CLAUDE.md`, `.cursorrules`, and any other agent-named file are thin shims that point here —
+> **never add project content to them; edit this file.** Lineage-specific config directories
+> (`.claude/`, `.codex/`, `.cursor/`) are gitignored and must not be committed.
+
+This file is the canonical guidance for any agent or person working in this repository.
 
 > **Session start:** confirm `repo_type` / `landing` above → read `docs/status/current.md` for current focus, in-flight work, and next steps.
 > **Session end:** update `current.md`; on `landing: ship` repos commit + push durable docs unless Spencer said "park" (Aurora `wrapup` skill, where installed).
@@ -58,15 +63,25 @@ When creating new documents, follow the naming pattern: `YYYY-MM-DD-descriptive-
 
 For HTML review documents, keep the language concrete, team-shareable, and grounded in Progressive's discovery vocabulary. Avoid vague strategy terms such as "spine," "artifact," "decision gates," "output package," "retention," "audit history," and "governed workflow" unless they are explained in plain operational language.
 
+## Institutional Context — Read Before Client-Facing Artifacts
+
+Before producing any client-facing artifact (recommendation, proposal, SOW, or email to Doug/Gord/Lloyd), read:
+- **`CLIENT.md`** — Progressive's legal entity, rate ($150 CAD/hr), currency, Services Agreement, stakeholder profiles, communication patterns.
+- **`REDSTAMP-SOW-CONTEXT.md`** — agency-wide SOW context (engagement taxonomy, pricing, tone, templates; "Redstamp" is one word).
+- **`REDSTAMP-SOW-EXAMPLES.md`** — seven executed SOWs; match the closest before drafting.
+- **`.agents/skills/writing/sow-drafting/SKILL.md`** — orchestrates the three files above for SOW drafting.
+
+Cross-project context (operator's second brain): `~/projects-personal/second-brain/` — `Ideas/redstamp-*`, `Logs/action-items-*.md`, `Meta/project-registry.md`.
+
 ## Key Business Context
 
 **Core problem:** Digital gift card fulfillment is manual, fragile, and depends on specific people understanding the workflow, folder structure, scripts, merchant spreadsheets, and failure paths. Card data is cash-equivalent, and the current process does not give Progressive one clear place to track inventory, fulfillment status, generated files, delivery emails, or support history.
 
-**Current tech stack:** WordPress + Formidable Forms pseudo-commerce flow, BenjaPay (payment processing, external to site), QuickBooks for invoicing, Google Drive/spreadsheets for digital inventory, Lloyd's Python/PowerShell scripts, Inkscape/PDF generation for some merchants, SystemOne for hosted URLs, Gmail for encrypted delivery.
+**Current tech stack:** WordPress + Formidable Forms pseudo-commerce flow, Benji Pays (payment processing, external to site), QuickBooks for invoicing, Google Drive/spreadsheets for digital inventory, Lloyd's Python/PowerShell scripts, Inkscape/PDF generation for some merchants, SystemOne for hosted URLs, Gmail for encrypted delivery.
 
 **Merchant fulfillment patterns:**
 - **Merchant-provided cards:** Most merchants provide URLs, PDFs, codes, or card files. Progressive pulls inventory, prepares a customer-ready file, encrypts it, and sends it.
-- **Progressive-generated PDFs:** A smaller group of merchants, including Amazon, Loblaws, and Shoppers Drug Mart, require Progressive to generate card PDFs from raw card data using Lloyd's scripts/templates.
+- **Progressive-generated PDFs:** A small group require Progressive to generate customer-facing card files from raw card data using Lloyd's scripts/templates: **Amazon and Chapters-Indigo** (plus Walmart, below). Confirmed by Doug 2026-06-16. Loblaws/Shoppers are now URL/account+PIN allocation handled as merchant-provided pull, not generation.
 - **Walmart:** Unique just-in-time activation flow using Walmart's virtual gift card activation tool, PDF generation, delivery, and monthly reconciliation.
 
 ## Current Recommendation
@@ -107,7 +122,7 @@ For HTML review documents, keep the language concrete, team-shareable, and groun
 
 ## Key Constraints and Decisions
 
-- **Payment stays external** via BenjaPay; do not propose storing or processing credit cards on Progressive's site.
+- **Payment stays external** via Benji Pays; do not propose storing or processing credit cards on Progressive's site.
 - **Card numbers are cash-equivalent**; security architecture, access rules, order activity records, and cleanup rules must be explicit.
 - **Progressive's team is non-technical**; solutions must be operable by staff without developer support.
 - **Merchant terminology matters**; use "merchant" rather than "vendor" or "supplier" unless quoting older source docs.
