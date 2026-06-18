@@ -33,7 +33,7 @@ related:
 blockers:
   - Walmart activation program deliberately withheld by Lloyd
   - File cleanup and retention rules not documented in shared materials
-  - Inkscape not suitable for vault deployment — renderer choice pending short spike
+  - "Inkscape not suitable for vault deployment — renderer resolved 2026-06-18: svg2pdf (resvg family) matches Inkscape; see §4"
 ---
 
 # Lloyd Materials Analysis — E2E Findings, Inventory Map, PDF Rendering Recommendations
@@ -187,19 +187,32 @@ Header-only analysis of `orders/*/inventory/*.xlsx` (no card values). Machine-re
 
 ### Renderer options (priority order)
 
-1. **resvg** (spike first) — Rust SVG renderer; small, fast, container-friendly. Try first; validate output against Lloyd PDFs.
-2. **Headless Chromium / Playwright** (fidelity fallback) — load SVG, print to PDF; best match for complex Inkscape SVG (~3,200 lines, clip paths, namespaces) if resvg diverges.
-3. **CairoSVG** — simple Python option; less reliable on Inkscape-heavy SVG without validation.
+1. **resvg / svg2pdf** (resvg-family, Rust) — **chosen, see spike below.** Small, fast, container-friendly; single static binary.
+2. **Headless Chromium / Playwright** (fidelity fallback) — load SVG, print to PDF; keep in reserve for any future template usvg can't handle.
+3. **CairoSVG** — rejected by the spike; visibly degrades the Amazon logo on Inkscape-heavy SVG.
 4. **Native PDF** (ReportLab, pdf-lib) — best long-term maintainability; highest upfront cost (redesign card layout).
 
 **Avoid:** Inkscape in server containers; proprietary PDF SDKs without clear benefit; SVG→PNG→PDF shortcuts.
 
-### Suggested spike (before locking Phase 1 build scope)
+### Spike result — RESOLVED 2026-06-18 (svg2pdf wins)
 
-1. Render 5–10 cards with **resvg** and **Playwright** from the Amazon template + test workbook in `_private`.
-2. Visual/compare against Lloyd's reference PDFs in `test/20260615122646/`.
-3. Pick winner on **match quality**, not theory.
-4. **Default if inconclusive:** Playwright for Amazon V1.
+Ran the spike against Lloyd's reference Amazon PDF (`test/20260615122646/.../25/00cce0...pdf`). Reproduced the exact card from the template + the generator's 3 string replacements, rendered with each backend, and scored every render against the reference (mean per-channel error + % differing pixels; diff heatmaps + side-by-side saved in `_private/.../runs/spike/`).
+
+| Backend | MAE /255 | % diff px | Verdict |
+|---------|---------:|----------:|---------|
+| **svg2pdf** (resvg family) | **0.15** | **0.22%** | **Winner — indistinguishable from Inkscape** (heatmap essentially black). |
+| Playwright (Chromium) | 1.23 | 1.64% | Faithful; heavier runtime. Fallback only. |
+| CairoSVG | 4.41 | 5.16% | Rejected — breaks the Amazon logo. |
+
+**Decision: lock svg2pdf (`cargo install svg2pdf-cli`, v0.13 tested) as the Phase 1 Amazon renderer.** Playwright fallback is no longer needed for V1.
+
+**Performance (benchmarked 2026-06-18, M2 Max):** ~**120 ms per card** warm. Generation runs as a background job, so this is ample — a typical ~20-card Amazon order is ~2.4 s; a 500-card order ~60 s sequential. Parallelism is possible but caps early (peak ~1.9×/~12 cards/s at 4 concurrent renders; *degrades below sequential past ~8* because each render already uses ~2 cores internally). Guidance: sequential is fine at Progressive's volume; if pooling, bound workers to performance-core count and run a long-lived worker that loads fonts once. Detail: `E2E-RUN-FINDINGS.md` §7a.
+
+**Two deployment caveats (renderer-independent):**
+1. **Fonts** — template uses Arial + Verdana as *system* fonts (no `@font-face`). Ship those fonts (or metric-compatible Liberation Sans / Arimo + a Verdana equivalent) in the Linux renderer image, or text will substitute. Applies to Chromium too.
+2. **Page size** — svg2pdf maps px→pt 1:1 (1200×1111 pt) vs reference 900×833.25 pt; aspect/fidelity identical, just set the intended output size/DPI in production.
+
+Full detail + artifacts: `_private/lloyd-materials-06162026/notes/E2E-RUN-FINDINGS.md` §7, harness `scripts/render_spike.py`.
 
 ### Build pattern
 
@@ -224,15 +237,15 @@ PDF generation is primarily an **Amazon-class** problem (possibly Loblaws/Shoppe
 
 ---
 
-## 6. Session state when parked (2026-06-17)
+## 6. Session state when parked (updated 2026-06-18)
 
-**Done:** zip received, extracted, inventoried, E2E exercised, inventory mapped, PDF direction chosen (hybrid, pending spike).
+**Done:** zip received, extracted, inventoried, E2E exercised, inventory mapped, PDF direction chosen (hybrid). **Renderer spike complete (2026-06-18) — svg2pdf/resvg locked; see §4.**
 
-**Not done:** renderer spike, Tim review, client call, SOW revision with Stephanie, answers to four open client questions, Walmart activation follow-up.
+**Not done:** Tim review, client call, SOW revision with Stephanie, answers to four open client questions, Walmart activation follow-up.
 
 **Next when resuming:**
 
-1. Optional: run resvg/Playwright spike against Amazon reference PDFs.
-2. Fold merchant modules + defer list into Phase 1 SOW scope with Tim.
+1. ~~Run resvg/Playwright spike~~ — done; svg2pdf chosen.
+2. Fold merchant modules + defer list + the svg2pdf renderer decision into Phase 1 SOW scope with Tim.
 3. Doug/Lloyd call — generic importer, SystemBind, hosting, old inventory edge case.
 4. SOW clarifying language + D-13/D-14 resolution.
