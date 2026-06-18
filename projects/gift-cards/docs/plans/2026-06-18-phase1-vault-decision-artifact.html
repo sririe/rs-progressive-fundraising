@@ -95,7 +95,7 @@
   <h1>Secure Card Vault — decisions for the Lloyd / Doug call</h1>
   <div class="idea">
     <span class="step"><b>23</b> merchant formats</span><span class="arr">→</span>
-    <span class="step"><b>7</b> supplier families</span><span class="arr">→</span>
+    <span class="step"><b>7</b> card families</span><span class="arr">→</span>
     <span class="step"><b>1</b> vault record</span><span class="arr">→</span>
     <span class="step">output by rule: repackage · generate · <b class="walmart">Walmart ⇄</b></span>
   </div>
@@ -126,9 +126,9 @@
   <details class="more">
     <summary>Model &amp; technical detail</summary>
     <div class="body">
-      <p><b>The model.</b> Progressive's input spreadsheets are incidental — the vault normalizes on ingest and owns one canonical record. The credential reduces to <span class="mono">url + typed secrets</span>. Output is a per-order rule; Walmart is the only externally-fixed (two-way) output.</p>
+      <p><b>The model.</b> Progressive's spreadsheets are just how they store cards today. The vault normalizes on ingest and owns one record. Credential reduces to <span class="mono">url + typed secrets</span>. Output is set per order. Walmart is the only two-way output.</p>
       <h4>Card normalization — every merchant we know of</h4>
-      <p style="margin:0 0 8px">8 raw inventory formats collapse to <b>7 credential families</b> → one record. The importer is <b>configurable</b> across these families; the <b>bounded</b> commitment is the active-merchant set below — that's the bounded-vs-configurable line.</p>
+      <p style="margin:0 0 8px">23 merchants, ~8 raw layouts, collapse to <b>7 card families</b> → one record. The importer is <b>configurable</b> across the families. The <b>bounded</b> commitment is the active-merchant set below. A card format we haven't mapped is a change order.</p>
       <table class="nt">
         <tr><th>Normalized credential</th><th>Merchants</th><th>Output</th></tr>
         <tr><td>url + challenge</td><td>Best Buy, Boston Pizza, Cactus Club, DoorDash, Earls, H&amp;M, Keg, Sephora, Subway, Tim Hortons, Home Depot</td><td>repackage</td></tr>
@@ -140,14 +140,14 @@
         <tr><td>claim code</td><td>Amazon</td><td><b>generate PDF</b></td></tr>
         <tr><td>JIT activation</td><td>Walmart</td><td><b>bidirectional ⇄</b></td></tr>
       </table>
-      <p class="mut" style="margin-top:6px"><b>Deferred / out of Phase 1:</b> Master Card — active (Doug: yes) but no fixtures yet · Brown's Social House, Hudson's Bay — excluded · Uber — not now. A deferred merchant's fixtures arriving, or a brand-new credential family, = change order.</p>
+      <p class="mut" style="margin-top:6px"><b>Deferred / out of Phase 1:</b> Master Card is active (Doug: yes) but has no fixture. In scope pending one in Phase 1A, else a change order. Brown's Social House and Hudson's Bay are excluded. Uber is not now. An unmapped card family is a change order.</p>
       <h4>Renderer (svg2pdf) — match vs Inkscape, lower = closer</h4>
       <div class="rbar"><span class="lab">svg2pdf</span><span class="track"><span class="fill" style="width:6%;background:var(--green)"></span></span><span class="mono">0.15</span></div>
       <div class="rbar"><span class="lab">Playwright</span><span class="track"><span class="fill" style="width:28%;background:var(--saffron)"></span></span><span class="mono">1.23</span></div>
       <div class="rbar"><span class="lab">CairoSVG</span><span class="track"><span class="fill" style="width:100%;background:var(--coral)"></span></span><span class="mono">4.41</span></div>
       <p style="margin-top:10px">~120 ms/card; generation is a background job so throughput isn't a concern (parallelism caps ~4 renders). Pending reconciliation with Tim's chosen stack.</p>
       <h4>SOW reframe</h4>
-      <p>From "4 hardcoded format families" → "one configurable importer + generation for Amazon/Walmart/Chapters-Indigo," fee bounded by the Phase 1A active-merchant list (new supplier family = change order).</p>
+      <p>Was "4 hardcoded format families." Now: one configurable importer, plus generation for Amazon, Walmart, and Chapters-Indigo. Fee is bounded to the Phase 1A active-merchant list. An unmapped card family is a change order.</p>
       <p style="margin-top:12px">Full write-up: <a href="2026-06-18-phase1-vault-normalization-design-note.md">2026-06-18 vault normalization design note</a>.</p>
     </div>
   </details>
@@ -159,34 +159,44 @@
 (function(){
   var D = [
     // status: done | open | call
-    {s:"open", t:"Renderer identified — svg2pdf", o:["Tim"],
-     d:"Our finding, not yet a decision: svg2pdf (resvg) reproduces Lloyd's Inkscape output to within rasterization noise (MAE 0.15/255); ~120 ms/card. Open until reconciled with the renderer/stack Tim already identified."},
-    {s:"done", t:"Stray legacy-branded card", o:["Doug"],
-     d:"Quarantined on import — the vault validates every row against a known supplier family and holds anything unrecognized in a review queue. It can't reach a customer unnoticed."},
-    {s:"done", t:"“Banner brand” defined", o:["Lloyd"],
-     d:"A retail store brand under a parent company (e.g. Loblaw banners: Loblaws, Shoppers, No Frills). Sibling banners share one platform, so one adapter covers them — see the full card-normalization table under “Model & technical detail.”"},
-    {s:"open", t:"Export password handling (D-15)", o:["Spencer"],
-     d:"Proposed, still to discuss: random per-export password, shown once to the operator, sent via the existing separate-email channel; lost = re-export; no un-password step."},
+    {s:"done", t:"Banner-brand term defined", o:["Lloyd"],
+     d:"A banner is a store brand under a parent company. Loblaws, Shoppers, and No Frills all sit under Loblaw. Siblings share one platform, so one adapter covers the set. Full map in Model & technical detail."},
     {s:"done", t:"Amazon output format (D-3)", o:["Spencer"],
-     d:"Defaults to PDF/ZIP (best-evidenced); URL export available once SystemOne is confirmed. Now a per-order rule, not a hard either/or."},
+     d:"PDF/ZIP by default. It's the best-evidenced path. URL export turns on once SystemOne is confirmed. Set per order, not hardwired by merchant."},
     {s:"done", t:"Payment schedule (D-14)", o:["Spencer"],
-     d:"Keep 40/40/20 — kickoff / working V1 / launch."},
+     d:"40/40/20. Kickoff, working V1, launch."},
 
+    {s:"open", t:"Renderer identified — svg2pdf", o:["Tim"],
+     d:"Our finding, not a decision. svg2pdf (resvg) matches Lloyd's Inkscape output within rasterization noise. MAE 0.15/255, ~120 ms/card. Stays open until it's reconciled with the stack Tim already picked."},
     {s:"open", t:"Hosting / stack", o:["Tim"],
-     d:"Proposed: Redstamp-managed cloud, Canadian data residency, encrypted, daily backups, access-logged. Tim's call on the actual stack."},
-    {s:"open", t:"Does the model match Tim's importer prototype?", o:["Tim"],
-     d:"Confirm whether Tim's existing prototype already encodes the canonical record + credential shape; adopt his where it does."},
+     d:"Posture: managed cloud, Canadian residency, encrypted, daily backups with tested restore, access-logged. Tim confirms the actual stack. He's already identified one."},
+    {s:"open", t:"Does the model match Tim's prototype?", o:["Tim"],
+     d:"Does Tim's importer prototype already encode the canonical record and credential? If yes, adopt his. Tim confirms."},
+    {s:"open", t:"Export password handling (D-15)", o:["Spencer","Tim"],
+     d:"Proposed: random per-export password, shown once, sent on the existing separate-email channel. Lost password means re-export. No un-password step. Spencer and Tim confirm before the SOW."},
+    {s:"open", t:"Support model", o:["Spencer"],
+     d:"Separate monthly support retainer, proposed alongside the SOW. Defined hours, Nov-Dec priority, emergency at agency rate. Doug selects."},
+    {s:"open", t:"Master Card scope", o:["Lloyd","Doug"],
+     d:"Active (Doug: yes), but no card sample in the package. In scope pending a fixture in Phase 1A. No fixture, no build. It becomes a change order."},
     {s:"open", t:"Hourly rate (D-13)", o:["Spencer"],
-     d:"$150 (relationship / CLIENT.md) vs $160 (last executed Progressive SOW). Fixed fee unchanged either way."},
+     d:"$150 (relationship) or $160 (last executed SOW). Spencer's call. Fixed fee doesn't move either way."},
     {s:"open", t:"SOW: bounded vs configurable", o:["Spencer","Tim"],
-     d:"Architecture is configurable, but the fee must stay bounded: bound by the Phase 1A active-merchant list; a brand-new supplier family = change order."},
+     d:"Bounded: the merchants validated in Phase 1A and their card formats. Configurable: the importer handles those formats by config, so adding a merchant in a known format needs no code. A card format we haven't mapped is a change order. Spencer and Tim lock the wording before Stephanie."},
 
-    {s:"call", t:"Walmart manual import OK for v1?", o:["Doug"],
-     d:"We propose accepting controlled import of activated results for v1; direct Fiserv activation excluded until we review the (withheld) assets."},
-    {s:"call", t:"SystemBind vs SystemOne — naming", o:["Lloyd"],
-     d:"Confirm the canonical name for the URL upload/delivery system. Terminology only — no architecture impact."},
+    {s:"call", t:"Stray legacy-branded card", o:["Doug"],
+     d:"Format checks won't catch this. A rebranded card in a current format passes validation. The control is Doug's pre-vault cleanup of stragglers. The vault adds an audit trail, not detection. Confirm the residual risk is acceptable, or we add a seeded check."},
+    {s:"call", t:"Walmart manual import for v1", o:["Doug"],
+     d:"We accept controlled import of activated results for v1. Direct Fiserv activation is excluded from fixed scope until we review the withheld assets. Excluded, not deferred. Confirm."},
+    {s:"call", t:"SystemBind vs SystemOne naming", o:["Lloyd"],
+     d:"Same system, different name. Confirm which we use. It gates the Amazon URL export path, so it's not purely cosmetic."},
     {s:"call", t:"Which Loblaws banners share a format?", o:["Lloyd"],
-     d:"Confirms whether one adapter covers the whole Loblaws family."}
+     d:"Which Loblaws banners run through the same platform as Loblaws and Shoppers? Give us the list, or say unknown. Determines whether one adapter covers the family."},
+    {s:"call", t:"Roles & access", o:["Doug"],
+     d:"Four roles: Admin, Operations, Finance, Viewer. No full card values in the browser. Sensitive data only through logged, role-gated downloads. No Redstamp access by default. Doug names the people and approves the model."},
+    {s:"call", t:"Post-download policy", o:["Doug"],
+     d:"The vault generates protected exports and logs them. Once a file leaves the vault, storage, retention, deletion, and delivery are Progressive's. Doug approves the policy."},
+    {s:"call", t:"Fixture package", o:["Lloyd","Doug"],
+     d:"One consolidated package before build: Walmart activation assets (still withheld), SystemOne/SystemBind upload samples, known-good output examples. A folder dump is fine. Lloyd and Doug deliver during Phase 1A. This is the unblocker."}
   ];
   var STAT={done:"DONE",open:"OPEN",call:"CALL"}, RANK={done:0,open:1,call:2};
   D.sort(function(a,b){return RANK[a.s]-RANK[b.s];});  // keep statuses grouped regardless of list order
