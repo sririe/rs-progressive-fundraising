@@ -3,6 +3,7 @@ title: "Phase 1 Vault — Card Normalization Model & Call-Prep Design Note"
 type: plan
 category: internal-design
 date: 2026-06-18
+updated: 2026-06-23
 status: draft
 audience: internal (Spencer, Tim, Stephanie) — call prep, not client-sent
 participants:
@@ -40,9 +41,9 @@ related:
   - projects/gift-cards/docs/plans/2026-06-10-phase1-sow-reconciliation.md
   - projects/gift-cards/docs/plans/2026-05-27-progressive-secure-card-vault-sow-draft.md
 blockers:
-  - "Hosting specifics need Tim's input (proposed posture below is a placeholder for his confirmation)."
-  - "D-13 rate ($150 relationship vs $160 last-executed) is Spencer's call."
-  - "Walmart activation program still withheld; SystemOne/SystemBind naming unconfirmed."
+  - "Hosting/stack is Tim's call (he has already identified a stack; posture below is a placeholder until he confirms)."
+  - "Export password handling (D-15) is unsolved: a single shown-once password breaks on multi-file orders."
+  - "Still missing: the SystemBind activation tool and the Walmart activation program. Rest of the package is in hand."
 ---
 
 # Phase 1 Vault — Card Normalization Model & Call-Prep Design Note
@@ -160,18 +161,18 @@ The May 27 draft + June 10 reconciliation framed Phase 1 as **"up to four mercha
 | Importer | 4 format families | 1 configurable importer over ~7 supplier adapters | Simpler to build & extend; matches Lloyd/James |
 | Generation | Amazon (+ maybe Loblaws/Shoppers) | Amazon, Walmart, Chapters-Indigo (Doug-confirmed) | Corrects the merchant list |
 | Output choice | per-merchant | per-order rule (URL **or** PDF) | Flexibility Lloyd asked for |
-| Commercial bound | fixed fee, 4 families | **bound by the Phase 1A active-merchant list + named supplier families; a genuinely new supplier family = change order** | Keeps the fee bounded *without* hardcoding — the reconciliation we need |
+| Commercial bound | fixed fee, 4 families | **configurable for the card formats we have today; a format that doesn't fit the config = software change (change order)** | Keeps the fee bounded *without* hardcoding — the reconciliation we need |
 
-**Important:** the general architecture does **not** mean unbounded scope. The fixed fee stays bounded by "active digital merchants as of Phase 1A + the supplier families they use." Adding a merchant inside a known family = configuration (no charge); a brand-new supplier shape = CO. That gives Lloyd his "no software change to add a merchant" *and* protects the fee. This is the one nuance to land cleanly with Tim and in Stephanie's SOW language.
+**Important:** the general architecture does **not** mean unbounded scope. The fixed fee stays bounded to the card formats we have today (the active merchants validated in Phase 1A). Adding a merchant whose format we already handle = configuration (no charge); a genuinely new format that doesn't fit the config = a software change, scoped as a change order. That gives Lloyd his "no software change to add a merchant we already cover" *and* protects the fee. This is the one nuance to land cleanly with Tim and in Stephanie's SOW language.
 
-Everything else in the reconciliation holds: Phase 1A validation milestone (D-4), vault-generated password protection (D-5/D-15), no in-browser reveal (D-6), no Redstamp card access by default (D-7), invalid-card workflow (D-8/D-9), support retainer proposed separately (D-11), training boundary (D-12).
+Roles are now named by Doug (T-3): Admin = Doug + Elena; Operations = new hire (TBA), Lisa, Lloyd. Everything else in the reconciliation holds: Phase 1A validation milestone (D-4), vault-generated export protection (D-5), no in-browser reveal (D-6), no Redstamp card access by default (D-7), invalid-card workflow (D-8/D-9), support retainer proposed separately (D-11), training boundary (D-12). The one exception is export password handling (D-15) — still unsolved (§5.6).
 
 ---
 
 ## 5. Resolving their open questions (call-ready)
 
 ### 5.1 Doug — a stray old "Progressive"-branded Loblaws card slips through
-Because the vault is the system of record and validates on import, an item that doesn't fingerprint to a current supplier family is **quarantined for operator review, not silently fulfilled**. Doug already expects stragglers to be converted before vault entry, so this is an edge guard, not a workflow. **Answer:** "It can't reach a customer unnoticed — unrecognized formats/brands land in a review queue with their source row recorded."
+Be honest about the limit: a format check **won't** catch this. The risk Doug raised is a card that's visually old-branded but otherwise in a current format — it fingerprints as valid and passes straight through. The real control is Doug's own cleanup of the stragglers before they reach the vault; the vault adds an audit trail, not branding detection. **Answer for the call:** "Format validation can't see visual branding. Your pre-vault cleanup is the control — confirm you're comfortable with that residual risk, or we add a seeded/visual check."
 
 ### 5.2 Lloyd / James — where is it hosted (security + backup/data-loss)?
 **Proposed posture (needs Tim's confirmation):** Redstamp-managed cloud, **Canadian data residency** (cash-equivalent data, Canadian entity), encrypted at rest and in transit, automated daily backups with tested restore, full access logging, no card data in application logs. **Flag:** Tim to confirm the actual stack/provider — this is a placeholder, and hosting/ownership may also feed the support agreement.
@@ -180,23 +181,23 @@ Because the vault is the system of record and validates on import, an item that 
 A **banner** is a retail store brand operated under a parent company; sibling banners usually share one gift-card platform/format. Example: Loblaw Companies banners — Loblaws, Shoppers Drug Mart, No Frills, Zehrs, Real Canadian Superstore. So "banner brands that share one format" = sibling stores under one parent whose cards arrive through the same supplier, so **one adapter covers them all.** (Ties directly to the open confirmation: which Loblaws banners share the format.)
 
 ### 5.4 Lloyd — "Is this SystemBind?" (vs our "SystemOne")
-Terminology, not architecture. We've called the URL upload/delivery system **SystemOne** (`ecard.proegiftcards.ca`); Lloyd calls it **SystemBind**. Almost certainly the same system. **Action:** confirm the canonical name on the call. In the model it's an external *delivery target* for Mode A exports, not part of the vault.
+Resolved: it's **SystemBind**. We'd been calling it SystemOne — our mistake, corrected. It's an external *delivery/upload target* for Mode A exports, not part of the vault. Note: the SystemBind activation tool itself is one of the two things still missing (with the Walmart activation program); the rest of the package is in hand.
 
 ### 5.5 Open confirmations
 - **Manual Walmart activated-results import for v1** — recommend we accept (D-2/T-2): controlled import in, direct Fiserv activation out until we've reviewed the (still-withheld) activation assets.
 - **Which Loblaws banners share one format** — confirm with Lloyd once "banner" is defined (5.3).
 
-### 5.6 Internal decisions still open
-- **D-3 Amazon output:** with svg2pdf validated and output now a per-order rule, Amazon defaults to **PDF/ZIP** (best-evidenced); URL export available once SystemOne/SystemBind is confirmed. No longer a hard either/or.
-- **D-13 rate:** $150 (CLIENT.md / relationship) vs $160 (last executed Progressive SOW). **Spencer's call** — fixed fee unchanged either way.
+### 5.6 Internal decisions
+- **D-3 Amazon output — reopened, not decided.** Several Amazon outputs are in play: what the activation tool (SystemBind) produces vs what the vault would generate, and whether delivery is one bundled ZIP or a file per card (Progressive has sent them individually). Pin down what they send today (Lloyd) and what we produce (Tim) before this is a call.
+- **D-13 rate — settled at $160** (matches the last executed Progressive SOW). Fixed fee unchanged.
 - **D-14 payment:** keep 40/40/20.
-- **D-15 export password:** random per-export password, shown once to the operator, delivered via the existing separate-email channel; lost password = re-export; no un-password workflow.
+- **D-15 export password — unsolved, top priority.** A single random password shown once breaks the moment an order is multiple PDFs/files: no single reveal point, and no clean way to put a different password on each file. Spencer + Tim need a real mechanism before the SOW.
 
 ---
 
-## 6. Technical underlay (settled — for the appendix/credibility)
+## 6. Technical underlay (for the appendix/credibility)
 
-- **Renderer:** `svg2pdf` (resvg family) reproduces Lloyd's Inkscape output to within rasterization noise (MAE 0.15/255); chosen over Playwright (fallback) and CairoSVG (rejected — breaks the logo). No Inkscape in the vault.
+- **Renderer (Spencer's finding, pending Tim):** going through the scripts, Spencer found `svg2pdf` (resvg family) reproduces Lloyd's Inkscape output to within rasterization noise (MAE 0.15/255), with Playwright a fallback and CairoSVG rejected (breaks the logo). Tim has already picked a renderer/stack — this is a benchmark to reconcile with his, not a decision. No Inkscape in the vault regardless.
 - **Generation runtime:** ~120 ms/card. Generation is a background job, so this is ample — a typical ~20-card Amazon order ≈ 2.4 s; 500 cards ≈ 60 s. Parallelism is available but caps early (~4 concurrent renders, ~12 cards/s) and is not needed at Progressive's volume.
 - **Ops caveats (renderer-independent):** ship Arial/Verdana fonts in the render image; set the output page size. Replace the script's fragile string-replace placeholders with named template fields.
 - Detail: [2026-06-17 analysis §4](2026-06-17-lloyd-materials-analysis-and-phase1-technical-recommendations.md) and private `E2E-RUN-FINDINGS.md` §7/§7a.
@@ -205,12 +206,12 @@ Terminology, not architecture. We've called the URL upload/delivery system **Sys
 
 ## 7. Open for Tim
 
-Tim has already prototyped importer work — these are the seams where his version should drive:
+Tim has already prototyped importer work — these are the seams where his version drives. Tim:
 
-1. The canonical record + credential shape (2.1/2.2) — does his prototype already encode something close? Adopt his if so.
-2. Supplier-family adapter boundary (§3) — confirm the families match what he built.
-3. Hosting posture (5.2) — his call on stack.
-4. The bounded-but-configurable SOW framing (§4) — does it match how he scoped the build?
+1. Canonical record + credential shape (2.1/2.2) — does your prototype already encode something close? If so, let's adopt yours.
+2. Supplier-family adapter boundary (§3) — do the families match what you built?
+3. Hosting/stack (5.2) — your call.
+4. The configurable-scope SOW framing (§4) — does it match how you scoped the build?
 
 ---
 
@@ -218,12 +219,12 @@ Tim has already prototyped importer work — these are the seams where his versi
 
 1. **Frame:** "We analyzed Lloyd's package; our model matches what Lloyd and James are already describing." (alignment, not new news)
 2. **Confirm the model:** supplier families, generation = Amazon/Walmart/Chapters-Indigo, output-by-rule.
-3. **Close the 4 questions** (§5.1–5.4) — most are quick.
-4. **Confirm:** Walmart manual import for v1; banner-format grouping.
-5. **Walmart assets + SystemOne/SystemBind:** what's still needed, what it's called.
+3. **Close the open questions** (§5.1–5.2): stray-card residual risk, hosting. (Banner term and SystemBind naming are resolved.)
+4. **Confirm:** Walmart manual import for v1; which Loblaws banners share the format.
+5. **Still missing:** the SystemBind activation tool and the Walmart activation program — ask Lloyd.
 6. **Hand to Stephanie:** SOW clarifying language (§4) + support proposal.
-7. **Internal-only, not for the call:** D-13 rate, D-14 schedule.
+7. **Internal-only:** D-14 schedule; the D-15 export-password mechanism (Spencer + Tim).
 
 ---
 
-*Next: on sign-off of this model, build the interactive HTML decision artifact on top of it (questions resolved, findings vs SOW, the model, renderer + parallelism), leaving the model panel open for Tim's adjustments.*
+*The interactive decision artifact built on this model lives at `2026-06-18-phase1-vault-decision-artifact.html` (decision-board form; facts re-grounded from Doug's 6/16 email, Spencer-voice pass 2026-06-23).*
