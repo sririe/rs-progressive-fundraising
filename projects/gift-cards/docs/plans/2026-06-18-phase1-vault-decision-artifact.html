@@ -103,9 +103,9 @@
 
 <div class="controls"><div class="wrap">
   <div class="counts">
-    <span class="c-done"><b id="nDone">0</b> resolved</span>
     <span class="c-open"><b id="nOpen">0</b> open (us)</span>
     <span class="c-call"><b id="nCall">0</b> for the call</span>
+    <span class="c-done"><b id="nDone">0</b> resolved</span>
   </div>
   <div class="filters" id="filters">
     <button data-f="all" class="on">All</button>
@@ -147,7 +147,7 @@
       <div class="rbar"><span class="lab">CairoSVG</span><span class="track"><span class="fill" style="width:100%;background:var(--coral)"></span></span><span class="mono">4.41</span></div>
       <p style="margin-top:10px">~120 ms/card; generation is a background job so throughput isn't a concern (parallelism caps ~4 renders). Pending reconciliation with Tim's chosen stack.</p>
       <h4>SOW reframe</h4>
-      <p>Was "4 hardcoded format families." Now: one configurable importer, plus generation for Amazon, Walmart, and Chapters-Indigo. Fee is bounded to the Phase 1A active-merchant list. An unmapped card family is a change order.</p>
+      <p>Was framed as "4 hardcoded format families." Simpler: build it configurable for the card formats we have today, plus generation for Amazon, Walmart, and Chapters-Indigo. A format that doesn't fit the config is a software change, scoped as a change order.</p>
       <p style="margin-top:12px">Full write-up: <a href="2026-06-18-phase1-vault-normalization-design-note.md">2026-06-18 vault normalization design note</a>.</p>
     </div>
   </details>
@@ -158,48 +158,50 @@
 <script>
 (function(){
   var D = [
-    // status: done | open | call
-    {s:"done", t:"Banner-brand term defined", o:["Lloyd"],
-     d:"A banner is a store brand under a parent company. Loblaws, Shoppers, and No Frills all sit under Loblaw. Siblings share one platform, so one adapter covers the set. Full map in Model & technical detail."},
-    {s:"done", t:"Amazon output format (D-3)", o:["Spencer"],
-     d:"PDF/ZIP by default. It's the best-evidenced path. URL export turns on once SystemOne is confirmed. Set per order, not hardwired by merchant."},
-    {s:"done", t:"Payment schedule (D-14)", o:["Spencer"],
-     d:"40/40/20. Kickoff, working V1, launch."},
+    // status: open | call | done  (actionable first; sorted into groups at render)
 
-    {s:"open", t:"Renderer identified — svg2pdf", o:["Tim"],
-     d:"Our finding, not a decision. svg2pdf (resvg) matches Lloyd's Inkscape output within rasterization noise. MAE 0.15/255, ~120 ms/card. Stays open until it's reconciled with the stack Tim already picked."},
-    {s:"open", t:"Hosting / stack", o:["Tim"],
-     d:"Posture: managed cloud, Canadian residency, encrypted, daily backups with tested restore, access-logged. Tim confirms the actual stack. He's already identified one."},
-    {s:"open", t:"Does the model match Tim's prototype?", o:["Tim"],
-     d:"Does Tim's importer prototype already encode the canonical record and credential? If yes, adopt his. Tim confirms."},
+    // --- open: ours to settle ---
     {s:"open", t:"Export password handling (D-15)", o:["Spencer","Tim"],
-     d:"Proposed: random per-export password, shown once, sent on the existing separate-email channel. Lost password means re-export. No un-password step. Spencer and Tim confirm before the SOW."},
-    {s:"open", t:"Support model", o:["Spencer"],
-     d:"Separate monthly support retainer, proposed alongside the SOW. Defined hours, Nov-Dec priority, emergency at agency rate. Doug selects."},
+     d:"Biggest open one. A random password shown once falls apart the moment an order is a dozen separate files. There's no single point to show it, and no sane way to put a different password on each file. Spencer and Tim need a real answer here before the rest."},
+    {s:"open", t:"Amazon output format", o:["Spencer","Tim"],
+     d:"Not decided. A few Amazon outputs are in play: what the activation tool (SystemBind) puts out versus what our vault would generate, and whether it's one bundled ZIP or a file per card. Progressive has sent them individually before. We pin down what they send today (Lloyd) and what we produce (Tim) before this is a call."},
+    {s:"open", t:"Renderer (svg2pdf)", o:["Tim"],
+     d:"Spencer's read from going through the scripts, not a decision. svg2pdf matched Lloyd's Inkscape output almost pixel for pixel, about 120 ms a card. Tim, you'd already picked a renderer. Does this line up with yours, or am I missing something?"},
+    {s:"open", t:"Importer prototype", o:["Tim"],
+     d:"Tim, does your importer prototype already encode the canonical record and the credential shape? If yes, let's just adopt yours."},
+    {s:"open", t:"Hosting / stack", o:["Tim"],
+     d:"Tim, this one's yours. You'd already landed on a stack. Working assumption is managed cloud, Canadian data residency, encrypted, backed up, access-logged. Confirm what you actually want to run on."},
     {s:"open", t:"Master Card scope", o:["Lloyd","Doug"],
-     d:"Active (Doug: yes), but no card sample in the package. In scope pending a fixture in Phase 1A. No fixture, no build. It becomes a change order."},
-    {s:"open", t:"Hourly rate (D-13)", o:["Spencer"],
-     d:"$150 (relationship) or $160 (last executed SOW). Spencer's call. Fixed fee doesn't move either way."},
-    {s:"open", t:"SOW: bounded vs configurable", o:["Spencer","Tim"],
-     d:"Bounded: the merchants validated in Phase 1A and their card formats. Configurable: the importer handles those formats by config, so adding a merchant in a known format needs no code. A card format we haven't mapped is a change order. Spencer and Tim lock the wording before Stephanie."},
+     d:"Doug wants Master Card live, but there's no card sample in what we received. It's in if a sample lands during Phase 1A. If it doesn't, it's a change order."},
+    {s:"open", t:"Support model", o:["Stephanie","Tim"],
+     d:"Stephanie and Tim to shape a monthly support retainer alongside the SOW. Defined hours, priority through Nov and Dec, emergencies at the agency rate. Doug picks the tier."},
+    {s:"open", t:"SOW: configurable scope", o:["Spencer","Tim"],
+     d:"Build it configurable for the card formats we have today. A format that shows up and doesn't fit the config is a software change, plainly. Spencer and Tim to evaluate and word it for the SOW."},
 
+    // --- for the call: Doug / Lloyd ---
     {s:"call", t:"Stray legacy-branded card", o:["Doug"],
-     d:"Format checks won't catch this. A rebranded card in a current format passes validation. The control is Doug's pre-vault cleanup of stragglers. The vault adds an audit trail, not detection. Confirm the residual risk is acceptable, or we add a seeded check."},
+     d:"Doug, the case you raised. A format check won't catch a card that's just visually old-branded but otherwise current. It passes straight through. Cleaning up the stragglers before they hit the vault is the real control. The vault gives you the audit trail, not detection. Are you good with that, or do you want us to add a check?"},
     {s:"call", t:"Walmart manual import for v1", o:["Doug"],
-     d:"We accept controlled import of activated results for v1. Direct Fiserv activation is excluded from fixed scope until we review the withheld assets. Excluded, not deferred. Confirm."},
-    {s:"call", t:"SystemBind vs SystemOne naming", o:["Lloyd"],
-     d:"Same system, different name. Confirm which we use. It gates the Amazon URL export path, so it's not purely cosmetic."},
-    {s:"call", t:"Which Loblaws banners share a format?", o:["Lloyd"],
-     d:"Which Loblaws banners run through the same platform as Loblaws and Shoppers? Give us the list, or say unknown. Determines whether one adapter covers the family."},
-    {s:"call", t:"Roles & access", o:["Doug"],
-     d:"Four roles: Admin, Operations, Finance, Viewer. No full card values in the browser. Sensitive data only through logged, role-gated downloads. No Redstamp access by default. Doug names the people and approves the model."},
+     d:"We're fine taking the activated results back by hand for v1. Running Fiserv activation ourselves stays out of fixed scope until we've seen the tooling. Doug, confirm that works for you."},
+    {s:"call", t:"Loblaws banner formats", o:["Lloyd"],
+     d:"Lloyd, which Loblaws banners come through the same platform as Loblaws and Shoppers? That tells us whether one importer covers the whole family."},
     {s:"call", t:"Post-download policy", o:["Doug"],
-     d:"The vault generates protected exports and logs them. Once a file leaves the vault, storage, retention, deletion, and delivery are Progressive's. Doug approves the policy."},
-    {s:"call", t:"Fixture package", o:["Lloyd","Doug"],
-     d:"One consolidated package before build: Walmart activation assets (still withheld), SystemOne/SystemBind upload samples, known-good output examples. A folder dump is fine. Lloyd and Doug deliver during Phase 1A. This is the unblocker."}
+     d:"Once a file leaves the vault, what happens to it is Progressive's call. Storage, how long it's kept, when it's deleted. Doug, we need you to sign off on that."},
+    {s:"call", t:"Still-missing materials", o:["Lloyd"],
+     d:"We already have the package: scripts, templates, samples, the Amazon pipeline. Two things are still missing. The SystemBind activation tool, and the Walmart activation program. Lloyd, can you send those?"},
+
+    // --- resolved ---
+    {s:"done", t:"Roles & access", o:["Doug"],
+     d:"Doug set these in his email. Admin is Doug and Elena. Operations is the new hire, Lisa, and Lloyd. No full card numbers in the browser, downloads only, all logged. We don't touch card data unless Progressive signs off per incident."},
+    {s:"done", t:"SystemBind naming", o:["Lloyd"],
+     d:"It's SystemBind. We'd been calling it SystemOne. Our mistake, fixed."},
+    {s:"done", t:"Banner-brand term", o:["Lloyd"],
+     d:"A banner is a store brand under a parent. Loblaws, Shoppers, and No Frills all sit under Loblaw. Siblings share a platform, so one importer covers the lot. Still need the SOW wording to say that plainly, not read per-merchant."},
+    {s:"done", t:"Payment schedule (D-14)", o:["Spencer"],
+     d:"40/40/20. Kickoff, working V1, launch. No reason to renegotiate."}
   ];
-  var STAT={done:"DONE",open:"OPEN",call:"CALL"}, RANK={done:0,open:1,call:2};
-  D.sort(function(a,b){return RANK[a.s]-RANK[b.s];});  // keep statuses grouped regardless of list order
+  var STAT={done:"DONE",open:"OPEN",call:"CALL"}, RANK={open:0,call:1,done:2};
+  D.sort(function(a,b){return RANK[a.s]-RANK[b.s];});  // actionable first; resolved at the bottom
   var board=document.getElementById("board");
   board.innerHTML=D.map(function(x,i){
     return '<div class="row s-'+x.s+'" data-status="'+x.s+'" data-owners="'+x.o.join(" ")+'" data-i="'+i+'">'+
