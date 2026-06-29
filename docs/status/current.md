@@ -5,132 +5,99 @@
 
 ## Current focus
 
-Phase 1 (Secure Card Vault) — **model + call-prep artifact are done and facts-corrected; parked pending Tim
-review, the Doug/Lloyd call, and SOW revision.** The deliverable is an interactive **decision board**
-(`2026-06-18-phase1-vault-decision-artifact.html`) backed by the **normalization design note** (same date):
-the vault owns a canonical card record, credential normalizes to `url + typed secrets`, ~7 card families
-(not 23 formats), output is rule-driven, Walmart is the one bidirectional exception. Our analysis converged
-with Lloyd's "inhomogeneous by supplier" and James's "general system" framing — the alignment headline for
-the call. Board + note were re-grounded 2026-06-23 against Doug's 6/16 email (fixing earlier re-litigation
-drift) and voiced in Spencer's register. **Biggest open item: the D-15 export-password mechanism** — a
-shown-once password breaks on multi-file orders; Spencer + Tim owe a real answer before the SOW. **Read
-first:** the design note, then the `2026-06-17` analysis for renderer/technical detail.
+Phase 1 (Secure Card Vault) — **the Phase 1 SOW amendment (v2) is built and in PM review.** Coming out of
+the **2026-06-23 "Digital Fulfillment Sync"** call with Doug + Lloyd (Tim + Stephanie on the Redstamp side),
+we amended the May 29 SOW to reflect the validated normalization model. v2 is a **copy** of the signed-format
+SOW with **every change highlighted in yellow** (Doug's explicit request); v1 is preserved. It's staged in
+**#am-pm-review** for Stephanie's PM Approval → Dropbox Sign → Doug. The Doug delivery email is drafted and
+waits on approval.
+
+- **v2 SOW (Google Doc):** `1aVIGSjhgzW6Eu95etE9MuubQEjoCXGm1Ucv4SqUJ8Vg` — Redstamp Clients [Internal] →
+  Progiftcards.ca → _Client Level Agreements. v1: `1CIugJL3zGlP_ORJX9iEBt0JXTh_WUaeW2H-9WTDWxQE`.
+- **Amendment plan (what/why/how + exact edits):** `projects/gift-cards/docs/plans/2026-06-29-sow-amendment-plan.md`.
 
 ## Last session
 
-- **2026-06-23** — Turned the normalization model into a clean **decision board** artifact (replaced the
-  prose-heavy version). Ran a **Codex adversarial-PM review**, applied its P1 fixes, then **re-grounded the
-  facts from Doug's 6/16 email** after Spencer caught re-litigation drift: roles resolved (Doug's names),
-  SystemBind confirmed (we'd mislabeled it SystemOne), Amazon output reopened, rate settled at $160, D-15
-  export-password flagged unsolved/top-priority, fixtures narrowed (package received; only SystemBind +
-  Walmart activation tools outstanding). Voiced the board in Spencer's register (canon-fed, approved).
-  Reconciled the design note to match. Netlify-ready copy at `~/Documents/progressive-phase1-decisions/index.html`.
-  PRs #6–#9 merged.
-- **2026-06-18** — (1) Renderer spike vs Lloyd's reference Amazon PDF: svg2pdf MAE 0.15/255 (winner),
-  Playwright 1.23 (fallback), CairoSVG 4.41 (rejected — breaks logo); ~120 ms/card, parallelism caps ~4
-  workers but generation is a background job so non-issue. (2) Adversarially reviewed yesterday's inventory
-  format map against raw files — found the `format_class` taxonomy is filename-driven and inconsistent
-  (Fairmont≡Winners split apart; Chapters≈Cara hidden). (3) Wrote the **vault normalization design note**
-  (canonical record + credential + ~7 supplier families + findings-vs-SOW + resolves all 4 open client
-  questions) and a **self-contained interactive HTML decision artifact** built from it (render-verified).
-  Updated analysis doc §4/§6 + `E2E-RUN-FINDINGS.md` §7/§7a. Artifacts in `_private/.../runs/spike/`.
-- **2026-06-17** — `redstamp.zip` received (Spencer moved to private folder). Extracted to
-  `_private/lloyd-materials-06162026/extracted/redstamp/`. Updated `SOURCE-INVENTORY.md`. Built
-  headless runner + inventory profiler; ran invoice→Excel and Amazon generator E2E (partial success).
-  Mapped ~8 inventory importer classes across 25 merchants. Documented Inkscape context + **hybrid PDF
-  recommendation** (resvg spike first, Playwright fallback). Wrote committed summary plan (link above).
-  Committed Phase 1 client presentation HTML + walkthrough PDF to `docs/plans/`.
-- **2026-06-16** — Processed Doug's reply; annotated Q&A thread; Walmart reconciliation xlsx inventoried;
-  Spencer requested `redstamp.zip` Drive access.
+- **2026-06-29** — Processed the 6/23 Digital Fulfillment Sync: ported transcript + notes to
+  `docs/discovery/2026-06-23-digital-fulfillment-sync-{transcript,notes}.md` (attendee roster +
+  diarization/provenance frontmatter). Built the **v2 SOW amendment** via `gog docs` (copy → surgical
+  find-replace/insert → `--bg-color #FFFF00` highlights) — 10 highlighted changes: normalization /
+  canonical-record model, Walmart **on-demand** activation (corrected from "store inactive then activate"),
+  credential patterns, **Render** hosting (app + DB; ~USD $25/mo Pro + compute + ~$6/mo DB, loose),
+  System Bind naming fix, Phase 1A milestone rename, **Support & Maintenance** framing for new-merchant
+  additions (not change orders), Support Agreement reference. Wrote the amendment plan; captured gog
+  doc-editing gotchas (`docs/solutions/workflow-issues/gog-docs-amendment-edits-System-20260629.md`).
+  Staged the #am-pm-review Slack draft for Stephanie; drafted the Doug delivery email (unsent).
+- **2026-06-23** — Decision board + normalization design note re-grounded from Doug's 6/16 email; PRs #6–#9.
+  This 6/23 work + the 6/23 client call are the inputs the amendment is built on.
+- **2026-06-18** — Renderer spike (svg2pdf) + vault normalization design note + interactive decision artifact.
 
 ## In-flight work
 
-- **Canonical thread:** Gmail "RE: Reschedule Needed-Phase 1 Proposal" (thread `19e9a0905b082b87`).
-- **Decision artifact (live on `main`):** `2026-06-18-phase1-vault-decision-artifact.html` — board form,
-  voiced, facts-corrected. Counts: **8 open / 5 for-the-call / 4 resolved**. Netlify-ready copy in `~/Documents/`.
-- **Biggest open — D-15 export-password mechanism** (Spencer + Tim): a shown-once password breaks on
-  multi-file orders; needs a real design before the SOW.
-- **Amazon output reopened** (Spencer + Tim, with Lloyd): activation-tool/SystemBind output vs vault output;
-  bundled ZIP vs per-card files. Clarify what Progressive sends today and what we produce.
-- **Waiting on Tim:** his renderer/stack pick (reconcile our svg2pdf benchmark to it); whether his importer
-  prototype already encodes the canonical record/credential.
-- **SOW framing** (Spencer + Tim → Stephanie): configurable for today's card formats; a format that doesn't
-  fit the config = software change (change order). Gut-check before it reaches the SOW.
-- **Doug locked 2026-06-16:** active offerings (MasterCard yes; Browns/Hudson's Bay no; Uber not now);
-  in-house generation = Amazon, Walmart, Chapters-Indigo. Manual Walmart import v1 = "still to be discussed."
-- **Resolved 2026-06-23 (were open):** roles & access (Doug named them: Admin = Doug + Elena; Operations =
-  new hire, Lisa, Lloyd); SystemBind naming (it's SystemBind); D-13 rate ($160).
-- **Still missing from Progressive:** SystemBind activation tool + Walmart activation program. Rest received.
-- **National Zakat Foundation call:** still needs scheduling.
+- **SOW v2 in PM review** — staged Slack draft in **#am-pm-review** (channel `CDXL51RFS`), tagged Stephanie
+  Lamon (`UHEG5DDMW`); **draft not yet sent** (Spencer sends). Flow: send → 👀 → PM Approval form →
+  Stephanie sends via **Dropbox Sign** → Doug. Stephanie already gave one review note (add approx. Render
+  cost) — incorporated.
+- **Doug delivery email** — drafted in-conversation, **not yet created as a Gmail draft**; push after the SOW
+  clears review. Replies on thread `19e9a0905b082b87` ("RE: Reschedule Needed-Phase 1 Proposal"). Doug
+  nudged 2026-06-27 asking for timing.
+- **2nd-pass SOW details** deliberately left under the normalization umbrella (Doug: "don't sweat every
+  question"): import-mapping UI bullet, invalid-card workflow, four role types, training-package detail.
+- **Other worktree:** main repo checked out on `codex/giftcard-vault-design` (at origin/main SHA; no
+  unpushed commits observed).
 
 ## Repo state
 
-- **Decision artifact (current deliverable):** `projects/gift-cards/docs/plans/2026-06-18-phase1-vault-decision-artifact.html` — self-contained interactive decision board (voiced, facts-corrected 2026-06-23, render-verified). Deploy copy at `~/Documents/progressive-phase1-decisions/index.html`.
-- **Vault normalization model + call prep:** `projects/gift-cards/docs/plans/2026-06-18-phase1-vault-normalization-design-note.md` — reconciled 2026-06-23 to match the board; Spencer-internal long-form.
-- **Phase 1 analysis (renderer/technical):** `projects/gift-cards/docs/plans/2026-06-17-lloyd-materials-analysis-and-phase1-technical-recommendations.md`
-- **Client presentation deliverables (committed):**
-  - `projects/gift-cards/docs/plans/2026-05-27-progressive-client-presentation-redstamp.html` — branded walkthrough deck (HTML)
-  - `projects/gift-cards/docs/plans/Progressive-Secure-Card-Vault-Phase-1-Walkthrough.pdf` — Phase 1 walkthrough PDF export
-  - Draft variant (older): `projects/gift-cards/docs/plans/2026-05-27-progressive-client-presentation-draft.html`
+- This session's docs land via a **docs-only PR** from `claude/sweet-lumiere-6058d1`: the two ported 6/23
+  transcripts, `2026-06-29-sow-amendment-plan.md`, the new `gog-docs-amendment-edits` solution, and this
+  status update.
+- No unpushed code; sibling worktree clean at origin/main.
 
 ## Runtime & environment
 
-- **Materials local-only (git-ignored):** `projects/gift-cards/_private/lloyd-materials-06162026/`
-  - `redstamp.zip` + `extracted/redstamp/` (full Lloyd demo package)
-  - `WM Ecards - May2026.xlsx` (Walmart reconciliation)
-  - `notes/SOURCE-INVENTORY.md`, `notes/E2E-RUN-FINDINGS.md`
-  - `scripts/headless_runner.py`, `scripts/inventory_format_map.py`
-  - `runs/` (logs, `inventory-formats.json`)
-  - `.venv/` (pandas, openpyxl, pypdf, pdfplumber)
-- Older recovered scripts: `projects/gift-cards/_private/lloyd-materials/2026-06-08/`
-- **Not on analysis machine:** Java/Tika, Inkscape — E2E used pypdf + headless runner patches.
-- **Deploy copy (local, not in repo):** `~/Documents/progressive-phase1-decisions/index.html` — byte copy of
-  the committed decision artifact, named for Netlify Drop. Re-create by copying the committed `.html`; not a
-  cold-start dependency.
-- **Spiral MCP** (voice tool) disconnected this session; not needed — voice is canon-fed via the `my-voice`
-  skill + `aurora-skills/.agents/context/voice/SPENCER-VOICE-DNA.md`. Re-auth tools exist if wanted.
+- **App codebase (cross-repo):** `~/projects-work/progressive-card-vault/app` — Next.js / Node 22 + Prisma +
+  Postgres (Tim's build). Deploy config: `app/render.yaml` (Render web service + Postgres). Staging runs on
+  Render's **free** tier — **internal only: Progressive does not know staging exists (built pre-signature);
+  keep it out of all client comms.** Production = Render Pro (~USD $25/mo + compute) + Postgres (~$6/mo).
+- **gog (Google Workspace CLI):** `~/.local/bin/gog` v0.31.1 (source build, ahead of brew `gogcli`).
+  Docs/Drive writes work via the DWD **service account** for spencer@redstamp.com (no reauth; ignore the
+  `auth list --check` "invalid" red herring). **Gmail is NOT in the SA scope** (401) — use the Gmail MCP for
+  mail. `docs copy/find-replace/insert/format` are blocked under `gog-agent-safe`; use stock
+  `gog --enable-commands docs.<cmd>` for authorized edits. Full recipe + traps:
+  `docs/solutions/workflow-issues/gog-docs-amendment-edits-System-20260629.md`.
+- **Second-brain inbox:** `~/projects-personal/second-brain/Incoming/` — the two 6/23 captures live there
+  with enriched frontmatter; now redundant with the repo copies (Spencer's call whether to prune).
+- No required local services for this repo.
 
 ## Next steps
 
-1. **When resuming:** open the decision board `2026-06-18-phase1-vault-decision-artifact.html` (or its design
-   note) — it's the live picture: 8 open / 5 for-the-call / 4 resolved.
-2. **D-15 export password (top priority, Spencer + Tim)** — design a mechanism that survives multi-file
-   orders; the shown-once approach is dead.
-3. **Amazon output (Spencer + Tim, with Lloyd)** — clarify activation-tool vs vault output, and bundled ZIP
-   vs per-card files.
-4. **Tim review** — canonical model + credential shape + ~7 card-family boundaries vs his importer prototype;
-   reconcile our svg2pdf benchmark with his renderer/stack.
-5. **Doug/Lloyd call** — confirm the model; remaining questions (stray-card residual risk, hosting, Loblaws
-   banner list); Walmart manual import; the still-missing SystemBind + Walmart activation tools. (design note §8)
-6. **SOW with Stephanie** — configurable-scope language (§4) + D-14 + support proposal (Stephanie + Tim).
-7. **Follow up with Lloyd:** SystemBind activation tool, Walmart activation program, cleanup/retention rules,
-   Master Card fixture.
+1. **Send the #am-pm-review draft** (Spencer) → Stephanie's PM Approval → Dropbox Sign to Doug.
+2. **After approval:** push the Doug delivery email as a Gmail draft (reply on thread `19e9a0905b082b87`).
+3. **Timeline:** Spencer + Tim sync (Tim out the week of 6/30) to set firm dates; SOW keeps 6–8 weeks +
+   "ahead of the October peak."
+4. **Merchant-flow diagrams** (5–6 common merchants: source → vault → output) — deferred companion Lloyd
+   asked for; build after the SOW.
+5. **D-15 export-password mechanism** (Spencer + Tim) still unsolved long-term; V1 leaves export protection
+   with System Bind.
 
 ## Blockers
 
-- **D-15 export-password mechanism unsolved** — shown-once password breaks on multi-file orders; blocks the SOW.
-- **Still missing from Progressive:** SystemBind activation tool + Walmart activation program (rest received).
-- Walmart activation program deliberately withheld — confirm the Phase 1 boundary on the call.
-- Renderer is ops, not a decision: ship Arial/Verdana fonts + set page size in the render image (pending Tim's stack).
+- None blocking the SOW. (D-15 export-password is deferred, not blocking V1.)
 
 ## Decisions & context
 
-- **2026-06-17 technical decisions:** Lloyd scripts = reference only; Phase 1 PDF = server-side hybrid;
-  defer full invoice PDF parse.
-- **2026-06-18 renderer decision:** svg2pdf (resvg family) chosen for Phase 1 Amazon cards — MAE 0.15/255
-  vs Inkscape reference; Playwright (1.23) is fallback-only; CairoSVG (4.41) rejected. Ship Arial/Verdana
-  in renderer image; set output page size. Evidence: `_private/.../runs/spike/`, analysis doc §4.
-- **2026-06-18 normalization model:** vault owns a canonical card record; inputs are incidental; credential
-  normalizes to `url + typed secrets`; ~7 supplier families not 23 formats; output rule-driven; Walmart is
-  the bidirectional output exception. SOW reframes to bounded-but-configurable. Full doc:
-  `projects/gift-cards/docs/plans/2026-06-18-phase1-vault-normalization-design-note.md`.
-- **2026-06-23 corrections (re-grounded from Doug's 6/16 email):** SystemBind is the name (we'd said
-  SystemOne); rate settled at $160; roles named by Doug (Admin = Doug + Elena; Operations = new hire, Lisa,
-  Lloyd); Amazon output reopened (activation-tool vs vault, ZIP vs per-card); D-15 export-password unsolved.
-  Decision artifact rebuilt as a voiced board; design note reconciled to match. SOW trigger is now "a card
-  format that doesn't fit the config = software change," not "new supplier family."
-- **2026-06-16 client thread:** `projects/gift-cards/docs/discovery/2026-06-16-phase1-annotated-qa-thread.md`
-- **SOW reconciliation:** `projects/gift-cards/docs/plans/2026-06-10-phase1-sow-reconciliation.md`
-- **April script review (superseded by 2026-06-17 analysis for fixture/E2E status):**
-  `projects/gift-cards/docs/plans/2026-04-23-lloyd-script-review-next-steps.md`
+- **2026-06-29 SOW amendment decisions:** deliverable = yellow-highlighted modified SOW only (Doug dropped
+  the Q&A companion); copy v1 → v2, v1 preserved; D-15 deferred (System Bind keeps export protection for
+  V1); timeline 6–8 wks + October-peak target, dates post-Tim-sync; roles named as types not individuals
+  (and deferred to 2nd pass); Render named as hosting with loose approximate cost (per Stephanie);
+  **new-merchant additions that fit an existing credential pattern = Support & Maintenance work + an
+  end-to-end validation pass, NOT a change order; only a genuinely new credential type is a change order.**
+- **branded-gdoc runs on gog;** for an *amendment* (vs. fresh template fill) the working method is gog docs
+  surgical edits on a copy + `--bg-color` highlighting (recipe in the solutions doc above).
+- **6/23 call:** Doug + Lloyd endorsed the normalization model; Walmart confirmed on-demand (no pre-stored
+  inventory); System Bind stays for V1 (post-V1 consolidation possible).
+- **Speaker attribution (6/23 transcript):** Supernormal verified only "You" (Spencer); Speaker 3 = Doug,
+  Speaker 4 = Lloyd inferred from content; Speaker 1/2 = Tim/Stephanie unresolved.
+- Prior: SOW reconciliation `projects/gift-cards/docs/plans/2026-06-10-phase1-sow-reconciliation.md`;
+  normalization design note `projects/gift-cards/docs/plans/2026-06-18-phase1-vault-normalization-design-note.md`.
 - House rule: read CLIENT.md + REDSTAMP-SOW-CONTEXT.md before client-facing artifacts.
