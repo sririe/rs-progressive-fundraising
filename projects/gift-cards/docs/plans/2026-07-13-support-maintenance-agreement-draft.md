@@ -26,7 +26,7 @@ Date: [July 2026]
 
 ## 01. Overview
 
-This Statement of Work covers ongoing support and maintenance of the Secure Card Vault and Fulfillment Tool following Phase 1 launch. Its purpose is to give Progressive a known, predictable monthly cost for keeping the vault healthy, secure, and current — including the routine addition of new merchants — so day-to-day operation never depends on ad hoc requests or change orders.
+This Statement of Work covers ongoing support and maintenance of the Secure Card Vault and Fulfillment Tool following Phase 1 launch. Its purpose is to give Progressive a known, predictable monthly cost for keeping the vault healthy, secure, and current, including the routine addition of new merchants, so day-to-day operation never depends on ad hoc requests or change orders.
 
 This agreement begins upon Phase 1 launch and runs month-to-month alongside the vault. It is issued under the Services Agreement between Red Stamp Agency Inc. and Progressive Fundraising Inc. dated February 21, 2024.
 
@@ -67,7 +67,7 @@ After the warranty period, fixes for defects that prevent the system from meetin
 1. Requests are submitted through the agreed channel (email or shared Slack channel), acknowledged within one business day (same business day during peak season).
 2. Redstamp provides an estimated level of effort before proceeding with any request expected to exceed the included monthly hours.
 3. Included hours cover the scope areas above; unused hours do not roll over.
-4. Larger enhancements — new features, new workflows, Phase 2 items (e.g., automated delivery emails, customer portal) — are scoped separately as a change order or new SOW.
+4. Larger enhancements (new features, new workflows, and Phase 2 items such as automated delivery emails or a customer portal) are scoped separately as a change order or new SOW.
 5. Work is billed in 30-minute increments.
 6. Third-party pass-through costs (hosting, licenses) are billed separately and are not part of the monthly fee.
 
@@ -93,6 +93,6 @@ After the warranty period, fixes for defects that prevent the system from meetin
 
 ## 07. Approvals
 
-**RED STAMP AGENCY INC.** — Spencer Ririe, Co-Founder
+**RED STAMP AGENCY INC.:** Spencer Ririe, Co-Founder
 
-**PROGRESSIVE FUNDRAISING INC.** — Doug Beers, President
+**PROGRESSIVE FUNDRAISING INC.:** Doug Beers, President
