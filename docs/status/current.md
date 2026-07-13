@@ -49,7 +49,7 @@ S&M fee; the workflow diagrams promised to Lloyd) **plus 8 clarification questio
 | 1 | S&M price sign-off ($800/mo drafted) | **Spencer** | decision — approve or edit both the doc and the Gmail draft |
 | 2 | Q6b posture: self-serve merchant config named as Phase 2 candidate | **Spencer** | drafted that way; confirm |
 | 3 | Diagrams: review + export to PDF | Spencer | first pass built |
-| 4 | 3 small SOW edits (yellow-highlighted) | Claude (gog docs) | run on Spencer's word |
+| 4 | 3 small SOW edits (yellow-highlighted) | Claude (gog docs) | **DONE 7/13** — applied to v2 in place (yellow = delta-from-v1 rule holds), verified via HTML export |
 | 5 | Slack message to Stephanie in #am-pm-review | **SENT 7/13** (Spencer; Tim tagged to review) — implies $800/mo price approved | |
 | 6 | Gmail draft to Doug + attach 2 PDFs | staged (Spencer attaches + sends) | |
 | 7 | Firm timeline dates | Spencer + Tim | SOW keeps relative dates — NOT blocking |
