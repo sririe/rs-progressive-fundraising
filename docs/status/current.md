@@ -50,7 +50,7 @@ S&M fee; the workflow diagrams promised to Lloyd) **plus 8 clarification questio
 | 2 | Q6b posture: self-serve merchant config named as Phase 2 candidate | **Spencer** | drafted that way; confirm |
 | 3 | Diagrams: review + export to PDF | Spencer | first pass built |
 | 4 | 3 small SOW edits (yellow-highlighted) | Claude (gog docs) | run on Spencer's word |
-| 5 | Slack draft to Stephanie in #am-pm-review | staged (Spencer sends) | |
+| 5 | Slack message to Stephanie in #am-pm-review | **SENT 7/13** (Spencer; Tim tagged to review) — implies $800/mo price approved | |
 | 6 | Gmail draft to Doug + attach 2 PDFs | staged (Spencer attaches + sends) | |
 | 7 | Firm timeline dates | Spencer + Tim | SOW keeps relative dates — NOT blocking |
 | 8 | D-15 export-password mechanism | Spencer + Tim | deferred; V1 = System Bind protection; not blocking |
