@@ -112,3 +112,32 @@ separate from ownership).*
 
 Doug's last message (7/8) is friendly but this is the third nudge. The package should go out this
 week; every answer above is designed to close, not reopen, discussion.
+
+## Addendum — Tim/Codex diagram review (2026-07-13)
+
+Tim reviewed the diagrams against the current app build: **direction confirmed** (spine, statuses,
+encryption, Walmart round-trip all match). His flags, triaged:
+
+**Folded into the diagrams (client-facing, done):**
+- Overview caption added: customer-ready file = internal fulfillment file, downloaded by Progressive
+  and delivered via their existing process (vault does no end-customer delivery in V1); export
+  layouts validated against known-good examples at kickoff.
+- Walmart note: "customer-ready delivery" → "customer-ready file."
+
+**NOT folded in (deliberate):**
+- Softening "password-protected Excel / ZIP of PDFs" to TBD — Doug's Q6a explicitly asked us to
+  CONFIRM those two formats; walking them back reopens a closed question (re-litigation trap).
+  Format details (columns, passwords, per-merchant layout) are already Phase 1A confirmations in
+  the SOW.
+- Post-download responsibility — already an SOW assumption (Progressive owns exported-file handling).
+- Walmart "activates" wording — diagrams already say prepare-file / external activation / re-import.
+
+**Internal build-alignment list (not client-facing; for Spencer + Tim's build thread):**
+- Import engine maturity: schema detection, reusable vendor mappings, duplicate checks, full format
+  validation, per-order output rules, password-protected XLSX/ZIP generation = production
+  implementation work to schedule, not assumed built.
+- PC/Loblaws: confirm exact columns (URL, account #, PIN, denomination, banner, tracking fields)
+  from fixtures at kickoff.
+- Mode B (Amazon, Chapters): production PDF templates, output samples, ZIP packaging, and acceptance
+  criteria required from Progressive before build — SOW already conditions generation on "clearly
+  supplied and approved" examples.
