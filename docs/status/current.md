@@ -21,16 +21,18 @@ S&M fee; the workflow diagrams promised to Lloyd) **plus 8 clarification questio
   client call last week — the "last call" remains 6/23; the 6/29 "Progressive Design Kick-Off" was internal
   design, Candace + Kaitlin starting UX review of Tim's staging app). Built the Doug close-out package:
   1. **S&M Agreement draft** — `2026-07-13-support-maintenance-agreement-draft.md` + branded Google Doc
-     (rs-pageless; retainer template unregistered in branded-gdoc). **$800 CAD + tax/mo, 5 hrs included,
-     $160/hr overage, month-to-month from launch, Nov–Dec priority response. PRICE IS SPENCER'S CALL —
-     sending the staged materials = approving it.**
+     (rs-pageless; retainer template unregistered in branded-gdoc). **Settled 7/13: $1,280 CAD + tax/mo, 8 hrs included** (Stephanie proposed 10; Spencer capped at 8;
+     two-month calibration review language in the Doug email). **Doc of record moved to the official
+     retainer template by Stephanie: `1-NdeN-hbG8y3Miw-YxpwdbgcE5wfUEOQUmcerguyASw` — already reads 8 hrs;
+     tell Stephanie 8 stands (she thought she had to revert to 10).**
   2. **Merchant workflow diagrams** — `2026-07-13-merchant-flow-diagrams.html` (overview + 6 patterns:
      CashStar URL+challenge, URL-only, PC URL+acct+PIN, code+PIN, Amazon claim-code→PDF, Walmart
      bidirectional activation). Print to PDF for Doug/Lloyd.
   3. **Answers to Doug's 8 questions** — in the response plan; three imply small yellow-highlight SOW
      edits (Q1 "first set" wording, Q4 inventory CSV export, Q7 support-request activity records).
-  4. **Gmail draft to Doug** staged on thread `19e9a0905b082b87` (draft `r-2697339329393018958`), cc
-     Stephanie + Lloyd — full answers, attachments to be added by Spencer (S&M PDF + diagrams PDF).
+  4. **Gmail draft to Doug** staged on thread `19e9a0905b082b87` — **current draft is
+     `r3563123784029039860`** ($1,280/8hrs + calibration note); the earlier `r-2697339329393018958`
+     ($800/5hrs) must be deleted. Spencer attaches S&M PDF + diagrams PDF and sends.
 - **2026-06-29** — SOW v2 amendment built + sent to #am-pm-review; Stephanie sent to Doug same day.
   Transcripts ported; amendment plan written.
 
@@ -46,12 +48,12 @@ S&M fee; the workflow diagrams promised to Lloyd) **plus 8 clarification questio
 
 | # | Item | Owner | State |
 |---|---|---|---|
-| 1 | S&M price sign-off ($800/mo drafted) | **Spencer** | decision — approve or edit both the doc and the Gmail draft |
+| 1 | S&M price | settled | **8 hrs / $1,280/mo** — Stephanie's template doc already reads 8; confirm to her in-thread |
 | 2 | Q6b posture: self-serve merchant config named as Phase 2 candidate | **Spencer** | drafted that way; confirm |
 | 3 | Diagrams: review + export to PDF | Spencer | first pass built |
 | 4 | 3 small SOW edits (yellow-highlighted) | Claude (gog docs) | **DONE 7/13** — applied to v2 in place (yellow = delta-from-v1 rule holds), verified via HTML export |
-| 5 | Slack message to Stephanie in #am-pm-review | **SENT 7/13** (Spencer; Tim tagged to review) — implies $800/mo price approved | |
-| 6 | Gmail draft to Doug + attach 2 PDFs | staged (Spencer attaches + sends) | |
+| 5 | Slack message to Stephanie in #am-pm-review | **SENT 7/13** (Spencer; Tim tagged) — Stephanie re-templated + repriced; settled at 8 hrs in her thread | |
+| 6 | Gmail draft to Doug + attach 2 PDFs | staged v2 (Spencer attaches + sends) | v2 draft has $1,280/8hrs + calibration note; **DELETE the old $800 draft** |
 | 7 | Firm timeline dates | Spencer + Tim | SOW keeps relative dates — NOT blocking |
 | 8 | D-15 export-password mechanism | Spencer + Tim | deferred; V1 = System Bind protection; not blocking |
 | 9 | PM approval → Dropbox Sign (SOW + S&M together) | Stephanie | after Doug OKs |
@@ -73,8 +75,8 @@ S&M fee; the workflow diagrams promised to Lloyd) **plus 8 clarification questio
 
 ## Next steps
 
-1. Spencer: approve S&M price + Q6b posture → send Slack draft (Stephanie) + Gmail draft (Doug, attach PDFs).
-2. On Spencer's word: apply the 3 yellow-highlight SOW edits via gog docs.
+1. Spencer: confirm to Stephanie that 8 hrs stands (her doc already reads 8 — no revert needed); delete the
+   old $800 Gmail draft; export S&M PDF from her template doc; send Doug email with both PDFs.
 3. After Doug's OK: Stephanie sends SOW + S&M through Dropbox Sign together.
 4. Spencer + Tim: firm dates (post-signature is fine; SOW keeps 6–8 weeks + October-peak target).
 5. Design track continues in parallel (not client-facing until SOW signed).

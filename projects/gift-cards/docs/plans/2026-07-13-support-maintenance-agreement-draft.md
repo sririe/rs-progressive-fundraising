@@ -3,13 +3,13 @@ title: "Progressive Fundraising — Card Vault Support & Maintenance Agreement (
 type: plan
 category: client-facing-draft
 date: 2026-07-13
-status: draft — pending Spencer pricing sign-off, then #am-pm-review
+status: superseded for send — Stephanie ported to the official retainer template 2026-07-13; doc of record: 1-NdeN-hbG8y3Miw-YxpwdbgcE5wfUEOQUmcerguyASw (8 hrs / $1,280 CAD+tax/mo / $3,840 quarterly). This file kept as content source.
 audience: Stephanie (PM review) → Doug Beers
 related:
   - 2026-06-29-sow-amendment-plan.md
   - 2026-07-13-doug-7-01-response-plan.md
 decisions_needed:
-  - "PRICING (Spencer): monthly fee recommended at $800 CAD + tax (5 included hours @ $160). Alternates: $640 (4 hrs) / $960 (6 hrs). Doug's gate is knowing the number, not the number itself."
+  - "PRICING SETTLED 2026-07-13: 8 hrs / $1,280 CAD + tax per month (Stephanie proposed 10, Spencer capped at 8; first-two-months calibration language added to the Doug email)."
   - "WARRANTY POSTURE (Spencer): draft covers post-warranty defect fixes from included hours at no extra charge. More generous option: defects against documented Phase 1 objectives fixed at no charge indefinitely (higher goodwill, open-ended exposure)."
 notes:
   - "Rate $160 CAD/hr matches the executed Progressive SOW (D-13 settled 6/18). CLIENT.md still says $150 — stale, flagged for update."
@@ -81,11 +81,11 @@ After the warranty period, fixes for defects that prevent the system from meetin
 
 ## 06. Terms
 
-**1) Monthly Fee.** **$800 CAD plus tax per month**, which includes up to **5 hours** of support and maintenance effort as scoped above. *(Pricing pending Spencer confirmation — see frontmatter.)*
+**1) Monthly Fee.** **$1,280 CAD plus tax per month**, which includes up to **8 hours** of support and maintenance effort as scoped above. 
 
 **2) Additional Hours.** Effort beyond the included monthly hours, approved by Progressive in advance, is billed at the agency rate of **$160 CAD plus tax per hour** at month end (NET 30).
 
-**3) Invoicing.** The monthly fee is invoiced on the 1st of each month, NET 30. Quarterly invoicing ($2,400 CAD plus tax per quarter) is available on request.
+**3) Invoicing.** The monthly fee is invoiced on the 1st of each month, NET 30. Quarterly invoicing ($3,840 CAD plus tax per quarter) is available on request.
 
 **4) Term & Termination.** The agreement begins upon Phase 1 launch and continues month-to-month. Either party may terminate with written notice, effective no earlier than the last day of the month following the month in which notice is given.
 
