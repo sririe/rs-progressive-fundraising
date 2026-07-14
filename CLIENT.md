@@ -41,8 +41,8 @@
 
 | Field               | Value                                                       |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Current rate**    | $150 CAD/hr                                                 |
-| **Rate history**    | $150 CAD/hr (2025–present)                                  |
+| **Current rate**    | $160 CAD/hr (D-13, settled 2026-06-18; matches executed Phase 1 SOW) |
+| **Rate history**    | $150 CAD/hr (2025–early 2026) → $160 CAD/hr (2026-06)       |
 | **Payment terms**   | NET 7 on deposits, NET 30 on completion milestones          |
 | **Billing tool**    | Harvest                                                     |
 | **Invoicing notes** | [Confirm — does Progressive pay via cheque, EFT, or other?] |
