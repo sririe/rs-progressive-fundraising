@@ -66,6 +66,6 @@ the style guide's Content Style section already carry designer-grade decisions. 
 |-----|----------------|
 | Candace + Kaitlin | Read Tim's two docs; walk the prototype as "Lisa's first login"; start ruling on the string table |
 | Tim | Access + change-request answer; flag screens about to change |
-| Hannah | Skim the flow doc; confirm the Merchant ruling record; first open ratification (Client vs Customer) |
+| Hannah | Skim the flow doc; first open ratification (Client vs Customer) |
 | Stephanie | Track SOW signature (DropboxSign); put the standing sync on calendars |
 | Spencer | Deliver string table + primer (done — this pack); confirm Figma mirror is complete |

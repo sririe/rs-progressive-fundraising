@@ -57,7 +57,8 @@ deleted — history is kept).
 
 ## Vocabulary that matters (see the glossary doc for rulings)
 
-- **Request** — the fulfillment record. **Client** — the organization ordering.
+- **Request** — the fulfillment record. **Client / Customer** — the ordering organization; whether
+  one word wins or they split (account entity vs. delivery act) is glossary ruling #2, currently open.
 - **Offering** — a card someone can order: merchant + card type + denomination.
 - **Allocate** — reserve specific cards from the vault for a request.
 - **Quarantine** — permanently pull an invalid card out of circulation.
