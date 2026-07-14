@@ -1,3 +1,12 @@
+---
+title: "Card Vault — Design Primer"
+type: reference
+category: internal-design
+date: 2026-07-14
+status: current
+audience: internal (design team) — also feeds the team Claude project
+---
+
 # Card Vault — Design Primer
 
 **For:** Candace, Kaitlin, Hannah · **Date:** 2026-07-14
@@ -52,8 +61,9 @@ deleted — history is kept).
 - **Offering** — a card someone can order: merchant + card type + denomination.
 - **Allocate** — reserve specific cards from the vault for a request.
 - **Quarantine** — permanently pull an invalid card out of circulation.
-- **Preparation, never activation** — the app prepares Walmart files; Progressive activates
-  them outside the app. This is a hard boundary; copy must never imply otherwise.
+- **The activation boundary** — the app prepares merchant work files and imports activated
+  results; only Progressive activates, always outside the app. Copy may say "activated result
+  import" but must never imply the app performs activation.
 - **Downloaded internally ≠ delivered to customer** — two events, tracked separately.
 
 ## What's live design territory vs. not
@@ -65,13 +75,15 @@ simpler path), then screen-by-screen intuitiveness against the first-login test.
 **Being redesigned anyway (don't polish):** the Card Preparation screen (`/card-vault/generation`) is
 placeholder UI awaiting the Walmart preparation/result-import redesign.
 
-**Locked (not design-changeable):** output CSV column headers (they mirror files Progressive's clients
-already consume), and anything implying the app activates cards, processes payments, or hosts customer
+**Locked (not design-changeable):** the client-consumed and process-bound output CSV headers
+(Loblaws/Shoppers, Amazon workbook, Walmart work file — see inventory §3.15 for the per-profile
+status), and anything implying the app activates cards, processes payments, or hosts customer
 downloads — all out of scope by agreement.
 
 ## Where things live
 
 - **Truth:** the GitLab repo — what's merged is what exists.
 - **Mirror:** the Figma file of imported screens — refreshed after merges; comment and redline there.
-- **This docs set:** primer, glossary, string inventory — in the Redstamp project repo and the team
-  Claude project.
+- **This docs set:** primer, glossary, string inventory — in the Redstamp project repo, and mirrored
+  into the Progressive Fundraising project in the Redstamp Claude workspace (internal team workspace;
+  client-confidential material stays within Redstamp-controlled surfaces).

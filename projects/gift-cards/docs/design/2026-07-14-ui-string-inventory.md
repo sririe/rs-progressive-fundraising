@@ -1,3 +1,12 @@
+---
+title: "Card Vault — UI String Inventory & Language Audit"
+type: reference
+category: internal-design
+date: 2026-07-14
+status: ready-for-rulings
+audience: internal (design team, Tim, Spencer) — not client-sent
+---
+
 # Card Vault — UI String Inventory & Language Audit
 
 **Date:** 2026-07-14 · **Source:** `gitlab.com/rs-dev/progressive-gift-cards-card-vault` @ `bd1f16d` (2026-07-14)
@@ -8,13 +17,17 @@
 
 Every user-facing string in the prototype is inventoried below. The work happens top-down:
 
-1. **Section 1 — Glossary rulings.** Ten term-level decisions that cascade through everything else.
-   Rule on these first; each ruling resolves dozens of strings at once. Rulings go in the glossary doc.
+1. **Section 1 — Glossary rulings.** Term-level decisions that cascade through everything else.
+   Rule on these first; each resolves dozens of strings at once. **This section is a worklist —
+   rulings are recorded only in `2026-07-14-design-glossary.md`, never here.**
 2. **Section 2 — Flagged strings.** Specific strings with a defect (dev language leaking through,
-   inconsistency, machine-optimization) and a proposed replacement. Accept, amend, or reject each.
-3. **Section 3 — Full inventory.** Every string, by screen, with its exact source location so Tim can
-   apply approved changes in one pass. Anything not flagged in Sections 1–2 was judged fine as built —
-   but designers should skim their screen's table and challenge anything that reads wrong.
+   inconsistency, machine-optimization) and a proposed replacement. Accept, amend, or reject each —
+   except rows marked LOCKED, which designers route to Progressive rather than rule on.
+3. **Section 3 — Full inventory.** Every user-facing string, by screen. Paths are relative to the
+   prototype repo's `src/`; repeated strings are consolidated into one row with a ×N count, and
+   long runs of similar fields are grouped with line ranges — Tim applies changes from the source,
+   where every pointer resolves unambiguously. Anything not flagged in Sections 1–2 was judged fine
+   as built — but designers should skim their screen's table and challenge anything that reads wrong.
 
 **Credit where due:** most of this prototype's copy is already good. Tim's style guide has an explicit
 Content Style section (voice, capitalization, five terminology rulings), and the blocked-state helpers
@@ -23,10 +36,11 @@ audit extends that foundation; it doesn't replace it.
 
 **Two constraint classes to respect:**
 
-- **Output CSV column headers are not free to rename.** The headers in `merchant-output-profiles.ts`
-  (e.g. `Gift Card Vendor`, `CLAIM CODE`, `Transaction Status`) mirror file formats Progressive's
-  clients and merchant processes already consume. Renaming any of them is a client conversation, not a
-  design call. They're inventoried in §3.15 for completeness and marked LOCKED.
+- **Most output CSV column headers are not free to rename — locked per profile, not globally.** The
+  Loblaws/Shoppers, Shoppers, and Amazon workbook headers mirror files Progressive's clients already
+  consume; the Walmart work-file headers feed the external Fiserv activation process. Renaming any of
+  those is a Progressive conversation, not a design call (§3.15 marks them LOCKED, with why). The
+  **Generic internal CSV** is Redstamp-internal and its headers are renameable like any UI string.
 - **The Card Preparation screen (`/card-vault/generation`) is placeholder UI** by Tim's own docs — it
   gets redesigned around Walmart preparation-file generation, not re-worded. Its strings are inventoried
   (§3.6) but excluded from the language pass.
@@ -37,14 +51,14 @@ audit extends that foundation; it doesn't replace it.
 
 | # | Term as built | The question | Evidence to weigh | Ruling |
 |---|---------------|--------------|-------------------|--------|
-| 1 | **Vendor** | Vendor vs **Merchant** vs Supplier — the word for Amazon/Walmart/Loblaws etc. Appears in nav, headings, columns, forms (~30 strings). | Our client-facing workflows doc (reviewed by Lloyd 7/14) says *Merchant*. Tim's style guide says "Vendor names: official *merchant* capitalization." But the Loblaws output CSV clients already receive says `Gift Card Vendor`, and Lloyd's own emails say "supplier." Ask what Doug/Lloyd/Lisa say out loud. | _____ |
+| 1 | **Vendor** | Vendor vs **Merchant** vs Supplier — the word for Amazon/Walmart/Loblaws etc. Appears in nav, headings, columns, forms (~30 strings). | **Default: Merchant** — the repo's design canon uses *merchant* exclusively, the client-facing workflows doc (reviewed by Lloyd 7/14) says *Merchant*, and Tim's style guide says "official *merchant* capitalization." The `Gift Card Vendor` CSV header is a locked format exception, not counter-evidence. Confirm operators don't say "supplier" (Lloyd's emails sometimes do), then ratify. | Default: Merchant — confirm & ratify |
 | 2 | **Client / Customer** | The app uses both: the *Clients* area vs the *Customer* column on requests, "Customer email," "Delivered to customer." Same party — the fundraising organization ordering cards. | Tim's rule: "use customer or client consistently within a section." A cleaner rule may be: **Client** = the account/organization; **Customer delivery** = the handoff act. Or collapse to one word everywhere. | _____ |
 | 3 | **Fulfillment / Fulfillment Requests / Requests** | The nav says *Fulfillment Requests*, the page title says *Fulfillment*, the dashboard says *Digital Gift Card Fulfillment*, detail pages say *Fulfillment request*. One name, used everywhere. | "Request" is Tim's ruled term for the record. The list page should probably just be **Requests** or **Fulfillment Requests** in both nav and title. | _____ |
 | 4 | **Denomination** | Do Progressive operators say "denomination," or do they say value/amount? (~15 strings + CSV headers.) | Gift-card industry standard is *denomination*; Lloyd's materials use it. Likely keep — confirm at the Doug/Lloyd call, don't assume. | _____ |
 | 5 | **Allocate / Allocated** | Keep as the word for reserving cards to a request? | Keep. Lloyd's 7/14 email uses "allocation" unprompted — it's already Progressive's word. Ruling here is just to make it official. | _____ |
 | 6 | **Quarantine** | Keep as the word for pulling an invalid card out of circulation? | Precise and safe (a quarantined card never returns to inventory — the word carries that). Keep, but add first-use helper text near the action. | _____ |
 | 7 | **Export / Export package** | The app alternates ("Create export," "Export package created," "Export packages"). Pick one. | "Export" alone is probably enough; "package" adds no meaning for a single CSV. If multi-file ZIPs arrive (Amazon PDF/ZIP), "package" may earn its place — decide with that future in view. | _____ |
-| 8 | **Preparation (never "activation")** | Already ruled by Tim's style guide + Doug's requirements: the app *prepares* Walmart files; Progressive *activates* externally. | Ratify as glossary law and audit new copy against it. The current placeholder screen's "Generate test cards" button will be replaced in the redesign anyway. | _____ |
+| 8 | **Activation boundary** | — | — | **RULED** — see glossary "Ruled" table: the app prepares files and imports activated results; only Progressive activates. Listed here only to keep numbering; audit new copy against it. |
 | 9 | **Offering** | "Catalog offerings," "Gift card offering," "Offering" column — the vendor+type+denomination combination a client can order. | Keep — "offerings" is Doug's own word (6/16 email: "active offerings"). Standardize casing and use. | _____ |
 | 10 | **Empty-value convention** | The app shows "Not provided," "Not applicable," "–", "Never," "No vendor," "No cards requested" for absent data. | Pick one primary convention ("Not provided" for missing data, "—" for empty cells) and apply it; keep genuinely distinct meanings (e.g. "Never" for last-used) only where the distinction informs. | _____ |
 
@@ -72,7 +86,8 @@ audit extends that foundation; it doesn't replace it.
 | Exports table column | "Exporter" | Reads like a machine role | "Exported by" (matches the CSV header already named `Exported By`) | `src/app/exports/page.tsx:66` |
 | Shipping form card title | "Shipping details optional" | Missing punctuation — reads as one phrase | "Shipping details (optional)" | `src/app/requests/new/page.tsx:248` |
 | Empty-value fallbacks | "Not provided" / "Not applicable" / "–" / "No vendor" / "No cards requested" | Mixed conventions | Glossary ruling #10, then align | multiple (see §3) |
-| Loblaws CSV header | "Gift Card Pin" | Casing inconsistent with "PIN" elsewhere | LOCKED — flag to Progressive rather than change; it may mirror the file their clients already receive | `merchant-output-profiles.ts:52` |
+| Loblaws CSV header | "Gift Card Pin" | Casing inconsistent with "PIN" elsewhere | LOCKED — not a design ruling; flag to Progressive, since it may mirror the file their clients already receive | `merchant-output-profiles.ts:52` |
+| Preparation language outside the placeholder screen | "Generate cards" button (`card-vault/page.tsx:138`), "Digital generators" stat (`card-vault/page.tsx:157`), "Needs generation" status (`format.ts:6`), "…complete any required generation step first" (`requests/[requestNumber]/page.tsx:427`) | The placeholder *screen* is excluded from this pass, but these strings live on non-placeholder surfaces and say "generate" where the ruled boundary says "prepare" | "Prepare cards" · "Preparation merchants" · "Needs preparation" · "…complete any required preparation step first" | see left |
 
 **P3 — worth a designer look, not defects:**
 
@@ -450,19 +465,19 @@ already models the ruled language ("Preparation only," "Activation remains outsi
 | Card | Available · Allocated · Delivered · Quarantined |
 | Request type | Digital · Physical · Mixed · Unknown |
 
-### 3.15 Output CSV headers (src/lib/merchant-output-profiles.ts) — LOCKED, client-format-bound
+### 3.15 Output CSV headers (src/lib/merchant-output-profiles.ts) — lock status per profile
 
-Profile display names (shown in-app, renameable): Generic internal CSV · Generic URL vendor CSV ·
-Walmart activation work file CSV · Loblaws/Shoppers customer CSV · Shoppers customer CSV · Amazon
-workbook CSV — plus their descriptions (see source lines 94–147).
+Profile display names (shown in-app, renameable like any UI string): Generic internal CSV · Generic
+URL vendor CSV · Walmart activation work file CSV · Loblaws/Shoppers customer CSV · Shoppers customer
+CSV · Amazon workbook CSV — plus their descriptions (source lines 94–147).
 
-Column headers (in the files clients/processes receive — **do not rename without Progressive sign-off**):
-Request Number · Customer Name · Customer Email · Export File · Exported By · Exported At · Output
-Profile · Allocation ID · Vendor · Card Type · Denomination Cents · Denomination · Card Number · PIN ·
-Card Status · Allocated At · Row ID · Brand · eGift Card Number · URL · Challenge Code · Recipient
-Name · Message · Token · Gift Card Vendor · Gift Card Value · Gift Card URL · Account Number · Gift
-Card Pin (casing flag, P2) · SEQUENCE · CLAIM CODE · AMOUNT · SERIAL NUMBER · CUSTOMER · MESSAGE ·
-Invoice # · Date · Operation · Card Value · Original Idempotency Key · Transaction Status · Target System
+| Profile | Column headers | Lock status |
+|---------|----------------|-------------|
+| Generic internal CSV (lines 17–32) | Request Number · Customer Name · Customer Email · Export File · Exported By · Exported At · Output Profile · Allocation ID · Vendor · Card Type · Denomination Cents · Denomination · Card Number · PIN · Card Status · Allocated At | **Renameable** — Redstamp-internal fallback file; "Denomination Cents" and "Vendor" follow glossary rulings like UI strings |
+| Generic URL vendor CSV (lines 36–44) | Row ID · Brand · eGift Card Number · URL · Challenge Code · Denomination · Recipient Name · Message · Token | **In refinement** — customer-style file; confirm with Progressive which client formats it must match before renaming |
+| Loblaws/Shoppers + Shoppers customer CSV (lines 48–52) | Gift Card Vendor · Gift Card Value · Gift Card URL · Account Number · Gift Card Pin (casing flag, §2 P2) | **LOCKED — client-consumed**; changes are a Progressive conversation |
+| Amazon workbook CSV (lines 56–63) | SEQUENCE · CLAIM CODE · AMOUNT · SERIAL NUMBER · CUSTOMER · MESSAGE · Invoice # · Date | **LOCKED — client-consumed** (mirrors the workbook format in use) |
+| Walmart activation work file (lines 67–74) | Operation · Card Number · PIN · Card Value · Card Type · Original Idempotency Key · Transaction Status · Target System | **LOCKED — process-bound**; feeds Progressive's external Fiserv activation |
 
 ### 3.16 Import profile names & notes (src/lib/merchant-import-profiles.ts)
 

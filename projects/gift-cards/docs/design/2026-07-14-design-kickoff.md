@@ -1,15 +1,26 @@
+---
+title: "Card Vault — Design Kickoff"
+type: plan
+category: internal-design
+date: 2026-07-14
+status: current
+audience: internal (kickoff attendees)
+---
+
 # Card Vault — Design Kickoff (2026-07-14)
 
 **In the room:** Spencer · Tim · Hannah · Candace · Kaitlin · Stephanie (PM)
-**Context:** Card Vault SOW verbally approved by Progressive today; S&M agreement out for signature.
-Tim's working prototype (GitLab) meets the project requirements; this phase makes it meet the users.
+
+**Context:** Card Vault SOW verbally approved by Progressive today; Support & Maintenance agreement
+out for signature. Tim's working prototype (GitLab) meets the project requirements; this phase makes
+it meet the users.
 
 ## Success — the one test
 
 **A Progressive staff member logs in for the first time and completes their real workflow without
 anyone helping them.** The users are named: Doug + Elena (admin); Lisa, Lloyd, and a new hire
-(operations). No user interviews needed — every design question becomes "does this help Lisa's
-first login?"
+(operations). No formal research phase is needed — every design question becomes "does this help
+Lisa's first login?", and terminology confirmations ride the existing client calls.
 
 ## The two gaps design closes
 
@@ -26,7 +37,7 @@ the style guide's Content Style section already carry designer-grade decisions. 
 | Phase | When | Deliverable |
 |-------|------|-------------|
 | 1 · Language pass | Week 1 | Approved glossary v1 + revised strings, applied by Tim in one batch. First ruling queued: Vendor vs Merchant. |
-| 2 · Output & delivery flow | Weeks 2–4 | Redesigned export/delivery flow honoring 7/14 client requirements: legacy clients keep PDF-in-ZIP; new clients get the simpler path. |
+| 2 · Output & delivery flow | Weeks 2–4 | Redesigned export/delivery flow honoring the 7/14 client requirements (Doug's email, canonical Gmail thread): legacy clients keep the PDF-in-ZIP delivery option; new clients move to the simpler URL-based path. |
 | 3 · Screen-by-screen intuitiveness | Ongoing | Prioritized fix list from walking each flow as one of the five named users. |
 
 ## How we work
