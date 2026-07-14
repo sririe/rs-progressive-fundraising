@@ -51,7 +51,7 @@ audit extends that foundation; it doesn't replace it.
 
 | # | Term as built | The question | Evidence to weigh | Ruling |
 |---|---------------|--------------|-------------------|--------|
-| 1 | **Vendor** | Vendor vs **Merchant** vs Supplier — the word for Amazon/Walmart/Loblaws etc. Appears in nav, headings, columns, forms (~30 strings). | **Default: Merchant** — the repo's design canon uses *merchant* exclusively, the client-facing workflows doc (reviewed by Lloyd 7/14) says *Merchant*, and Tim's style guide says "official *merchant* capitalization." The `Gift Card Vendor` CSV header is a locked format exception, not counter-evidence. Confirm operators don't say "supplier" (Lloyd's emails sometimes do), then ratify. | Default: Merchant — confirm & ratify |
+| 1 | **Vendor → Merchant** | — | — | **RULED** — see glossary "Ruled" table: Merchant, from canon (design note 24–0, client-facing docs, style-guide capitalization rule). Application task: migrate the ~30 "Vendor" UI strings; locked CSV headers stay as format exceptions. Open confirmation: no operator "supplier" exception (next client call). |
 | 2 | **Client / Customer** | The app uses both: the *Clients* area vs the *Customer* column on requests, "Customer email," "Delivered to customer." Same party — the fundraising organization ordering cards. | Tim's rule: "use customer or client consistently within a section." A cleaner rule may be: **Client** = the account/organization; **Customer delivery** = the handoff act. Or collapse to one word everywhere. | _____ |
 | 3 | **Fulfillment / Fulfillment Requests / Requests** | The nav says *Fulfillment Requests*, the page title says *Fulfillment*, the dashboard says *Digital Gift Card Fulfillment*, detail pages say *Fulfillment request*. One name, used everywhere. | "Request" is Tim's ruled term for the record. The list page should probably just be **Requests** or **Fulfillment Requests** in both nav and title. | _____ |
 | 4 | **Denomination** | Do Progressive operators say "denomination," or do they say value/amount? (~15 strings + CSV headers.) | Gift-card industry standard is *denomination*; Lloyd's materials use it. Likely keep — confirm at the Doug/Lloyd call, don't assume. | _____ |
@@ -467,9 +467,16 @@ already models the ruled language ("Preparation only," "Activation remains outsi
 
 ### 3.15 Output CSV headers (src/lib/merchant-output-profiles.ts) — lock status per profile
 
-Profile display names (shown in-app, renameable like any UI string): Generic internal CSV · Generic
-URL vendor CSV · Walmart activation work file CSV · Loblaws/Shoppers customer CSV · Shoppers customer
-CSV · Amazon workbook CSV — plus their descriptions (source lines 94–147).
+Profile display names + descriptions (shown in-app in export metadata and audit messages — renameable
+like any UI string):
+
+| Display name | Description | Source |
+|--------------|-------------|--------|
+| Generic internal CSV | Internal fallback CSV for mixed merchant requests or unsupported merchant templates. | :94–97 |
+| Generic URL vendor CSV | Customer-style CSV for vendors that deliver URL/challenge-token card data. | :104–107 |
+| Walmart activation work file CSV | Walmart/Fiserv activation work file. Activation itself remains outside the app until separately scoped. | :114–117 |
+| Loblaws/Shoppers customer CSV · Shoppers customer CSV | Simplified customer-style file for Loblaws and Shoppers URL/account/PIN cards. (description shared by both profiles) | :124–137 |
+| Amazon workbook CSV | Amazon workbook format used before PDF/ZIP generation. | :144–147 |
 
 | Profile | Column headers | Lock status |
 |---------|----------------|-------------|
@@ -479,19 +486,42 @@ CSV · Amazon workbook CSV — plus their descriptions (source lines 94–147).
 | Amazon workbook CSV (lines 56–63) | SEQUENCE · CLAIM CODE · AMOUNT · SERIAL NUMBER · CUSTOMER · MESSAGE · Invoice # · Date | **LOCKED — client-consumed** (mirrors the workbook format in use) |
 | Walmart activation work file (lines 67–74) | Operation · Card Number · PIN · Card Value · Card Type · Original Idempotency Key · Transaction Status · Target System | **LOCKED — process-bound**; feeds Progressive's external Fiserv activation |
 
-### 3.16 Import profile names & notes (src/lib/merchant-import-profiles.ts)
+### 3.16 Import profile names, descriptions & review notes (src/lib/merchant-import-profiles.ts)
 
-Display names (P3 — keep; Lloyd quotes them verbatim): Auto-detect / Generic CSV · URL + Challenge
-Code · URL Only · URL + Account Number + PIN · Card Number + PIN · Amazon Claim Code · Walmart
-Activated Result. Each carries a description + two/three review notes (source lines 36–144) — these read
-well and already model the preparation-not-activation rule.
+Display names are P3 — keep; Lloyd quotes them verbatim in client email. Descriptions and review
+notes appear in the import-profile picker; they read well and already model the activation-boundary
+rule.
 
-### 3.17 Permission names (src/lib/permissions.ts — shown on /users)
+| Display name | Description | Review notes | Source |
+|--------------|-------------|--------------|--------|
+| Auto-detect / Generic CSV | Flexible detection for test data and early vendor samples. The app maps recognized columns and flags missing card credentials. | Best for staging, early samples, and files that do not have a finalized vendor profile yet. · Production imports should move to a named profile once Progressive confirms the file format. | :36–47 |
+| URL + Challenge Code | CashStar-style URL files with one redemption URL and one challenge code per card. | One mapping can support multiple CashStar-delivered merchants if the columns are identical. · Challenge codes are sensitive and should only appear in approved exports. | :52–63 |
+| URL Only | Simple merchant files where each card is represented by one redemption URL. | This is the simplest customer-ready export pattern. · Any additional vendor tracking columns can be ignored unless Progressive marks them as required. | :68–79 |
+| URL + Account Number + PIN | Loblaws/Shoppers-style files with a redemption URL, account number, and PIN. | Sibling banners can share this profile only after the client confirms identical columns. · URL, account number, and PIN are all treated as sensitive card data. | :84–95 |
+| Card Number + PIN | Merchant files that provide a card number/code and PIN, with no redemption URL. | Some orders may later require generated PDFs, but raw import still starts from card number plus PIN. · PDF templates and packaging rules need separate approval before production use. | :100–111 |
+| Amazon Claim Code | Amazon claim-code imports that can feed generated PDF cards once final templates are approved. | Generation happens at fulfillment/export time, not import time. · Production PDF/ZIP output requires approved templates and client acceptance criteria. | :116–127 |
+| Walmart Activated Result | Activated Walmart/Fiserv result files imported after Progressive completes activation outside the app. | The app does not activate Walmart cards in V1. · Progressive runs Walmart/Fiserv activation externally, then imports activated result data back into the vault. · Rows should only be imported after Progressive confirms they represent live activated cards. | :132–144 |
 
-View fulfillment work · Create requests · Update payment status · Allocate cards · Create exports ·
-Download sensitive exports · Confirm customer delivery · Cancel requests · View inventory · Import
-inventory · Manage users · Manage integrations · View audit log — each with a one-line description
-(lines 28–114). All read cleanly; align "fulfillment work" wording with glossary ruling #3.
+### 3.17 Permission names & descriptions (src/lib/permissions.ts — shown on /users)
+
+All read cleanly; align "fulfillment work" wording with glossary ruling #3, and "vendor inventory" /
+"vendor-provided" with the ruled Merchant term.
+
+| Permission | Description | Source |
+|------------|-------------|--------|
+| View fulfillment work | Review dashboard, requests, clients, and request status. | :28–30 |
+| Create requests | Create manual requests and receive WordPress-created requests. | :35–37 |
+| Update payment status | Manually mark orders as invoiced, pending, or paid. | :42–44 |
+| Allocate cards | Reserve available vault cards against paid fulfillment requests. | :49–51 |
+| Create exports | Create customer-ready export package records. | :56–58 |
+| Download sensitive exports | Download exports that reveal full card credentials. | :63–65 |
+| Confirm customer delivery | Confirm that Progressive delivered the downloaded file to the customer. | :70–72 |
+| Cancel requests | Cancel requests created in error before sensitive data leaves the vault. | :77–79 |
+| View inventory | Review vendor inventory and denomination availability. | :84–86 |
+| Import inventory | Import vendor-provided or activated result files into the vault. | :91–93 |
+| Manage users | Create users, reset passwords, change roles, and deactivate access. | :98–100 |
+| Manage integrations | Configure WordPress connections and rotate intake secrets. | :105–107 |
+| View audit log | Review operational and sensitive-action audit history. | :112–114 |
 
 ---
 

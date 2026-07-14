@@ -23,12 +23,12 @@ AI-generated material. This file is the standing fix for machine-optimized namin
 | **Downloaded internally** vs **Delivered to customer** | Two distinct events, never conflated. | Downloading an export ≠ the customer having the file; the security model depends on the distinction. |
 | **Activation boundary** | The app *prepares* merchant work files and *imports activated results*. Only Progressive *activates* — always outside the app. UI copy may say "activated result import"; it must never imply the app performs activation. | Contractual boundary (style guide + Doug's requirements), stated as an actor rule so legitimate phrases like "Walmart Activated Result" stay legal. |
 | **Official merchant capitalization** | Brand names render as the brand writes them (Loblaws, Walmart, Amazon). | Style guide. |
+| **Merchant** (not Vendor or Supplier) | The word for Amazon, Walmart, Loblaws etc., everywhere in the UI (~30 current "Vendor" strings to migrate). Locked external CSV headers (`Gift Card Vendor`) remain as documented format exceptions. | Ruled from canon 2026-07-14: the vault normalization design note uses *merchant* exclusively (24–0), the client-facing workflows doc says *Merchant*, and Tim's capitalization rule already says "official *merchant* capitalization." **Open task, not an open ruling:** confirm on the next client call that operators don't need a "supplier" exception; Hannah confirms this record. |
 
 ## Open rulings (worklist mirrored from inventory §1 — decide in order)
 
 | # | Term | Question | Default + evidence | Ruling (by, date) |
 |---|------|----------|--------------------|-------------------|
-| 1 | Vendor / Merchant / Supplier | One word for Amazon, Walmart, Loblaws… (~30 UI strings say "Vendor") | **Default: Merchant.** The repo's design canon (vault normalization note) uses *merchant* exclusively (24–0), our client-facing workflows doc says *Merchant*, and Tim's own capitalization rule says "official *merchant* capitalization." The `Gift Card Vendor` CSV header is a **locked format exception**, not counter-evidence. Confirm operators don't say "supplier" (Lloyd's emails sometimes do), then ratify. | |
 | 2 | Client / Customer | Account entity vs requesting party — one word, or a ruled split (Client = the organization; "customer delivery" = the handoff act) | Tim's rule: consistent within a section. App currently mixes across sections. | |
 | 3 | Fulfillment / Requests | One name for the area — nav says "Fulfillment Requests," list title "Fulfillment," dashboard "Digital Gift Card Fulfillment," detail eyebrow "Fulfillment request" | "Request" is the ruled record name; the area name should contain it. | |
 | 4 | Denomination | Keep the industry word, or plainer? | Industry + Lloyd's materials use it. Confirm with operators on the next call — don't assume. | |
@@ -38,7 +38,7 @@ AI-generated material. This file is the standing fix for machine-optimized namin
 | 9 | Offering | The merchant + card type + denomination combination | **Default: keep.** Doug's own word (6/16: "active offerings"). Standardize casing. | |
 | 10 | Empty values | One convention for absent data | Propose "Not provided" for missing data, "—" for empty cells; keep distinct meanings (e.g. "Never" for last-used) only where the distinction informs. | |
 
-(#8, the activation boundary, is already ruled above — numbering matches inventory §1.)
+(#1 Merchant and #8 the activation boundary are already ruled above — numbering matches inventory §1.)
 
 ## How a ruling gets made
 

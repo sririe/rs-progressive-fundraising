@@ -36,7 +36,7 @@ the style guide's Content Style section already carry designer-grade decisions. 
 
 | Phase | When | Deliverable |
 |-------|------|-------------|
-| 1 · Language pass | Week 1 | Approved glossary v1 + revised strings, applied by Tim in one batch. First ruling queued: Vendor vs Merchant. |
+| 1 · Language pass | Week 1 | Approved glossary v1 + revised strings, applied by Tim in one batch. First application: the ruled **Merchant** term replaces ~30 "Vendor" UI strings (locked CSV headers stay). |
 | 2 · Output & delivery flow | Weeks 2–4 | Redesigned export/delivery flow honoring the 7/14 client requirements (Doug's email, canonical Gmail thread): legacy clients keep the PDF-in-ZIP delivery option; new clients move to the simpler URL-based path. |
 | 3 · Screen-by-screen intuitiveness | Ongoing | Prioritized fix list from walking each flow as one of the five named users. |
 
@@ -66,6 +66,6 @@ the style guide's Content Style section already carry designer-grade decisions. 
 |-----|----------------|
 | Candace + Kaitlin | Read Tim's two docs; walk the prototype as "Lisa's first login"; start ruling on the string table |
 | Tim | Access + change-request answer; flag screens about to change |
-| Hannah | Skim the flow doc; first glossary ratifications (Vendor vs Merchant) |
+| Hannah | Skim the flow doc; confirm the Merchant ruling record; first open ratification (Client vs Customer) |
 | Stephanie | Track SOW signature (DropboxSign); put the standing sync on calendars |
 | Spencer | Deliver string table + primer (done — this pack); confirm Figma mirror is complete |
