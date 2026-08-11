@@ -1,0 +1,82 @@
+# Progressive Chat — Spencer + Kaitlin (voice transcript)
+# Source: operator-supplied voice transcription (cleaner than Supernormal for intent;
+# ASR noise retained where present: "sigma"=Figma, "Candice"=Candace, "FISERV"=Fiserv)
+# Date: 2026-08-10 ~11:29 CST
+# Attendees: Spencer Ririe, Kaitlin Gordeyko
+
+[0:02] Spencer: It's down the road.
+[0:04] Spencer: Takes like three and a half minutes to get to both where the elementary school and the daycare… And once we got both kids in the same…
+[0:19] Spencer: Just a game changer.
+[0:20] Kaitlin: I bet probably so much easier.
+[0:24] Kaitlin: So good.
+
+[0:34] Kaitlin: Well, yeah, progressive.
+[0:41] Kaitlin: I can just share a link here.
+[0:53] Spencer: Just one second. I'm looking at something.
+[0:55] Kaitlin: Oh yeah, all good.
+
+[1:22] Spencer: Okay.
+[1:31] Spencer: Yeah, these are always tricky.
+[1:39] Spencer: Did you have like a lot of design dev interaction at your last agency?
+[1:51] Kaitlin: This is different.
+
+[2:00] Spencer: I think it's more of a case of, and I didn't anticipate the possible friction of: hey, we've already built a prototype and now we're going to apply a design. I've experienced this on Pilot too where sometimes the developer doesn't always understand the impact that even small little things can have — or even notice — and then it's easy to get defensive.
+
+[2:50] Kaitlin: Yeah, it's tough because I feel like the communication has been lacking in what he's updating. Like I'm working on something and then all of a sudden the prototype has changed from what I saw yesterday and I didn't say change that.
+
+[3:16] Spencer: So what I can do after is — because essentially Codex is working on implementation — I think it's easy enough for Tim to have it spit out what has been changed and what's been implemented so that we can address it. Something we'll get sorted through. Kelso and I have also been chatting about some internal AI building both with design and dev, which will likely help figure out how we best work in a more fluid way when we're not following a traditional waterfall process.
+
+[4:31] Kaitlin: Yeah. Learning curve of a project.
+[4:39] Kaitlin: Cool. So yeah, I wanted to touch mainly about the Walmart orders. So the kind of plan from the beginning was to try and bring the Walmart card preparation right into the main orders page. Because right now in the prototype you have to click off to prepare. Can you follow me for one second in Figma and I'll just show you how it is.
+
+[5:16] Kaitlin: So right now it's like this — you have to prepare the card and then it takes you to a new screen where you do all of that. And then once it's all prepared and imported then you can go back to the process. So our kind of plan from the beginning was to bring it all in one, because the form is not that big — bring it as a step. We made the mockup and then end of last week Tim kind of said we can't do that and I don't really know why. He talks about functionality. So I don't know if that's something worth…
+
+[5:56] Spencer: Yeah. Walk me back real quick to what you were saying.
+
+[6:00] Kaitlin: So this is a normal orders. Candace and I wanted to bring it in as a step here. So instead of having to go off the screen to a new thing to do the card preparation, it's just a step with the Walmart orders — make the experience simple, easy, and streamlined. So we just want to bring it in as a step. But there are some comments here because the Walmart ones are treated differently.
+
+[6:36] Spencer: Prepare Walmart… I'm just looking at / reading the comment.
+
+[7:12] Spencer: Yeah. So I agree with Tim in that it wouldn't make sense to… and sort of here's the reason why: if they don't have sufficient Walmart card inventory, it essentially needs to happen in the card vault area versus… [re-reads Tim's comment]
+
+[8:29] Spencer: Yeah so I think it does add complexity because…
+
+[8:41] Kaitlin: I mean yeah maybe I don't understand the technical stuff. From my point of view I don't understand how this is any different than the flow that was mapped here — they're just going to another page with those form fields and then generating the cards, versus doing it all in one.
+
+[9:28] Spencer: Yeah. So I guess one clarification is they aren't taken to Fiserv. So in order to prepare… this is tricky. Essentially they're having to prepare a special sheet, then they download it, go over to another application, upload that, those cards then get activated, and then it's downloaded, and then they add those cards to the vault. So it is a bit of a trickier workflow. But it does sort of make sense.
+
+[10:55] Spencer: The thing is — and this is where I think it might introduce complexity — in your flow, if there are other vendor orders those will get added during allocation. And this step would only show if there were Walmart cards.
+
+[11:21] Kaitlin: Correct.
+
+[11:29] Spencer: Yeah. I think it makes sense to have it here. I agree.
+
+[11:38] Kaitlin: Yeah. For me for a user journey it's just part of a step of a Walmart card — it feels like it should be here. If we need to take it of course we can change the text, that's easy. But yeah I just wanted your opinion on if it's worth it. I think it's worth it.
+
+[12:01] Spencer: No, it does make sense. Because otherwise it's going to be even more confusing.
+
+[12:59] Spencer: I don't see a reason why we can't have it here. It represents over 55% of their order volume has Walmart — so it's something they will be doing every other order. And so having it sort of inline I think makes sense. And I guess we will have to confirm — because I think they have to do this for each order currently and activate them. So yeah, I think this makes sense. I'm happy to push back on this just because it wouldn't make sense in my opinion to have this happen on another screen.
+
+[14:13] Spencer: Well — I think the Walmart piece definitely needs to be presented here in the step-like workflow. Maybe the actual generation of it happens in a different… that's the only thing I'm thinking of, depending on how complex that is. Because we would have to… the other thing is looking at actual orders and making sure we are designing for the worst case scenario. I just don't know how many different denominations of cards. I can't see there being more than five different denominations being ordered. But yeah, I don't see why this can't work. So I can push for this.
+
+[15:29] Kaitlin: Yeah. Of course we can make changes to it, but it just makes sense to all be within the process.
+
+[15:35] Spencer: I agree. Was there anything else that there was back and forth on?
+
+[15:46] Kaitlin: No. That's pretty much it. Just that one piece. And then I'll just get all my kind of screens together for Tim and hopefully that can be implemented a little bit better sitewide. And then from there go and do spot cleanups.
+
+[16:07] Spencer: Yeah. And I will suggest to him to do a design QA with an agent before having a designer go and do that manually. Just there isn't a need for it now. I'll send my agent to design QA on it just because I've fought this battle already and I already have a design QA workflow that I can use. So I'm hoping we can avoid a laborious manual go-comment-everywhere. I think sometimes the agentic implementations — I always just call it slop — the way that even in the order how it adds a second line or it puts the pills underneath. Oftentimes it just defaults to design patterns that are sloppy from an execution standpoint. And so it does take work from an engineering standpoint to fix — that's what Tim is here for.
+
+[17:28] Spencer: And that whole bit is already on my radar from chatting with Steph — the communication piece. So we'll try and work through that.
+
+[17:53] Kaitlin: I'm excited about it… see it coming to life. And we did obviously put a lot of work and thought into these things.
+
+[18:09] Spencer: And I think that's just easy for Tim — he left for vacation, now he's coming back — easy not to think of the time and energy that goes into the little details. And if the inverse were true he would feel the same way. Sometimes it can be easy to forget and then make assumptions about what we are and aren't doing. The whole point of having the design team go in and add this is so that it wasn't just an AI-generated tool. The client didn't hire us to vibe-code something — we wanted to be thoughtful about it. But yes, budget is a thing. I appreciate all the energy that has gone into this because there's nothing worse than when you design a certain way and then it looks different.
+
+[19:29] Kaitlin: It hurts the heart sometimes when it's like this isn't what I planned.
+
+[19:33] Spencer: Yeah, we'll figure it out.
+
+[19:39] Kaitlin: And yeah I'm just trying to stick to actually flushing out the main pages and hoping that can be applied to those other elements. But yeah, I'll get all this ready for him and then we can go from there.
+
+[19:55] Spencer: Okay. Sounds good. All righty. Bye.

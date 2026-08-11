@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progressive Card Vault — Prioritized backlog v2 (full)</title>
+  <style>
+    :root {
+      --navy: #212a3e;
+      --blue: #034771;
+      --line: #e4e9ee;
+      --muted: #606776;
+      --bg: #f6f8fa;
+      --card: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: var(--bg);
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 28px 20px 72px; }
+    .banner {
+      background: #fff8f0;
+      border: 1px solid #f0d9b8;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    .meta {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: grid;
+      gap: 4px;
+    }
+    .content {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px 24px 32px;
+    }
+    h1 { font-size: 1.35rem; margin: 0 0 12px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.1rem; color: var(--blue); margin: 28px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+    h3 { font-size: 1rem; margin: 20px 0 8px; }
+    p { margin: 8px 0; }
+    ul, ol { margin: 8px 0; padding-left: 1.35rem; }
+    li { margin: 4px 0; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.86em;
+      background: #eef2f5;
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #1e2430;
+      color: #e8ecf1;
+      padding: 14px 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+    pre code { background: none; color: inherit; padding: 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--bg); font-weight: 650; }
+    blockquote {
+      margin: 10px 0;
+      padding: 8px 14px;
+      border-left: 3px solid var(--blue);
+      background: var(--bg);
+      color: var(--muted);
+    }
+    hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+    a { color: var(--blue); }
+    .footer { margin-top: 24px; font-size: 0.85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="banner">
+      <strong>Full prioritized backlog (v2)</strong> — engineering handoff for Tim / Codex.
+      Not rewritten for plain language. Companion to the short “build list for Tim” HTML and Kaitlin’s design checkpoint.
+      Source: <code>PRIORITIZED-BACKLOG-v2.md</code>
+    </div>
+    <div class="meta">
+      <div><strong>title</strong> Progressive Card Vault — Prioritized backlog v2 (executable)</div><div><strong>date</strong> 2026-08-11</div><div><strong>status</strong> ready-for-Tim</div><div><strong>audience</strong> Tim / Codex builder</div><div><strong>supersedes</strong> PRIORITIZED-BACKLOG.md (v1 — adversarial FAIL; do not use)</div><div><strong>sources</strong> </div><div><strong>app_commit</strong> 6241988b1a0f3c42924339d9eafba703ad1ecfc8</div><div><strong>staging</strong> https://progressive-gift-cards-card-vault-staging.onrender.com/</div><div><strong>figma</strong> https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design</div>
+    </div>
+    <div class="content">
+<h1>Prioritized backlog v2 — executable for Tim / Codex</h1>
+
+<p><strong>Use this file.</strong> Ignore <code>PRIORITIZED-BACKLOG.md</code> (v1).</p>
+
+<p><strong>Implement-against:</strong> Figma <strong>Screens</strong> frames listed per slice + Tim <code>docs/application-style-guide.md</code>.  </p>
+<p><strong>Not source:</strong> Figma Design Direction historical screenshots / most Design Direction comments.</p>
+
+<p><strong>Fixture walkthrough (UAT gate):</strong> <code>PGC-1027</code> (Walmart / needs_generation) and <code>PGC-1026</code> (non-Walmart).</p>
+
+<p><strong>After each UI staging deploy:</strong> 3–8 bullets in <code>#progressive-fundraising</code> (routes, Figma nodes, remaining gaps).</p>
+
+<hr />
+
+<h2>Do not build (closed by design QA)</h2>
+
+<table>
+<tr><th>Topic</th><th>Why closed</th></tr>
+<tr><td>Broad shell / token redesign</td><td>Already close to Screens</td></tr>
+<tr><td>Rebuild Orders filter</td><td>Four categories already work (payment, progress, client, merchant)</td></tr>
+<tr><td>Card Vault table rewrite / broken-icon hunt</td><td>Structure close; merchant logos load</td></tr>
+<tr><td>“Make Paid green” color pass</td><td>Paid is already green; fix <strong>labels</strong></td></tr>
+<tr><td>Design Direction comment sweep</td><td>Polluted / stale</td></tr>
+<tr><td>Login pixel pass</td><td>No canonical Screens frame; already coherent</td></tr>
+</table>
+
+<hr />
+
+<h2>Slice 1 — P0 · <code>lane/walmart-order-preparation-step</code></h2>
+
+<h3>Product intent</h3>
+<p>Walmart card preparation is part of the <strong>order workflow</strong>, not a vault side-quest. ~High share of Progressive volume. Operators must not lose order context.</p>
+
+<h3>Locked constraints</h3>
+<ul><li>App does <strong>not</strong> open or automate Fiserv.</li><li>App <strong>prepares</strong> work file → operator activates externally → app <strong>imports</strong> activated result.</li><li>Copy never says “you will be taken to Fiserv.”</li><li>Prefer <strong>inline conditional step</strong> on order detail (report default). Nested order-scoped route is OK if inline is blocked — keep order chrome/context.</li><li>Keep <code>/card-vault/generation</code> as <strong>admin/batch</strong> only; not primary order CTA.</li></ul>
+
+<h3>Current defect (evidence)</h3>
+<ul><li>Staging <code>/requests/PGC-1027</code>: progress rail <strong>Paid → Allocated</strong> with no Card Preparation stage.</li><li>Detached red “Merchant preparation required” + link to <code>/card-vault/generation</code>.</li><li>Allocated step highlights while preparation still blocks allocation.</li><li>Code: <code>src/app/requests/[requestNumber]/page.tsx</code> (<code>workflowSteps</code>, generation card).</li></ul>
+
+<h3>Figma (layout/state only — not Fiserv fantasy copy)</h3>
+<ul><li><code>601:450</code>, <code>601:823</code>, <code>601:1196</code>, <code>601:1573</code> — Walmart Orders 1–4  </li><li>Place <strong>Card Preparation</strong> between <strong>Paid</strong> and <strong>Allocated</strong> when any line has <code>vendor.requiresGeneration</code>.</li></ul>
+
+<h3>Build notes (load-bearing)</h3>
+<ul><li><strong>Do not</strong> reuse post-allocation export/work-file builders as the pre-allocation contract (<code>merchant-output-export.ts</code> / <code>vendor-work-files.ts</code> assume allocations).</li><li>Need a <strong>dedicated order-line-item work-file builder</strong> (or deliberate new contract) validated against Progressive’s Walmart/Fiserv template when available.</li><li><strong>Do</strong> extract activated-result import from <code>card-vault/generation/actions.ts</code> into a shared service; order wrapper validates against order reference / line requirements and returns to that order.</li><li>Prefill order # / denomination × qty from line items; notes optional.</li><li>After successful matching import → inventory ready → <code>ready_to_allocate</code>; order-scoped audit event.</li><li>Non-error chrome for prep step (not red “error” card for a normal Walmart path).</li></ul>
+
+<h3>Acceptance</h3>
+<ol><li>On <code>PGC-1027</code> (or equivalent), rail shows <strong>Card Preparation</strong> after Paid when generation required.  </li><li>From that step: download work file + import activated result without using vault nav as primary path.  </li><li>Order context retained (order number, line items visible).  </li><li>After valid import, request can proceed to allocate; Allocated is not “current” while prep still required.  </li><li><code>/card-vault/generation</code> no longer the primary CTA from order detail.  </li><li>Staging-only test generation remains gated / secondary if still present.</li></ol>
+
+<h3>Likely loci</h3>
+<ul><li><code>src/app/requests/[requestNumber]/page.tsx</code></li><li><code>src/app/requests/[requestNumber]/actions.ts</code></li><li>new order prep component + download route under requests</li><li>extract service from <code>src/app/card-vault/generation/actions.ts</code></li><li><code>src/lib/inventory-import-service.ts</code></li><li>new prep builder beside merchant-output stack</li></ul>
+
+<hr />
+
+<h2>Slice 2 — P0 · <code>lane/semantic-order-status-pills</code></h2>
+
+<h3>Product intent</h3>
+<p>Operators must read <strong>real</strong> payment and fulfillment states at a glance on Dashboard, Orders list, and order header.</p>
+
+<h3>Current defect (evidence)</h3>
+<ul><li><code>paid</code> → display label <strong><code>Completed</code></strong> (style guide + Figma + payment control use <strong>Paid</strong>).</li><li>Many fulfillment states → <strong><code>In Progress</code></strong> (Needs Generation, Ready to Allocate, Allocated, etc. indistinguishable).</li><li>Colors/tones are largely fine; <strong>labels</strong> are wrong.</li><li>Code: <code>src/lib/format.ts</code>; <code>getPaymentPill</code> / <code>getOrderStatusPill</code> in <code>src/app/fulfillment/page.tsx</code>; consumers on <code>/</code>, <code>/fulfillment</code>, order detail.</li></ul>
+
+<h3>Figma</h3>
+<ul><li>Pills: <code>421:1868</code> Final Pills; Design System Pills <code>296:13711</code></li><li>Orders list: <code>601:2640</code></li><li>Order detail header: <code>601:123</code></li><li>Dashboard: <code>564:1152</code></li></ul>
+
+<h3>Build notes</h3>
+<ul><li>Separate <strong>display label</strong> from <strong>visual tone</strong>.</li><li>Key tones by raw domain state (or small tone enum); labels stay semantic.</li><li>Minimum distinguishable labels: <strong>Paid</strong>, <strong>Needs Generation</strong>, <strong>Ready to Allocate</strong>, <strong>Allocated</strong> / <strong>Cards Allocated</strong>, <strong>Export created</strong>, <strong>Closed</strong> (match Figma wording where Screens show it).</li><li>Align filter option text for payment that currently says “Completed” for value <code>paid</code>.</li><li>Keep green Success treatment for Paid.</li></ul>
+
+<h3>Acceptance</h3>
+<ol><li>Paid order shows <strong>Paid</strong> (green), never payment label <strong>Completed</strong>, on list + detail + dashboard.  </li><li><code>needs_generation</code> order shows <strong>Needs Generation</strong> (or Screens-exact synonym), not generic <strong>In Progress</strong>, on list + detail + dashboard.  </li><li>Filter payment options use the same semantic labels.  </li><li>No broad color redesign; tones remain coherent with style guide.</li></ol>
+
+<h3>Likely loci</h3>
+<ul><li><code>src/lib/format.ts</code></li><li><code>src/app/fulfillment/page.tsx</code></li><li><code>src/app/page.tsx</code></li><li><code>src/app/requests/[requestNumber]/page.tsx</code></li></ul>
+
+<hr />
+
+<h2>Slice 3 — P1 · <code>lane/order-detail-disclosure-defaults</code></h2>
+
+<h3>Defect</h3>
+<p><code>Allocated Cards</code> and <code>Order Activity</code> use <code>defaultOpen={hasExportPackage}</code> — long troubleshooting surface steals focus from workflow rail when export exists.</p>
+
+<h3>Figma / style guide</h3>
+<p>Supporting disclosures collapsed by default; active workflow rail stays primary.</p>
+
+<h3>Acceptance</h3>
+<ul><li>Both disclosures <strong>closed</strong> on initial load even when export/activity exist.</li><li>Headers still show counts so operators know when to expand.</li><li>Do not change timeline checkmarks, client keylines, or rail layout.</li></ul>
+
+<h3>Locus</h3>
+<ul><li><code>src/app/requests/[requestNumber]/page.tsx</code> (<code>defaultOpen={hasExportPackage}</code> → false / omit)</li></ul>
+
+<hr />
+
+<h2>Slice 4 — P1 · <code>lane/operator-language-cleanup</code> (tiny)</h2>
+
+<table>
+<tr><th>Current (visible)</th><th>Target</th></tr>
+<tr><td><code>Search requests, customers, status, or merchant</code></td><td><code>Search orders, customers, status, or merchant</code></td></tr>
+<tr><td>Vault CTA <code>Generate Cards</code></td><td><code>Card Preparation</code> or <code>Prepare / import cards</code> (match Screens)</td></tr>
+<tr><td>Any remaining operator-facing “Generate Cards” / “Card Generation” as primary path</td><td>Preparation / import language</td></tr>
+</table>
+
+<p>Do <strong>not</strong> rename internal Prisma/<code>request</code> identifiers for cosmetics.</p>
+
+<h3>Loci</h3>
+<ul><li><code>src/app/fulfillment/orders-overview.tsx</code></li><li><code>src/app/card-vault/page.tsx</code></li><li>skim <code>src/app/card-vault/generation/page.tsx</code> for operator-visible generate wording only</li></ul>
+
+<hr />
+
+<h2>Builder order (binding)</h2>
+
+<pre><code>1. lane/walmart-order-preparation-step     (P0)
+2. lane/semantic-order-status-pills        (P0)
+3. Staging walkthrough PGC-1027:
+   Paid → prepare work file → external activation boundary → import → ready_to_allocate
+   + confirm semantic labels on /, /fulfillment, order header
+4. lane/order-detail-disclosure-defaults   (P1)
+5. lane/operator-language-cleanup          (P1)
+6. Changelog note in #progressive-fundraising</code></pre>
+
+<p>Ship <strong>1 and 2 before Progressive UAT walkthrough</strong>. 4–5 only if 1–2 green or trivial parallel.</p>
+
+<hr />
+
+<h2>PR / agent hygiene</h2>
+
+<ul><li>Branch names: <code>lane/&lt;slice-slug&gt;</code> (no host-branded prefixes).</li><li>One slice per PR; do not mix Walmart workflow restructure with pill renames.</li><li>No product commits from recon-only agents.</li><li>If blocked on Walmart work-file template fields: file <code>.blocked</code> with exact unknown fields + partial UI that still owns the step.</li></ul>
+
+<hr />
+
+<h2>Human decisions (only if builder hits them)</h2>
+
+<table>
+<tr><th>Question</th><th>Default if silent</th></tr>
+<tr><td>Inline step vs nested <code>/requests/[n]/prepare</code></td><td><strong>Inline</strong> panel (report default)</td></tr>
+<tr><td>Exact Figma synonym for Allocated pill</td><td>Prefer Screens wording; fall back to “Allocated”</td></tr>
+<tr><td>Staging test-generation UI on generation page</td><td>Hide/gate behind non-prod flag; never order CTA</td></tr>
+</table>
+
+<hr />
+
+<h2>Evidence index</h2>
+
+<table>
+<tr><th>Doc</th><th>Role</th></tr>
+<tr><td><code>DESIGN-QA-REPORT.md</code></td><td>Visual + staging recon (PASS)</td></tr>
+<tr><td><code>ADVERSARIAL-REVIEW-DESIGN-QA-REPORT.md</code></td><td>Gate on that report</td></tr>
+<tr><td><code>ADVERSARIAL-REVIEW.md</code></td><td>Gate on pack v1 (historical FAIL)</td></tr>
+<tr><td><code>SESSION-BRIEF.md</code></td><td>Session context</td></tr>
+<tr><td>Voice 1:1 + morning sync transcripts</td><td>Product ruling + team process</td></tr>
+</table>
+    </div>
+    <p class="footer">Internal Redstamp · Progressive Card Vault · Aug 2026 · Do not share with Progressive</p>
+  </div>
+</body>
+</html>

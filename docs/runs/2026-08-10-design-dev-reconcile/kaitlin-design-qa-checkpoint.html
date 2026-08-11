@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card Vault — quick design check (for Kaitlin)</title>
+  <style>
+    :root {
+      --navy: #212a3e;
+      --blue: #034771;
+      --teal: #00c4cc;
+      --green: #3ca761;
+      --red: #bb2a17;
+      --line: #e4e9ee;
+      --muted: #606776;
+      --bg: #f6f8fa;
+      --card: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: var(--bg);
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 28px 20px 64px; }
+    h1 { font-size: 1.4rem; font-weight: 650; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.05rem; font-weight: 650; margin: 28px 0 10px; color: var(--blue); }
+    h3 { font-size: 0.95rem; font-weight: 650; margin: 0 0 6px; }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 12px 0;
+    }
+    .banner {
+      background: #e8f7f8;
+      border: 1px solid rgba(0,196,204,0.35);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 16px 0 8px;
+    }
+    .ask {
+      background: #fff8f0;
+      border: 1px solid #f0d9b8;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 10px 0;
+    }
+    .ask strong { display: block; margin-bottom: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 650;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .must { background: rgba(187,42,23,0.12); color: var(--red); }
+    .next { background: rgba(3,71,113,0.1); color: var(--blue); }
+    .ok { background: rgba(60,167,97,0.15); color: #2a7a48; }
+    .hold { background: rgba(96,103,118,0.12); color: var(--muted); }
+    ul { padding-left: 1.2rem; margin: 8px 0; }
+    li { margin: 5px 0; }
+    a { color: var(--blue); }
+    .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="muted">Progressive Card Vault · For Kaitlin · Aug 11, 2026</p>
+    <h1>Quick design check — three yes/nos</h1>
+    <p class="muted">
+      Spencer had an agent compare <strong>your current Figma Screens</strong> to the
+      <strong>live staging app</strong> (the internal test site, not Progressive’s real site).
+      This is a short gut-check before Tim builds the next batch — <em>not</em> a full BugHerd pass.
+    </p>
+
+    <div class="banner">
+      <strong>The short version</strong>
+      <p style="margin: 8px 0 0;">
+        A lot of what you designed is already showing up on staging in a usable way —
+        especially the left nav, page headers, Orders list, the filter panel, a normal
+        (non‑Walmart) order page, and Card Vault. We should <strong>not</strong> start a big
+        “redesign the whole app again” pass right now.
+      </p>
+      <p style="margin: 8px 0 0;">
+        Two things still feel important before we walk Progressive through it:
+      </p>
+      <ol style="margin: 8px 0 0; padding-left: 1.2rem;">
+        <li><strong>Walmart prep should live as a step on the order</strong> — not “leave this page and go fix it in Card Vault.”</li>
+        <li><strong>Status labels should say what they mean</strong> — the colors are mostly fine; the words got too generic.</li>
+      </ol>
+    </div>
+
+    <h2>What we looked at</h2>
+    <div class="card">
+      <ul>
+        <li>Your Figma file: <em>Digital Gift Card Fulfillment Design</em> — the <strong>Screens</strong> pages (Dashboard, Orders, Walmart order flow, Card Vault), not the older “Design Direction” boards</li>
+        <li>Staging: home/dashboard, Orders list + filters, a normal order, a Walmart order that still needs prep, Card Vault, the prep page, login</li>
+        <li>The call you had with Spencer: Walmart prep belongs <strong>in the order steps</strong>; Progressive still activates cards outside our app (download work file → they activate → import results back)</li>
+      </ul>
+      <p class="muted" style="margin-bottom:0;">
+        Figma:
+        <a href="https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design">open the file</a>
+        · Staging:
+        <a href="https://progressive-gift-cards-card-vault-staging.onrender.com/">test site (team only)</a>
+      </p>
+    </div>
+
+    <h2>Looking good enough for now — leave these alone unless something really bothers you</h2>
+    <div class="card">
+      <p><span class="tag ok">LOOKS GOOD</span></p>
+      <ul>
+        <li>Left navigation and top of the page</li>
+        <li>Dashboard layout and tables</li>
+        <li>Orders list (tabs, spacing, row dividers, pagination)</li>
+        <li><strong>Filters</strong> — Payment, Progress, Client, and Merchant are already there and work</li>
+        <li>Normal order page (timeline checkmarks, two columns, client info rows)</li>
+        <li>Card Vault overview (and merchant logos load fine — not a broken-icon issue)</li>
+        <li>Paid status color is already green (the “paid is blue” thing doesn’t match current staging)</li>
+      </ul>
+      <p class="muted" style="margin-bottom:0;">
+        If something here still feels <em>wrong</em> for showing Progressive, say so in question 3 below — otherwise Tim will focus on the two bigger items.
+      </p>
+    </div>
+
+    <h2>What we’d like Tim to fix next</h2>
+
+    <div class="card">
+      <h3><span class="tag must">MUST FIX</span> 1. Walmart prep on the order page</h3>
+      <p><strong>Right now on staging:</strong> a Walmart order shows a red warning and sends you off to Card Vault. The step list jumps from Paid straight to Allocated — no preparation step in the middle.</p>
+      <p><strong>What we want (matching your Walmart order Screens):</strong> when the order has Walmart cards, show a <strong>Card Preparation</strong> step between Paid and Allocated. From that step you download the work file and import the activated results — without making Card Vault the main path. The app still does not open Fiserv / the merchant activation site.</p>
+      <p class="muted" style="margin-bottom:0;">Some frame copy still sounds like “generate cards in the app / go to Fiserv.” Tim will keep the prepare → they activate → import story, and use your frames for layout and step order.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="tag must">MUST FIX</span> 2. Status words (not the colors)</h3>
+      <p><strong>Right now:</strong> Paid is already green. The problem is the <em>labels</em> — paid often shows as <strong>Completed</strong>, and a bunch of different fulfillment states all say generic <strong>In Progress</strong>. So you can’t tell “needs generation” vs “ready to allocate” vs “allocated” at a glance.</p>
+      <p><strong>What we want:</strong> keep the color family, but use clear words like your Screens — e.g. <strong>Paid</strong>, <strong>Needs Generation</strong>, <strong>Ready to Allocate</strong>, <strong>Allocated</strong>, <strong>Export created</strong>, <strong>Closed</strong> — same language on the dashboard, Orders list, and order page header.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="tag next">AFTER THAT</span> Smaller polish</h3>
+      <ul>
+        <li>Keep “Allocated Cards” and “Order Activity” collapsed when you first open an order that already has an export (so the step list stays the star of the page)</li>
+        <li>Wording: “Search <em>requests</em>…” → “Search <em>orders</em>…”; “Generate Cards” button → preparation language</li>
+      </ul>
+    </div>
+
+    <h2>Three quick answers from you</h2>
+    <p class="muted">Reply in Slack — even one-liners are perfect.</p>
+
+    <div class="ask">
+      <strong>1. Walmart step</strong>
+      Card Preparation as a step <em>on the order</em> between Paid and Allocated — still what you want for the first version Progressive sees?
+    </div>
+    <div class="ask">
+      <strong>2. Status words</strong>
+      Are you good with clear labels (Paid, Needs Generation, Ready to Allocate, Allocated, …) as long as they match your Screens — or do you want Tim to copy exact strings from your Final Pills / Screens first?
+    </div>
+    <div class="ask">
+      <strong>3. The “looking good” list</strong>
+      Anything on that list that is still a hard no for a Progressive walkthrough? If yes, just name the screen in plain English (e.g. “Orders list — payment column”).
+    </div>
+
+    <h2>What you don’t need to do yet</h2>
+    <div class="card">
+      <p><span class="tag hold">HOLD</span></p>
+      <ul>
+        <li>Full BugHerd pass across the whole app (agent pass first; we want your judgment on the big calls, not every pixel)</li>
+        <li>Re-mock every secondary admin screen before Progressive sees the main flows</li>
+        <li>Re-open “Walmart only lives on a separate page” unless the in-order step model is truly wrong</li>
+      </ul>
+    </div>
+
+    <div class="footer muted">
+      <p>Internal Redstamp only. Staging is not for Progressive until we say so.</p>
+      <p>For Kaitlin · Spencer · Tim · Aug 2026</p>
+    </div>
+  </div>
+</body>
+</html>

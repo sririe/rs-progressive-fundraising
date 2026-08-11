@@ -1,0 +1,134 @@
+Progressive Chat - 2026/08/10 11:29 CST - Transcript
+Attendees
+Kaitlin Gordeyko, Spencer Ririe
+Transcript
+Kaitlin Gordeyko: Hi. got everyone out the door.
+Spencer Ririe: Hey there.
+Spencer Ririe: Lindsay was nothing like dropping her off at the crack of 10. Whatever it was, they just got back. Luckily, it's just a few minutes down the road. Takes three and a half minutes to get to both where the elementary school and the daycare It's kind of And once we got both kids in the same spot,…
+Kaitlin Gordeyko: Okay, I bet.
+Spencer Ririe: it's just a game changer.
+Kaitlin Gordeyko: Probably so much easier. It's so good.
+Kaitlin Gordeyko: Cool. okay. …
+Kaitlin Gordeyko: yeah, progressive. I can just share a link here.
+Spencer Ririe: Okay, just one second.
+Spencer Ririe: Look at some Send some messenger.
+Kaitlin Gordeyko: Yeah. All good.
+Spencer Ririe: Okay. Yeah,…
+Spencer Ririe: these are always tricky.
+Kaitlin Gordeyko: Mhm. Yeah.
+Spencer Ririe: And did you have a lot of design dev interaction at your last agency? Yeah, it's …
+Kaitlin Gordeyko: This is different.
+Spencer Ririe: I think it's more of a case of we and I didn't likely anticipate the possible friction of hey, we've already built a prototype and now we're going to apply a design. And I've experienced this on pilot too…
+Spencer Ririe: where sometimes a developer doesn't always understand the impact sometimes that just even small little things can have or…
+Kaitlin Gordeyko: Yeah. Mhm.
+Spencer Ririe: even notice and then easy to get defensive over anyways. So it happens.
+Kaitlin Gordeyko: Yeah, it's tough because I feel like the communication has been lacking in what he's updating.
+Spencer Ririe: Yeah. No for sure.
+Kaitlin Gordeyko: I'm working on something and then all of a sudden it's like, the prototype is changed from…
+Kaitlin Gordeyko: what I saw yesterday and I didn't say change that.
+Spencer Ririe: Yeah. Yeah.
+Kaitlin Gordeyko: So, it's just Yeah,…
+Spencer Ririe: 
+Spencer Ririe: No, for sure. so…
+Kaitlin Gordeyko: it's been.
+Spencer Ririe: what I can do after is I think it would be helpful to just because his essentially codeex is working on implementation and…
+Kaitlin Gordeyko: Yeah. Yeah. Yeah.
+Spencer Ririe: I think it's easy enough for Tim to have it spit out what has been changed and what's been implemented so that we can address it. but yeah, something we'll get sorted through. And Kelseo and I have also been chatting about some internal AI building both with design and dev.
+00:05:00
+Spencer Ririe: which I think is something that will likely help just figure out…
+Spencer Ririe: how do we best work in a more fluid way when we're not following a traditional waterfall sort of process.
+Kaitlin Gordeyko: Mhm. Yeah.
+Spencer Ririe: So yeah.
+Kaitlin Gordeyko: Yeah. For the learning curve of a project.
+Spencer Ririe: Okay. Yeah.
+Kaitlin Gordeyko: So, yeah, I just wanted to touch mainly about the Walmart orders. So, the kind of plan from the beginning was to try and bring the Walmart card preparation right into the main orders page because right now in the prototype you have to
+Kaitlin Gordeyko: Click off to prepare. So, can you follow me for one second in the Figma and I'll just show you? how it is. So, right now it's like this is what it looks like. It's like you have to prepare the card and then it takes you to a new screen where you do all of that.
+Kaitlin Gordeyko: And then once it's all prepared and imported then you can go back to the process. So our kind of plan from the beginning was to bring it all in one because the form is not that big.
+Spencer Ririe: Yeah, hold on.
+Spencer Ririe: Okay, I'm here.
+Kaitlin Gordeyko: To bring it as a step so we made the mockup and then just end of last week Tim kind of saying we can't do that and I don't really know why.
+Kaitlin Gordeyko: he talks about functionality so I don't know this is something where kind of sure so yeah…
+Spencer Ririe: Yeah. …
+Spencer Ririe: what Yeah. Walk me back real quick to what you were thinking.
+Kaitlin Gordeyko: so this is a normal orders so what I Candace and I wanted to do was bring it in as a step here so instead of having to go off this screen and…
+Spencer Ririe: Okay,…
+Kaitlin Gordeyko: to a new thing to do the cart preparation it's like this is just a step with the Walmart orders just to make the user experience nice and simple and easy and streamlined. So, we just wanted to bring it in as a step. but there's some few comments here cuz the Walmart ones are treated differently.
+Spencer Ririe: let's Prepare Walmart. I'm just looking at reading the comment.
+Kaitlin Gordeyko: Yeah, for Okay.
+Spencer Ririe: Yeah. So I agree with Tim in that it wouldn't make sense to and sort of here's the reason why the…
+Kaitlin Gordeyko: H. Yeah.
+Spencer Ririe: if they don't have sufficient Walmart card sort of inventory it essentially needs to happen in the card vault area versus hold on let me read his comment again Yeah.
+Spencer Ririe: So I think it does add complexity because let me describe when they need to Yeah. Yeah.
+Kaitlin Gordeyko: I mean,…
+Kaitlin Gordeyko: yeah, maybe I don't understand the technical stuff, but just from my point of view I don't understand how do this is any different than the flow that was mapped here whereas they're just going to another page with those form fields and then generating the cards.
+00:10:00
+Kaitlin Gordeyko: versus doing it all in one.
+Spencer Ririe: Yeah.
+Spencer Ririe: So, I guess one clarification is they aren't taken to Fiserve.
+Kaitlin Gordeyko: Mhm.
+Spencer Ririe: So in order to prepare an Amazon order, this is tricky…
+Kaitlin Gordeyko: Mhm. Okay.
+Spencer Ririe: because essentially they're having to prepare a special sheet that then They go over to another application, they upload that. Those cards then get activated and then it's downloaded they then add those cards to the vault. So it is a bit of a trickier workflow. but it makes sense.
+Spencer Ririe: The thing is and this is where I think it might I guess introduce complexity. So I'm in your flow…
+Spencer Ririe: if there are other vendor orders those will get added during allocation and…
+Kaitlin Gordeyko: Yeah, correct.
+Spencer Ririe: this step would only show if there were Walmart cards. Yeah, I think it makes sense to have it here. Yeah, I agree.
+Kaitlin Gordeyko: Yeah. for a user journey it's like this is just part of a step of a Walmart card why it feels like it should be here if it's like we need to take it of course we can change the text that's easy
+Spencer Ririe: Yeah. Yeah.
+Kaitlin Gordeyko: but yeah I just wanted your opinion on if it's worth it I think it's worth it but
+Spencer Ririe: No, it does make sense. cuz otherwise it's not it's going to be con it'll be even more confusing.
+Kaitlin Gordeyko: Mhm. Yeah. Okay.
+Spencer Ririe: Sorry I'm just thinking through it.
+Spencer Ririe: Yeah, there I don't see a reason why we can't have it here. but I think this is one is it represents over 55% of their order volume has Walmart cards.
+Kaitlin Gordeyko: Yeah. Yeah. Right.
+Spencer Ririe: So, it's something that they will be doing every other order. And so, having it sort of in line, I makes sense. and I guess we will have to conf Yeah, because I think they have to do this for each order currently and activate them. So yeah,… I think this makes sense. I'm happy to push back on this just because it wouldn't make sense in my opinion to have this happen on another screen.
+00:15:00
+Spencer Ririe: 
+Kaitlin Gordeyko: Mhm.
+Spencer Ririe: I think the Walmart piece definitely needs to be presented here in the step like workflow. maybe the actual generation of it happens in that's the only thing I'm thinking of is depending on…
+Kaitlin Gordeyko: Okay. Yes.
+Spencer Ririe: how complex that is. cuz we would have to I think the other thing is looking at actual orders and…
+Spencer Ririe: making sure that we are sort of designing for the worst case scenario like…
+Kaitlin Gordeyko: Mhm. No.
+Spencer Ririe: if someone has I just don't know how many different denominations of cards. I can't see there being more than five different denominations being ordered. but yeah, I don't see why this can't work. I can push for this. Yeah.
+Kaitlin Gordeyko: Okay. Yeah.
+Kaitlin Gordeyko: Of course we can make changes to it, but it just makes sense to all be within the process.
+Spencer Ririe: No, I agree. Was there anything else that there was back and…
+Kaitlin Gordeyko: No,…
+Spencer Ririe: forth on?
+Kaitlin Gordeyko: that's pretty much Just that one piece. and then I'll just get all my kind of screens together for Tim and hopefully that can be kind of implemented a little bit better sitewide. And then I guess from there go and…
+Spencer Ririe: Yeah. Yeah.
+Kaitlin Gordeyko: do spot cleanups.
+Spencer Ririe: And I will suggest to him to do a design QA with an agent before having a designer go and…
+Spencer Ririe: do that manually. Just there isn't really a need for it now.
+Kaitlin Gordeyko: Okay. Hello.
+Spencer Ririe: I'll send my agent to do design QA on it just because I've fought this battle already and I already have a design QA workflow that I can use. So, I'm hoping we can avoid a laborious,…
+Kaitlin Gordeyko: Mhm. Yeah.
+Spencer Ririe: manual go, comment everywhere where things aren't, I think sometimes the agentic implementations. I always just call it slop the way that even in the order how it adds a second line or it puts the pills underneath it. Oftentimes it just defaults to some design patterns they're sloppy from a execution standpoint.
+Kaitlin Gordeyko: Mhm. Yeah.
+Spencer Ririe: And so it does take work from a engineering standpoint to fix. That's what Tim is here for. So, yeah, and that whole bit is just something that's on my radar already from chatting with Steph, just like the communication piece. So, and we'll try and work through that.
+Kaitlin Gordeyko: Okay, sounds good.
+Spencer Ririe: No, it's looking good to Yeah.
+Kaitlin Gordeyko: Yeah, I'm excited about it.
+Spencer Ririe: to see it live.
+Kaitlin Gordeyko: See it coming to life.
+Spencer Ririe: Yeah. Yeah.
+Kaitlin Gordeyko: And we did obviously put a lot of work and thought into these things. So Yeah.
+Spencer Ririe: And I think that's just easy for Tim probably not having that just probably, he left for vacation, now he's coming back. It's easy to not think of the time and energy that goes into the little details. And if the inverse were true, he would feel the same way. So sometimes I think it can be easy to forget and then make assumptions about…
+00:20:00
+Spencer Ririe: what we are and aren't, doing. he's like, " I thought we were." It's like, "Yeah, we didn't say that's an assumption that's been made.
+Kaitlin Gordeyko: Yeah. Yeah.
+Spencer Ririe: We still want the whole point of having the design team go in and add this is so that it wasn't just an AI generated tool client didn't hire us to buy code something like we wanted to be thoughtful about it…
+Kaitlin Gordeyko: Yeah. Yeah.
+Spencer Ririe: but yes budget is a thing but no I appreciate all the energy that has gone into this visit there's nothing worse than when you design something a certain way and then it looks different,
+Kaitlin Gordeyko: Yeah. It's hurts the heart sometimes when it's like this isn't…
+Spencer Ririe: So, yeah.
+Kaitlin Gordeyko: what I planned. Yeah.
+Spencer Ririe: We'll figure it out. So, yeah.
+Kaitlin Gordeyko: And yeah, that's like I'm just trying to stick to actually flushing out the main pages and hoping then that can be applied to those other elements.
+Kaitlin Gordeyko: But yeah, I'll get all this ready for him and then we can go from there, I guess. Cool. Thanks. Bye.
+Spencer Ririe: Okay, sounds good.
+Spencer Ririe: All righty. Yeah. Okay. Bye.
+Meeting ended after 00:21:21 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

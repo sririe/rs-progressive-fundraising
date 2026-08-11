@@ -1,0 +1,2140 @@
+{
+  "manifest": {
+    "run_id": "20260811T064445Z",
+    "source_url": "Ztv1YtEx1S19i0w4bdHgo4",
+    "main_file_key": "Ztv1YtEx1S19i0w4bdHgo4",
+    "branch_key": null,
+    "file_key": "Ztv1YtEx1S19i0w4bdHgo4",
+    "api_key_used": "env:FIGMA_ACCESS_TOKEN",
+    "is_branch": false,
+    "branch_name": null,
+    "node_id": null,
+    "page_filter": "none",
+    "page_name_matched": null,
+    "pulled_at": "2026-08-11T06:44:45.313405Z",
+    "token_source": "env:FIGMA_ACCESS_TOKEN",
+    "raw_total_comments": 94,
+    "filtered_total_comments": 94,
+    "filtered_root_threads": 82,
+    "resolved_threads": 5,
+    "unmapped_root_threads": 2,
+    "screenshot_requested": false,
+    "screenshot_success_count": 0,
+    "screenshot_failure_count": 0,
+    "screenshot_failures": [],
+    "warnings": [
+      "unmapped/canvas root threads: 2 (1848638846, 1845121930)"
+    ]
+  },
+  "threads": [
+    {
+      "id": "1845096247",
+      "order_id": "1",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-15T19:56:09.438Z",
+      "resolved_at": null,
+      "message": "Have some sort of indication that you are on the Dashboard (will mockup)",
+      "node_id": "104:115",
+      "location": "Design Direction · Progressive Gift Cards - Dashboard",
+      "position": "137, 255",
+      "client_meta": {
+        "node_id": "104:115",
+        "node_offset": {
+          "x": 137,
+          "y": 255
+        },
+        "stable_path": [
+          "104:115"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1845118420",
+      "order_id": "2",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-15T20:15:44.927Z",
+      "resolved_at": null,
+      "message": "\"Customer Delivery\" also present in chart",
+      "node_id": "112:1395",
+      "location": "Design Direction · Progressive Gift Cards - Exports",
+      "position": "1397, 305",
+      "client_meta": {
+        "node_id": "112:1395",
+        "node_offset": {
+          "x": 1397,
+          "y": 305
+        },
+        "stable_path": [
+          "112:1395"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1845121930",
+      "order_id": "3",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-15T20:19:01.223Z",
+      "resolved_at": "2026-07-20T20:27:48.421Z",
+      "message": "This page will need a complete revamp/reorganize",
+      "node_id": "112:494",
+      "location": "node 112:494",
+      "position": "731, 145",
+      "client_meta": {
+        "node_id": "112:494",
+        "node_offset": {
+          "x": 731,
+          "y": 145
+        },
+        "stable_path": [
+          "112:494"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846609200",
+      "order_id": "4",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:25:30.235Z",
+      "resolved_at": null,
+      "message": "This dropdown list feels a little bit long and overwhelming, wonder if we could split it up into two selection areas, company, and denomination? Also \"Digital E-Card\" is probably unnecessary?",
+      "node_id": "134:1102",
+      "location": "Design Direction · Screenshot 2026-07-16 at 9.20.19 AM 1",
+      "position": "894, 313",
+      "client_meta": {
+        "node_id": "134:1102",
+        "node_offset": {
+          "x": 894,
+          "y": 313
+        },
+        "stable_path": [
+          "134:1102"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1846801435",
+          "order_id": null,
+          "parent_id": "1846609200",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-07-16T17:31:46.022Z",
+          "resolved_at": null,
+          "message": "Seems like physical cards may be in the future? Confirm this and maybe have one \"walmart - digital e card\" and \"walmart - physical card\"? Discuss this",
+          "node_id": "134:1102",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1846647292",
+      "order_id": "5",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:46:22.523Z",
+      "resolved_at": null,
+      "message": "Will need to ensure mandatory fields are clearly marked",
+      "node_id": "115:1279",
+      "location": "Design Direction · Progressive Gift Cards - New Fullfillment Request",
+      "position": "1308, 204",
+      "client_meta": {
+        "node_id": "115:1279",
+        "node_offset": {
+          "x": 1308,
+          "y": 204
+        },
+        "stable_path": [
+          "115:1279"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846650878",
+      "order_id": "6",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:48:24.052Z",
+      "resolved_at": null,
+      "message": "If always going to be \"PO-\" Can that automatically be in the form already, or have the user just have to put the numbers in?",
+      "node_id": "115:1279",
+      "location": "Design Direction · Progressive Gift Cards - New Fullfillment Request",
+      "position": "968, 285",
+      "client_meta": {
+        "node_id": "115:1279",
+        "node_offset": {
+          "x": 968,
+          "y": 285
+        },
+        "stable_path": [
+          "115:1279"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846652399",
+      "order_id": "7",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:49:12.855Z",
+      "resolved_at": null,
+      "message": "Dropdown with accepted methods?",
+      "node_id": "115:1279",
+      "location": "Design Direction · Progressive Gift Cards - New Fullfillment Request",
+      "position": "1119, 572",
+      "client_meta": {
+        "node_id": "115:1279",
+        "node_offset": {
+          "x": 1119,
+          "y": 572
+        },
+        "stable_path": [
+          "115:1279"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846653585",
+      "order_id": "8",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:49:52.299Z",
+      "resolved_at": null,
+      "message": "\"$\" auto in there",
+      "node_id": "115:1279",
+      "location": "Design Direction · Progressive Gift Cards - New Fullfillment Request",
+      "position": "338, 788",
+      "client_meta": {
+        "node_id": "115:1279",
+        "node_offset": {
+          "x": 338,
+          "y": 788
+        },
+        "stable_path": [
+          "115:1279"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846656591",
+      "order_id": "9",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:51:30.224Z",
+      "resolved_at": null,
+      "message": "Can we have a dropdown for customers already in the system, or an autofill option? Look into best methods!",
+      "node_id": "115:1279",
+      "location": "Design Direction · Progressive Gift Cards - New Fullfillment Request",
+      "position": "498, 148",
+      "client_meta": {
+        "node_id": "115:1279",
+        "node_offset": {
+          "x": 498,
+          "y": 148
+        },
+        "stable_path": [
+          "115:1279"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846660325",
+      "order_id": "10",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T15:53:41.134Z",
+      "resolved_at": null,
+      "message": "General, set up some auto formatting for these fields",
+      "node_id": "115:1279",
+      "location": "Design Direction · Progressive Gift Cards - New Fullfillment Request",
+      "position": "704, 138",
+      "client_meta": {
+        "node_id": "115:1279",
+        "node_offset": {
+          "x": 704,
+          "y": 138
+        },
+        "stable_path": [
+          "115:1279"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846688354",
+      "order_id": "11",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T16:11:29.095Z",
+      "resolved_at": null,
+      "message": "Maybe we give the user the option here to return to general open fulfillment page, or go right to the request info page if they're going to fill it \"right now\"",
+      "node_id": "137:1374",
+      "location": "Design Direction · Frame 3",
+      "position": "864, 780",
+      "client_meta": {
+        "node_id": "137:1374",
+        "node_offset": {
+          "x": 864,
+          "y": 780
+        },
+        "stable_path": [
+          "137:1374"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846705842",
+      "order_id": "12",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T16:22:45.300Z",
+      "resolved_at": null,
+      "message": "Should include some additional ways to sort/view this list, [https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design?node-id=63-12&t=BHLRJovLa6TMYwSd-1](https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design?node-id=63-12&t=BHLRJovLa6TMYwSd-1) has a good pattern, tabs to easily sort or view all, along with additional filters",
+      "node_id": "134:240",
+      "location": "Design Direction · Progressive Gift Cards - Fulfillment Requests",
+      "position": "692, 139",
+      "client_meta": {
+        "node_id": "134:240",
+        "node_offset": {
+          "x": 692,
+          "y": 139
+        },
+        "stable_path": [
+          "134:240"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1846802297",
+          "order_id": null,
+          "parent_id": "1846705842",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-07-16T17:32:25.130Z",
+          "resolved_at": null,
+          "message": "Plan for future physical cards to be a part of this it seems like",
+          "node_id": "134:240",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1846713465",
+      "order_id": "13",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T16:27:37.430Z",
+      "resolved_at": null,
+      "message": "Will need to create some error states to show some of the important errors:\n* connection disabled;\n* invalid signature;\n* unknown or unmatched vendor;\n* unsupported physical-card order while the physical feature is disabled;\n* duplicate submission;\n* malformed or incomplete order.",
+      "node_id": "134:240",
+      "location": "Design Direction · Progressive Gift Cards - Fulfillment Requests",
+      "position": "1148, 621",
+      "client_meta": {
+        "node_id": "134:240",
+        "node_offset": {
+          "x": 1148,
+          "y": 621
+        },
+        "stable_path": [
+          "134:240"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1850524908",
+          "order_id": null,
+          "parent_id": "1846713465",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-07-20T19:38:10.912Z",
+          "resolved_at": null,
+          "message": "Should this be in status? or as a separate field",
+          "node_id": "134:240",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1846773694",
+      "order_id": "14",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:11:39.982Z",
+      "resolved_at": null,
+      "message": "Update pill and table design",
+      "node_id": "134:240",
+      "location": "Design Direction · Progressive Gift Cards - Fulfillment Requests",
+      "position": "892, 343",
+      "client_meta": {
+        "node_id": "134:240",
+        "node_offset": {
+          "x": 892,
+          "y": 343
+        },
+        "stable_path": [
+          "134:240"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846777755",
+      "order_id": "15",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:14:41.502Z",
+      "resolved_at": null,
+      "message": "If we add a better sorting and filtering system on the fulfillment request page as noted I wonder if we can combine these",
+      "node_id": "104:115",
+      "location": "Design Direction · Progressive Gift Cards - Dashboard",
+      "position": "119, 381",
+      "client_meta": {
+        "node_id": "104:115",
+        "node_offset": {
+          "x": 119,
+          "y": 381
+        },
+        "stable_path": [
+          "104:115"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846779115",
+      "order_id": "16",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:15:41.786Z",
+      "resolved_at": null,
+      "message": "Create consistency in how these appear on the dashboard, and the fulfillment request page",
+      "node_id": "104:115",
+      "location": "Design Direction · Progressive Gift Cards - Dashboard",
+      "position": "803, 589",
+      "client_meta": {
+        "node_id": "104:115",
+        "node_offset": {
+          "x": 803,
+          "y": 589
+        },
+        "stable_path": [
+          "104:115"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846783358",
+      "order_id": "17",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:18:48.832Z",
+      "resolved_at": null,
+      "message": "I feel like we could make some improvements on the header section?? TBD",
+      "node_id": "104:115",
+      "location": "Design Direction · Progressive Gift Cards - Dashboard",
+      "position": "905, 43",
+      "client_meta": {
+        "node_id": "104:115",
+        "node_offset": {
+          "x": 905,
+          "y": 43
+        },
+        "stable_path": [
+          "104:115"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846798188",
+      "order_id": "18",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:29:21.643Z",
+      "resolved_at": null,
+      "message": "My instinct is to have the whole bar clickable, not just the number to take you to view more requests",
+      "node_id": "134:240",
+      "location": "Design Direction · Progressive Gift Cards - Fulfillment Requests",
+      "position": "1162, 403",
+      "client_meta": {
+        "node_id": "134:240",
+        "node_offset": {
+          "x": 1162,
+          "y": 403
+        },
+        "stable_path": [
+          "134:240"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846804382",
+      "order_id": "19",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:34:02.579Z",
+      "resolved_at": null,
+      "message": "Colour code? Make it seem like a \"to-do\"",
+      "node_id": "104:115",
+      "location": "Design Direction · Progressive Gift Cards - Dashboard",
+      "position": "531, 180",
+      "client_meta": {
+        "node_id": "104:115",
+        "node_offset": {
+          "x": 531,
+          "y": 180
+        },
+        "stable_path": [
+          "104:115"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846824509",
+      "order_id": "20",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:48:30.410Z",
+      "resolved_at": null,
+      "message": "General: This page needs a full look at layout!!",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "634, 145",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 634,
+          "y": 145
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846824802",
+      "order_id": "21",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:48:41.935Z",
+      "resolved_at": null,
+      "message": "These get missed here",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1126, 37",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 1126,
+          "y": 37
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846825930",
+      "order_id": "22",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:49:32.540Z",
+      "resolved_at": null,
+      "message": "Cards not the right approach for this section",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "774, 387",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 774,
+          "y": 387
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846826301",
+      "order_id": "23",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:49:48.774Z",
+      "resolved_at": null,
+      "message": "This get's squished on a smaller screen",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "862, 843",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 862,
+          "y": 843
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846826627",
+      "order_id": "24",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:50:02.767Z",
+      "resolved_at": null,
+      "message": "Any error on screen regarding request should be higher up! (ie on walmart page, just ensure any general errors are easily seen)",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "730, 1161",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 730,
+          "y": 1161
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846826966",
+      "order_id": "25",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:50:18.099Z",
+      "resolved_at": null,
+      "message": "Not sure if cards make sense here",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "5087, 1678",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 5087,
+          "y": 1678
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846828217",
+      "order_id": "26",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:51:13.251Z",
+      "resolved_at": null,
+      "message": "This is a dropdown (didn't copy over right)",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1340, 1465",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 1340,
+          "y": 1465
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846828935",
+      "order_id": "27",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T17:51:44.846Z",
+      "resolved_at": null,
+      "message": "This sidebar area spans too long, rearrange area and whole page!",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1028, 2191",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 1028,
+          "y": 2191
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1846872756",
+          "order_id": null,
+          "parent_id": "1846828935",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-07-16T18:24:59.391Z",
+          "resolved_at": null,
+          "message": "Thought: maybe break these up into clear steps?",
+          "node_id": "147:1439",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1846848226",
+      "order_id": "28",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T18:06:18.938Z",
+      "resolved_at": null,
+      "message": "This is an important step to track payment on the order overall, should be higher up and a clear main item perhaps",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "5483, 1884",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 5483,
+          "y": 1884
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1846968965",
+      "order_id": "29",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T19:42:43.197Z",
+      "resolved_at": null,
+      "message": "If there's no crd available to allocate, we should add a link here to where one can add inventory",
+      "node_id": "147:1439",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1300, 1769",
+      "client_meta": {
+        "node_id": "147:1439",
+        "node_offset": {
+          "x": 1300,
+          "y": 1769
+        },
+        "stable_path": [
+          "147:1439"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847004425",
+      "order_id": "30",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T20:12:47.662Z",
+      "resolved_at": null,
+      "message": "These feel like they get lose up here",
+      "node_id": "108:2",
+      "location": "Design Direction · Progressive Gift Cards - Card Vault",
+      "position": "1152, 40",
+      "client_meta": {
+        "node_id": "108:2",
+        "node_offset": {
+          "x": 1152,
+          "y": 40
+        },
+        "stable_path": [
+          "108:2"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847012789",
+      "order_id": "31",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T20:20:00.251Z",
+      "resolved_at": null,
+      "message": "Can the UI be cleaned up here?",
+      "node_id": "108:2",
+      "location": "Design Direction · Progressive Gift Cards - Card Vault",
+      "position": "892, 770",
+      "client_meta": {
+        "node_id": "108:2",
+        "node_offset": {
+          "x": 892,
+          "y": 770
+        },
+        "stable_path": [
+          "108:2"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847014941",
+      "order_id": "32",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T20:21:44.180Z",
+      "resolved_at": null,
+      "message": "Maybe add some sorting here? (like, alphabetical, amount available etc.)",
+      "node_id": "108:2",
+      "location": "Design Direction · Progressive Gift Cards - Card Vault",
+      "position": "1324, 484",
+      "client_meta": {
+        "node_id": "108:2",
+        "node_offset": {
+          "x": 1324,
+          "y": 484
+        },
+        "stable_path": [
+          "108:2"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847023156",
+      "order_id": "33",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T20:28:27.325Z",
+      "resolved_at": null,
+      "message": "Dropdown",
+      "node_id": "115:634",
+      "location": "Design Direction · Progressive Gift Cards - Import Cards",
+      "position": "606, 630",
+      "client_meta": {
+        "node_id": "115:634",
+        "node_offset": {
+          "x": 606,
+          "y": 630
+        },
+        "stable_path": [
+          "115:634"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847036420",
+      "order_id": "34",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T20:40:03.188Z",
+      "resolved_at": null,
+      "message": "Get clarity on these and how this section works",
+      "node_id": "115:634",
+      "location": "Design Direction · Progressive Gift Cards - Import Cards",
+      "position": "1256, 1464",
+      "client_meta": {
+        "node_id": "115:634",
+        "node_offset": {
+          "x": 1256,
+          "y": 1464
+        },
+        "stable_path": [
+          "115:634"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1847038973",
+          "order_id": null,
+          "parent_id": "1847036420",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-07-16T20:42:16.660Z",
+          "resolved_at": null,
+          "message": "Is it necessary to take up this much space? Is it necessary at all if those are just table headlines below?",
+          "node_id": "115:634",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        },
+        {
+          "id": "1847057344",
+          "order_id": null,
+          "parent_id": "1847036420",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-07-16T20:58:51.781Z",
+          "resolved_at": null,
+          "message": "\"User reviews:\n* detected columns;\n* protected/sensitive fields;\n* valid row count;\n* duplicate rows;\n* skipped or invalid rows;\n* masked card previews.\nUser corrects source data if the preview reports errors.\"\n\nCan that review happen in the \"preview box\"??",
+          "node_id": "115:634",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1847065048",
+      "order_id": "35",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T21:06:44.456Z",
+      "resolved_at": null,
+      "message": "Clean up table",
+      "node_id": "156:4211",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "769, 474",
+      "client_meta": {
+        "node_id": "156:4211",
+        "node_offset": {
+          "x": 769,
+          "y": 474
+        },
+        "stable_path": [
+          "156:4211"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847065367",
+      "order_id": "36",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T21:07:05.170Z",
+      "resolved_at": null,
+      "message": "Think about filter system, can this better be utilized in accordance to other pages we may tweak",
+      "node_id": "156:4211",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1251, 246",
+      "client_meta": {
+        "node_id": "156:4211",
+        "node_offset": {
+          "x": 1251,
+          "y": 246
+        },
+        "stable_path": [
+          "156:4211"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847085124",
+      "order_id": "37",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T21:28:41.516Z",
+      "resolved_at": null,
+      "message": "Move this, maybe above total cards",
+      "node_id": "156:7309",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1096, 54",
+      "client_meta": {
+        "node_id": "156:7309",
+        "node_offset": {
+          "x": 1096,
+          "y": 54
+        },
+        "stable_path": [
+          "156:7309"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847085281",
+      "order_id": "38",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T21:28:51.144Z",
+      "resolved_at": null,
+      "message": "Move this from header with main content",
+      "node_id": "156:7309",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1266, 40",
+      "client_meta": {
+        "node_id": "156:7309",
+        "node_offset": {
+          "x": 1266,
+          "y": 40
+        },
+        "stable_path": [
+          "156:7309"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847087156",
+      "order_id": "39",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T21:30:49.982Z",
+      "resolved_at": null,
+      "message": "Should these be grouped together since each card can only carry one of these statuses at a time?",
+      "node_id": "156:7309",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1050, 244",
+      "client_meta": {
+        "node_id": "156:7309",
+        "node_offset": {
+          "x": 1050,
+          "y": 244
+        },
+        "stable_path": [
+          "156:7309"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847098111",
+      "order_id": "40",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-16T21:43:12.958Z",
+      "resolved_at": null,
+      "message": "re name this",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "5441, 3017",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 5441,
+          "y": 3017
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1847170788",
+      "order_id": "41",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-16T23:48:53.869Z",
+      "resolved_at": null,
+      "message": "Confirm this actually happens",
+      "node_id": "165:6128",
+      "location": "Design Direction · Progressive Gift Cards - Fulfillment Requests",
+      "position": "1019, 344",
+      "client_meta": {
+        "node_id": "165:6128",
+        "node_offset": {
+          "x": 1019,
+          "y": 344
+        },
+        "stable_path": [
+          "165:6128"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848407696",
+      "order_id": "42",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T17:24:07.144Z",
+      "resolved_at": null,
+      "message": "Make this look less like an ERROR, it's just a step within the walmart card process",
+      "node_id": "156:9744",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1332, 1178",
+      "client_meta": {
+        "node_id": "156:9744",
+        "node_offset": {
+          "x": 1332,
+          "y": 1178
+        },
+        "stable_path": [
+          "156:9744"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848421937",
+      "order_id": "43",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T17:36:43.428Z",
+      "resolved_at": null,
+      "message": "We technically need a new step here for \"card preperation\", and maybe even one for \"card activation\"",
+      "node_id": "156:9744",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "620, 914",
+      "client_meta": {
+        "node_id": "156:9744",
+        "node_offset": {
+          "x": 620,
+          "y": 914
+        },
+        "stable_path": [
+          "156:9744"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848435343",
+      "order_id": "44",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T17:48:53.808Z",
+      "resolved_at": null,
+      "message": "Could This \"preparation\" step be brought into this page as part of a natural step?",
+      "node_id": "156:9744",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1292, 1292",
+      "client_meta": {
+        "node_id": "156:9744",
+        "node_offset": {
+          "x": 1292,
+          "y": 1292
+        },
+        "stable_path": [
+          "156:9744"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848443687",
+      "order_id": "45",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T17:56:24.533Z",
+      "resolved_at": null,
+      "message": "Can this be auto filled in based on the fulfillment request?",
+      "node_id": "180:87",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "645, 650",
+      "client_meta": {
+        "node_id": "180:87",
+        "node_offset": {
+          "x": 645,
+          "y": 650
+        },
+        "stable_path": [
+          "180:87"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848450194",
+      "order_id": "46",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T18:02:39.219Z",
+      "resolved_at": null,
+      "message": "These don't really make sense to me up here. I'm not sure if they're necessary. Overall I think that this preperation section should live in-line the page before as a step, Payment status, Preparation, Import, Allocate, Export",
+      "node_id": "180:87",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1009, 288",
+      "client_meta": {
+        "node_id": "180:87",
+        "node_offset": {
+          "x": 1009,
+          "y": 288
+        },
+        "stable_path": [
+          "180:87"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848454191",
+      "order_id": "47",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T18:06:55.249Z",
+      "resolved_at": null,
+      "message": "Need option to import here, or as a separate step",
+      "node_id": "156:9744",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1302, 2080",
+      "client_meta": {
+        "node_id": "156:9744",
+        "node_offset": {
+          "x": 1302,
+          "y": 2080
+        },
+        "stable_path": [
+          "156:9744"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848576039",
+      "order_id": "48",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T20:14:02.468Z",
+      "resolved_at": null,
+      "message": "Tighten up language (ie. I think last sentence can be within the cancellation success message)",
+      "node_id": "187:1106",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1202, 2922",
+      "client_meta": {
+        "node_id": "187:1106",
+        "node_offset": {
+          "x": 1202,
+          "y": 2922
+        },
+        "stable_path": [
+          "187:1106"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848627094",
+      "order_id": "49",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:23:44.006Z",
+      "resolved_at": null,
+      "message": "clean up chart in general",
+      "node_id": "193:4826",
+      "location": "Design Direction · Progressive Gift Cards - Clients",
+      "position": "883, 457",
+      "client_meta": {
+        "node_id": "193:4826",
+        "node_offset": {
+          "x": 883,
+          "y": 457
+        },
+        "stable_path": [
+          "193:4826"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848627234",
+      "order_id": "50",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:23:57.675Z",
+      "resolved_at": null,
+      "message": "Better filter system?",
+      "node_id": "193:4826",
+      "location": "Design Direction · Progressive Gift Cards - Clients",
+      "position": "1319, 221",
+      "client_meta": {
+        "node_id": "193:4826",
+        "node_offset": {
+          "x": 1319,
+          "y": 221
+        },
+        "stable_path": [
+          "193:4826"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848630428",
+      "order_id": "51",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:29:11.400Z",
+      "resolved_at": null,
+      "message": "New request? I think this should be new client?",
+      "node_id": "193:4826",
+      "location": "Design Direction · Progressive Gift Cards - Clients",
+      "position": "1251, 55",
+      "client_meta": {
+        "node_id": "193:4826",
+        "node_offset": {
+          "x": 1251,
+          "y": 55
+        },
+        "stable_path": [
+          "193:4826"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848633141",
+      "order_id": "52",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:33:59.831Z",
+      "resolved_at": null,
+      "message": "Cards not right approach for this",
+      "node_id": "195:5032",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "863, 499",
+      "client_meta": {
+        "node_id": "195:5032",
+        "node_offset": {
+          "x": 863,
+          "y": 499
+        },
+        "stable_path": [
+          "195:5032"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848633364",
+      "order_id": "53",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:34:24.871Z",
+      "resolved_at": null,
+      "message": "this doesn't seem important enough for this much prominence",
+      "node_id": "195:5032",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1207, 221",
+      "client_meta": {
+        "node_id": "195:5032",
+        "node_offset": {
+          "x": 1207,
+          "y": 221
+        },
+        "stable_path": [
+          "195:5032"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848633499",
+      "order_id": "54",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:34:38.032Z",
+      "resolved_at": null,
+      "message": "Remove",
+      "node_id": "195:5032",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1217, 43",
+      "client_meta": {
+        "node_id": "195:5032",
+        "node_offset": {
+          "x": 1217,
+          "y": 43
+        },
+        "stable_path": [
+          "195:5032"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848633746",
+      "order_id": "55",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:35:06.055Z",
+      "resolved_at": null,
+      "message": "wording.. I didn't come from dashboard?",
+      "node_id": "195:5032",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "997, 45",
+      "client_meta": {
+        "node_id": "195:5032",
+        "node_offset": {
+          "x": 997,
+          "y": 45
+        },
+        "stable_path": [
+          "195:5032"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848633817",
+      "order_id": "56",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:35:13.848Z",
+      "resolved_at": null,
+      "message": "(Back to all clients)",
+      "node_id": "195:5032",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "327, 135",
+      "client_meta": {
+        "node_id": "195:5032",
+        "node_offset": {
+          "x": 327,
+          "y": 135
+        },
+        "stable_path": [
+          "195:5032"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848638846",
+      "order_id": "57",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:44:26.227Z",
+      "resolved_at": null,
+      "message": "re layout this whole page",
+      "node_id": "195:5515",
+      "location": "node 195:5515",
+      "position": "733, 118",
+      "client_meta": {
+        "node_id": "195:5515",
+        "node_offset": {
+          "x": 733,
+          "y": 118
+        },
+        "stable_path": [
+          "195:5515"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848641180",
+      "order_id": "58",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:49:04.082Z",
+      "resolved_at": null,
+      "message": "dropdown",
+      "node_id": "195:6614",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "844, 431",
+      "client_meta": {
+        "node_id": "195:6614",
+        "node_offset": {
+          "x": 844,
+          "y": 431
+        },
+        "stable_path": [
+          "195:6614"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848641335",
+      "order_id": "59",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:49:21.346Z",
+      "resolved_at": null,
+      "message": "needs more of a unique look from dropdown",
+      "node_id": "195:6614",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1060, 431",
+      "client_meta": {
+        "node_id": "195:6614",
+        "node_offset": {
+          "x": 1060,
+          "y": 431
+        },
+        "stable_path": [
+          "195:6614"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848641659",
+      "order_id": "60",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:49:59.560Z",
+      "resolved_at": null,
+      "message": "permissions could be better presented",
+      "node_id": "195:6614",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1132, 509",
+      "client_meta": {
+        "node_id": "195:6614",
+        "node_offset": {
+          "x": 1132,
+          "y": 509
+        },
+        "stable_path": [
+          "195:6614"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848641852",
+      "order_id": "61",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:50:21.357Z",
+      "resolved_at": null,
+      "message": "Ensure success and or error messages are presented",
+      "node_id": "195:6614",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "1300, 583",
+      "client_meta": {
+        "node_id": "195:6614",
+        "node_offset": {
+          "x": 1300,
+          "y": 583
+        },
+        "stable_path": [
+          "195:6614"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848645007",
+      "order_id": "62",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:56:55.740Z",
+      "resolved_at": null,
+      "message": "Have this as a button and the user can create a new user vie modal or new page.",
+      "node_id": "195:6614",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "508, 349",
+      "client_meta": {
+        "node_id": "195:6614",
+        "node_offset": {
+          "x": 508,
+          "y": 349
+        },
+        "stable_path": [
+          "195:6614"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848645151",
+      "order_id": "63",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:57:13.131Z",
+      "resolved_at": null,
+      "message": "Have this as a button and the user can create a new connection via modal or new page.",
+      "node_id": "196:7482",
+      "location": "Design Direction · progressive-gift-cards-card-vault-staging.onrender.com_integrations_wordpress (1) 1",
+      "position": "551, 315",
+      "client_meta": {
+        "node_id": "196:7482",
+        "node_offset": {
+          "x": 551,
+          "y": 315
+        },
+        "stable_path": [
+          "196:7482"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848647196",
+      "order_id": "64",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T22:01:35.259Z",
+      "resolved_at": null,
+      "message": "clearer colour coding!",
+      "node_id": "196:7482",
+      "location": "Design Direction · progressive-gift-cards-card-vault-staging.onrender.com_integrations_wordpress (1) 1",
+      "position": "1369, 181",
+      "client_meta": {
+        "node_id": "196:7482",
+        "node_offset": {
+          "x": 1369,
+          "y": 181
+        },
+        "stable_path": [
+          "196:7482"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1850423472",
+      "order_id": "65",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-20T18:13:22.155Z",
+      "resolved_at": null,
+      "message": "Would i be curious to know if this would be worth having a section for each of the line items here, showing what needs allocation for each instead of one for all",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "12428, 2428",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 12428,
+          "y": 2428
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1850528032",
+      "order_id": "66",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-20T19:40:54.282Z",
+      "resolved_at": null,
+      "message": "not needed - all digital for now",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "1814, 1292",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 1814,
+          "y": 1292
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1850529750",
+      "order_id": "67",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-20T19:42:24.025Z",
+      "resolved_at": null,
+      "message": "Would this be a status step? Does it need it's own column",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "2512, 1282",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 2512,
+          "y": 1282
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1850587925",
+      "order_id": "68",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-20T20:33:08.047Z",
+      "resolved_at": null,
+      "message": "Ensure we account for this in design",
+      "node_id": "193:3086",
+      "location": "Design Direction · Rectangle 7",
+      "position": "19896, 2772",
+      "client_meta": {
+        "node_id": "193:3086",
+        "node_offset": {
+          "x": 19896,
+          "y": 2772
+        },
+        "stable_path": [
+          "193:3086"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1850662378",
+      "order_id": "69",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-20T21:53:05.791Z",
+      "resolved_at": null,
+      "message": "Maybe a tab functioned like previous mentioned in the squarespace example for viewing (all / allocated / available / quatentied",
+      "node_id": "156:7309",
+      "location": "Design Direction · Progressive Gift Cards Admin",
+      "position": "912, 380",
+      "client_meta": {
+        "node_id": "156:7309",
+        "node_offset": {
+          "x": 912,
+          "y": 380
+        },
+        "stable_path": [
+          "156:7309"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1852298111",
+      "order_id": "70",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-21T17:22:37.210Z",
+      "resolved_at": null,
+      "message": "from email, phone, fax",
+      "node_id": "137:1378",
+      "location": "Design Direction · Vector 9",
+      "position": "952, 2944",
+      "client_meta": {
+        "node_id": "137:1378",
+        "node_offset": {
+          "x": 952,
+          "y": 2944
+        },
+        "stable_path": [
+          "137:1378"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1852311436",
+      "order_id": "71",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-21T17:31:26.136Z",
+      "resolved_at": null,
+      "message": "Have an option to compress the sidebar to just icons so they have more screen real estate",
+      "node_id": "104:115",
+      "location": "Design Direction · Progressive Gift Cards - Dashboard",
+      "position": "239, 141",
+      "client_meta": {
+        "node_id": "104:115",
+        "node_offset": {
+          "x": 239,
+          "y": 141
+        },
+        "stable_path": [
+          "104:115"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1854663115",
+      "order_id": "72",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-22T22:52:39.834Z",
+      "resolved_at": "2026-07-23T18:11:15.027Z",
+      "message": "I think I like the pills more in the shades of color, rather than the white and colored dot - the color coding just stands out a bit more and its more obvious! I think we can still use the dot in some cases where we are limited on space?",
+      "node_id": "295:13637",
+      "location": "→ Orders · Orders",
+      "position": "376, 129",
+      "client_meta": {
+        "node_id": "295:13637",
+        "node_offset": {
+          "x": 376,
+          "y": 129
+        },
+        "stable_path": [
+          "295:13637"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1854664095",
+      "order_id": "73",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-22T22:54:20.439Z",
+      "resolved_at": "2026-07-23T18:11:22.098Z",
+      "message": "I like these elements moved here!",
+      "node_id": "295:13637",
+      "location": "→ Orders · Orders",
+      "position": "141, 971",
+      "client_meta": {
+        "node_id": "295:13637",
+        "node_offset": {
+          "x": 141,
+          "y": 971
+        },
+        "stable_path": [
+          "295:13637"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1854666883",
+      "order_id": "75",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-22T22:59:17.927Z",
+      "resolved_at": "2026-07-23T18:11:17.844Z",
+      "message": "Maybe a little overlapping icon button here to show the collapse? Like what we did for SpecterOps: [https://www.figma.com/design/EefNLZ6Akj6i0tEuYmQf62/BloodHound-Product?node-id=86-19&t=kxoemlz51gKTaQCu-1](https://www.figma.com/design/EefNLZ6Akj6i0tEuYmQf62/BloodHound-Product?node-id=86-19&t=kxoemlz51gKTaQCu-1)\n\nI find the icon here interferes with the logo!",
+      "node_id": "295:13637",
+      "location": "→ Orders · Orders",
+      "position": "233, 47",
+      "client_meta": {
+        "node_id": "295:13637",
+        "node_offset": {
+          "x": 233,
+          "y": 47
+        },
+        "stable_path": [
+          "295:13637"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1854669221",
+      "order_id": "77",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-22T23:03:24.772Z",
+      "resolved_at": null,
+      "message": "These buttons feel very large to me and really draw attention - maybe consider making them slightly smaller? I know they are for important items though... Just feels more website-y than product-y if that makes sense :joy:",
+      "node_id": "319:406",
+      "location": "→ Header - in progress · Rectangle 6",
+      "position": "1228, 252",
+      "client_meta": {
+        "node_id": "319:406",
+        "node_offset": {
+          "x": 1228,
+          "y": 252
+        },
+        "stable_path": [
+          "319:406"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1854671120",
+      "order_id": "78",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-22T23:06:47.641Z",
+      "resolved_at": "2026-07-23T16:20:54.058Z",
+      "message": "might have to darken for accessibility",
+      "node_id": "295:13637",
+      "location": "→ Orders · Orders",
+      "position": "485, 797",
+      "client_meta": {
+        "node_id": "295:13637",
+        "node_offset": {
+          "x": 485,
+          "y": 797
+        },
+        "stable_path": [
+          "295:13637"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1854690030",
+      "order_id": "79",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-22T23:41:06.247Z",
+      "resolved_at": null,
+      "message": "Idea for this section, I wonder if it looked more like a continuous progress bar, it would read a little more smoothly? I put some examples to the right! Totally up for discussion though!",
+      "node_id": "294:12979",
+      "location": "→ Orders ·    → Orders",
+      "position": "2590, -344",
+      "client_meta": {
+        "node_id": "294:12979",
+        "node_offset": {
+          "x": 2590,
+          "y": -344
+        },
+        "stable_path": [
+          "294:12979"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1862137582",
+      "order_id": "80",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-28T19:49:21.655Z",
+      "resolved_at": null,
+      "message": "Kaitlin Gordeyko  only thing I added here was the faint keylines in between each line! I found with the big block of info, adding the lines just help organize it a bit",
+      "node_id": "396:1132",
+      "location": "→ Orders · Orders",
+      "position": "1279, 449",
+      "client_meta": {
+        "node_id": "396:1132",
+        "node_offset": {
+          "x": 1279,
+          "y": 449
+        },
+        "stable_path": [
+          "396:1132"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1862139244",
+      "order_id": "81",
+      "parent_id": null,
+      "user": "Candace Ratchford",
+      "created_at": "2026-07-28T19:50:39.020Z",
+      "resolved_at": null,
+      "message": "Tim  can you use this style of checkmarks for the timeline? and put them before the wording",
+      "node_id": "295:13637",
+      "location": "→ Orders · Orders",
+      "position": "349, 235",
+      "client_meta": {
+        "node_id": "295:13637",
+        "node_offset": {
+          "x": 349,
+          "y": 235
+        },
+        "stable_path": [
+          "295:13637"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1863407733",
+          "order_id": null,
+          "parent_id": "1862139244",
+          "user": "Tim",
+          "created_at": "2026-07-29T13:04:37.360Z",
+          "resolved_at": null,
+          "message": "Candace Ratchford Yes I think so! Shouldn't be a problem!",
+          "node_id": "295:13637",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1871578477",
+      "order_id": "82",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-08-04T20:31:11.706Z",
+      "resolved_at": null,
+      "message": "if possible would be great to have these items auto filled in, at least the order #, I guess to account for that there MAY be more than one amount/quantity of walmart cards in the order.",
+      "node_id": "485:586",
+      "location": "→ Orders · Walmart Orders - 2",
+      "position": "1314, 499",
+      "client_meta": {
+        "node_id": "485:586",
+        "node_offset": {
+          "x": 1314,
+          "y": 499
+        },
+        "stable_path": [
+          "485:586"
+        ]
+      },
+      "replies": [
+        {
+          "id": "1873462446",
+          "order_id": null,
+          "parent_id": "1871578477",
+          "user": "Tim",
+          "created_at": "2026-08-05T19:51:34.893Z",
+          "resolved_at": null,
+          "message": "Hi Kaitlin Gordeyko this workflow will not be possible. For the Walmart cards they will need to first create a file that they will need to upload into Fiserve, which will create the cards. At that point they will be able to add the cards into the card vault to allocate to an order.",
+          "node_id": "485:586",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        },
+        {
+          "id": "1873469453",
+          "order_id": null,
+          "parent_id": "1871578477",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-08-05T19:57:13.469Z",
+          "resolved_at": null,
+          "message": "Tim do you mean we cannot have things auto filled in, or we cannot have this card preparation piece right on the page? (this is where they would be creating that file to upload to Fiserve ideally rather than be taken to a new page to do so)",
+          "node_id": "485:586",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        },
+        {
+          "id": "1873474689",
+          "order_id": null,
+          "parent_id": "1871578477",
+          "user": "Tim",
+          "created_at": "2026-08-05T20:01:22.992Z",
+          "resolved_at": null,
+          "message": "Kaitlin Gordeyko Right now it shows them being generated inline and that isn't possible. Likely there will be more fields required to create the cards than what is shown as well so I think it is better to have them taken to a new page. Some of the values could potentially be pre-filled, but we will not send them to the site as the design says \"You will be taken to Fiserve...\". The only thing our app will do is allow them to download the file they need for Fiserve and then allow them to add the cards back into the app.",
+          "node_id": "485:586",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        },
+        {
+          "id": "1873481772",
+          "order_id": null,
+          "parent_id": "1871578477",
+          "user": "Kaitlin Gordeyko",
+          "created_at": "2026-08-05T20:07:23.805Z",
+          "resolved_at": null,
+          "message": "The description line can easily be changed to match accurate information! Do you know how many more fields there will be? We're just going off the prototype. But if it's not possible, it's not possible. LMK if you want to chat about this in a meet Tim",
+          "node_id": "485:586",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        },
+        {
+          "id": "1873485972",
+          "order_id": null,
+          "parent_id": "1871578477",
+          "user": "Tim",
+          "created_at": "2026-08-05T20:10:51.482Z",
+          "resolved_at": null,
+          "message": "No I don't know how many fields there will be. For functionality sake, lets keep it a separate screen. There is already a lot going on on the individual order pages. Generating the Walmart card generation file would be too much I think.",
+          "node_id": "485:586",
+          "location": "unmapped/canvas",
+          "position": "",
+          "client_meta": {},
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "1878883392",
+      "order_id": "83",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-08-10T18:11:24.814Z",
+      "resolved_at": null,
+      "message": "As I mentioned in Slack, I was imagining like the [squarespace filter on the orders page](https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design?node-id=433-3306&t=st2wyvNErprnEDyj-1), **Categories**: *paid status, progress steps, and perhaps Client and Merchant* as well. Tim if you want to give it a shot having codex reference squarespace, or if you want a mock just let me know",
+      "node_id": "601:3223",
+      "location": "Screens · Vector 1",
+      "position": "322, 314",
+      "client_meta": {
+        "node_id": "601:3223",
+        "node_offset": {
+          "x": 321.703125,
+          "y": 313.83837890625
+        },
+        "stable_path": [
+          "601:3223"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1878890613",
+      "order_id": "84",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-08-10T18:17:03.732Z",
+      "resolved_at": null,
+      "message": "Tim This can be considered a work in progress so feel free to remove from here if it messes you up (it's still present in the original orders screen page), Spencer Ririe and I chatted, and we do think the Walmart card preparation step should live within the steps in some capacity. So let's chat about what we can do to make that happen :)",
+      "node_id": "601:3259",
+      "location": "Screens · Rectangle 17",
+      "position": "360, 168",
+      "client_meta": {
+        "node_id": "601:3259",
+        "node_offset": {
+          "x": 360,
+          "y": 168
+        },
+        "stable_path": [
+          "601:3259"
+        ]
+      },
+      "replies": []
+    }
+  ],
+  "unmapped_roots": [
+    {
+      "id": "1845121930",
+      "order_id": "3",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-15T20:19:01.223Z",
+      "resolved_at": "2026-07-20T20:27:48.421Z",
+      "message": "This page will need a complete revamp/reorganize",
+      "node_id": "112:494",
+      "location": "node 112:494",
+      "position": "731, 145",
+      "client_meta": {
+        "node_id": "112:494",
+        "node_offset": {
+          "x": 731,
+          "y": 145
+        },
+        "stable_path": [
+          "112:494"
+        ]
+      },
+      "replies": []
+    },
+    {
+      "id": "1848638846",
+      "order_id": "57",
+      "parent_id": null,
+      "user": "Kaitlin Gordeyko",
+      "created_at": "2026-07-17T21:44:26.227Z",
+      "resolved_at": null,
+      "message": "re layout this whole page",
+      "node_id": "195:5515",
+      "location": "node 195:5515",
+      "position": "733, 118",
+      "client_meta": {
+        "node_id": "195:5515",
+        "node_offset": {
+          "x": 733,
+          "y": 118
+        },
+        "stable_path": [
+          "195:5515"
+        ]
+      },
+      "replies": []
+    }
+  ]
+}

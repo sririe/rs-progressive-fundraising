@@ -1,0 +1,7 @@
+figma-review-comments doctor
+[OK] URL/key parses (file_key=Ztv1YtEx1S19i0w4bdHgo4, branch=False, node_id=294:12979)
+[OK] FIGMA_ACCESS_TOKEN present
+[OK] comments access (file_comments:read)
+[OK] structure access (file_content:read)
+[OK] image render for target node 294:12979
+READY

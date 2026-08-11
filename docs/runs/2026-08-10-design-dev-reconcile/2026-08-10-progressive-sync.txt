@@ -1,0 +1,281 @@
+[INT] Progressive sync - 2026/08/10 09:31 PDT – Transcript
+Attendees
+Kaitlin Gordeyko, Spencer Ririe, Stephanie Lamon, Tim Lemke
+Transcript
+Stephanie Lamon: Hello. …
+Kaitlin Gordeyko: Just trying to get my one password open.
+Kaitlin Gordeyko: There we go. Being slow on me.
+Stephanie Lamon: deep breers. My body feels so No,…
+Kaitlin Gordeyko: Do you sleep in a tent when you go camping?
+Stephanie Lamon: I have a Volkswagen band. a what's …
+Kaitlin Gordeyko: Fun. Yeah.
+Stephanie Lamon: So, I sleep in there. Yeah. The bed's still not very comfortable.
+Tim Lemke: I mean,…
+Tim Lemke: you don't like sleeping on hard ground with roots and such. I wish we could get a trailer,…
+Stephanie Lamon: We used to do a lot of car camping. I've had five vans, but I grew up doing lots of car camping. I don't know. My body doesn't love it the same anymore. Yeah, my friend that I was camping with,…
+Tim Lemke: but too expensive.
+Stephanie Lamon: she has a trailer and it's so nice.
+Stephanie Lamon: It's like she has a bathroom and a shower and a fridge,…
+Tim Lemke: I wouldn't want to pull it anywhere.
+Stephanie Lamon: nice size fridge.
+Kaitlin Gordeyko: Yeah. Yeah. Oo.
+Tim Lemke: If I could have somebody just set it up for me wherever I want it to go,…
+Tim Lemke: that would be my ideal.
+Spencer Ririe: There are services that do that…
+Spencer Ririe: where you can rent a camper or whatever and they'll actually deliver it to your campsite. which is…
+Stephanie Lamon: Really? Yeah.
+Tim Lemke: Yeah, for sure. Yeah.
+Spencer Ririe: which is probably, because I know some people that have gone out and bought, their quote unquote toy and they use it once a year, and so in that context, it's way more affordable to go that route. But my dad's gifting us a tent trailer. just because now that my mom's in a home,…
+Kaitlin Gordeyko: Amen. Yeah.
+Spencer Ririe: he's likely not going to go by him and…
+Stephanie Lamon: Yeah. Yeah,…
+Tim Lemke: Especially name. Yeah.
+Spencer Ririe: take it. So he's going to be bringing it up in September. And then he's like, "Okay, I need to put new tires on it and repack the bearings on the axle or whatever. "It's going to be like 400 bucks US." And I'm like, "Okay." So, $1,000. The exchange rate is so bad. But hey, know what? Free free tent trailer.
+Stephanie Lamon: cuz they're expensive, too. anyone. Okay.
+Spencer Ririe: Yeah. Yeah. Yeah. And they probably got it in the mid 90s. So it's not,…
+Tim Lemke: Hey.
+Spencer Ririe: when we visited he popped it up and we were looking at it and afterwards I was like, Yeah, I know. It's like we can update the cushion coverings,…
+Spencer Ririe: because it looks definitely has that, ' 90s vibes.
+Kaitlin Gordeyko: Yeah, I feel like I still remember the tent trailer I grew up with having so well and…
+Kaitlin Gordeyko: it was so like I would say even 70s vibes in there.
+Spencer Ririe: Yeah. Yeah. my grandfather had that 70s one that you're referring to where it's probably brown and…
+Spencer Ririe: cream cushion. Yeah. Yeah. Just like what were they thinking back then? Anyways, Tim,…
+Kaitlin Gordeyko: Green.
+Kaitlin Gordeyko: That's fun.
+Spencer Ririe: we did have I don't know if you saw this morning. the GCDN on the Progressive Pantheon account is blocking one of the calls on the formidable forms just for the one C vendor type.
+Kaitlin Gordeyko: Mhm.
+Spencer Ririe: I sent in a support ticket. This was as stuff was going out of the office on Friday at 3:40, I think.
+Stephanie Lamon: I hate you.
+Spencer Ririe: They responded that they were looking into it, but I don't think I messaged them again yesterday, but I don't know if you had a chance or if that was on your radar at all.
+Tim Lemke: Is it just that there's no value showing up?
+Spencer Ririe: Yeah. yeah.
+Tim Lemke: Could be that there's no value in the back end.
+Stephanie Lamon: No, I looked into that and…
+Stephanie Lamon: I think there were two values and…
+Stephanie Lamon: and it wasn't showing up.
+00:05:00
+Tim Lemke: I can take a look.
+Tim Lemke: I don't think it would be a blocking thing because it would block everything if it's going to block. But maybe hard to say.
+Spencer Ririe: Yeah, you may be right because it said the equivalent requests for all 52 other physical cards return HTTP 200 with valid denomination JSON. The failed lookup leave.
+Tim Lemke: So what was the one? Is it recipe unlimit?
+Stephanie Lamon: Recipe unlimited.
+Spencer Ririe: Yeah. Unless
+Stephanie Lamon: Yeah. the values and…
+Tim Lemke: Seems to be working for me. a physical card. Let me try it in a new. So, was it just that the values weren't showing up those little Weird.
+Stephanie Lamon: you weren't able to hit the place order button. it would just give a spinning wheel like they couldn't actually put in the order and so if you had any other cards there plus the recipe is unlimited you wouldn't be able to submit an H.
+Tim Lemke: is that when I'm logged in, it shows them, but when I'm not logged in, it doesn't.
+Kaitlin Gordeyko: Mhm.
+Tim Lemke: Interest. I can take a look. it might just mean, let me just update these. Sometimes if you give it a little kick,…
+Tim Lemke: it'll work. Last up.
+Stephanie Lamon: Yeah, I logged in on Friday to the back end and…
+Stephanie Lamon: I could see values so I wasn't. Yeah.
+Tim Lemke: Yeah, I see them, too. let's try saving it and see what happens.
+Tim Lemke: I mean, I can look at this after, too. Strange.
+Spencer Ririe: And you can see the support.
+Spencer Ririe: I think I added it in Slack what I sent to support. it obviously could be something else, but this was all that I was able to sort of try and trouble. I was walking out the door myself 20 minutes after stuff, so I didn't get a ton of time to look at it, but
+Tim Lemke: Yeah, I'll look at it. I don't think it's something to do with the CDN.
+Tim Lemke: It's probably something wacky and that is very possible.
+Stephanie Lamon: I'm also wondering…
+Stephanie Lamon: if it has to do with the name of the card because they called it something else in the email. It wasn't recipe unlimited, it was unlimited something else. So, I don't know if there's a mismatch naming thing happening somewhere in the form to the actual merchant name.
+Spencer Ririe: Yeah, I'm thinking that is also a possibility.
+Tim Lemke: Maybe I don't think it's a big seller.
+Stephanie Lamon: Is that too …
+Stephanie Lamon: what did they call it? I'm trying to remember now what the email said.
+Tim Lemke: So maybe it changed a while back and…
+Stephanie Lamon: No, because They called it,…
+Tim Lemke: nobody ordered it till that would make more sense because maybe we updated it. Let me just see.
+Tim Lemke: I bet you that's it actually.
+Stephanie Lamon: what did she call it in the thing? Unlimit Ultimate Dining.
+Tim Lemke: Recipe unlimited.
+Stephanie Lamon: But it's recipe unlimited.
+Tim Lemke: Recipe unlimited for a moment.
+Kaitlin Gordeyko: Uhoh.
+Stephanie Lamon: Yeah,…
+Tim Lemke: Okay, I can I'll look into it. it's probably some naming thing.
+Stephanie Lamon: I think I feel like I recall that there was something if it wasn't 100% exact between one and the other apostrophe later on.
+Tim Lemke: It might also not the apostrophe, the brackets.
+Stephanie Lamon: Yeah.
+Tim Lemke: That's the only one that has brackets.
+Tim Lemke: So I'll try getting rid of the bracket.
+Stephanie Lamon: Okay, sounds good. to speak for the digital card fulfillment stuff,…
+Tim Lemke: Yes. The app.
+Stephanie Lamon: I think just given the amount of time that we have left in the budget,…
+Tim Lemke: Yes. Yes. Yes. Sure.
+Stephanie Lamon: we just wanted to align on how to make things the most streamlined to finished as possible.
+00:10:00
+Tim Lemke: Yeah. So, I did, if you go on the staging site now, for anyone who wants to, I think I updated based on all the current designs that were passed along or…
+Stephanie Lamon: Come on.
+Tim Lemke: at least in progress designs. so, I think it'd be a good state from a design perspective to be like this looks good or this is close or still far away. And I think it's looking really good.
+Tim Lemke: I think the designs were great and I think it really improved things. and then from you you got to give me more than just stuff is off.
+Kaitlin Gordeyko: It is looking good.
+Kaitlin Gordeyko: It stuff is not really using all of the current designs though. some styles are off and sizes and stuff colors. I can.
+Tim Lemke: But these are all using the same ones you sent along. So, I'm not sure what you mean, but unless there was an updated version.
+Kaitlin Gordeyko: Yeah, I mean I can give specific things, but I did find there was also updates being made to pages that I wasn't done yet. So, there has been some isn't accurate.
+Tim Lemke: A couple things. Did you refresh? When's the last like because I just deployed stuff.
+Tim Lemke: So, if you're not looking at a recent version,
+Kaitlin Gordeyko: Yep. I can definitely go through and…
+Stephanie Lamon: Because what we could do?
+Kaitlin Gordeyko: point out things that still need to be tweaked. …
+Stephanie Lamon: Is there anything, Caitlyn, that you're still currently working on that you wouldn't want updated just yet that's still in the mix?
+Kaitlin Gordeyko: no, I've kind of paused everything…
+Kaitlin Gordeyko: until we can update the styles, but it's close, but there are some things that are
+Stephanie Lamon: Okay, perfect.
+Stephanie Lamon: Would it be beneficial to throw bug herd on this for the styling or no?
+Tim Lemke: No, no.
+Tim Lemke: I mean, and you can correct me if I'm wrong, Spencer, but the idea wasn't to have a super stylized design we were implementing, but kind of to reshape and…
+Tim Lemke: reform what was there. is that correct? Or maybe my understanding is
+Spencer Ririe: We do want it to be,…
+Spencer Ririe: a functional, UX and UI experience. And I know that the team did put, from a design standpoint, a lot of time and energy into trying to get it, to a good place. so I'm just trying to think of the and…
+Tim Lemke: Sure.
+Spencer Ririe: and Caitlyn, maybe we can look at it too of what are things that are, for a V1 what are the things that are going to make a difference moving forward just because if we get the foundation in, once then it serves it going forward for future updates. But, …
+Kaitlin Gordeyko: for sure.
+Spencer Ririe: at the end of the day, it may be what are they going to…
+Tim Lemke: So,…
+Spencer Ririe: what are they going to notice versus what ends up impacting something long term. I hadn't looked at the actual design yet, but Yeah.
+Tim Lemke: just to clarify, is this the current order page?
+Kaitlin Gordeyko: Yeah. Yeah.
+Tim Lemke: So here it is implemented on the app. Okay.
+Kaitlin Gordeyko: 
+Kaitlin Gordeyko: So, this one is pretty close. There's just some things like these icons are wrong. Some of the color styling on is it's not applied totally accurately. So this one is close. Mhm.
+Tim Lemke: and then orders. So I mean I guess that's maybe one of the challenges too with kind of the AI of it all is it's in previous kind of paradigms we decide that it's like designs and…
+Kaitlin Gordeyko: Oops. Mhm.
+00:15:00
+Tim Lemke: then development implements but now we kind of have this whole extrapolation workflow where it's do this and then kind of extend it. So I guess we'll just have to decide internally is that what we want to implement is the extrapolated version or is the goal kind of design fidelity cuz in that case we can definitely do design fidelity.
+Tim Lemke: It'll just mean that, either I'll have to take that time with the AI or potentially manually kind of really fine-tuning it into the design, which I'm happy to do, but I think maybe my understanding was a little bit different in that it was like, we had this workable thing and in the interest of time and kind of maintaining profitability, it was more kind of like a broad strokes thing than kind of like a highly refined UI.
+Tim Lemke: But either way, I'll let you and Spencer and Steph, you can kind of decide how you'd like to proceed with that. I think and then if we do want that really dialed in fidelity, you just let me know, Caitlyn, and then we could do it more.
+Spencer Ririe: Yeah, because we may …
+Spencer Ririe: there may be a way to get to that level of fidelity without creating a ton of overhead just because I've spent time with codeex and other agents, like fighting that battle. it is really about picking which hill you want to die on. as far as getting it perfect, I think yeah, Caitlyn, why don't you and I go through it and…
+Kaitlin Gordeyko: Okay. Yeah.
+Spencer Ririe: then I can Let's see.
+Stephanie Lamon: cuz yeah…
+Stephanie Lamon: what we can do is we can highlight the areas of differentiation currently and then just assign IDE what is worth it and what's not worth updating in terms of style readability all that kind of stuff that I would probably update…
+Kaitlin Gordeyko: And just consistency too because right now on this page it's paid is all in blue but the actual pill styles paid should be green.
+Tim Lemke: Yeah. I mean,…
+Kaitlin Gordeyko: You just stuff like that needs to be consistent across. Mhm.
+Tim Lemke: if Yeah,…
+Spencer Ririe: Yeah, for sure. And
+Stephanie Lamon: because I feel like tags are probably an important thing to have differentiated between the different ones. But
+Tim Lemke: I know for and of course things like that, functional things will update. I'm just saying kind of from a broad budget remaining kind of standpoint, we just have to decide
+Tim Lemke: because at this point functionalitywise I would say for me for the next step is today I'm creating basically a testing environment for progressive and…
+Stephanie Lamon: Mhm.
+Tim Lemke: then some test documents for them to test workflows for us to work through but them as well. so I think in a couple days,…
+Spencer Ririe: Yeah. Yeah.
+Tim Lemke: we should be able to share them something working that they can then start interacting with and being like, " this does what we want it to or this step is weird or, kind of so they can start kind of experiencing it from a test standpoint." So, I think that's good, but I'm just saying if we want to kind of stay within budget, we'll just have to make those decisions.
+Stephanie Lamon: Yeah. Yeah.
+Tim Lemke: And I'm happy to do either.
+Tim Lemke: Like I said, if the fidelity Sure.
+Stephanie Lamon: Question for you. Does that gray that we're using pass accessibility?
+Stephanie Lamon: It looks a bit on the light side, but it could just be my eyes because I'm staring at a small screen on you're sharing screen and it's small on my little laptop.
+Kaitlin Gordeyko: which gray stuff.
+Stephanie Lamon: Just right there Starbucks digital cards 25* 4 just like that little order summary the gray there. it Yeah,…
+Kaitlin Gordeyko: So, that's not the gray in the design. but I don't know about that one.
+Stephanie Lamon: just like that.
+Stephanie Lamon: I'm not sure…
+Kaitlin Gordeyko: The one in my designs. Yes.
+Stephanie Lamon: if that. So, I wonder if and this is where I'm like, okay, where do we want to capture those differences and…
+Spencer Ririe: Yeah. Yeah.
+Stephanie Lamon: then make that choice on what's worth it and…
+Tim Lemke: We also need a finished design.
+Stephanie Lamon: not I know.
+Tim Lemke: That's the other thing. It's like I can't our tradition our traditional workflow is kind of all
+Spencer Ririe: So, let me Yeah.
+Stephanie Lamon: Yeah. Wow.
+Spencer Ririe: 
+Spencer Ririe: And that was going to be my comment. this is the first project that we've worked on that has had sort of the agentic implementation and just the fact that it's a software tool in of itself. and…
+00:20:00
+Stephanie Lamon: Yeah. Mhm.
+Spencer Ririe: so I think future projects I have some ideas and I think there'll be a lot of thinking that we can align on as a team of okay how's the best way for us to work through this from a design and…
+Kaitlin Gordeyko: Mhm. Yeah.
+Spencer Ririe: development because it's not your typical waterfall. process. …
+Stephanie Lamon: No, for sure.
+Spencer Ririe: and there are some tools I'll have to look Tim that there's something I've used called pageentation which basically allows a designer to go in and leave agent comments on styles that an agent can execute. But, what Caitlyn and I can do is,…
+Stephanie Lamon: Yeah. Heat.
+Spencer Ririe: go through and put together a prioritized list of things that we think are worth the squeeze. and
+Tim Lemke: Yeah. …
+Tim Lemke: even what we can do today prior to you doing that is if itlyn if you're able to create because right now the designs are kind of spread out and…
+Kaitlin Gordeyko: Mhm.
+Tim Lemke: kind of sectioned based on potentially just workflow and kind of ideas.
+Tim Lemke: If you give me today, as final as they are right now, just create a new screen page and say this is the most current version I have. What I can do is I can kind of do a pass with those and hopefully kind of fix some of those things like the green badge,…
+Spencer Ririe: Yeah, sure. Yeah.
+Kaitlin Gordeyko: Yeah. Mhm. Yeah.
+Tim Lemke: unaccessible font things like that. And then maybe it makes sense, Spencer, for you and Caitlyn, to do that. and then hopefully it'll be less about this is kind of really wrong, but this is then maybe a little wrong.
+Stephanie Lamon: I don't think there's anything that's really wrong.
+Stephanie Lamon: There's just, a little Yeah.
+Tim Lemke: No, no, no. But it's a blender, right?
+Tim Lemke: where before the old approach was good…
+Stephanie Lamon: Yeah. No.
+Tim Lemke: because then you had clear expectations but right now it's like because even though yeah the AI is building it I'm still having to think about okay how are we going to deploy this there's a lot of moving pieces at any one time so I think if I have a sense of this is the current I can implement that and…
+Tim Lemke: and go from there.
+Stephanie Lamon: And does it help…
+Stephanie Lamon: because right now the currents are marked within a page with a bunch of other designs. Do you want your own board…
+Stephanie Lamon: where it has all the most current frames? Because right now they're separated out by dashboard, card vault, orders, etc.
+Tim Lemke: Yeah, I mean it says these are in progress so basically just whatever is as close to final as possible.
+Kaitlin Gordeyko: Okay.
+Tim Lemke: If I could see it in one place and…
+Stephanie Lamon: Okay.
+Tim Lemke: then codeex or myself can reference it in one place I think we'll have the best chance of getting it. pretty closer and then in terms of next steps, once we kind
+Tim Lemke: sort that out.
+Tim Lemke: Is the goal to get them testing soon? That's kind of what I see Sure.
+Spencer Ririe: No, I mean,…
+Spencer Ririe: yes, I think we would want to do our internal testing first. we were mainly wanting to give Doug. we didn't want to promise anything, but it was more of just since we had kicked off, we hadn't really been in touch. So, it was more of just letting them know, hey, we've made a lot of progress. and so yeah, once we do our initial review then at least sharing the state maybe doing a walkthrough with them.
+00:25:00
+Stephanie Lamon: I think the walkth through is going to be the biggest thing. I don't anticipate they're going to come back with any sort of feedback of I don't like these colors or…
+Stephanie Lamon: things like that.
+Spencer Ririe: No. Yeah.
+Stephanie Lamon: It'll be like here's the product, here is how it works. Play around with it and let us know if there's something that's missing or seems incorrect.
+Tim Lemke: Yeah, that's…
+Tim Lemke: why part of this next step I'm creating kind of sample imports based on what they shared in that red stamp folder. So, they should be able to have files that look like the files they use.
+Tim Lemke: But I'm also hoping that if we kind of encourage them to, they'll take whatever files they get when they buy gift cards, change some numbers so they're not actual gift cards and…
+Spencer Ririe: Yeah.
+Tim Lemke: practice feeding them in just to see, kind of to test the real functionality and then also going through the whole because what we'll have when we pass it off to them is we'll have a WordPress test site that pushes tests or…
+Stephanie Lamon: Thank you.
+Tim Lemke: test orders to the test app. So they're a client and do the full flow. So I think that'll be the most useful is given the complexity of the imports and the exports, I feel like there's going to be things that are missed even with our own due diligence to be …
+Spencer Ririe: Yeah. Yeah. Agreed.
+Tim Lemke: why doesn't this CSV work or why doesn't not export it into this?
+Tim Lemke: So, as soon as they can provide that real feedback, that'll be really helpful, I think.
+Tim Lemke: Okay, cool. So, next steps, do I'll wait for you, Caitlyn, to just kind of Yeah.
+Stephanie Lamon: Yeah, I was going to say I'd hold off for now…
+Stephanie Lamon: until we get those screens to get all together for you and then Cool.
+Tim Lemke: And I'm going to set up that. so in render we have our aging environment…
+Kaitlin Gordeyko: That's good.
+Tim Lemke: which is what we're currently referencing. And then I'm going to create what'll be I guess like a test enir.
+Tim Lemke: so then whenever we do want to share or do the walkthroughs, we have some options there.
+Tim Lemke: Yes. I think we're good.
+Stephanie Lamon: Anything else?
+Tim Lemke: And now that because Spencer, we upgraded the render plan. So s*** should be good.
+Spencer Ririe: And that did remind me stuff that I don't know how we've done this in the past, but because we are paying for this, we've been charged once for the render database cost because I switched that on last month,…
+Spencer Ririe: so it was like $6.55 US. How do we want to manage those from an invoicing standpoint moving forward?
+Stephanie Lamon: And…
+Stephanie Lamon: it's not a yearly cost, it's a monthly cost.
+Spencer Ririe: Yeah, we could talk them into yearly.
+Stephanie Lamon: Can we build them
+Spencer Ririe: The only challenge is that render has a usage meter on it.
+Spencer Ririe: I don't anticipate, Tim, that their usage is going to incur additional compute cost, but it could depending on volume. Yeah,…
+Tim Lemke: Yeah, I think…
+Tim Lemke: what we'll likely do for the live is kind of IP restrict as well, just to make kind of an extra level of security. And then that also should help prevent any kind of extra just pings or
+Spencer Ririe: it's mainly just like is progressives month-to-month use in volume going to requ going to involve …
+Spencer Ririe: if we add the $6.55 recurring to all future invoices plus the render pro at 25 whatever I just don't know if we're going to have to check it each month, if it changes or…
+Stephanie Lamon: I know.
+Spencer Ririe: not, but we can figure out a workflow for that. but yeah, or we could go to an Yeah,…
+Stephanie Lamon: I can't remember what we had estimated for them for different plug-in costs in the S. so yeah.
+Spencer Ririe: I included this cost in the proposal for render already. so it's not going to be a new thing. It's just more for tracking.
+Tim Lemke: Spencer, do you have a pet yet?
+00:30:00
+Spencer Ririe: I haven't made one. That's the codeex. Yeah. …
+Tim Lemke: Yeah, it reminds me kind of Clippy from back in the day when you're using Word.
+Spencer Ririe: that's hilarious.
+Tim Lemke: I like how it's like we're a giant company potentially doing crazy things. Here's a little pet to stare at.
+Spencer Ririe: Okay.
+Tim Lemke: But they are cute.
+Stephanie Lamon: All right,…
+Stephanie Lamon: you guys to run to another call. I'm in backtoback meetings all morning. but yeah, if everybody's clear, Caitlyn will get you just to put all those latest design screens together. and…
+Stephanie Lamon: then we can tag Tim in to get that updated and go from there.
+Tim Lemke: That'll be great.
+Tim Lemke: I'll work on some of that technical foundation and…
+Spencer Ririe: Okay, excellent. Cheers.
+Tim Lemke: then by the end of the day, Caitlyn and Spencer, hopefully it will be closer than it even is now.
+Stephanie Lamon: Awesome. Thanks, I'm with you.
+Tim Lemke: Sounds good. Right. Bye.
+Meeting ended after 00:31:03 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card Vault — proposed build list for Tim</title>
+  <style>
+    :root {
+      --navy: #212a3e;
+      --blue: #034771;
+      --teal: #00c4cc;
+      --green: #3ca761;
+      --red: #bb2a17;
+      --line: #e4e9ee;
+      --muted: #606776;
+      --bg: #f6f8fa;
+      --card: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: var(--bg);
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 28px 20px 64px; }
+    h1 { font-size: 1.4rem; font-weight: 650; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.05rem; font-weight: 650; margin: 28px 0 10px; color: var(--blue); }
+    h3 { font-size: 1rem; font-weight: 650; margin: 0 0 8px; }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 12px 0;
+    }
+    .banner {
+      background: #e8f7f8;
+      border: 1px solid rgba(0,196,204,0.35);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 16px 0 8px;
+    }
+    .order {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .num {
+      flex: 0 0 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .num.later { background: var(--muted); }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 650;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .must { background: rgba(187,42,23,0.12); color: var(--red); }
+    .soon { background: rgba(3,71,113,0.1); color: var(--blue); }
+    .skip { background: rgba(96,103,118,0.12); color: var(--muted); }
+    .ok { background: rgba(60,167,97,0.15); color: #2a7a48; }
+    ul { padding-left: 1.2rem; margin: 8px 0; }
+    li { margin: 5px 0; }
+    a { color: var(--blue); }
+    .row { display: grid; gap: 6px; margin-top: 10px; }
+    .row div {
+      padding: 10px 12px;
+      background: var(--bg);
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      font-size: 0.94rem;
+    }
+    .row strong { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+    .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .check { list-style: none; padding-left: 0; }
+    .check li { padding-left: 1.4rem; position: relative; margin: 6px 0; }
+    .check li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="muted">Progressive Card Vault · Internal · Aug 11, 2026</p>
+    <h1>Proposed build list for Tim</h1>
+    <p class="muted">
+      After comparing Kaitlin’s current Figma <strong>Screens</strong> to the staging test site,
+      this is what we’d like Tim (and Codex) to build next — in order.
+      Plain language version for the team; eng details stay in the internal handoff.
+    </p>
+
+    <div class="banner">
+      <strong>How to read this</strong>
+      <p style="margin: 8px 0 0;">
+        <strong>Must fix first</strong> = needed before we walk Progressive through the app.
+        <strong>Soon after</strong> = small polish once those are solid.
+        <strong>Not now</strong> = already close enough; don’t spend budget redoing it.
+      </p>
+      <p style="margin: 8px 0 0;" class="muted">
+        Pending Kaitlin’s quick yes on the design checkpoint. If she flags a miss, we update this before Tim starts.
+      </p>
+    </div>
+
+    <h2>Build order</h2>
+
+    <div class="card">
+      <div class="order">
+        <div class="num">1</div>
+        <div style="flex:1">
+          <h3><span class="tag must">MUST FIX</span> Walmart prep as a step on the order</h3>
+          <div class="row">
+            <div>
+              <strong>What’s wrong today</strong>
+              On a Walmart order, staging shows a red warning and sends you to Card Vault.
+              The step list jumps from Paid to Allocated — no preparation step in between.
+            </div>
+            <div>
+              <strong>What “done” looks like</strong>
+              When an order has Walmart cards, a <strong>Card Preparation</strong> step sits between Paid and Allocated.
+              From that step: download the work file, import activated results — without making Card Vault the main path.
+              The app still does <em>not</em> open Fiserv or activate cards for Progressive.
+            </div>
+            <div>
+              <strong>Design source</strong>
+              Kaitlin’s Walmart order Screens (step order + layout). Copy follows prepare → they activate → import
+              (even if some frames still sound more “generate in the app”).
+            </div>
+            <div>
+              <strong>How we’ll know it works</strong>
+              Walk a Walmart test order: Paid → prepare work file → Progressive activates outside the app →
+              import results → ready to allocate. Order context never disappears into a side page.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="order">
+        <div class="num">2</div>
+        <div style="flex:1">
+          <h3><span class="tag must">MUST FIX</span> Status labels that say the real state</h3>
+          <div class="row">
+            <div>
+              <strong>What’s wrong today</strong>
+              Paid is already green — this is not a “make paid green” job.
+              The problem is the words: paid often shows as <strong>Completed</strong>, and different fulfillment
+              states all say generic <strong>In Progress</strong>. Hard to scan at a glance.
+            </div>
+            <div>
+              <strong>What “done” looks like</strong>
+              Clear labels that match Screens — e.g. <strong>Paid</strong>, <strong>Needs Generation</strong>,
+              <strong>Ready to Allocate</strong>, <strong>Allocated</strong>, <strong>Export created</strong>,
+              <strong>Closed</strong> — same language on dashboard, Orders list, and order header.
+              Keep the current color family; fix the words.
+            </div>
+            <div>
+              <strong>How we’ll know it works</strong>
+              Same order looks consistent in three places (home, Orders list, order page) without decoding jargon.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="order">
+        <div class="num">3</div>
+        <div style="flex:1">
+          <h3><span class="tag ok">CHECK</span> Team walkthrough on staging</h3>
+          <p style="margin: 0 0 8px;">
+            After 1 and 2, walk the Walmart test order end-to-end and spot-check status words on home + Orders list.
+            Only then spend time on the smaller items below.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="order">
+        <div class="num later">4</div>
+        <div style="flex:1">
+          <h3><span class="tag soon">SOON AFTER</span> Order page: keep secondary panels collapsed</h3>
+          <p style="margin:0;">
+            “Allocated Cards” and “Order Activity” currently open automatically when an export exists —
+            pushes focus away from the step list. Default them closed; counts still show in the headers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="order">
+        <div class="num later">5</div>
+        <div style="flex:1">
+          <h3><span class="tag soon">SOON AFTER</span> Small wording cleanup</h3>
+          <ul style="margin-bottom:0;">
+            <li>“Search <em>requests</em>…” → “Search <em>orders</em>…”</li>
+            <li>Card Vault button “Generate Cards” → preparation language (e.g. prepare / import)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Not on Tim’s list right now</h2>
+    <div class="card">
+      <p><span class="tag skip">NOT NOW</span> Already close enough — rebuilding these would burn time without much upside for Progressive’s first walkthrough:</p>
+      <ul>
+        <li>Left nav / top of page redesign</li>
+        <li>Dashboard layout redo</li>
+        <li>Orders list layout redo</li>
+        <li>Rebuilding the filter system (Payment / Progress / Client / Merchant already work)</li>
+        <li>Card Vault table redesign / “broken icon” hunt (logos load fine)</li>
+        <li>A color-only “make Paid green” pass (it’s already green)</li>
+        <li>Old Design Direction boards as the build source (Screens win)</li>
+      </ul>
+    </div>
+
+    <h2>Team habits while this ships</h2>
+    <div class="card">
+      <ul class="check">
+        <li>After each UI update on staging: short note in <strong>#progressive-fundraising</strong> — what changed, which screens, what’s still open (so design isn’t surprised)</li>
+        <li>Kaitlin: design checkpoint first (separate HTML) — gut-check the two must-fixes, not full BugHerd yet</li>
+        <li>BugHerd later, for leftovers humans catch after these builds land</li>
+      </ul>
+    </div>
+
+    <h2>Links</h2>
+    <div class="card">
+      <ul style="margin-bottom:0;">
+        <li><a href="https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design">Figma — Digital Gift Card Fulfillment Design</a></li>
+        <li><a href="https://progressive-gift-cards-card-vault-staging.onrender.com/">Staging test site</a> (team only — not for Progressive yet)</li>
+      </ul>
+    </div>
+
+    <div class="footer muted">
+      <p>Internal Redstamp only. Companion to the design checkpoint HTML for Kaitlin.</p>
+      <p>Spencer · Tim · Kaitlin · Steph · Aug 2026</p>
+    </div>
+  </div>
+</body>
+</html>
