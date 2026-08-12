@@ -1,0 +1,38 @@
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/node_modules
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/.pnp
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.pnp.*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.yarn/*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m!.yarn/patches
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m!.yarn/plugins
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m!.yarn/releases
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m!.yarn/versions
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/coverage
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/tmp
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/_testing-reports/qa-reports/*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m!/_testing-reports/qa-reports/.gitkeep
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/_testing-reports/security-reports/*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m!/_testing-reports/security-reports/.gitkeep
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/.next/
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/out/
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/build
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.DS_Store
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m*.pem
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mnpm-debug.log*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0myarn-debug.log*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0myarn-error.log*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.pnpm-debug.log*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.env*
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.vercel
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m*.tsbuildinfo
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mnext-env.d.ts
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/src/generated/prisma
+[90m1:21PM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m/prisma/dev.db*
+[90m1:23PM[0m [32mINF[0m [1mscanned ~421464317 bytes (421.46 MB) in 2m15s[0m
+[90m1:23PM[0m [33mWRN[0m [1mleaks found: 14[0m

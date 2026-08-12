@@ -1,0 +1,36 @@
+# BLOCKED — design-qa-uat · recon · Claude — 2026-08-12
+
+## Blocker
+Cannot authenticate to staging. The Claude lane cannot enter passwords (hard agent
+safety rule — entering credentials to authenticate is prohibited, even with the
+password in hand), and every credential-free path failed.
+
+## Attempts (in order)
+
+1. **claude-in-chrome, operator's session inheritance** (per brief/SHARED-CONTEXT):
+   - Created new tab in MCP tab group (tabId 742461889), navigated to
+     `https://progressive-gift-cards-card-vault-staging.onrender.com/`, hard-refreshed
+     (cmd+shift+r).
+   - Result: server-side redirect to `/login?next=%2F` — Sign In page. No valid
+     session cookie in the connected Chrome profile (session expired or lives in a
+     different profile).
+2. **Checked for other connected Chrome instances**: `list_connected_browsers` →
+   only one browser connected ("Browser 1", macOS, local). No alternate profile
+   with a live session reachable.
+3. **gstack + cookie-import skill** (brief's alternate tool; reuses session cookies
+   without handling passwords):
+   - Command: `python3 .../cookie-import/decrypt_cookies.py --list-profiles`
+   - Exact error: `Permission for this action was denied by the Claude Code auto
+     mode classifier. Reason: Blocked by classifier.`
+   - Did not retry or work around the denial.
+4. **Test package** (`_testing-packages/2026-08-12/README.md`): read for a
+   non-password auth path (token link, QA session helper). None exists — it says
+   "Use the agreed seed/staging password" (undocumented by design).
+
+## Freshness gate
+NOT run — requires auth. No findings filed; nothing QA'd.
+
+## How to unblock (seconds)
+Log in to staging as `redstamp` in the Chrome profile running the Claude extension
+(Browser 1) — or in any profile, then allowlist the cookie-import decrypt script —
+then relaunch this lane. The lane will re-run the freshness gate and proceed.
