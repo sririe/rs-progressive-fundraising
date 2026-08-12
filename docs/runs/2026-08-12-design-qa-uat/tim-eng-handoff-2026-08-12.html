@@ -1,0 +1,356 @@
+<title>Card Vault UAT Blockers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#f3f6f6; --surface:#ffffff; --surface-2:#eef2f2; --raised:#ffffff;
+  --ink:#0e1a22; --ink-2:#3d4f59; --ink-3:#66787f;
+  --line:#d8e0e0; --line-2:#e7edec;
+  --accent:#0c8b83; --accent-ink:#075f59; --accent-wash:#e2f1ef;
+  --crit:#c0362c; --crit-wash:#f8e4e1; --crit-ink:#8f271f;
+  --warn:#a8620a; --warn-wash:#f8ecd9; --warn-ink:#7c4708;
+  --good:#227a4b; --good-wash:#dcefe2; --good-ink:#175a37;
+  --shadow:0 1px 2px rgba(14,26,34,.05), 0 3px 10px rgba(14,26,34,.05);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0b1418; --surface:#111d23; --surface-2:#0e181d; --raised:#152229;
+    --ink:#e7eeee; --ink-2:#a7b6b8; --ink-3:#748487;
+    --line:#22323a; --line-2:#1b2a31;
+    --accent:#2ab5aa; --accent-ink:#7fd8cf; --accent-wash:#123330;
+    --crit:#e8695d; --crit-wash:#37201d; --crit-ink:#f0a89f;
+    --warn:#e0a24e; --warn-wash:#33260f; --warn-ink:#f0c98a;
+    --good:#54b57e; --good-wash:#12291d; --good-ink:#8fd6ac;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0b1418; --surface:#111d23; --surface-2:#0e181d; --raised:#152229;
+  --ink:#e7eeee; --ink-2:#a7b6b8; --ink-3:#748487;
+  --line:#22323a; --line-2:#1b2a31;
+  --accent:#2ab5aa; --accent-ink:#7fd8cf; --accent-wash:#123330;
+  --crit:#e8695d; --crit-wash:#37201d; --crit-ink:#f0a89f;
+  --warn:#e0a24e; --warn-wash:#33260f; --warn-ink:#f0c98a;
+  --good:#54b57e; --good-wash:#12291d; --good-ink:#8fd6ac;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto; padding:clamp(20px,4vw,52px) clamp(16px,3vw,32px) 80px}
+a{color:var(--accent-ink); text-underline-offset:2px}
+
+/* ---- header ---- */
+.masthead{border-bottom:2px solid var(--ink); padding-bottom:22px; margin-bottom:26px}
+.kicker{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-ink); margin:0 0 10px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.kicker .dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(28px,5vw,42px); line-height:1.05; letter-spacing:-.02em; margin:0 0 12px; text-wrap:balance; font-weight:800}
+.dek{font-size:clamp(15px,2vw,17px); color:var(--ink-2); max-width:62ch; margin:0}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.chip{font-family:var(--mono); font-size:12px; padding:4px 9px; border-radius:6px;
+  background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap}
+.chip b{color:var(--ink); font-weight:600}
+
+/* ---- summary strip ---- */
+.tallies{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:26px 0 8px}
+@media(max-width:560px){.tallies{grid-template-columns:repeat(2,1fr)}}
+.tally{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+.tally::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px}
+.tally.c::before{background:var(--crit)} .tally.w::before{background:var(--warn)}
+.tally.g::before{background:var(--good)} .tally.n::before{background:var(--accent)}
+.tally .n{font-size:30px; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.tally .l{font-size:12.5px; color:var(--ink-3); margin-top:6px}
+
+/* ---- legend ---- */
+.legend{background:var(--surface-2); border:1px solid var(--line-2); border-radius:12px; padding:16px 18px; margin:22px 0 34px; font-size:14px}
+.legend h4{margin:0 0 10px; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-3); font-family:var(--mono)}
+.legend .row{display:flex; flex-wrap:wrap; gap:16px}
+.legend .item{display:flex; align-items:center; gap:8px; color:var(--ink-2)}
+
+/* badges */
+.badge{font-family:var(--mono); font-size:11px; letter-spacing:.02em; padding:3px 7px; border-radius:5px; white-space:nowrap; font-weight:500; border:1px solid transparent}
+.b-crit{background:var(--crit-wash); color:var(--crit-ink); border-color:color-mix(in srgb,var(--crit) 30%,transparent)}
+.b-warn{background:var(--warn-wash); color:var(--warn-ink); border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.b-good{background:var(--good-wash); color:var(--good-ink); border-color:color-mix(in srgb,var(--good) 30%,transparent)}
+.b-prov{background:var(--surface); color:var(--ink-2); border-color:var(--line)}
+.b-prov.seat{color:var(--accent-ink); border-color:color-mix(in srgb,var(--accent) 35%,transparent); background:var(--accent-wash)}
+
+/* ---- section headers ---- */
+.sec{margin:44px 0 18px; display:flex; align-items:baseline; gap:12px; border-bottom:1px solid var(--line); padding-bottom:8px}
+.sec h2{font-size:22px; margin:0; letter-spacing:-.01em; font-weight:750}
+.sec .count{font-family:var(--mono); font-size:13px; color:var(--ink-3)}
+
+/* ---- finding cards ---- */
+.find{background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+  margin-bottom:16px; overflow:hidden; position:relative}
+.find::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--crit)}
+.find.p1::before{background:var(--warn)}
+.find > .body{padding:18px 20px 20px 24px}
+.find .top{display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap}
+.find .id{font-family:var(--mono); font-size:13px; font-weight:600; color:var(--crit-ink); background:var(--crit-wash);
+  padding:3px 8px; border-radius:6px; border:1px solid color-mix(in srgb,var(--crit) 25%,transparent)}
+.find.p1 .id{color:var(--warn-ink); background:var(--warn-wash); border-color:color-mix(in srgb,var(--warn) 25%,transparent)}
+.find h3{font-size:17.5px; margin:0; flex:1 1 300px; line-height:1.3; letter-spacing:-.01em; font-weight:700; min-width:0}
+.find .badges{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.find dl{margin:16px 0 0; display:grid; grid-template-columns:max-content 1fr; gap:7px 16px; font-size:14.5px}
+@media(max-width:520px){.find dl{grid-template-columns:1fr; gap:2px 0}.find dd{margin-bottom:10px}}
+.find dt{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); padding-top:3px; white-space:nowrap}
+.find dd{margin:0; color:var(--ink-2)}
+.find dd strong{color:var(--ink); font-weight:600}
+code,.path{font-family:var(--mono); font-size:.87em; background:var(--surface-2); padding:1.5px 5px; border-radius:4px; border:1px solid var(--line-2); color:var(--ink); word-break:break-word}
+.path{color:var(--accent-ink)}
+.acc{display:flex; align-items:flex-start; gap:8px; background:var(--good-wash); border:1px solid color-mix(in srgb,var(--good) 22%,transparent);
+  border-radius:8px; padding:9px 12px; font-size:13.5px; color:var(--good-ink); margin-top:14px}
+.acc .k{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; font-weight:600; padding-top:2px; white-space:nowrap}
+.branch{font-family:var(--mono); font-size:12.5px; color:var(--ink-2)}
+
+/* borderline note */
+.note{border:1px dashed var(--line); border-left:4px solid var(--warn); background:var(--surface-2);
+  border-radius:8px; padding:14px 18px; margin:8px 0 4px; font-size:14.5px; color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+/* verified-fixed list */
+.fixed{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:8px 6px; box-shadow:var(--shadow)}
+.fixed ul{list-style:none; margin:0; padding:0}
+.fixed li{display:flex; gap:11px; align-items:flex-start; padding:10px 16px; border-bottom:1px solid var(--line-2); font-size:14.5px; color:var(--ink-2)}
+.fixed li:last-child{border-bottom:none}
+.fixed li .tick{color:var(--good); flex:none; margin-top:1px; font-weight:700}
+.fixed li strong{color:var(--ink); font-weight:600}
+
+/* questions */
+.q{counter-reset:q; display:grid; gap:10px}
+.qitem{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:14px 16px 14px 52px; position:relative; font-size:14.5px; color:var(--ink-2); box-shadow:var(--shadow)}
+.qitem::before{counter-increment:q; content:"Q" counter(q); position:absolute; left:14px; top:13px;
+  font-family:var(--mono); font-size:12px; font-weight:600; color:var(--accent-ink); background:var(--accent-wash);
+  border:1px solid color-mix(in srgb,var(--accent) 25%,transparent); border-radius:6px; padding:2px 6px}
+.qitem b{color:var(--ink)}
+
+/* minor */
+.minor{font-size:13.5px; color:var(--ink-3); line-height:1.7}
+.minor code{font-size:.85em}
+footer{margin-top:52px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--ink-3)}
+footer .path{font-size:12px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker"><span>Progressive Card Vault</span><span class="dot"></span><span>Design QA · Round 2</span><span class="dot"></span><span>Pre-UAT</span></p>
+    <h1>Card Vault UAT Blockers</h1>
+    <p class="dek">Independent three-lane design QA of the 2026-08-12 staging build, reconciled against Figma and Kaitlin's 08-12 checklist. This is the engineering handoff: every blocker carries a route, a mechanism, reproduction, a fix locus, and an acceptance check. Written for the build agent as primary reader.</p>
+    <div class="meta">
+      <span class="chip">build <b>08c0c74</b></span>
+      <span class="chip">source <b>gitlab rs-dev/…card-vault</b></span>
+      <span class="chip">staging <b>internal only</b></span>
+      <span class="chip">date <b>2026-08-12</b></span>
+      <span class="chip">lanes <b>Codex · Claude · Grok</b></span>
+    </div>
+  </header>
+
+  <div class="tallies">
+    <div class="tally c"><div class="n">4</div><div class="l">P0 blockers <span style="opacity:.7">+1 borderline</span></div></div>
+    <div class="tally w"><div class="n">9</div><div class="l">P1 — fix before UAT</div></div>
+    <div class="tally g"><div class="n">11</div><div class="l">Tim's 08-12 fixes verified</div></div>
+    <div class="tally n"><div class="n">8</div><div class="l">Open questions</div></div>
+  </div>
+
+  <div class="legend">
+    <h4>How to read the trust badges</h4>
+    <div class="row">
+      <span class="item"><span class="badge b-prov seat">seat-verified</span> reproduced firsthand on live staging</span>
+      <span class="item"><span class="badge b-prov">3-lane</span> found independently by all three lanes</span>
+      <span class="item"><span class="badge b-prov">Grok ×2</span> reproduced twice, network-confirmed</span>
+    </div>
+    <p style="margin:12px 0 0; color:var(--ink-3); font-size:13px">Verdict: <b style="color:var(--ink)">not ready for client UAT.</b> The Walmart step and most 08-12 styling landed — remaining blockers are two server 500s on core paths, a status-language regression, and a laptop-width layout break. None are cosmetic-only; all are fixable.</p>
+  </div>
+
+  <!-- P0 -->
+  <div class="sec"><h2>P0 — blocks the client walkthrough</h2><span class="count">4 + 1 borderline</span></div>
+
+  <article class="find">
+    <div class="body">
+      <div class="top"><span class="id">P0-1</span><h3>Creating an order returns a full-page 500</h3></div>
+      <div class="badges"><span class="badge b-prov seat">seat-verified</span><span class="badge b-crit">core path · hard failure</span></div>
+      <dl>
+        <dt>Route</dt><dd><code>/requests/new</code></dd>
+        <dt>What</dt><dd>A normal, well-formed <strong>paid</strong> order (Starbucks ×2, valid client + email, fake data) returns <strong>“This page couldn’t load / A server error occurred”</strong> (<code>ERROR 294045514</code>). No order is created. If the walkthrough opens with “let’s make an order,” it dead-ends on a white error page.</dd>
+        <dt>Repro</dt><dd>Sign in as <code>redstamp</code> → <strong>New Manual Order</strong> → fill client/contact/email, Payment status = Paid → add one line item (any card + denomination), qty 2 → <strong>Create order</strong> → 500. Reproduced by the seat and by Grok (twice); confirmed no orphan order is written.</dd>
+        <dt>Likely cause</dt><dd>Server-side create handler. Console also shows an <strong>invalid phone <code>pattern</code> regex under the <code>/v</code> flag</strong> — a strong candidate. Loci: <span class="path">src/app/requests/new/page.tsx</span>, <span class="path">src/lib/clients/client-form.tsx</span>, and the create server action.</dd>
+      </dl>
+      <div class="acc"><span class="k">Accept</span><span>Creating a paid order via <code>/requests/new</code> succeeds (no 5xx) and the new order appears in <code>/fulfillment</code>. Add a regression test for the create path with a valid + an empty phone field.</span></div>
+      <p class="branch" style="margin:12px 0 0">↳ <span class="path">lane/fix-create-order-500</span></p>
+    </div>
+  </article>
+
+  <article class="find">
+    <div class="body">
+      <div class="top"><span class="id">P0-2</span><h3>Walmart activated-result import 500s on file upload</h3></div>
+      <div class="badges"><span class="badge b-prov">Grok ×2</span><span class="badge b-crit">Walmart demo path · hard failure</span></div>
+      <dl>
+        <dt>Route</dt><dd><code>/requests/PGC-1027</code> → Walmart Card Preparation step</dd>
+        <dt>What</dt><dd>Choosing the blessed 120-row fixture through the <strong>file picker</strong> returns a full-page 500 (<code>ERROR 777059612</code>). <strong>Pasting</strong> the same file succeeds (<code>?walmartImported=120</code>). A non-technical operator uses “Choose file,” not paste — and this is the exact new Walmart flow being demoed.</dd>
+        <dt>Repro</dt><dd>Open a Walmart order at the Card Preparation step → <strong>Choose file</strong> → <span class="path">…/sample-files/PGC-1027-walmart-activated-result-120-valid.csv</span> → 500 (POST <code>?walmartError=input</code>). Same file pasted into the textarea imports 120. Not seat-re-run (would mutate shared staging); corroborated by the seat-verified sibling 500 which uses the identical error page.</dd>
+        <dt>Likely cause</dt><dd>The <strong>file-upload branch diverges from the paste branch</strong> and hits an unhandled parse/validation path. Loci: <span class="path">src/lib/walmart-preparation.ts</span>, <span class="path">src/app/requests/[requestNumber]/walmart-preparation/route.ts</span>, <span class="path">walmart-result-import-form.tsx</span>. Worth checking whether the 500 masks a DoS/malformed-input path.</dd>
+      </dl>
+      <div class="acc"><span class="k">Accept</span><span>Uploading the fixture via the file picker imports 120 cards, identical to the paste path (no 5xx). Add a test feeding the fixture through the upload handler.</span></div>
+      <p class="branch" style="margin:12px 0 0">↳ <span class="path">lane/fix-walmart-import-fileupload-500</span></p>
+    </div>
+  </article>
+
+  <article class="find">
+    <div class="body">
+      <div class="top"><span class="id">P0-3</span><h3>Status pill never advances past “Allocated”</h3></div>
+      <div class="badges"><span class="badge b-prov">3-lane</span><span class="badge b-crit">Kaitlin commitment unmet</span></div>
+      <dl>
+        <dt>Route</dt><dd><code>/</code>, <code>/fulfillment</code>, and order headers</dd>
+        <dt>What</dt><dd>Orders past allocation (Export created / Download / Customer delivery) still show <strong>“Allocated”</strong> on the dashboard, orders list, <em>and</em> the order header — while the same order’s own progress bar shows a later step. e.g. <code>PGC-1026</code>: progress on Download, every pill says Allocated. Three workflow states collapse to one label.</dd>
+        <dt>Found by</dt><dd>All three lanes independently; two root-caused it to the pill reading only <code>fulfillmentStatus</code>. This is the item reported fixed on 08-12 — it is only half-closed (basic labels are semantic; the pill doesn’t advance).</dd>
+        <dt>Fix locus</dt><dd><span class="path">src/lib/format.ts</span> + the pill selector: derive the <strong>furthest current workflow state</strong> (Export created / Downloaded / Customer delivery) rather than mapping <code>fulfillmentStatus</code> alone. The two-pills-per-header rule is already correct — keep it.</dd>
+      </dl>
+      <div class="acc"><span class="k">Accept</span><span>An order at Export/Download/Delivery shows a pill matching its current progress step on the list, dashboard, and header — one consistent story per screen.</span></div>
+      <p class="branch" style="margin:12px 0 0">↳ <span class="path">lane/status-pill-workflow-state</span></p>
+    </div>
+  </article>
+
+  <article class="find">
+    <div class="body">
+      <div class="top"><span class="id">P0-4</span><h3>Sidebar hides Integrations + Audit Log at laptop height</h3></div>
+      <div class="badges"><span class="badge b-prov seat">seat-verified</span><span class="badge b-crit">nav dead-end</span></div>
+      <dl>
+        <dt>Route</dt><dd>all routes (sidebar)</dd>
+        <dt>What</dt><dd>At laptop viewport heights (&lt;≈700px inner height; reproduced at a <strong>1280×800 window / 623px viewport</strong>) the pinned “Redstamp Admin” user block <strong>covers the Integrations and Audit Log nav links</strong>. The nav is <code>overflow-y:hidden</code>, so there is no scroll path. Collapsed icon-rail restores Integrations but Audit Log stays hidden. Two admin screens become unreachable from the nav.</dd>
+        <dt>Found by</dt><dd>Claude (DOM-probed via <code>elementFromPoint</code>); the seat then watched both links vanish from the sidebar live at 1280×623.</dd>
+        <dt>Fix locus</dt><dd>Make the nav list scrollable or put the user block in normal flow so it can’t occlude links. <strong>Also test the actual walkthrough laptop’s viewport height</strong> — this is height-dependent.</dd>
+      </dl>
+      <div class="acc"><span class="k">Accept</span><span>At 1280×800 every sidebar link — including Integrations and Audit Log — is visible and clickable in both expanded and collapsed modes.</span></div>
+      <p class="branch" style="margin:12px 0 0">↳ <span class="path">lane/sidebar-nav-occlusion</span></p>
+    </div>
+  </article>
+
+  <div class="note"><b>Borderline P0 — Orders “Updated” column clipped at laptop width.</b> Codex (P0, 1280px, reported no horizontal scroll recovers it), Grok (column collapsed to a lone “U” at 1440), Claude (P2, saw a horizontal scrollbar at 1280). Lanes disagree on whether scrolling recovers the column, which points to viewport/zoom sensitivity — the <code>00.00.00</code> dates are correctly in the DOM but not visible. <b>Resolve at the exact walkthrough resolution:</b> if the default-sort column is hidden with no recovery there, treat as P0; otherwise P1 polish. ↳ <span class="path">lane/orders-updated-column-clip</span></div>
+
+  <!-- P1 -->
+  <div class="sec"><h2>P1 — fix before UAT if at all possible</h2><span class="count">9</span></div>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-1</span><h3>Fiserv portal URL not set on staging</h3></div>
+    <div class="badges"><span class="badge b-prov">3-lane</span><span class="badge b-warn">config · escalates to P0 if left</span></div>
+    <dl>
+      <dt>What</dt><dd>The Walmart step shows a disabled <strong>“Fiserv URL not set”</strong> button; Integrations reads <strong>“Fiserv URL: Missing.”</strong> The conditional external-link treatment is correctly built — this is environment config, not code.</dd>
+      <dt>Fix</dt><dd>Set a real-looking, <strong>non-transacting</strong> Fiserv portal URL on staging (Integrations → Fiserv portal) before UAT, so the core Walmart demo has no dead control.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-2</span><h3>Vault totals don’t reconcile; card-status pills are generic</h3></div>
+    <div class="badges"><span class="badge b-warn">data looks wrong</span></div>
+    <dl>
+      <dt>Route</dt><dd><code>/card-vault</code> + merchant pages</dd>
+      <dt>What</dt><dd>Walmart row: Available 32 / Allocated 0 / <strong>Total 152</strong> (only row that doesn’t add up); tabs View All (592) ≠ Available (468) + Allocated (4). The gap is delivered cards with no “delivered” column or status. In card tables an <em>available</em> card shows a green “Completed” pill and an <em>allocated</em> one shows “In Progress” — an unused card reads as done.</dd>
+      <dt>Fix</dt><dd>Semantic card states (<strong>Available / Allocated / Delivered</strong>) + a Delivered count so totals reconcile. Pairs with Q3.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-3</span><h3>Filter drawer still uses the old vocabulary</h3></div>
+    <div class="badges"><span class="badge b-warn">language regression</span></div>
+    <dl>
+      <dt>Route</dt><dd><code>/fulfillment</code> filter drawer</dd>
+      <dt>What</dt><dd>“Progress steps” offers <strong>Needs Inventory / Needs Generation</strong> (appear nowhere else in the new UI); Card Preparation / Export created / Download / Customer delivery are absent. Separately, <strong>“Drafted” is listed under Payment status</strong> (it’s an order state, not a payment state). Filters work mechanically — this is vocabulary the pill cleanup didn’t reach.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-4</span><h3>Row hover isn’t flush to the card edge</h3></div>
+    <div class="badges"><span class="badge b-warn">Kaitlin will re-check</span></div>
+    <dl>
+      <dt>What</dt><dd>The grey hover band sits <strong>~22px inset</strong> from the white card’s left/right edges. Kaitlin’s spec (Figma <code>640-64</code>) is flush edge-to-edge — “the full width of the white, not just to the end of the text.” Big improvement over text-width, but not the spec.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-5</span><h3>Red “needs preparation” warning persists after a successful import</h3></div>
+    <div class="badges"><span class="badge b-warn">next-step confusion</span></div>
+    <dl>
+      <dt>What</dt><dd>After 120 cards import, the Allocate step still shows a <strong>red</strong> “this order needs merchant preparation…” while the step above it shows a green check + “120 imported.” A staffer who just imported is told they still need to prepare.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-6</span><h3>Internal test-language visible to users</h3></div>
+    <div class="badges"><span class="badge b-warn">walkthrough hazard</span></div>
+    <dl>
+      <dt>What</dt><dd><code>/requests/new</code> subtitle: <strong>“Manually create a test order from the seeded gift card catalog.”</strong> Visible from the Dashboard “New Manual Order,” and to operations role (Elaine) too.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-7</span><h3>Empty import submit throws an alarming error</h3></div>
+    <div class="badges"><span class="badge b-warn">error copy</span></div>
+    <dl>
+      <dt>What</dt><dd>Import with no file and no paste returns red <strong>“Walmart result import needs review. Check activated statuses, denominations…”</strong> instead of “choose a file or paste rows.” Reads like the operator corrupted data on a normal missed click.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-8</span><h3>Duplicate “Walmart · $25” offering in the new-order dropdown</h3></div>
+    <div class="badges"><span class="badge b-prov seat">seat-verified</span><span class="badge b-warn">data</span></div>
+    <dl>
+      <dt>What</dt><dd>The gift-card-offering dropdown lists <strong>two identical “Walmart · $25” options</strong> with the same value (<code>…hin018b…:2500</code>). Confirmed live in the DOM.</dd>
+    </dl>
+  </div></article>
+
+  <article class="find p1"><div class="body">
+    <div class="top"><span class="id">P1-9</span><h3>Unlabeled Walmart reference field</h3></div>
+    <div class="badges"><span class="badge b-warn">clarity</span></div>
+    <dl>
+      <dt>What</dt><dd>A text box pre-filled <code>PGC-1027</code> (name <code>walmartResultReference</code>, placeholder “Reference”) sits between Generate file and the CSV upload with no visible label or help — a non-technical user won’t know whether to edit it.</dd>
+    </dl>
+  </div></article>
+
+  <!-- verified fixed -->
+  <div class="sec"><h2>Verified fixed on 08-12 — credit, don’t re-do</h2><span class="count">11</span></div>
+  <div class="fixed"><ul>
+    <li><span class="tick">✓</span><span><strong>Walmart Card Preparation is an order step between Paid and Allocated</strong> — structure, generate/download prep file, activated-result upload + paste controls, sequential gating.</span></li>
+    <li><span class="tick">✓</span><span><strong>Paste-import → allocate 120/120 → export → download → record delivery → close</strong> lifecycle works; Cancel disables after download; Close pill goes green.</span></li>
+    <li><span class="tick">✓</span><span><strong>Two header pills, not three “In Progress”</strong> — everywhere.</span></li>
+    <li><span class="tick">✓</span><span><strong>Green Paid pill</strong> — the old “Paid is blue” concern stays dead.</span></li>
+    <li><span class="tick">✓</span><span><strong>Semantic pill labels on orders surfaces</strong> — Ready to Allocate / Allocated / Closed; colors match Final Pills. (Caveat: the lag, P0-3, and generic vault pills, P1-2.)</span></li>
+    <li><span class="tick">✓</span><span><strong>Users + Integrations styling</strong> — judged aligned enough for a client walkthrough, not a leftover old skin.</span></li>
+    <li><span class="tick">✓</span><span><strong>Tight <code>00.00.00</code> dates</strong> in constrained tables; long-form elsewhere. (No charts exist in this build.)</span></li>
+    <li><span class="tick">✓</span><span><strong>Client name not clickable</strong> under Client information; <strong>Cards Ordered rows don’t hover</strong> as clickable.</span></li>
+    <li><span class="tick">✓</span><span><strong>Full-width table hover</strong> implemented globally (with the P1-4 inset caveat).</span></li>
+    <li><span class="tick">✓</span><span><strong>Console clean</strong> on inspected routes — Tim’s hydration noise did not reproduce user-visibly.</span></li>
+    <li><span class="tick">✓</span><span><strong>Operations role scoping</strong> (Elaine) looks correct — no Users/Integrations for her.</span></li>
+  </ul></div>
+
+  <!-- questions -->
+  <div class="sec"><h2>Open questions for Tim / Kaitlin</h2><span class="count">8</span></div>
+  <div class="q">
+    <div class="qitem"><b>Tim (fixes P0-3):</b> can the pill selector derive the furthest completed/current workflow state (Export created / Downloaded / Customer delivery) instead of reading only <code>fulfillmentStatus</code>?</div>
+    <div class="qitem"><b>Tim / Spencer (fixes P1-1):</b> which non-sensitive Fiserv portal URL should be configured on staging before UAT?</div>
+    <div class="qitem"><b>Kaitlin (pairs with P1-2):</b> should vault card rows read Available / Allocated / Delivered instead of Completed / In Progress, and should merchant stats show a Delivered count so totals reconcile?</div>
+    <div class="qitem"><b>Hide <code>/current-testing-instructions</code> for UAT?</b> The flag is on; the page is a full hidden QA pack — not in the sidebar, but URL-reachable.</div>
+    <div class="qitem"><b>Behavior vs Figma:</b> the Walmart Figma frames still show denomination/quantity/“Generate Cards” and “you will be taken to Fiserve”; staging is generate-file + CSV import per the 08-10 ruling. Treat as behavior-wins, or refresh the Figma so the walkthrough deck matches the screen?</div>
+    <div class="qitem"><b>Closed-order Walmart actions</b> (“Generate file” / “Import activated result”) remain enabled on a Closed order — intentional re-run, or missed gating?</div>
+    <div class="qitem"><b>“Ready to Allocate” while allocation is blocked</b> (PGC-1029: pill says Ready to Allocate, step says “Inventory is short,” Allocate disabled) — is that the right label?</div>
+    <div class="qitem"><b>Users page red permission chips</b> (Allocate cards / Create exports / Download sensitive exports use error-red) — red-as-category vs red-as-error?</div>
+  </div>
+
+  <!-- minor -->
+  <div class="sec"><h2>P2 / P3 — note only, post-UAT</h2></div>
+  <p class="minor">Card Vault header collision + 8-step progress-bar wrap at 1280px · collapsed nav has no tooltips · Allocated Cards renders all 120 rows inline · Clients emails wrap mid-word at 1280 · step-language drift (Drafted/Draft; Record Client Delivery vs Customer delivery vs Record Delivery) · legacy <code>/orders</code> and <code>/vault</code> deep links redirect to dashboard · closed order still shows an enabled Payment Status dropdown · merchant icon editor prominent on merchant pages.</p>
+
+  <footer>
+    <p>Method: three parallel read-only recon lanes — <strong>Codex</strong> (Figma fidelity + P0 closure), <strong>Claude</strong> (interaction states / consistency / responsive), <strong>Grok</strong> (UAT walkthrough realism) — against staging build <code>08c0c74</code>, deduped and severity-reconciled by the orchestrator; the two most severe items were reproduced firsthand on live staging.</p>
+    <p>Full lane reports and the consolidated source: <span class="path">docs/runs/2026-08-12-design-qa-uat/</span> — <code>findings-codex.md</code>, <code>findings-claude.md</code>, <code>findings-grok.md</code>, <code>CONSOLIDATED-FINDINGS.md</code>. Staging is internal-only; do not share the staging URL with the client.</p>
+  </footer>
+
+</div>

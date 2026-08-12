@@ -1,0 +1,293 @@
+<title>Card Vault Security Fixes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#f3f6f6; --surface:#ffffff; --surface-2:#eef2f2;
+  --ink:#0e1a22; --ink-2:#3d4f59; --ink-3:#66787f;
+  --line:#d8e0e0; --line-2:#e7edec;
+  --accent:#0c8b83; --accent-ink:#075f59; --accent-wash:#e2f1ef;
+  --crit:#c0362c; --crit-wash:#f8e4e1; --crit-ink:#8f271f;
+  --warn:#a8620a; --warn-wash:#f8ecd9; --warn-ink:#7c4708;
+  --good:#227a4b; --good-wash:#dcefe2; --good-ink:#175a37;
+  --spec:#5b46c9; --spec-wash:#e9e5f8; --spec-ink:#463596;
+  --shadow:0 1px 2px rgba(14,26,34,.05), 0 3px 10px rgba(14,26,34,.05);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0b1418; --surface:#111d23; --surface-2:#0e181d;
+  --ink:#e7eeee; --ink-2:#a7b6b8; --ink-3:#748487;
+  --line:#22323a; --line-2:#1b2a31;
+  --accent:#2ab5aa; --accent-ink:#7fd8cf; --accent-wash:#123330;
+  --crit:#e8695d; --crit-wash:#37201d; --crit-ink:#f0a89f;
+  --warn:#e0a24e; --warn-wash:#33260f; --warn-ink:#f0c98a;
+  --good:#54b57e; --good-wash:#12291d; --good-ink:#8fd6ac;
+  --spec:#9a86f2; --spec-wash:#211b3d; --spec-ink:#c3b6fa;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --ground:#0b1418; --surface:#111d23; --surface-2:#0e181d;
+  --ink:#e7eeee; --ink-2:#a7b6b8; --ink-3:#748487;
+  --line:#22323a; --line-2:#1b2a31;
+  --accent:#2ab5aa; --accent-ink:#7fd8cf; --accent-wash:#123330;
+  --crit:#e8695d; --crit-wash:#37201d; --crit-ink:#f0a89f;
+  --warn:#e0a24e; --warn-wash:#33260f; --warn-ink:#f0c98a;
+  --good:#54b57e; --good-wash:#12291d; --good-ink:#8fd6ac;
+  --spec:#9a86f2; --spec-wash:#211b3d; --spec-ink:#c3b6fa;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--ground); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.wrap{max-width:920px; margin:0 auto; padding:clamp(20px,4vw,52px) clamp(16px,3vw,32px) 80px}
+a{color:var(--accent-ink)}
+
+.masthead{border-bottom:2px solid var(--ink); padding-bottom:22px; margin-bottom:24px}
+.kicker{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 10px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.kicker .dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(28px,5vw,42px); line-height:1.05; letter-spacing:-.02em; margin:0 0 12px; text-wrap:balance; font-weight:800}
+.dek{font-size:clamp(15px,2vw,17px); color:var(--ink-2); max-width:64ch; margin:0}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.chip{font-family:var(--mono); font-size:12px; padding:4px 9px; border-radius:6px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap}
+.chip b{color:var(--ink); font-weight:600}
+
+.confdl{background:var(--good-wash); border:1px solid color-mix(in srgb,var(--good) 24%,transparent); border-radius:12px; padding:14px 18px; margin:22px 0 8px; font-size:14.5px; color:var(--good-ink)}
+.confdl b{color:var(--ink)}
+
+.tallies{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:22px 0 8px}
+@media(max-width:560px){.tallies{grid-template-columns:repeat(2,1fr)}}
+.tally{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+.tally::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px}
+.tally.g::before{background:var(--good)} .tally.w::before{background:var(--warn)}
+.tally.s::before{background:var(--spec)} .tally.n::before{background:var(--accent)}
+.tally .n{font-size:30px; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.tally .l{font-size:12.5px; color:var(--ink-3); margin-top:6px}
+
+.legend{background:var(--surface-2); border:1px solid var(--line-2); border-radius:12px; padding:16px 18px; margin:20px 0 30px; font-size:13.5px}
+.legend h4{margin:0 0 10px; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-3); font-family:var(--mono)}
+.legend .row{display:flex; flex-wrap:wrap; gap:14px}
+.legend .item{display:flex; align-items:center; gap:7px; color:var(--ink-2)}
+
+.badge{font-family:var(--mono); font-size:11px; letter-spacing:.02em; padding:3px 7px; border-radius:5px; white-space:nowrap; font-weight:500; border:1px solid transparent}
+.b-warn{background:var(--warn-wash); color:var(--warn-ink); border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.b-spec{background:var(--spec-wash); color:var(--spec-ink); border-color:color-mix(in srgb,var(--spec) 32%,transparent)}
+.b-good{background:var(--good-wash); color:var(--good-ink); border-color:color-mix(in srgb,var(--good) 30%,transparent)}
+.b-ver{background:var(--surface); color:var(--ink-2); border-color:var(--line)}
+
+.sec{margin:40px 0 16px; display:flex; align-items:baseline; gap:12px; border-bottom:1px solid var(--line); padding-bottom:8px}
+.sec h2{font-size:22px; margin:0; letter-spacing:-.01em; font-weight:750}
+.sec .count{font-family:var(--mono); font-size:13px; color:var(--ink-3)}
+
+.find{background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden; position:relative}
+.find::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--warn)}
+.find.spec::before{background:var(--spec)}
+.find > .body{padding:18px 20px 20px 24px}
+.find .top{display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap}
+.find .rank{font-family:var(--mono); font-size:12px; font-weight:700; color:var(--ink-3); background:var(--surface-2); border:1px solid var(--line); border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px}
+.find .id{font-family:var(--mono); font-size:13px; font-weight:600; color:var(--warn-ink); background:var(--warn-wash); padding:3px 8px; border-radius:6px; border:1px solid color-mix(in srgb,var(--warn) 25%,transparent)}
+.find.spec .id{color:var(--spec-ink); background:var(--spec-wash); border-color:color-mix(in srgb,var(--spec) 25%,transparent)}
+.find h3{font-size:17.5px; margin:0; flex:1 1 280px; line-height:1.3; letter-spacing:-.01em; font-weight:700; min-width:0}
+.find .badges{display:flex; gap:6px; flex-wrap:wrap; margin-top:13px}
+.find dl{margin:15px 0 0; display:grid; grid-template-columns:max-content 1fr; gap:7px 16px; font-size:14.5px}
+@media(max-width:520px){.find dl{grid-template-columns:1fr; gap:2px 0}.find dd{margin-bottom:10px}}
+.find dt{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); padding-top:3px; white-space:nowrap}
+.find dd{margin:0; color:var(--ink-2)}
+.find dd strong{color:var(--ink); font-weight:600}
+code,.path{font-family:var(--mono); font-size:.87em; background:var(--surface-2); padding:1.5px 5px; border-radius:4px; border:1px solid var(--line-2); color:var(--ink); word-break:break-word}
+.path{color:var(--accent-ink)}
+blockquote{margin:12px 0 0; padding:10px 14px; border-left:3px solid var(--spec); background:var(--spec-wash); border-radius:0 8px 8px 0; font-size:13.5px; color:var(--spec-ink)}
+.acc{display:flex; align-items:flex-start; gap:8px; background:var(--good-wash); border:1px solid color-mix(in srgb,var(--good) 22%,transparent); border-radius:8px; padding:9px 12px; font-size:13.5px; color:var(--good-ink); margin-top:14px}
+.acc .k{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; font-weight:600; padding-top:2px; white-space:nowrap}
+.branch{font-family:var(--mono); font-size:12.5px; color:var(--ink-2); margin:12px 0 0}
+
+.good-box{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:8px 6px; box-shadow:var(--shadow)}
+.good-box ul{list-style:none; margin:0; padding:0}
+.good-box li{display:flex; gap:11px; align-items:flex-start; padding:10px 16px; border-bottom:1px solid var(--line-2); font-size:14px; color:var(--ink-2)}
+.good-box li:last-child{border-bottom:none}
+.good-box li .tick{color:var(--good); flex:none; margin-top:1px; font-weight:700}
+.good-box li strong{color:var(--ink); font-weight:600}
+
+.minor{font-size:13.5px; color:var(--ink-3); line-height:1.7}
+.notecard{background:var(--surface-2); border:1px solid var(--line-2); border-radius:10px; padding:14px 18px; margin-top:14px; font-size:14px; color:var(--ink-2)}
+.notecard b{color:var(--ink)}
+footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--ink-3)}
+.seal{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--crit-ink); background:var(--crit-wash); border:1px solid color-mix(in srgb,var(--crit) 25%,transparent); border-radius:6px; padding:3px 8px; margin-bottom:12px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker"><span>Progressive Card Vault</span><span class="dot"></span><span>Security Audit</span><span class="dot"></span><span>Remediation</span></p>
+    <h1>Card Vault Security Fixes</h1>
+    <p class="dek">Prioritized fixes from a three-lineage source audit of the cash-equivalent card vault — findings independently cross-verified before landing here. Ordered by real-world exploitability. One item is a Phase-1 SOW commitment, not just hardening.</p>
+    <div class="meta">
+      <span class="chip">source <b>gitlab rs-dev/…card-vault @ 08c0c74</b></span>
+      <span class="chip">audit <b>Codex · Opus 4.8 · Gemini-verified</b></span>
+      <span class="chip">date <b>2026-08-12</b></span>
+      <span class="chip">scope <b>source + local dynamic</b></span>
+    </div>
+  </header>
+
+  <div class="confdl"><b>No P0.</b> The core boundaries hold: AES-256-GCM authenticated encryption, fresh IV per field, card secrets decrypt only in two role-gated + audited routes with no on-screen reveal path, append-only audit log, parameterized queries throughout, production CSP present, session secret fails closed. Nothing below is reachable by an anonymous outsider against current staging — the risks are insider, compromised-session, or misconfigured-deploy.</div>
+
+  <div class="tallies">
+    <div class="tally w"><div class="n">9</div><div class="l">P1 fixes (verified)</div></div>
+    <div class="tally s"><div class="n">1</div><div class="l">SOW spec-compliance gap</div></div>
+    <div class="tally n"><div class="n">0</div><div class="l">P0 / false positives</div></div>
+    <div class="tally g"><div class="n">6</div><div class="l">Gemini-confirmed of 6</div></div>
+  </div>
+
+  <div class="legend">
+    <h4>Badges</h4>
+    <div class="row">
+      <span class="item"><span class="badge b-warn">SECURITY P1</span> hardening / defect</span>
+      <span class="item"><span class="badge b-spec">SOW SPEC</span> Phase-1 commitment to build</span>
+      <span class="item"><span class="badge b-ver">Gemini ✓</span> independently refute-tested</span>
+      <span class="item"><span class="badge b-ver">×3</span> two finders + verifier agree</span>
+    </div>
+    <p style="margin:12px 0 0; color:var(--ink-3)">Suggested order: insider/config money-risk first (1–4), then availability (5–6), then the rest. Items 2, 3, and 4 are also production-deploy gates before go-live.</p>
+  </div>
+
+  <div class="sec"><h2>Fix queue — ranked</h2><span class="count">9 + 1 spec</span></div>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">1</span><span class="id">C-06</span><h3>Walmart import has no reconciliation — bad cards can reach customers</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-ver">Gemini ✓</span><span class="badge b-good">highest impact: value loss</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/lib/walmart-preparation.ts</span>, <span class="path">src/lib/inventory-import-service.ts:50</span>, <span class="path">src/app/requests/[requestNumber]/actions.ts:490-651</span></dd>
+      <dt>Mechanism</dt><dd>Imported activated-result rows are validated only for field presence, a permissive success status, and a catalog vendor/type match. They are <strong>never reconciled against the order’s own preparation file</strong> (expected idempotency keys, denominations, quantities). Rows become globally <code>available</code> and can advance the order to <code>ready_to_allocate</code>.</dd>
+      <dt>Impact</dt><dd>A malicious or compromised <strong>Operations</strong> user — or an honest wrong-file upload — injects attacker-chosen or inactive card numbers/PINs that get allocated to paying customers. Direct value loss / customer harm.</dd>
+      <dt>Fix</dt><dd>Persist expected preparation rows/batch identity; transactionally reconcile request identity, idempotency key, denomination, quantity, target system, uniqueness, and an explicit Fiserv success status <strong>before</strong> a card goes <code>available</code>. Reject extra/missing/cross-request rows; require a review state for partial results.</dd>
+    </dl>
+    <div class="acc"><span class="k">Accept</span><span>An activated-result file whose rows don’t match this order’s prep batch (wrong keys/denoms/quantities/cross-request) is rejected, not imported. Add a test asserting a mismatched file cannot make cards <code>available</code>.</span></div>
+    <p class="branch">↳ <span class="path">lane/walmart-import-reconciliation</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">2</span><span class="id">C-01</span><h3>Encryption key enforcement is not fail-closed</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-ver">Gemini ✓</span><span class="badge b-good">deploy gate</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/lib/card-secrets.ts:16-41</span>, <span class="path">src/lib/session-token.ts:72-101</span>, <span class="path">render.yaml</span></dd>
+      <dt>Mechanism</dt><dd>Key enforcement is gated on <code>NODE_ENV==='production'</code>. Outside prod a missing key silently uses a hardcoded fallback (and card encryption can fall back to <code>AUTH_SESSION_SECRET</code>). In prod, <strong>any non-placeholder string — even one character</strong> — is accepted and SHA-256’d into the AES key, with no entropy floor.</dd>
+      <dt>Impact</dt><dd>A preview/manual deploy touching real data, or a weak prod key, produces DB ciphertext a reader can decrypt offline. Current Render staging is safe <em>only</em> because its config injects a generated key — the code doesn’t enforce it.</dd>
+      <dt>Fix</dt><dd>Require an explicit high-entropy <code>CARD_VAULT_ENCRYPTION_KEY</code> and a <strong>separate</strong> <code>AUTH_SESSION_SECRET</code> in every non-fixture environment; enforce decoded key length/format; <strong>fail at startup</strong>, not first use; allow local constants only behind an explicit localhost/test-DB opt-in.</dd>
+    </dl>
+    <div class="acc"><span class="k">Accept</span><span>App refuses to start (any env that can touch real data) when the encryption key is missing, a known default, or below the length/entropy floor. Add a startup-guard test.</span></div>
+    <p class="branch">↳ <span class="path">lane/crypto-key-fail-closed</span></p>
+  </div></article>
+
+  <article class="find spec"><div class="body">
+    <div class="top"><span class="rank">3</span><span class="id">C-03</span><h3>Exports aren’t password-protected — the Q7 SOW commitment isn’t built</h3></div>
+    <div class="badges"><span class="badge b-spec">SOW SPEC</span><span class="badge b-ver">Gemini ✓ · ×3</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/app/requests/[requestNumber]/exports/[exportId]/route.ts:67-116</span>, export builders</dd>
+      <dt>Committed</dt><dd>Phase-1 SOW answer to Doug’s Q7:</dd>
+    </dl>
+    <blockquote>“The vault generates the <strong>password-protected file</strong> itself… Each export gets its own <strong>randomly generated password, shown once</strong> to the operator who created it… the password is <strong>never the filename or anything guessable</strong>.”</blockquote>
+    <dl>
+      <dt>Reality</dt><dd>The app streams <strong>plaintext CSV with no password and no ZIP</strong> — there is no password-generation path in the code (both finder lanes). This is a build-to-spec gap, not a security-only nicety.</dd>
+      <dt>Build</dt><dd>Generate a password-protected package (ZIP-with-password or equivalent) per export; a <strong>strong random per-export password shown once</strong> to the operator, never filename-derived; log generation. Re-issue = fresh export + new password (already the intended “files are disposable, vault is system of record” model).</dd>
+      <dt>Out of scope</dt><dd>Expiring download links / recipient access logs were <strong>deliberately deferred to Phase 2</strong> (secure delivery portal) — do <em>not</em> build those now. Unlimited authorized re-download is acceptable under the committed model.</dd>
+    </dl>
+    <div class="acc"><span class="k">Accept</span><span>A generated export is a password-protected file; the password is random, shown once, not derivable from the filename; generation is audited. A trained operator can complete the delivery per the Q7 description without a separate tool.</span></div>
+    <p class="branch">↳ <span class="path">lane/export-password-protection</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">4</span><span class="id">C-04</span><h3>Work-file download bypasses the download-state machine → double-spend</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-ver">Gemini ✓</span><span class="badge b-good">dormant · deploy gate</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">…/exports/[exportId]/work-file/route.ts:70-124</span>, <span class="path">…/actions.ts:1024-1040</span>, <span class="path">src/lib/feature-flags.ts</span></dd>
+      <dt>Mechanism</dt><dd>The Lloyd work-file route decrypts full credentials and audits, but does <strong>not</strong> update <code>downloadCount</code>/<code>downloadedAt</code>/allocation state that cancellation-safety relies on. Currently gated off (<code>LLOYD_WORK_FILES_ENABLED=false</code> on staging), so <strong>dormant</strong>.</dd>
+      <dt>Impact</dt><dd>With the flag on: Operations downloads live cards while the order still looks never-downloaded; an Admin cancels → cards return to available inventory → reallocation / double-spend.</dd>
+      <dt>Fix</dt><dd>Route <strong>all</strong> sensitive downloads through one atomic state-transition service (count/time/actor + allocation/request state + audit in one transaction before responding). Cancellation must inspect any sensitive-download event, not one endpoint’s counter. Keep the flag off until fixed.</dd>
+    </dl>
+    <div class="acc"><span class="k">Accept</span><span>After a work-file download, the order reflects downloaded state and cannot be cancelled back into available inventory. Test the download → cancel path asserts no card returns to <code>available</code>.</span></div>
+    <p class="branch">↳ <span class="path">lane/workfile-download-state</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">5</span><span class="id">C-P1-1</span><h3>Account-scoped login lockout → unauthenticated admin-lockout DoS</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-ver">Gemini ✓</span><span class="badge b-good">availability · trivial trigger</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/lib/login-attempts.ts:20-28,62-88</span></dd>
+      <dt>Mechanism</dt><dd>Lockout uses an IP-independent <code>account:&lt;login&gt;</code> key that hard-locks after 8 failures / 15 min for 10 min. An unauthenticated attacker POSTing bad passwords for the guessable <code>redstamp</code> username holds the admin locked out indefinitely; IP rotation doesn’t help the defender.</dd>
+      <dt>Fix</dt><dd>Keep the account key but degrade to increasing delay / CAPTCHA on the account track (only the per-IP track hard-locks); or add a break-glass admin path; or shorten the account lock and alert on repeated account locks.</dd>
+    </dl>
+    <div class="acc"><span class="k">Accept</span><span>Repeated failed logins against a valid username cannot fully deny that account’s legitimate login from a clean IP.</span></div>
+    <p class="branch">↳ <span class="path">lane/login-lockout-dos</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">6</span><span class="id">C-P1-2</span><h3>WordPress intake kill-switch is a no-op</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-good">config integrity</span></div>
+    <dl>
+      <dt>Where</dt><dd><code>WORDPRESS_INTAKE_ENABLED</code> in <span class="path">render.yaml</span> — 0 references in <span class="path">src/</span></dd>
+      <dt>Mechanism</dt><dd>The kill-switch env var is set but <strong>never read anywhere</strong>. Intake routes are gated only by the HMAC signature. Ops could believe intake is disabled while it stays open to any holder of the HMAC secret.</dd>
+      <dt>Fix</dt><dd>Enforce the flag (early <code>404/503</code> from both intake routes when it isn’t <code>"true"</code>), or remove the var so config doesn’t imply a control that doesn’t exist.</dd>
+    </dl>
+    <div class="acc"><span class="k">Accept</span><span>With the flag off, a validly signed intake POST is rejected.</span></div>
+    <p class="branch">↳ <span class="path">lane/wordpress-intake-killswitch</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">7</span><span class="id">C-02</span><h3>Password hashing below current OWASP scrypt minimum</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/lib/password.ts:1-19</span></dd>
+      <dt>Mechanism</dt><dd><code>scryptSync</code> uses Node defaults (N=2¹⁴) and stores no cost/version — materially below OWASP’s current scrypt guidance. Salt + timing-safe compare are correct.</dd>
+      <dt>Fix</dt><dd>Argon2id (or calibrated scrypt at a current minimum); encode algorithm + all cost params per hash; rehash on successful login when params are stale.</dd>
+    </dl>
+    <p class="branch">↳ <span class="path">lane/password-hash-argon2id</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">8</span><span class="id">C-05</span><h3>Quadratic CSV parse → import DoS</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-good">confirmed by local timing</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/lib/inventory-import.ts:335-447</span></dd>
+      <dt>Mechanism</dt><dd>Per row the parser rescans the whole accumulated issues array (<code>issues.some(...)</code>) → O(rows × issues). Measured: 8,000 bad rows = 1.35 s vs 27 ms at 1,000; a sub-1 MB payload can hold &gt;100k tiny rows and tie up the event loop. Repeatable by a compromised Operations account.</dd>
+      <dt>Fix</dt><dd>Row-local error flag/count; cap rows / issues / field-length / total bytes; stop after a bounded error threshold; prefer a streaming parser; add adversarial perf tests.</dd>
+    </dl>
+    <p class="branch">↳ <span class="path">lane/csv-parse-dos</span></p>
+  </div></article>
+
+  <article class="find"><div class="body">
+    <div class="top"><span class="rank">9</span><span class="id">C-07</span><h3>CSV-injection neutralization misses full-width formula initiators</h3></div>
+    <div class="badges"><span class="badge b-warn">SECURITY P1</span><span class="badge b-ver">Gemini narrowed</span></div>
+    <dl>
+      <dt>Where</dt><dd><span class="path">src/lib/export-csv.ts:1-24</span> (+ import predicate)</dd>
+      <dt>Mechanism</dt><dd>Sanitizer apostrophe-prefixes ASCII <code>= + - @</code> including leading whitespace. <strong>Verifier correction:</strong> TAB/CR/LF <em>are</em> handled (consumed as leading whitespace) — the real, confirmed gap is <strong>full-width variants</strong> (e.g. <code>＝</code>), which pass through unescaped on both import and export. Spreadsheet/locale-dependent.</dd>
+      <dt>Fix</dt><dd>Neutralize the full target-spreadsheet prefix set including full-width variants at every untrusted input/output boundary; add LibreOffice/Excel behavioral tests.</dd>
+    </dl>
+    <p class="branch">↳ <span class="path">lane/csv-injection-fullwidth</span></p>
+  </div></article>
+
+  <!-- 500s -->
+  <div class="sec"><h2>The two 500s — engineering dispositions</h2></div>
+  <div class="notecard">
+    <p style="margin:0 0 8px"><b>Walmart upload-500 (<code>777059612</code>)</b> — the fixture parses cleanly locally; the upload branch diverges at <code>getUploadedTextFile</code> (<code>File.text()</code>), 1 MB check applied post-decode. Most likely upload transport/runtime/deploy handling, <b>not</b> a malicious parse path; it did not corrupt state. Confirm against Render logs.</p>
+    <p style="margin:0"><b>Create-order 500 (<code>294045514</code>)</b> — most likely a <b>request-number race</b> (read-then-create on the unique order number in <code>fulfillment-request-service.ts</code>). No raw SQL, no card data in the error path. <span style="color:var(--ink-3)">(Both also filed in the design-QA handoff as P0-1 / P0-2.)</span></p>
+  </div>
+
+  <!-- verified good -->
+  <div class="sec"><h2>Verified good — controls that hold</h2></div>
+  <div class="good-box"><ul>
+    <li><span class="tick">✓</span><span><strong>AES-256-GCM</strong> authenticated encryption, fresh random 12-byte IV per field; unknown-version ciphertext fails unreadable.</span></li>
+    <li><span class="tick">✓</span><span><strong>Card secrets decrypt in exactly two</strong> role-gated (Admin/Operations) + audited download routes. Finance/Viewer get 403. <strong>No “reveal full card in UI” path.</strong></span></li>
+    <li><span class="tick">✓</span><span><strong>Q5 / Q6 SOW answers already hold:</strong> masked values everywhere on screen; the export download log is the complete sensitive-access record; append-only audit log (no update/delete in code).</span></li>
+    <li><span class="tick">✓</span><span><strong>Production CSP</strong> is real (nonce-based, via <code>src/proxy.ts</code> middleware — not <code>next.config.ts</code>); session secret <strong>fails closed</strong> in prod.</span></li>
+    <li><span class="tick">✓</span><span><strong>No raw SQL</strong> (<code>$queryRaw</code>/<code>$executeRaw</code> absent), no <code>dangerouslySetInnerHTML</code>, no server-side SSRF fetch of the Fiserv URL; export IDs bound to their request; download filenames sanitized (no path traversal).</span></li>
+  </ul></div>
+
+  <div class="sec"><h2>P2 — defense-in-depth (post-P1)</h2></div>
+  <p class="minor">Post-login open redirect via <code>/\</code> slash-backslash normalization · WordPress HMAC replay window (±5 min, no nonce store; bounded by downstream idempotency) · PHP mu-plugin keeps HMAC secret in <code>wp_options</code> plaintext by default (order-injection only, no card read) · spoofable client-IP headers fragment the per-IP throttle · non-constant-time bearer-secret compare (gated off on staging) · env-secret intake path skips <code>isSiteAllowed</code> · single SHA-256 key reused for GCM + HMAC (no HKDF domain separation / rotation) · one corrupted ciphertext can 500 a whole export (no per-record quarantine) · Fiserv URL accepts any HTTPS host incl. loopback (Admin-planted client-side link).</p>
+
+  <footer>
+    <p class="seal">Internal — build team only</p>
+    <p>This document maps exploitable weaknesses in a cash-equivalent system. Share with the build team; do not distribute to the client or beyond. Method: three-lineage source audit — <strong>Codex</strong> (crypto/export/injection) + <strong>Opus 4.8</strong> (authZ/intake/audit/config) finders, <strong>Gemini 3.1 Pro</strong> independent adversarial verifier (5/6 confirmed, 1 narrowed, 0 false positives). Static source + local non-network dynamic only; the two 500s and any runtime-only claims need Render logs to fully close.</p>
+    <p>Full report + finder lanes: <span class="path">docs/runs/2026-08-12-security-audit/</span> — <code>WAVE1-CONSOLIDATED.md</code>, <code>findings-codex.md</code>, <code>findings-claude.md</code>, <code>WAVE0-REPORT.md</code>.</p>
+  </footer>
+
+</div>

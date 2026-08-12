@@ -5,109 +5,126 @@
 
 ## Current focus
 
-**Phase 1 Card Vault is sold; design↔dev reconcile is mid-flight.** Staging is internal-only
-(`progressive-gift-cards-card-vault-staging.onrender.com` — never mention to Progressive).
+**Phase 1 Card Vault: design QA round 2 (pre-UAT) + full security audit both complete; two
+engineering handoffs ready for Tim, not yet sent.** Tim shipped the 2026-08-12 staging build
+(Walmart Card Preparation step + Kaitlin's 8/12 styling list). We re-QA'd it with three parallel
+agent lanes and separately ran a two-wave security audit of the GitLab source. Both produced
+prioritized, agent-consumable handoffs. **Nothing has gone to Tim/Kaitlin/Slack — Spencer sends.**
 
-AUR2 Prime (Grok) ran design QA orchestration (2026-08-10/11): Figma Screens + staging comparison,
-adversarial gate, executable backlog for Tim. **Kaitlin has the design checkpoint DM** (Slack,
-with three HTML attachments) and is the gate before Tim executes P0s. Full BugHerd still held.
+**Design QA verdict: not ready for UAT — 4 P0 blockers** (2 server 500s seat-reproduced: create-order
++ Walmart file-upload import; status-pill lag confirmed by all 3 lanes; sidebar nav occlusion at
+laptop height). Plus 9 P1. Tim's 8/12 fixes largely verified (11 items).
+**Security verdict: no P0; 9 verified P1** (crypto boundary sound). Top: C-06 Walmart-import has no
+reconciliation → bad cards can be allocated; C-01 crypto not fail-closed; **C-03 = SOW Q7
+password-export commitment not built (build-to-spec, not a client question)**; C-04 dormant
+double-spend.
 
-**Canonical run pack:** `docs/runs/2026-08-10-design-dev-reconcile/`  
-**Tim execute list:** `PRIORITIZED-BACKLOG-v2.md` (ignore v1).  
-**Design QA report:** `DESIGN-QA-REPORT.md` (PASS adversarial).
+**Canonical run packs:**
+- Design QA: `docs/runs/2026-08-12-design-qa-uat/` → `CONSOLIDATED-FINDINGS.md`,
+  `tim-eng-handoff-2026-08-12.html`.
+- Security: `docs/runs/2026-08-12-security-audit/` → `WAVE1-CONSOLIDATED.md`,
+  `tim-security-handoff-2026-08-12.html`, `WAVE0-REPORT.md`.
 
-Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design`  
-Vault local: `~/projects-work/progressive-card-vault/app` @ `6241988` (GitLab main).
+Vault app (read-only this session): `~/projects-work/progressive-card-vault/app` @ `08c0c74` (GitLab main).
+Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fulfillment-Design`.
 
 ## Last session
 
-- **2026-08-11 — Wrap of design↔dev reconcile session (AUR2 Prime / Grok).** Codex design-QA recon
-  completed against live Figma Screens + logged-in staging. Adversarial review of the report: **PASS**.
-  Executable `PRIORITIZED-BACKLOG-v2.md` written (P0: Walmart order prep step + semantic status labels;
-  filters/shell/vault closed as close enough). Human HTML artifacts for Kaitlin + Tim list + full
-  backlog. Slack DM to Kaitlin **sent** (Codex Slack connector; Spencer manually attached 3 HTMLs after
-  OAuth finickiness). Waiting on her three yes/nos before Tim handoff. BugHerd still held.
-- **2026-08-10/11 — Session kickoff.** Herdr `progressive-vault · AUR2 · Grok`. Vault main pulled
-  (+81). Signed SOW PDF, morning Progressive sync + Kaitlin 1:1 transcripts, Figma comment export
-  (94/82). Product ruling: Walmart prep as order step (Spencer+Kaitlin). Backlog v1 failed adversarial
-  gate (Paid-is-blue misdiagnosis; Design Direction comment pollution).
+- **2026-08-12 — Design QA round 2 + security audit (AUR2 Prime / Fable, Herdr `w1V`).** Tim's 8/12
+  build re-QA'd by 3 recon lanes (Codex/Figma-fidelity, Claude/interaction-states, Grok/walkthrough);
+  seat reproduced the create-order 500 firsthand + confirmed sidebar occlusion. Two-wave security
+  audit: Wave 0 (gitleaks/npm-audit/config — clean); Wave 1 finders Codex (crypto/export/injection) +
+  Opus 4.8 (authZ/intake/audit), Gemini-via-Cursor scoped verifier (5/6 confirmed, 1 narrowed, 0 false
+  positives). Grok excluded from source (data-exposure ruling). Two HTML handoffs published as private
+  Artifacts + copied to `~/Downloads/`. Reframed C-03 as SOW Q7 compliance after checking the 6/10
+  responses to Doug.
+- **2026-08-11 — Wrap of design↔dev reconcile (round 1, AUR2/Grok).** `PRIORITIZED-BACKLOG-v2.md`,
+  Kaitlin design checkpoint DM sent; two P0s identified (Walmart step, semantic pills).
 - **2026-07-14 — SOW verbally approved; design kickoff pack (PR #13).**
 
 ## In-flight work
 
-- **Waiting on Kaitlin:** reply to design checkpoint DM (Walmart step, pill labels, “already close”
-  list). Pack: `docs/runs/2026-08-10-design-dev-reconcile/slack-dm-pack/`.
-- **After Kaitlin greenlight:** hand Tim `PRIORITIZED-BACKLOG-v2.md` + `DESIGN-QA-REPORT.md`
-  (eng). Human short list: `tim-build-list-human.html`.
-- **P0 builds (Tim/Codex, after design OK):**
-  1. `lane/walmart-order-preparation-step`
-  2. `lane/semantic-order-status-pills`
-  Then staging walkthrough fixture `PGC-1027` before P1 polish.
-- **BugHerd 535328:** do not use as first capture; residual human visual only after P0 engineering.
-- **Tim:** Progressive testing environment / fixtures (morning sync).
-- **Open PRs:** none in this knowledge repo.
+- **Awaiting Spencer:** send Tim the two handoffs (design + security). Design handoff is shareable
+  with Tim; **security handoff is internal/build-team-only** (maps exploitable weaknesses — do not
+  distribute to client).
+- **Kaitlin:** queued to do a human QA pass *after* the agent round (her ask, Slack ts
+  1786562864.456879). Comes after Tim's P0 fixes.
+- **Doug's new "Gift Redemption Button" request** (Asana task 1217427026711277; Stephanie + Hannah
+  Christie leading). A retiree/employee redemption form with a card+denomination dropdown pulling the
+  full digital catalog; Doug confirmed "any of the cards." Stephanie flags it as a manual lift back
+  into fulfillment with a possible Phase-2 vault-integration angle. Not on Redstamp's build plate yet
+  — watch; Hannah mocking for Doug signoff.
+- **Open PRs (this repo):** the wrap PR (this session). None in the vault app repo.
 - **Canonical client thread:** Gmail `19e9a0905b082b87` (7/14 design requirements).
 
 ## Repo state
 
-- Knowledge repo `main`: dirty at wrap (this handoff + `docs/runs/` pack) — commit+push as wrap.
-- Vault app `main` @ `6241988`, clean, no local product edits this session.
-- Herdr workspace `progressive-vault · AUR2 · Grok` (`w1P`): Prime tab + closed recon tabs
-  (`close-ok · design-qa-staging`, `close-ok · slack-dm-kaitlin`).
-- **Hygiene candidates (unchanged from 7/14; offer only):**
-  `session/2026-07-13-sow-close-out`, `claude/sweet-lumiere-6058d1`, `codex/giftcard-vault-design`.
-- Design docs: `projects/gift-cards/docs/design/`.
+- Knowledge repo `main` (GitHub sririe): wrap landed via `session/2026-08-12-design-qa-security-audit`
+  → PR. `.gitignore` gained `.gstack/` (a lane working dir). Two run packs added (design-qa ~11M incl.
+  screenshots/figma-frames; security-audit 160K, gitleaks/npm-audit outputs redacted-verified).
+- Vault app `main` @ `08c0c74`, read-only this session — **no writes to GitLab** (operator constraint).
+  Local checkout synced 6241988 → 08c0c74.
+- Herdr workspace `progressive design-qa · AUR2 · Fable` (`w1V`): PRIME tab + 5 dispatched recon lanes
+  (3 design + 2 security), all verified done and closed at wrap. Gemini verifier ran as a one-shot
+  cursor-agent (not a tab).
+- Prior hygiene candidates (stale, offer only): `session/2026-07-13-sow-close-out`,
+  `claude/sweet-lumiere-6058d1`, `codex/giftcard-vault-design`.
 
 ## Runtime & environment
 
-- **Prototype:** `gitlab.com/rs-dev/progressive-gift-cards-card-vault`. Local:
-  `~/projects-work/progressive-card-vault/app`. Staging internal-only (Render free tier).
+- **Staging (internal only — never mention to Progressive):**
+  `progressive-gift-cards-card-vault-staging.onrender.com`. Login via operator's Chrome session
+  (Browser 1); agents cannot enter the password (hard rule) — operator logs in to unblock. Seeded
+  users `redstamp` (admin), `elaine` (operations), `mario` (finance).
+- **Vault prototype:** `gitlab.com/rs-dev/progressive-gift-cards-card-vault`. Local:
+  `~/projects-work/progressive-card-vault/app`.
 - **Figma PAT:** 1Password `Redstamp Automation Secrets` → `Redstamp Figma Comments Export`.
-- **Slack for agents:** Codex `plugins.slack@openai-curated` (ChatGPT OAuth — can require browser
-  reconnect). Grok seat has **no** Slack connector; use Codex for Slack DMs/files or operator paste.
-- **Notify-operator:** works with `NOTIFY_OPERATOR_DIRECT=1` on this Mac (iMessage to
-  `spencer@ririe.net`; chat.db verify may be unverified).
-- **Workspace surfaces:** Language Rulings Sheet `1wsZCg5Yy0qz-ywLxHp1Lt1k4u_jAs7wowUH3COemNbc`;
-  kickoff/primer gdocs (IDs in prior status). gog SA for Drive/Docs/Sheets; Gmail not SA-scoped.
+  Figma MCP reliable from Codex/Claude; Grok has no live Figma (used static exports).
+- **Cross-model verifier:** `cursor-agent` (spencer@redstamp.com) → Gemini 3.1 Pro; **requires
+  `--trust`** for a non-standard cwd (empty output otherwise — see solutions note). Grok CLI is
+  `--allow`-flag based; Grok data-frozen for source review.
+- **Slack for agents:** Codex `plugins.slack@openai-curated`; this Fable seat used the claude.ai Slack
+  connector (read-only reads this session).
 - **Rate:** $160 CAD/hr (D-13).
 - Materials git-ignored: `projects/gift-cards/_private/lloyd-materials-06162026/`.
 
 ## Next steps
 
-1. **First:** Read Kaitlin’s Slack reply when it lands; fold any label/string/“still wrong” notes into
-   `PRIORITIZED-BACKLOG-v2.md` if needed.
-2. **Then:** Hand Tim the eng pack (`PRIORITIZED-BACKLOG-v2.md` + `DESIGN-QA-REPORT.md`); ask for
-   `#progressive-fundraising` changelog after each UI staging deploy.
-3. **Tim builds P0:** Walmart order prep step, then semantic status pills; walkthrough `PGC-1027`.
-4. **Only then:** optional BugHerd residual pass for humans; P1 disclosure defaults + language cleanup.
-5. **Later / still open:** Phase 2 export/delivery brief; Lloyd SystemBind/Walmart activation materials;
-   rulings Sheet → glossary regen if language batch advances.
+1. **First (Spencer):** send Tim the two handoffs — design (`tim-eng-handoff-2026-08-12.html`) and
+   security (`tim-security-handoff-2026-08-12.html`, internal-only). Optionally have me draft the Slack
+   messages in your voice.
+2. **Tim fixes P0s:** design 500s (create-order race, Walmart upload branch) + status-pill workflow
+   state + sidebar occlusion; security C-06 → C-01 → **C-03 (build the Q7 password export)** → C-04.
+3. **After Tim:** re-QA (agent), then Kaitlin human pass, then set staging Fiserv URL, then Progressive
+   walkthrough.
+4. **Harden going forward:** wire `/security-review` (diff-scoped) into the vault PR gate so future
+   changes get a security pass automatically.
+5. **Later / Phase 2 (deferred, do NOT build now):** secure delivery portal (expiring links, recipient
+   access logs) — explicitly out of Phase 1 per Q7. Doug's Gift Redemption Button if it lands on our plate.
 
 ## Blockers
 
-- **Kaitlin design checkpoint** (in flight — not blocked, waiting).
-- BugHerd before P0 eng: **deliberately held**.
-- (Stale from 7/14 may still apply if never done: Sheet/gdoc sharing to full team; kickoff decisions 1–5.)
-- D-15 export-password deferred — V1 System Bind; not blocking.
-
-## Cross-cutting note — Grok / security
-
-Historical (2026-07-14): Grok review lane FROZEN after cereblab incident; this knowledge repo did not
-upload client data. **This session used Grok as AUR2 Prime** for orchestration (durable work written
-to repo docs only). Prefer Codex for Slack connector and live Figma MCP reliability; Grok for
-orchestrator seat when Spencer chooses.
+- None hard. Two design 500s and any security runtime-only claims have "confirm against Render logs"
+  tails (source audit can't fully close them).
+- Staging login requires the operator (agents can't authenticate) — recurring soft friction.
 
 ## Decisions & context
 
-- **2026-08-11 — Design QA report PASS (adversarial).** Staging closer than draft backlog implied;
-  only two true P0s before Progressive walkthrough: Walmart prep as order step; semantic status
-  labels (not Paid-is-blue color). Filters/shell/vault closed. Record:
-  `docs/runs/2026-08-10-design-dev-reconcile/ADVERSARIAL-REVIEW-DESIGN-QA-REPORT.md`.
-- **2026-08-10 — Walmart prep is an order workflow step** (Spencer + Kaitlin 1:1). Soft edge:
-  generation complexity may nest; step presentation on order is fixed. Fiserv stays outside app.
-- **2026-08-10 — Agent design QA before designer BugHerd** (Spencer commitment to Kaitlin).
-- **2026-08-10 — Changelog hygiene:** after each Codex UI staging deploy, short note in
-  `#progressive-fundraising` (routes / frames / remaining gaps).
-- **2026-07-14 — Merchant ruled**; Workspace-first collaboration; Doug PDF-in-ZIP for legacy;
-  activation boundary (prepare/import only). Glossary: `projects/gift-cards/docs/design/`.
+- **2026-08-12 — Grok excluded from source security audit** (data-exposure ruling; review lane frozen
+  since cereblab). Design QA against staging UI with fake data was fine for Grok; source audit of the
+  crypto/auth of a cash-equivalent vault was not.
+- **2026-08-12 — Gemini-via-Cursor as scoped third-lineage security verifier** (snippets only, not a
+  full-repo crawl — copied finding-local files into a scratch dir). Operator ruling: accept Google as a
+  snippet-scoped verifier; not a full finder.
+- **2026-08-12 — C-03 (exports have no password) is SOW spec-compliance, not a client decision.** The
+  6/10 responses to Doug (Q7) committed password-protected export files with a unique random per-export
+  password shown once, never filename-derived (`projects/gift-cards/docs/plans/2026-06-10-phase1-technical-responses-to-doug.md`).
+  Expiring links / recipient access logs are Phase 2 (secure delivery portal) — deliberately deferred.
+- **2026-08-12 — Severity discipline:** design QA and security both P0/P1-first; the two most severe
+  design items (server 500s) were seat-reproduced before relay; security findings cross-verified by a
+  third lineage before relay. Zero false positives reached the operator.
+- **2026-08-10/11 — Round 1:** Walmart prep is an order step (Spencer+Kaitlin); agent QA before designer
+  BugHerd; semantic pill labels (Paid-is-blue was a false diagnosis).
+- **2026-07-14 — Merchant ruled**; Workspace-first collaboration; activation boundary (prepare/import
+  only, Fiserv external). Glossary: `projects/gift-cards/docs/design/`.
 - House rule: read `CLIENT.md` + `REDSTAMP-SOW-CONTEXT.md` before client-facing artifacts.
