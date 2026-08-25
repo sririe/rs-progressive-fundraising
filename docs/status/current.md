@@ -78,7 +78,7 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## Repo state
 
-- Knowledge repo branch `codex/rapidcents-diligence` @ `a5ca741` is pushed with open PR #16. Its only
+- Knowledge repo branch `codex/rapidcents-diligence` is pushed with open PR #16. Its only
   changes are this handoff and the RapidCents diligence record. The prior wrap landed via
   `session/2026-08-12-design-qa-security-audit`; `.gitignore` gained `.gstack/` (a lane working dir),
   and two run packs were added (design-qa ~11M incl. screenshots/figma-frames; security-audit 160K,
