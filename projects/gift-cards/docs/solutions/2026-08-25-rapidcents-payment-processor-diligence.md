@@ -161,31 +161,36 @@ diligence.
 
 Hi Doug,
 
-I did some digging. My short answer is that I would not rule RapidCents out, but I also would not sign
-anything or start changing the Elavon setup yet.
+I spent some time digging into RapidCents. My short take: I wouldn't rule them out, but I also wouldn't
+sign anything or start changing the Elavon setup yet.
 
-The potential savings are worth testing. When Avery reviewed your Elavon statement in 2024, he
-calculated the effective Visa/Mastercard rate at about 2.38%. If RapidCents can truly deliver an all-in
-2.00% rate for your actual mix of cards, the difference could be meaningful.
+The potential savings are worth testing. When Avery reviewed your Elavon statement in 2024, he calculated
+the effective Visa/Mastercard rate at about 2.38%. If RapidCents can truly deliver an all-in 2.00% rate
+across your actual mix of cards, that difference could be meaningful.
 
-There are a few things I would want confirmed first:
+A few things stood out:
 
 - RapidCents' own terms name Elavon as the underlying acquirer. This may be a Canadian service layer
-  on top of Elavon rather than a complete move away from them.
-- Benji Pays does not publicly list RapidCents as a supported connection. That does not mean it cannot
-  work, but Avery should confirm the exact setup, cost, and effort directly.
-- The public agreement includes a four-year initial term and conflicting cancellation language. We
-  need the full agreement and fee schedule before relying on the quoted savings.
-- One of the awards on their site, the IDC CIO Award, is legitimate. I agree that the unnamed
-  testimonials are weak proof, though, and I would not use them as the basis for this decision.
+  on top of Elavon rather than a complete move away.
+- Benji Pays doesn't publicly list RapidCents as a supported connection. That doesn't mean it won't
+  work, but I would want Avery to confirm the exact setup, cost, and effort.
+- Their public agreement calls for a four-year initial term and has conflicting language about
+  cancellation fees. We need the full agreement and fee schedule before relying on the savings estimate.
+- I also spent some time on their website. The unnamed testimonials and generic customer photos didn't
+  carry much weight for me. I had questions about the awards as well, but I was able to independently
+  verify the IDC CIO Award. At least that one is legitimate.
 
-My recommendation is to treat this as a diligence exercise, not a switch. We should have RapidCents
-price the last 12 months of actual transactions, get written confirmation that they will underwrite
-the gift-card business at your volumes, have Avery review the proposed connection, and then run a
-parallel test while keeping Elavon live.
+None of that means RapidCents is a bad option. It just means I want them to prove the savings and the
+setup before you take on the risk of changing something that currently works.
 
-I can coordinate that and pull Lloyd in only where we need details about the current workflow. I would
-not cancel Elavon until a full payment, refund, and reconciliation cycle has worked end to end.
+My recommendation is to treat this as a diligence exercise, not a switch. First, have RapidCents price
+the last 12 months of actual transactions and confirm in writing that they will underwrite the gift-card
+business at your volumes. Then have Avery review the proposed connection. If both check out, we can run
+a parallel test while keeping Elavon live.
+
+If that approach makes sense, I can coordinate it and pull Lloyd in only if we need details about the
+current workflow. I wouldn't cancel Elavon until a full payment, refund, and reconciliation cycle has
+worked end to end.
 
 Best,
 
