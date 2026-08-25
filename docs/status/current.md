@@ -5,6 +5,11 @@
 
 ## Current focus
 
+**2026-08-25 operator update: the team has made substantial progress on the Phase 1 card vault and is
+now preparing for a Progressive client demo.** The implementation details and disposition of the
+August 12 QA/security handoffs were not enumerated in this session, so the older technical snapshot
+below remains historical context rather than a claim that those blockers are still open.
+
 **Phase 1 Card Vault: design QA round 2 (pre-UAT) + full security audit both complete; two
 engineering handoffs ready for Tim, not yet sent.** Tim shipped the 2026-08-12 staging build
 (Walmart Card Preparation step + Kaitlin's 8/12 styling list). We re-QA'd it with three parallel
@@ -30,6 +35,13 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## Last session
 
+- **2026-08-25 — RapidCents payment-processor diligence (AUR2 Prime).** Retrieved Doug's August 22
+  inquiry and prior Avery/Benji Pays correspondence using read-only Gmail access; ran independent
+  public-source recon; recommendation is a gated diligence exercise and parallel pilot, not an
+  immediate switch from Elavon. Durable analysis:
+  `projects/gift-cards/docs/solutions/2026-08-25-rapidcents-payment-processor-diligence.md`. Spencer's
+  live update says the card vault has advanced substantially and the team is preparing for a client
+  demo; exact implementation status was not audited in this session.
 - **2026-08-12 — Design QA round 2 + security audit (AUR2 Prime / Fable, Herdr `w1V`).** Tim's 8/12
   build re-QA'd by 3 recon lanes (Codex/Figma-fidelity, Claude/interaction-states, Grok/walkthrough);
   seat reproduced the create-order 500 firsthand + confirmed sidebar occlusion. Two-wave security
@@ -44,6 +56,13 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## In-flight work
 
+- **RapidCents inquiry:** Doug is considering a processor change based on a lower-rate proposal and
+  has asked Redstamp for advice and coordination. Recommended next move: get the full fee/contract and
+  underwriting package, have Avery independently confirm Benji Pays compatibility, then run a
+  controlled parallel pilot with Elavon left live. No processor change has been approved.
+- **Client demo preparation:** live operator update says the team is preparing to demo the card vault.
+  Confirm the current build, demo script, fixture data, and which prior QA/security items are closed
+  before scheduling the walkthrough.
 - **Awaiting Spencer:** send Tim the two handoffs (design + security). Design handoff is shareable
   with Tim; **security handoff is internal/build-team-only** (maps exploitable weaknesses — do not
   distribute to client).
@@ -90,16 +109,20 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## Next steps
 
-1. **First (Spencer):** send Tim the two handoffs — design (`tim-eng-handoff-2026-08-12.html`) and
+1. **Reconcile the live vault status:** confirm which August 12 QA/security findings have shipped,
+   then prepare and dry-run the client demo against the current build.
+2. **Reply to Doug on RapidCents:** recommend diligence and a controlled pilot; if Doug agrees,
+   Redstamp coordinates the checklist while Avery/Benji Pays owns compatibility confirmation.
+3. **If still outstanding (Spencer):** send Tim the two handoffs — design (`tim-eng-handoff-2026-08-12.html`) and
    security (`tim-security-handoff-2026-08-12.html`, internal-only). Optionally have me draft the Slack
    messages in your voice.
-2. **Tim fixes P0s:** design 500s (create-order race, Walmart upload branch) + status-pill workflow
+4. **Tim fixes any remaining P0s:** design 500s (create-order race, Walmart upload branch) + status-pill workflow
    state + sidebar occlusion; security C-06 → C-01 → **C-03 (build the Q7 password export)** → C-04.
-3. **After Tim:** re-QA (agent), then Kaitlin human pass, then set staging Fiserv URL, then Progressive
+5. **After fixes:** re-QA (agent), then Kaitlin human pass, then set staging Fiserv URL, then Progressive
    walkthrough.
-4. **Harden going forward:** wire `/security-review` (diff-scoped) into the vault PR gate so future
+6. **Harden going forward:** wire `/security-review` (diff-scoped) into the vault PR gate so future
    changes get a security pass automatically.
-5. **Later / Phase 2 (deferred, do NOT build now):** secure delivery portal (expiring links, recipient
+7. **Later / Phase 2 (deferred, do NOT build now):** secure delivery portal (expiring links, recipient
    access logs) — explicitly out of Phase 1 per Q7. Doug's Gift Redemption Button if it lands on our plate.
 
 ## Blockers
