@@ -8,12 +8,15 @@ tags: [rapidcents, elavon, benji-pays, payment-processing, vendor-evaluation, du
 key_insights:
   - RapidCents should not be rejected outright, but Progressive should not sign or cancel Elavon until the quoted savings, underwriting, Benji Pays compatibility, and operating workflow are proven in writing and through a controlled pilot
   - The quoted 2.00% Visa/Mastercard rate could be meaningful against Progressive's previously observed effective rate, but the annual savings estimate is not validated without a side-by-side analysis using Progressive's actual card mix and transaction volume
-  - RapidCents' own merchant terms name Elavon as the acquirer, so this appears to be a Canadian service layer using Elavon rails rather than a clean move away from Elavon
+  - RapidCents' own merchant terms name Elavon as the acquirer, so this appears to be a Canadian service layer or reseller relationship using Elavon rails rather than a clean move away from Elavon
+  - Elavon publicly describes ISO and agent relationships as reseller models with revenue sharing and residual income, but there is no public evidence that RapidCents specifically sells or assigns each merchant contract back to Elavon
+  - Before accepting migration and contract risk, Progressive should use RapidCents' written 2.00% offer to ask Elavon to match or improve the current pricing
   - Benji Pays does not publicly list RapidCents as a supported gateway; compatibility must be confirmed directly by Benji Pays and proven in a sandbox before any cutover
   - The strongest concern is not the marketing presentation but material contract and operating questions, including term length, contradictory cancellation language, reserves, underwriting for gift-card resale, and the complete fee schedule
   - At least one promoted award, the 2025 IDC CIO Award, is independently verifiable; the website testimonials remain weak evidence because they do not identify the customers' companies
 key_decisions:
   - Treat RapidCents as a diligence and pilot opportunity, not an approved processor change
+  - Ask Elavon to reprice the existing account before evaluating a processor-layer migration
   - Keep Elavon live until Benji Pays compatibility, payment, refund, settlement, and reconciliation flows have been proven through at least one complete settlement cycle
   - Keep payment processing outside the Phase 1 card vault boundary
 related:
@@ -39,9 +42,10 @@ The rate claim is financially important enough to investigate, but Progressive's
 workflow is working after substantial coordination and cannot be put at risk based on a headline rate
 and vendor-managed references.
 
-The correct next step is a gated diligence exercise. RapidCents must prove the full economics and its
-ability to support Progressive's merchant category, Benji Pays must independently confirm the exact
-integration path, and the complete workflow must pass a parallel pilot while Elavon remains live.
+The correct first step is to use the written RapidCents offer to ask Elavon to reprice the existing
+account. If Elavon will not match, RapidCents must then prove the full economics and its ability to
+support Progressive's merchant category, Benji Pays must independently confirm the exact integration
+path, and the complete workflow must pass a parallel pilot while Elavon remains live.
 
 ## Doug's inquiry
 
@@ -94,6 +98,18 @@ therefore appears to provide a Canadian payment-service layer while continuing t
 infrastructure. Doug's preference for a Canadian service partner can still be valid, but it should not
 be presented as removing Elavon from the processing chain.
 
+Elavon's own partner material describes agents and independent sales organizations as resellers that
+earn revenue share or residual income while Elavon remains the underlying processor. This supports the
+commercial analogy to an account acquisition: RapidCents can win the customer relationship and a new
+four-year agreement without replacing the underlying acquirer. However, the public evidence does not
+establish RapidCents' exact partner classification or prove that it sells, assigns, or advances the
+specific four-year contract value back to Elavon. Those points must be asked directly.
+
+This middle layer does not automatically make the offer uneconomic. An Elavon partner may have wholesale
+or portfolio pricing that lets it offer a better merchant rate and still earn a residual. It does mean
+Progressive should give Elavon the opportunity to match or improve the written 2.00% offer before taking
+on migration, integration, and new-contract risk.
+
 ### 3. Benji Pays compatibility remains unverified
 
 Benji Pays' public support material lists specific supported gateways and documents direct Elavon
@@ -125,24 +141,29 @@ diligence.
 
 ## Required diligence gate
 
-1. **Written Benji Pays confirmation.** Ask Avery to confirm the supported gateway route, required
+1. **Elavon repricing request.** Give Elavon the complete written RapidCents offer and ask it to match
+   or improve the pricing on Progressive's existing account without restarting the contract term.
+2. **RapidCents-Elavon relationship.** Ask RapidCents to state its exact partner classification,
+   who owns the merchant account and customer contract, who controls underwriting, reserves, and
+   settlement, and whether the agreement or its residual value can be assigned, sold, or advanced.
+3. **Written Benji Pays confirmation.** Ask Avery to confirm the supported gateway route, required
    credentials, implementation effort and cost, token handling, refund flow, and whether Progressive's
    current secure payment-link workflow remains intact.
-2. **Full contract and fee package.** Obtain the merchant agreement, information summary box, and
+4. **Full contract and fee package.** Obtain the merchant agreement, information summary box, and
    complete fee schedule. Require written confirmation of the quoted rates by card type and every
    other fee, and resolve the term and cancellation contradiction.
-3. **Category-specific underwriting.** Require written approval for gift-card resale at Progressive's
+5. **Category-specific underwriting.** Require written approval for gift-card resale at Progressive's
    actual annual volume and transaction size, including reserve, hold, settlement, and termination
    terms.
-4. **Twelve-month cost comparison.** Reprice Progressive's actual last 12 months under both offers,
+6. **Twelve-month cost comparison.** Reprice Progressive's actual last 12 months under both offers,
    including premium, corporate, international, Amex, per-transaction, dispute, refund, and any
    gateway fees.
-5. **Security and regulatory evidence.** Request RapidCents' current PCI DSS Attestation of
+7. **Security and regulatory evidence.** Request RapidCents' current PCI DSS Attestation of
    Compliance, SOC 2 report or bridge letter, and Bank of Canada payment service provider registration
    number or status explanation.
-6. **Comparable reference.** Speak directly with a named Canadian merchant processing similar annual
+8. **Comparable reference.** Speak directly with a named Canadian merchant processing similar annual
    volume, average ticket size, card mix, and a higher-risk product category.
-7. **Controlled parallel pilot.** Keep Elavon live. Test a normal high-value payment, premium or
+9. **Controlled parallel pilot.** Keep Elavon live. Test a normal high-value payment, premium or
    corporate card, international card, failed payment, refund, settlement, and reconciliation through
    a complete settlement cycle before deciding whether to cut over.
 
@@ -168,29 +189,33 @@ The potential savings are worth testing. When Avery reviewed your Elavon stateme
 the effective Visa/Mastercard rate at about 2.38%. If RapidCents can truly deliver an all-in 2.00% rate
 across your actual mix of cards, that difference could be meaningful.
 
-A few things stood out:
+The most important thing I found is that RapidCents' own terms still name Elavon as the underlying
+acquirer. I've seen a version of this model before in the home security industry: the new company wins
+the customer and the contract, but the underlying service provider doesn't necessarily change. In this
+case, Progressive would sign a new four-year agreement with RapidCents while Elavon continues to handle
+the actual card processing and movement of funds.
 
-- RapidCents' own terms name Elavon as the underlying acquirer. This may be a Canadian service layer
-  on top of Elavon rather than a complete move away.
-- Benji Pays doesn't publicly list RapidCents as a supported connection. That doesn't mean it won't
-  work, but I would want Avery to confirm the exact setup, cost, and effort.
-- Their public agreement calls for a four-year initial term and has conflicting language about
-  cancellation fees. We need the full agreement and fee schedule before relying on the savings estimate.
-- I also spent some time on their website. The unnamed testimonials and generic customer photos didn't
-  carry much weight for me. I had questions about the awards as well, but I was able to independently
-  verify the IDC CIO Award. At least that one is legitimate.
+That doesn't automatically make it a bad deal. These reseller relationships are common, and RapidCents
+may have partner pricing that lets them beat Elavon's direct rate. But it changes what I think the first
+move should be.
 
-None of that means RapidCents is a bad option. It just means I want them to prove the savings and the
-setup before you take on the risk of changing something that currently works.
+Before moving anything, I would take the written 2.00% offer back to Elavon and ask them to match or
+improve it. If they can do that without restarting your contract term, you get the savings without
+unwinding a setup that already works.
 
-My recommendation is to treat this as a diligence exercise, not a switch. First, have RapidCents price
-the last 12 months of actual transactions and confirm in writing that they will underwrite the gift-card
-business at your volumes. Then have Avery review the proposed connection. If both check out, we can run
-a parallel test while keeping Elavon live.
+I would also ask RapidCents to explain who owns the merchant relationship, how RapidCents gets paid by
+Elavon, and whether any of the four-year contract value is advanced or assigned. The public documents
+don't show the exact arrangement, so I wouldn't state that they sell the contract back to Elavon as fact
+yet. But it is absolutely worth asking.
 
-If that approach makes sense, I can coordinate it and pull Lloyd in only if we need details about the
-current workflow. I wouldn't cancel Elavon until a full payment, refund, and reconciliation cycle has
-worked end to end.
+There are still a few other diligence items. Benji Pays doesn't publicly list RapidCents as a supported
+connection, so Avery should confirm the setup directly. The RapidCents agreement also has conflicting
+language about cancellation fees. And while I could verify the IDC CIO Award, the unnamed testimonials
+and generic customer photos on their website didn't carry much weight for me.
+
+My recommendation is to start with the Elavon pricing conversation. If they won't match, I can coordinate
+the deeper RapidCents review and bring Lloyd in only if we need details about the current workflow. I
+wouldn't cancel Elavon until a full payment, refund, and reconciliation cycle has worked end to end.
 
 Best,
 
@@ -200,6 +225,8 @@ Spencer
 
 - [RapidCents merchant terms](https://rapidcents.com/terms-of-services/)
 - [RapidCents website](https://rapidcents.com/)
+- [Elavon: independent sales organizations](https://www.elavon.ca/partners/independent-sales-organizations.html)
+- [Elavon: payment partner models](https://www.elavon.com/resources/insights/five-considerations-when-selecting-payments-partner.html)
 - [Benji Pays: connect Elavon Payment Gateway](https://support.benjipays.com/support/solutions/articles/150000222742-connect-elavon-payment-gateway-epg-to-benji-pays)
 - [Benji Pays: connect Elavon Converge](https://support.benjipays.com/support/solutions/articles/150000019656-connect-to-elavon-converge)
 - [IDC CIO Awards Canada 2025 winners](https://event.idc.com/wp-content/uploads/2025/11/CIO-Awards-Canada-Winning-Projects-2025.pdf?RefId=HorsaWebinarLP)
