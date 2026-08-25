@@ -52,7 +52,6 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
   responses to Doug.
 - **2026-08-11 — Wrap of design↔dev reconcile (round 1, AUR2/Grok).** `PRIORITIZED-BACKLOG-v2.md`,
   Kaitlin design checkpoint DM sent; two P0s identified (Walmart step, semantic pills).
-- **2026-07-14 — SOW verbally approved; design kickoff pack (PR #13).**
 
 ## In-flight work
 
@@ -73,14 +72,17 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
   full digital catalog; Doug confirmed "any of the cards." Stephanie flags it as a manual lift back
   into fulfillment with a possible Phase-2 vault-integration angle. Not on Redstamp's build plate yet
   — watch; Hannah mocking for Doug signoff.
-- **Open PRs (this repo):** the wrap PR (this session). None in the vault app repo.
+- **Open PRs (this repo):** [PR #16](https://github.com/sririe/rs-progressive-fundraising/pull/16)
+  carries the RapidCents diligence record and this status update. None in the vault app repo.
 - **Canonical client thread:** Gmail `19e9a0905b082b87` (7/14 design requirements).
 
 ## Repo state
 
-- Knowledge repo `main` (GitHub sririe): wrap landed via `session/2026-08-12-design-qa-security-audit`
-  → PR. `.gitignore` gained `.gstack/` (a lane working dir). Two run packs added (design-qa ~11M incl.
-  screenshots/figma-frames; security-audit 160K, gitleaks/npm-audit outputs redacted-verified).
+- Knowledge repo branch `codex/rapidcents-diligence` @ `a5ca741` is pushed with open PR #16. Its only
+  changes are this handoff and the RapidCents diligence record. The prior wrap landed via
+  `session/2026-08-12-design-qa-security-audit`; `.gitignore` gained `.gstack/` (a lane working dir),
+  and two run packs were added (design-qa ~11M incl. screenshots/figma-frames; security-audit 160K,
+  gitleaks/npm-audit outputs redacted-verified).
 - Vault app `main` @ `08c0c74`, read-only this session — **no writes to GitLab** (operator constraint).
   Local checkout synced 6241988 → 08c0c74.
 - Herdr workspace `progressive design-qa · AUR2 · Fable` (`w1V`): PRIME tab + 5 dispatched recon lanes
