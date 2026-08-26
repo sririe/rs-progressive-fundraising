@@ -55,10 +55,11 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## In-flight work
 
-- **RapidCents inquiry:** Doug is considering a processor change based on a lower-rate proposal and
-  has asked Redstamp for advice and coordination. Recommended next move: get the full fee/contract and
-  underwriting package, have Avery independently confirm Benji Pays compatibility, then run a
-  controlled parallel pilot with Elavon left live. No processor change has been approved.
+- **RapidCents inquiry:** Spencer sent the advisory response on August 25, recommending that Progressive
+  first ask Elavon to match the written 2.00% offer, then clarify RapidCents' Elavon relationship and
+  contract terms and have Avery independently confirm Benji Pays compatibility before any parallel
+  pilot. Doug replied, "Thanks Spencer, this is very helpful information." No processor change has been
+  approved. Canonical Gmail thread: `1a02bb25c1689fe5`; sent message: `1a03a745e70ca3e4`.
 - **Client demo preparation:** live operator update says the team is preparing to demo the card vault.
   Confirm the current build, demo script, fixture data, and which prior QA/security items are closed
   before scheduling the walkthrough.
@@ -113,8 +114,8 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 1. **Reconcile the live vault status:** confirm which August 12 QA/security findings have shipped,
    then prepare and dry-run the client demo against the current build.
-2. **Reply to Doug on RapidCents:** recommend diligence and a controlled pilot; if Doug agrees,
-   Redstamp coordinates the checklist while Avery/Benji Pays owns compatibility confirmation.
+2. **If Doug advances RapidCents:** start with an Elavon rate-match request. If Elavon will not match,
+   Redstamp coordinates the diligence checklist while Avery/Benji Pays owns compatibility confirmation.
 3. **If still outstanding (Spencer):** send Tim the two handoffs — design (`tim-eng-handoff-2026-08-12.html`) and
    security (`tim-security-handoff-2026-08-12.html`, internal-only). Optionally have me draft the Slack
    messages in your voice.

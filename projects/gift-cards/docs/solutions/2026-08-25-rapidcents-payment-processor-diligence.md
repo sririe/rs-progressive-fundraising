@@ -176,7 +176,12 @@ diligence.
 - **Lloyd:** explain existing workflow details where needed, but should not be the primary owner of
   the processor evaluation.
 
-## Recommended reply to Doug
+## Final email sent to Doug
+
+Sent from `spencer@redstamp.com` on August 25, 2026 at 12:44 PM Pacific to Doug, with Stephanie
+Lamon and Lloyd Scrubb copied. Gmail message ID: `1a03a745e70ca3e4`.
+
+This is the operator-edited ship-mode version, not a craft-mode or voice-gold sample.
 
 **Subject: Re: RapidCents Reference for Due Diligence**
 
@@ -196,32 +201,30 @@ What stood out:
   a new four-year agreement with RapidCents while Elavon continues to handle the actual card processing
   and movement of funds.
 - **The contract needs a closer look.** Their public agreement calls for a four-year term and has
-  conflicting language about cancellation fees.
-- **The public proof is mixed.** I could independently verify the IDC CIO Award. The unnamed testimonials
-  and generic customer photos didn't carry much weight for me.
+  conflicting language about cancellation fees. A colleague of mine operates as an ISO partner for
+  Elavon and other processors in the USA. He said that while RapidCents might be able to deliver, you'd
+  want to review the full contract—it's a devil in the details scenario.
 
-Here's what I would do next:
+Here's what I would suggest:
 
 - **Start with Elavon.** Take the written 2.00% offer back to them and ask them to match or improve it
   without restarting your contract term. That could get you the savings without disrupting a setup that
   already works.
-- **Ask RapidCents to explain the relationship.** We should understand who owns the merchant account,
+- **Ask RapidCents to explain the relationship.** You should understand who owns the merchant account,
   how RapidCents gets paid by Elavon, and whether any of the four-year contract value is advanced or
-  assigned. The public documents don't prove that they sell the contract back to Elavon, so I wouldn't
-  state that as fact yet.
+  assigned. The public documents don't prove that they sell the contract back to Elavon (but this is a
+  known pattern).
 - **Have Avery confirm the Benji Pays connection.** RapidCents isn't named in Benji Pays' public list of
   supported connections. That doesn't mean it won't work, but Avery should confirm the setup, cost, and
   effort directly.
-- **Only test after those pieces check out.** If Elavon won't match and the RapidCents answers are solid,
-  we can run a parallel test while keeping Elavon live.
-
-If that approach makes sense, I can coordinate it and pull Lloyd in only if we need details about the
-current workflow. I wouldn't cancel Elavon until a full payment, refund, and reconciliation cycle has
-worked end to end.
+If Elavon won't match and the RapidCents answers are solid, then it might be worth exploring.
 
 Best,
 
 Spencer
+
+Doug replied at 1:23 PM Pacific: "Thanks Spencer, this is very helpful information." Gmail message ID:
+`1a03a97bc2f73d6e`.
 
 ## Public sources
 
