@@ -100,14 +100,13 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
   full digital catalog; Doug confirmed "any of the cards." Stephanie flags it as a manual lift back
   into fulfillment with a possible Phase-2 vault-integration angle. Not on Redstamp's build plate yet
   — watch; Hannah mocking for Doug signoff.
-- **Open PRs (this repo):** [PR #16](https://github.com/sririe/rs-progressive-fundraising/pull/16)
-  carries the RapidCents diligence record and this status update. None in the vault app repo.
+- **Open PRs:** none (this repo or the vault app repo); PR #16 merged 2026-09-09.
 - **Canonical client thread:** Gmail `19e9a0905b082b87` (7/14 design requirements).
 
 ## Repo state
 
-- Knowledge repo branch `codex/rapidcents-diligence` is pushed with open PR #16. It carries the
-  RapidCents diligence record, the IdeaSource partner-API assessment, and this handoff. The prior wrap landed via
+- PR #16 (RapidCents diligence + IdeaSource assessment + handoff) merged to `main` 2026-09-09;
+  its branch deleted local + remote. All 16 repo PRs are merged — no open or abandoned PRs. The prior wrap landed via
   `session/2026-08-12-design-qa-security-audit`; `.gitignore` gained `.gstack/` (a lane working dir),
   and two run packs were added (design-qa ~11M incl. screenshots/figma-frames; security-audit 160K,
   gitleaks/npm-audit outputs redacted-verified).
@@ -116,8 +115,8 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 - Herdr workspace `progressive design-qa · AUR2 · Fable` (`w1V`): PRIME tab + 5 dispatched recon lanes
   (3 design + 2 security), all verified done and closed at wrap. Gemini verifier ran as a one-shot
   cursor-agent (not a tab).
-- Prior hygiene candidates (stale, offer only): `session/2026-07-13-sow-close-out`,
-  `claude/sweet-lumiere-6058d1`, `codex/giftcard-vault-design`.
+- 2026-09-09 hygiene sweep: remote is clean — only `main` remains; the prior stale-branch
+  candidates no longer exist on the remote.
 
 ## Runtime & environment
 
@@ -144,7 +143,7 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 1a. **IdeaSource follow-through:** when Tim responds on Asana `1218337331514879`, reconcile his
    read with the assessment doc; when Doug reports back from the IdeaSource meeting, feed the
    answers (volume, delivery model, payment) into a Phase 2 partner-order-capture scoping draft.
-   Merge PR #16 to land this record on `main`.
+   (PR #16 merged 2026-09-09.)
 2. **If Doug advances RapidCents:** start with an Elavon rate-match request. If Elavon will not match,
    Redstamp coordinates the diligence checklist while Avery/Benji Pays owns compatibility confirmation.
 3. **If still outstanding (Spencer):** send Tim the two handoffs — design (`tim-eng-handoff-2026-08-12.html`) and
