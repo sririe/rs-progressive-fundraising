@@ -5,6 +5,16 @@
 
 ## Current focus
 
+**2026-09-09: new business-development thread — IdeaSource partner API inquiry.** An employee
+recognition company (Calvin Tang, IdeaSource) asked Progressive for an API to submit gift-card
+orders from their own system; Doug forwarded it asking what's involved and framed it as the first
+move into the loyalty/rewards segment. Spencer replied same day (capability yes, priced to
+"some technical work", discovery questions supplied for Doug+Gord's meeting with IdeaSource).
+Assessment + technical gap analysis:
+`projects/gift-cards/docs/plans/2026-09-09-ideasource-partner-api-assessment.md`. Internal review
+ticket with Tim: Asana `1218337331514879`. If it advances, it likely becomes a scoped Phase 2 SOW
+(partner order capture also carries the white-label portal idea and email distribution).
+
 **2026-08-25 operator update: the team has made substantial progress on the Phase 1 card vault and is
 now preparing for a Progressive client demo.** The implementation details and disposition of the
 August 12 QA/security handoffs were not enumerated in this session, so the older technical snapshot
@@ -35,6 +45,18 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## Last session
 
+- **2026-09-09 — IdeaSource partner API inquiry (AUR2 Prime / Fable, Herdr `w38`).** Retrieved
+  Doug's same-day inbound (Gmail thread `1a0877cf7180a4f7`), ran a read-only survey of the vault
+  app's order capture, and assessed the ask: the WordPress/Formidable intake already implements
+  the partner-API pattern (HMAC per-connection auth, idempotent, Zod-validated); gaps are a
+  partner/credential entity, stable vendor codes, status endpoints, hardening, and the automated
+  allocation/delivery fork. Full read:
+  `projects/gift-cards/docs/plans/2026-09-09-ideasource-partner-api-assessment.md`. Drafted the
+  Doug reply in Spencer's voice (staged as Gmail draft); Spencer simplified and sent ~13:09 PT.
+  Filed Asana `1218337331514879` ([Progressive] IdeaSource Partner API Inquiry, assignee Tim,
+  Stephanie following) for Tim's technical read. Voice-canon verdict candidates from both edits
+  handed to the aurora-skills prime seat for a SPENCER-VOICE-DNA version-log entry (operator
+  promotes).
 - **2026-08-25 — RapidCents payment-processor diligence (AUR2 Prime).** Retrieved Doug's August 22
   inquiry and prior Avery/Benji Pays correspondence using read-only Gmail access; ran independent
   public-source recon; recommendation is a gated diligence exercise and parallel pilot, not an
@@ -50,11 +72,16 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
   positives). Grok excluded from source (data-exposure ruling). Two HTML handoffs published as private
   Artifacts + copied to `~/Downloads/`. Reframed C-03 as SOW Q7 compliance after checking the 6/10
   responses to Doug.
-- **2026-08-11 — Wrap of design↔dev reconcile (round 1, AUR2/Grok).** `PRIORITIZED-BACKLOG-v2.md`,
-  Kaitlin design checkpoint DM sent; two P0s identified (Walmart step, semantic pills).
-
 ## In-flight work
 
+- **IdeaSource partner API inquiry:** Spencer's reply sent 2026-09-09 (thread `1a0877cf7180a4f7`).
+  Two open loops: (1) Tim's technical read on Asana `1218337331514879` — if he flags anything
+  load-bearing, expectations with Doug get adjusted before scoping; (2) Doug+Gord's meeting with
+  IdeaSource — its answers (volume, delivery model, payment) size the Phase 2 opportunity.
+  Assessment doc: `projects/gift-cards/docs/plans/2026-09-09-ideasource-partner-api-assessment.md`.
+- **Voice-canon verdicts (aurora-skills, cross-repo):** the aurora prime seat (Herdr `w37:pC`) was
+  handed a brief on 2026-09-09 to append this session's edit verdicts to `SPENCER-VOICE-DNA.md`
+  as candidates; lands via aurora's PR gate, Spencer promotes.
 - **RapidCents inquiry:** Spencer sent the advisory response on August 25, recommending that Progressive
   first ask Elavon to match the written 2.00% offer, then clarify RapidCents' Elavon relationship and
   contract terms and have Avery independently confirm Benji Pays compatibility before any parallel
@@ -79,8 +106,8 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## Repo state
 
-- Knowledge repo branch `codex/rapidcents-diligence` is pushed with open PR #16. Its only
-  changes are this handoff and the RapidCents diligence record. The prior wrap landed via
+- Knowledge repo branch `codex/rapidcents-diligence` is pushed with open PR #16. It carries the
+  RapidCents diligence record, the IdeaSource partner-API assessment, and this handoff. The prior wrap landed via
   `session/2026-08-12-design-qa-security-audit`; `.gitignore` gained `.gstack/` (a lane working dir),
   and two run packs were added (design-qa ~11M incl. screenshots/figma-frames; security-audit 160K,
   gitleaks/npm-audit outputs redacted-verified).
@@ -114,6 +141,10 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 1. **Reconcile the live vault status:** confirm which August 12 QA/security findings have shipped,
    then prepare and dry-run the client demo against the current build.
+1a. **IdeaSource follow-through:** when Tim responds on Asana `1218337331514879`, reconcile his
+   read with the assessment doc; when Doug reports back from the IdeaSource meeting, feed the
+   answers (volume, delivery model, payment) into a Phase 2 partner-order-capture scoping draft.
+   Merge PR #16 to land this record on `main`.
 2. **If Doug advances RapidCents:** start with an Elavon rate-match request. If Elavon will not match,
    Redstamp coordinates the diligence checklist while Avery/Benji Pays owns compatibility confirmation.
 3. **If still outstanding (Spencer):** send Tim the two handoffs — design (`tim-eng-handoff-2026-08-12.html`) and
@@ -136,6 +167,10 @@ Figma: `https://www.figma.com/design/Ztv1YtEx1S19i0w4bdHgo4/Digital-Gift-Card-Fu
 
 ## Decisions & context
 
+- **2026-09-09 — Partner-API framing: one order-capture foundation serves three channels** (partner
+  API, white-label portals, email distribution), and client-facing commitment stays priced to
+  verification state (Tim reviews before scoping firms). Rationale + technical gaps:
+  `projects/gift-cards/docs/plans/2026-09-09-ideasource-partner-api-assessment.md`.
 - **2026-08-12 — Grok excluded from source security audit** (data-exposure ruling; review lane frozen
   since cereblab). Design QA against staging UI with fake data was fine for Grok; source audit of the
   crypto/auth of a cash-equivalent vault was not.
